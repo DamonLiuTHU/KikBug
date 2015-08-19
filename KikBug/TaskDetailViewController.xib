@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaskDetailViewController">
+            <connections>
+                <outlet property="AppIcon" destination="vib-Ye-GfR" id="BVF-SC-Bm1"/>
+                <outlet property="contentView" destination="i5M-Pr-FkT" id="cCg-LA-C9E"/>
+                <outlet property="introduction" destination="Ri1-2Q-hFN" id="eAL-PK-hws"/>
+                <outlet property="jumpButton" destination="rOc-MG-KPc" id="WSe-jb-E7N"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="94" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vib-Ye-GfR">
+                    <rect key="frame" x="8" y="25" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="g6Y-9N-dpB"/>
+                        <constraint firstAttribute="width" constant="100" id="jUU-qe-6Yw"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ri1-2Q-hFN">
+                    <rect key="frame" x="116" y="25" width="476" height="95"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOc-MG-KPc">
+                    <rect key="frame" x="8" y="133" width="155" height="30"/>
+                    <state key="normal" title="点我下载">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="jumpToNextPage:" destination="-1" eventType="touchUpInside" id="6Jm-AC-uym"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ri1-2Q-hFN" secondAttribute="trailing" constant="8" id="10b-Cs-fYU"/>
+                <constraint firstItem="rOc-MG-KPc" firstAttribute="top" secondItem="vib-Ye-GfR" secondAttribute="bottom" constant="8" id="6iF-wk-Z1I"/>
+                <constraint firstItem="rOc-MG-KPc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="6mO-gE-WGd"/>
+                <constraint firstItem="rOc-MG-KPc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="133" id="Fr9-jU-mbr"/>
+                <constraint firstItem="Ri1-2Q-hFN" firstAttribute="leading" secondItem="vib-Ye-GfR" secondAttribute="trailing" constant="8" id="L6g-ST-Mea"/>
+                <constraint firstItem="Ri1-2Q-hFN" firstAttribute="bottom" secondItem="vib-Ye-GfR" secondAttribute="bottom" constant="-5" id="WTH-8g-sZS"/>
+                <constraint firstItem="vib-Ye-GfR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Yoq-xN-a9G"/>
+                <constraint firstItem="Ri1-2Q-hFN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="fJJ-Un-YFD"/>
+                <constraint firstItem="rOc-MG-KPc" firstAttribute="leading" secondItem="vib-Ye-GfR" secondAttribute="trailing" constant="-100" id="fR5-P3-VcL"/>
+                <constraint firstItem="vib-Ye-GfR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="kZU-Bf-58O"/>
+                <constraint firstItem="vib-Ye-GfR" firstAttribute="width" secondItem="rOc-MG-KPc" secondAttribute="width" id="p5P-gI-WlH"/>
+                <constraint firstItem="vib-Ye-GfR" firstAttribute="leading" secondItem="rOc-MG-KPc" secondAttribute="leading" constant="-27" id="pKT-so-LKg"/>
+                <constraint firstItem="Ri1-2Q-hFN" firstAttribute="top" secondItem="vib-Ye-GfR" secondAttribute="top" constant="-5" id="rYg-6O-gN5"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="p5P-gI-WlH"/>
+                    <exclude reference="pKT-so-LKg"/>
+                    <exclude reference="rYg-6O-gN5"/>
+                    <exclude reference="Fr9-jU-mbr"/>
+                    <exclude reference="fR5-P3-VcL"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
