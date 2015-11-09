@@ -8,7 +8,6 @@
 
 #import "TaskListTableViewController.h"
 #import "TaskCellTableViewCell.h"
-#import "TaskCellData.h"
 #import "TaskDetailViewController.h"
 #import "AFNetworking.h"
 #import "KBTaskListModel.h"
@@ -112,9 +111,10 @@ static NSString* identifier = @"kikbug";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UINavigationController* nav = self.navigationController;
     TaskDetailViewController* detailVC = [[TaskDetailViewController alloc]initWithNibName:@"TaskDetailViewController" bundle:nil];
+    [detailVC fillWithContent:dataSource[indexPath.row]];
     [detailVC loadView]; //if you don't load it, the view's component will be nil.
     [detailVC viewDidLoad];
-    [detailVC fillWithContent:dataSource[indexPath.row]];
+    
     [nav pushViewController:detailVC animated:YES];
 }
 

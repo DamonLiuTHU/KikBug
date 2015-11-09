@@ -7,11 +7,29 @@
 //
 
 #import "TaskDetailViewController.h"
-#import "TaskCellData.h"
+#import "KBTaskListModel.h"
+#import "AFNetworking.h"
+#import "KBTaskDetailModel.h"
+#import "KBOnePixelLine.h"
+
+
+
+@interface TaskDetailViewController ()
+
+@property (strong,nonatomic) KBTaskListModel* model;
+@property (strong,nonatomic) KBTaskDetailModel* detailModel;
+@property (weak, nonatomic) IBOutlet UITextView *taskDescription;
+
+@property (weak, nonatomic) IBOutlet UILabel *taskIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *appSizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
+
+@end
 
 
 @implementation TaskDetailViewController{
-    TaskCellData* data;
     __weak IBOutlet UIButton *jumpButton;
     NSURL* appUrl;
     CGContextRef ctx;
@@ -20,14 +38,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configNavigationBar];
     UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backToPreviousPage)];
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-//    UITapGestureRecognizer* rec = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closePage)];
     [self.contentView addGestureRecognizer:rec];
+    [self loadData];
     
+    KBOnePixelLine* line = [KBOnePixelLine new];
+    [line setFrame:CGRectMake(8, 0, SCREEN_WIDTH, 1)];
+}
 
-   }
+-(void)configNavigationBar
+{
+    UINavigationController* nav = (UINavigationController*)[[UIApplication sharedApplication].keyWindow rootViewController];
+    [nav.navigationItem.leftBarButtonItem setTitle:@"返回任务列表"];
+    self.title = self.model.taskName;
+}
+
+-(void)loadData
+{
+    if(self.model){
+        AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://kikbug.net/api/getTaskInfo"
+          parameters:@{@"key":@"AE645A3DF53AF12A252242DC3FB660C7",
+                       @"taskId":self.model.taskId}
+             success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            KBTaskDetailModel* model = [KBTaskDetailModel objectWithKeyValues:responseObject];
+            self.detailModel = model;
+            [self updateUIwithModel:model];
+        }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            //
+        }];
+    }
+}
+
+-(void)updateUIwithModel:(KBTaskDetailModel*)model
+{
+    self.taskDescription.text = model.Description;
+    self.addDateLabel.text = [NSString dateFromTimeStamp:model.addDate];
+    self.dueDateLabel.text = [NSString dateFromTimeStamp:model.deadline];
+    self.taskIdLabel.text = [NSString stringWithFormat:@"%ld",(long)model.taskId];
+    self.appSizeLabel.text = model.appSize;
+    self.categoryLabel.text = model.category;
+}
 //
 //-(void)addLine:(CGPoint)start end:(CGPoint)ed{
 //    CGContextMoveToPoint(ctx, start.x, start.y);
@@ -42,21 +98,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)fillWithContent:(TaskCellData *)idata{
-    data = idata;
-    [self.AppIcon setImage:[idata appImage]];
-    [self.introduction setText:[idata introdution]];
+-(void)fillWithContent:(KBTaskListModel *)idata{
+    self.model = idata;
+//    data = idata;
+//    [self.AppIcon setImage:[idata appImage]];
+//    [self.introduction setText:[idata introdution]];
     
-    NSURL* url = [NSURL URLWithString:data.jumpURL];
-    if([[UIApplication sharedApplication] canOpenURL:url]){
-        [jumpButton setTitle:@"打开" forState:UIControlStateNormal];
-        appUrl = url;
-    }else{
-        [jumpButton setTitle:@"去App Store下载" forState:UIControlStateNormal];
-    }
+//    NSURL* url = [NSURL URLWithString:data.jumpURL];
+//    if([[UIApplication sharedApplication] canOpenURL:url]){
+//        [jumpButton setTitle:@"打开" forState:UIControlStateNormal];
+//        appUrl = url;
+//    }else{
+//        [jumpButton setTitle:@"去App Store下载" forState:UIControlStateNormal];
+//    }
     
 //    [self addLine:CGPointMake(jumpButton.frame.origin.x, jumpButton.frame.origin.y+jumpButton.frame.size.height) end:CGPointMake(jumpButton.frame.origin.x+[UIScreen mainScreen].bounds.size.width, jumpButton.frame.origin.y+jumpButton.frame.size.height)];
-
+    
 }
 /*
 #pragma mark - Navigation

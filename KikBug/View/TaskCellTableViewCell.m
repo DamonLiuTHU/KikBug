@@ -7,9 +7,10 @@
 //
 
 #import "TaskCellTableViewCell.h"
-#import "TaskCellData.h"
+
 #import "KBTaskListModel.h"
 #import "NSString+Safe.h"
+#import "NSString+EasyUse.h"
 @interface TaskCellTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *appImage;
 @property (weak, nonatomic) IBOutlet UILabel *taskId;
@@ -47,7 +48,7 @@
 //    [self.introduction setText:[];
     
     [self.taskId setText:data.taskId];
-    [self.deadLine setText:[TaskCellTableViewCell dateFromTimeStamp:data.taskDeadLine]];
+    [self.deadLine setText:[NSString dateFromTimeStamp:data.taskDeadLine]];
     [self.taskName setText:data.taskName];
     
     if([NSString isNilorEmpty:data.iconLocation])
@@ -59,14 +60,6 @@
     }
 }
 
-+(NSString*)dateFromTimeStamp:(NSString*)timeSp
-{
-    double timestampval =  [timeSp doubleValue]/1000.0f;
-    NSTimeInterval timestamp = (NSTimeInterval)timestampval;
-    NSDate *updatetimestamp = [NSDate dateWithTimeIntervalSince1970:timestamp];
-    NSDateFormatter* formatter = [NSDateFormatter new];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    return [formatter stringFromDate:updatetimestamp];
-}
+
 
 @end

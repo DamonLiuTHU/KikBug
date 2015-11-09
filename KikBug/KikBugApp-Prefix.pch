@@ -1,0 +1,21 @@
+//
+//  KikBugApp-Prefix.pch
+//  KikBug
+//
+//  Created by DamonLiu on 15/11/9.
+//  Copyright © 2015年 DamonLiu. All rights reserved.
+//
+
+#ifndef KikBugApp_Prefix_pch
+#define KikBugApp_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* KikBugApp_Prefix_pch */
+
+#ifdef __OBJC__
+#import "Macros.h"
+#import "NSString+EasyUse.h"
+#import "NSString+Safe.h"
+#endif
