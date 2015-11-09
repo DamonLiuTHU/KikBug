@@ -8,7 +8,7 @@
 
 #import "KBTaskListModel.h"
 
-@implementation KBTaskListModel<MJKeyValue>
+@implementation KBTaskListModel
 
 
 @end

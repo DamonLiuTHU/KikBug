@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,52 +15,93 @@
                 <rect key="frame" x="0.0" y="0.0" width="361" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-Fh-QQW">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="101"/>
+                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-Fh-QQW">
+                        <rect key="frame" x="8" y="6" width="90" height="90"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="6gm-Fh-QQW" secondAttribute="height" multiplier="100:100" id="SCh-9w-Bhz"/>
+                            <constraint firstAttribute="width" constant="90" id="NLv-QL-xxz"/>
+                            <constraint firstAttribute="height" constant="90" id="i5J-mN-swx"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-hc-prV">
-                        <rect key="frame" x="108" y="0.0" width="245" height="101"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLu-mJ-2qx">
-                        <rect key="frame" x="108" y="8" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="NwJ-1v-8ZO">
+                        <rect key="frame" x="169" y="17" width="184" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Enh-1G-qfs">
+                        <rect key="frame" x="169" y="39" width="184" height="20"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="taskName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-9A-hgO">
+                        <rect key="frame" x="169" y="62" width="184" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务Id:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygn-FK-M9d">
+                        <rect key="frame" x="109" y="21" width="56" height="15"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="Oeb-d9-nGm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务名称:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC2-Sv-UIP">
+                        <rect key="frame" x="109" y="66" width="56" height="15"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="gHe-Ok-Plh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="截止日期:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-a2-F4I">
+                        <rect key="frame" x="109" y="43" width="56" height="14"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="glA-Qj-Uvf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="6gm-Fh-QQW" secondAttribute="bottom" constant="-8" id="2Y2-0L-xvz"/>
-                    <constraint firstAttribute="centerY" secondItem="6gm-Fh-QQW" secondAttribute="centerY" id="BZv-ms-RjW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="O4Q-hc-prV" secondAttribute="trailing" constant="-8" id="KjZ-7F-Lj1"/>
-                    <constraint firstItem="6gm-Fh-QQW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Xp4-lR-hs1"/>
-                    <constraint firstItem="6gm-Fh-QQW" firstAttribute="height" secondItem="O4Q-hc-prV" secondAttribute="height" id="ied-Ce-ceS"/>
-                    <constraint firstItem="O4Q-hc-prV" firstAttribute="leading" secondItem="6gm-Fh-QQW" secondAttribute="trailing" constant="8" id="pGu-xv-ZmY"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="6gm-Fh-QQW" secondAttribute="leading" id="0jj-eu-vPL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NwJ-1v-8ZO" secondAttribute="trailing" id="1JF-wR-AIz"/>
+                    <constraint firstItem="NwJ-1v-8ZO" firstAttribute="leading" secondItem="Ygn-FK-M9d" secondAttribute="trailing" constant="4" id="3hz-j1-dHC"/>
+                    <constraint firstItem="Ygn-FK-M9d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="6zG-0P-e65"/>
+                    <constraint firstItem="lC2-Sv-UIP" firstAttribute="top" secondItem="2NR-a2-F4I" secondAttribute="bottom" constant="9" id="8KL-gQ-flV"/>
+                    <constraint firstItem="2NR-a2-F4I" firstAttribute="centerX" secondItem="Ygn-FK-M9d" secondAttribute="centerX" id="Bxc-JX-bY1"/>
+                    <constraint firstItem="azJ-9A-hgO" firstAttribute="centerY" secondItem="lC2-Sv-UIP" secondAttribute="centerY" constant="-1" id="Egr-E1-49U"/>
+                    <constraint firstItem="azJ-9A-hgO" firstAttribute="leading" secondItem="lC2-Sv-UIP" secondAttribute="trailing" constant="4" id="GEi-pk-0SO"/>
+                    <constraint firstItem="NwJ-1v-8ZO" firstAttribute="centerY" secondItem="Ygn-FK-M9d" secondAttribute="centerY" constant="-1" id="HOM-hx-PJN"/>
+                    <constraint firstItem="2NR-a2-F4I" firstAttribute="top" secondItem="Ygn-FK-M9d" secondAttribute="bottom" constant="7" id="IGw-CD-cWH"/>
+                    <constraint firstItem="Ygn-FK-M9d" firstAttribute="leading" secondItem="6gm-Fh-QQW" secondAttribute="trailing" constant="11" id="OUw-Ja-hJw"/>
+                    <constraint firstItem="Enh-1G-qfs" firstAttribute="leading" secondItem="2NR-a2-F4I" secondAttribute="trailing" constant="4" id="OYK-qb-11a"/>
+                    <constraint firstItem="6gm-Fh-QQW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="RlE-So-fO1"/>
+                    <constraint firstItem="lC2-Sv-UIP" firstAttribute="centerX" secondItem="2NR-a2-F4I" secondAttribute="centerX" id="VMP-TS-XdF"/>
+                    <constraint firstItem="Enh-1G-qfs" firstAttribute="centerY" secondItem="2NR-a2-F4I" secondAttribute="centerY" constant="-1" id="XAZ-Qy-9BQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="azJ-9A-hgO" secondAttribute="trailing" id="hcf-db-mqf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Enh-1G-qfs" secondAttribute="trailing" id="hw5-oG-q7P"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="subviews">
-                        <exclude reference="OLu-mJ-2qx"/>
-                    </mask>
-                    <mask key="constraints">
-                        <exclude reference="ied-Ce-ceS"/>
-                        <exclude reference="KjZ-7F-Lj1"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="appImage" destination="6gm-Fh-QQW" id="mwZ-Mt-yxy"/>
-                <outlet property="introduction" destination="O4Q-hc-prV" id="qNl-3N-N6e"/>
+                <outlet property="deadLine" destination="Enh-1G-qfs" id="TqA-q1-xZx"/>
+                <outlet property="taskId" destination="NwJ-1v-8ZO" id="QMk-nH-KIG"/>
+                <outlet property="taskName" destination="azJ-9A-hgO" id="bnx-tX-jYM"/>
             </connections>
             <point key="canvasLocation" x="138.5" y="89.5"/>
         </tableViewCell>

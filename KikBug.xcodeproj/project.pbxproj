@@ -17,6 +17,7 @@
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
 		5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26C1B73585000714F7A /* LaunchScreen.xib */; };
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
+		50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */; };
 		50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859221BF075E0008896D0 /* TaskDetailViewController.m */; };
 		50F859301BF075E0008896D0 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F859231BF075E0008896D0 /* TaskDetailViewController.xib */; };
 		50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859251BF075E0008896D0 /* TaskListTableViewController.m */; };
@@ -54,6 +55,9 @@
 		5039A2731B73585100714F7A /* KikBugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikBugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5039A2781B73585100714F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5039A2791B73585100714F7A /* KikBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KikBugTests.m; sourceTree = "<group>"; };
+		50BC90281BF0791100C4EBCF /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
 		50F859211BF075E0008896D0 /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
 		50F859221BF075E0008896D0 /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
 		50F859231BF075E0008896D0 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		5039A25C1B73585000714F7A /* KikBug */ = {
 			isa = PBXGroup;
 			children = (
+				50BC90271BF078E000C4EBCF /* PublicTools */,
 				50F859201BF075E0008896D0 /* Controller */,
 				50F859281BF075E0008896D0 /* Model */,
 				50F8592B1BF075E0008896D0 /* View */,
@@ -165,6 +170,24 @@
 				5039A2781B73585100714F7A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50BC90271BF078E000C4EBCF /* PublicTools */ = {
+			isa = PBXGroup;
+			children = (
+				50BC90291BF07D4500C4EBCF /* Category */,
+				50BC90281BF0791100C4EBCF /* Macros.h */,
+			);
+			name = PublicTools;
+			sourceTree = "<group>";
+		};
+		50BC90291BF07D4500C4EBCF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */,
+				50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		50F859201BF075E0008896D0 /* Controller */ = {
@@ -371,6 +394,7 @@
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */,
+				50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */,
 				50F859341BF075E0008896D0 /* TaskCellTableViewCell.m in Sources */,
 				50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */,
 				5039A2601B73585000714F7A /* main.m in Sources */,

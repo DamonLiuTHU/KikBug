@@ -11,6 +11,7 @@
 #import "TaskCellData.h"
 #import "TaskDetailViewController.h"
 #import "AFNetworking.h"
+#import "KBTaskListModel.h"
 
 @interface TaskListTableViewController ()
 
@@ -49,15 +50,6 @@
 
 
 -(void)loadData{
-    dataSource = [[NSMutableArray alloc]init];
-//    TaskCell* test = [[TaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    TaskCell* test2 = [[TaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    NSMutableArray* tmp = [[NSMutableArray alloc]initWithObjects:test,test2, nil];
-    UIImage* tmpImage = [UIImage imageNamed:@"google"];
-    TaskCellData* data = [[TaskCellData alloc]initWithImage:tmpImage Introduction:@"this is a test introduction" URL:@"SignInMaster://"];
-    TaskCellData* data2 = [[TaskCellData alloc]initWithImage:[UIImage imageNamed:@"twitter-1"] Introduction:@"twitter" URL:@"itms-apps://"];
-    NSArray* tmp = @[data,data2];
-    dataSource = tmp;
     
     NSDictionary* params = @{@"key":@"AE645A3DF53AF12A252242DC3FB660C7"};
     
@@ -66,7 +58,18 @@
       parameters:params
          success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        NSLog(@"JSON: %@", responseObject);
+        NSDictionary* dic = (NSDictionary*)responseObject;
+        NSArray* datas = dic[@"tasks"];
+        NSMutableArray* tmpArary = [NSMutableArray array];
+        for(id tmp in datas)
+        {
+            KBTaskListModel* model = [KBTaskListModel objectWithKeyValues:tmp];
+            [tmpArary addObject:model];
+        }
+        
+        dataSource = tmpArary;
+        [self.tableView reloadData];
+
     }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
@@ -105,6 +108,7 @@ static NSString* identifier = @"kikbug";
 
 
 #pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UINavigationController* nav = self.navigationController;
     TaskDetailViewController* detailVC = [[TaskDetailViewController alloc]initWithNibName:@"TaskDetailViewController" bundle:nil];

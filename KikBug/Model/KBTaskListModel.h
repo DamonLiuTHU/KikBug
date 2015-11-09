@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MJKeyValue.h"
+#import "NSObject+MJKeyValue.h"
+#import "Macros.h"
 
-@interface KBTaskListModel : NSObject
 
+@interface KBTaskListModel : NSObject<MJKeyValue>
+JSONSTIRNG taskId;
+JSONSTIRNG taskDeadLine;
+JSONSTIRNG taskName;
+JSONSTIRNG iconLocation;/**< 图片地址 */
 @end
