@@ -45,7 +45,8 @@
     [self loadData];
     
     KBOnePixelLine* line = [KBOnePixelLine new];
-    [line setFrame:CGRectMake(8, 0, SCREEN_WIDTH, 1)];
+    [line setFrame:CGRectMake(8, self.taskDescription.y - 1 , SCREEN_WIDTH - 8*2, 1)];
+    [self.view addSubview:line];
 }
 
 -(void)configNavigationBar

@@ -21,6 +21,7 @@
 		5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26C1B73585000714F7A /* LaunchScreen.xib */; };
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
 		50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */; };
+		50C5D4101BF0A3BA00D700A6 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */; };
 		50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859221BF075E0008896D0 /* TaskDetailViewController.m */; };
 		50F859301BF075E0008896D0 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F859231BF075E0008896D0 /* TaskDetailViewController.xib */; };
 		50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859251BF075E0008896D0 /* TaskListTableViewController.m */; };
@@ -67,6 +68,8 @@
 		50BC90281BF0791100C4EBCF /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
 		50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
+		50C5D40E1BF0A3BA00D700A6 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
 		50F859211BF075E0008896D0 /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
 		50F859221BF075E0008896D0 /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
 		50F859231BF075E0008896D0 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 		50BC90291BF07D4500C4EBCF /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				50C5D40E1BF0A3BA00D700A6 /* UIView+Positioning.h */,
+				50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */,
 				50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */,
 				50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */,
 				5038F9AE1BF09E3500CE22BE /* NSString+EasyUse.h */,
@@ -420,6 +425,7 @@
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				5039A2601B73585000714F7A /* main.m in Sources */,
 				50F859321BF075E0008896D0 /* ViewController.m in Sources */,
+				50C5D4101BF0A3BA00D700A6 /* UIView+Positioning.m in Sources */,
 				5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

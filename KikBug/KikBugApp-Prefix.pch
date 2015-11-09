@@ -18,4 +18,5 @@
 #import "Macros.h"
 #import "NSString+EasyUse.h"
 #import "NSString+Safe.h"
+#import "UIView+Positioning.h"
 #endif
