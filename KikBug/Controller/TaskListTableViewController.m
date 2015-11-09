@@ -10,6 +10,8 @@
 #import "TaskCellTableViewCell.h"
 #import "TaskCellData.h"
 #import "TaskDetailViewController.h"
+#import "AFNetworking.h"
+
 @interface TaskListTableViewController ()
 
 
@@ -39,8 +41,8 @@
     [self.tableView setRowHeight:100];
     UINib* cellnib = [UINib nibWithNibName:@"TaskCellTableViewCell" bundle:nil];
     [self.tableView registerNib:cellnib forCellReuseIdentifier:identifier];
+    
 }
-
 -(void)close{
     
 }
@@ -56,6 +58,20 @@
     TaskCellData* data2 = [[TaskCellData alloc]initWithImage:[UIImage imageNamed:@"twitter-1"] Introduction:@"twitter" URL:@"itms-apps://"];
     NSArray* tmp = @[data,data2];
     dataSource = tmp;
+    
+    NSDictionary* params = @{@"key":@"AE645A3DF53AF12A252242DC3FB660C7"};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://kikbug.net/api/getTaskList"
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"JSON: %@", responseObject);
+    }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
