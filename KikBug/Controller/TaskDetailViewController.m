@@ -66,7 +66,7 @@
 {
     if(self.model){
         WEAKSELF
-        [KBHttpManager SendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl") Params:@{@"taskId":self.model.taskId} CallBack:^(id responseObject, NSError *error) {
+        [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl") Params:@{@"taskId":self.model.taskId} CallBack:^(id responseObject, NSError *error) {
             KBTaskDetailModel* model = [KBTaskDetailModel objectWithKeyValues:responseObject];
             weakSelf.detailModel = model;
             [weakSelf updateUIwithModel:model];

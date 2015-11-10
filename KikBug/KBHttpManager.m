@@ -11,11 +11,30 @@
 
 @implementation KBHttpManager
 
-+(void)SendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
++(void)sendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
 {
     param = [KBHttpManager checkParam:param];
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url
+      parameters:param
+         success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         block(responseObject,nil);
+     }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         block(nil,error);
+     }];
+
+}
+
++(void)sendPostHttpRequestWithUrl:(NSString *)url
+                           Params:(NSDictionary *)param
+                         CallBack:(void (^)(id, NSError *))block
+{
+    param = [KBHttpManager checkParam:param];
+    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url
       parameters:param
          success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
@@ -43,4 +62,7 @@
     }
     return  param;
 }
+
+
+
 @end

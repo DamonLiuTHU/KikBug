@@ -47,7 +47,7 @@ static NSString* identifier = @"kikbug";
 
 -(void)loadData{
     
-    [KBHttpManager SendGetHttpReqeustWithUrl:GETURL(@"taskListUrl") Params:nil CallBack:^(id responseObject, NSError *error) {
+    [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskListUrl") Params:nil CallBack:^(id responseObject, NSError *error) {
         if(responseObject && !error){
             NSDictionary* dic = (NSDictionary*)responseObject;
             NSArray* datas = dic[@"tasks"];
