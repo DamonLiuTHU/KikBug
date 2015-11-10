@@ -1,5 +1,5 @@
 platform :ios, '7.0'
 pod 'AFNetworking', '~> 2.0'
-pod 'MJExtension'
-pod 'SDWebImage','~>3.7'
-pod 'MBProgressHUD', '~> 0.9.1'
+pod 'MJExtension'  #model convenient
+pod 'SDWebImage','~>3.7'   #for cache
+pod 'MBProgressHUD', '~> 0.9.1' #  UE improvement
