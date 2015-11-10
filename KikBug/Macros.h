@@ -26,4 +26,9 @@
 
 #define SCREEN_HEIGHT (IsPortrait ? MAX(([UIScreen mainScreen].bounds.size.width), ([UIScreen mainScreen].bounds.size.height)) : MIN(([UIScreen mainScreen].bounds.size.width), ([UIScreen mainScreen].bounds.size.height)))
 
+
+//weak self
+
+#define WEAKSELF __weak __typeof(&*self)weakSelf = self;
+
 #endif /* Macros_h */
