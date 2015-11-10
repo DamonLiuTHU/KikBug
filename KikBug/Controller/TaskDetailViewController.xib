@@ -7,12 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaskDetailViewController">
             <connections>
-                <outlet property="AppIcon" destination="vib-Ye-GfR" id="BVF-SC-Bm1"/>
+                <outlet property="AppIcon" destination="vib-Ye-GfR" id="ru1-NC-GTI"/>
                 <outlet property="addDateLabel" destination="Pvj-lE-6m9" id="v9D-MA-EM6"/>
                 <outlet property="appSizeLabel" destination="ltR-vp-83J" id="9Fv-Sh-fn5"/>
                 <outlet property="categoryLabel" destination="Eqz-mL-TjP" id="x01-v5-Qs2"/>
                 <outlet property="contentView" destination="i5M-Pr-FkT" id="cCg-LA-C9E"/>
                 <outlet property="dueDateLabel" destination="lRc-Jk-Nez" id="7fA-Lw-kh7"/>
+                <outlet property="icon" destination="vib-Ye-GfR" id="FOn-jM-kSO"/>
                 <outlet property="introduction" destination="Ri1-2Q-hFN" id="eAL-PK-hws"/>
                 <outlet property="jumpButton" destination="rOc-MG-KPc" id="WSe-jb-E7N"/>
                 <outlet property="taskDescription" destination="Ri1-2Q-hFN" id="U5J-VB-Nox"/>

@@ -11,6 +11,7 @@
 #import "TaskDetailViewController.h"
 #import "AFNetworking.h"
 #import "KBTaskListModel.h"
+#import "KBHttpManager.h"
 
 @interface TaskListTableViewController ()
 
@@ -41,7 +42,7 @@
     [self.tableView setRowHeight:100];
     UINib* cellnib = [UINib nibWithNibName:@"TaskCellTableViewCell" bundle:nil];
     [self.tableView registerNib:cellnib forCellReuseIdentifier:identifier];
-    
+    [self setTitle:@"任务列表"];
 }
 -(void)close{
     
@@ -50,29 +51,20 @@
 
 -(void)loadData{
     
-    NSDictionary* params = @{@"key":@"AE645A3DF53AF12A252242DC3FB660C7"};
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://kikbug.net/api/getTaskList"
-      parameters:params
-         success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-        NSDictionary* dic = (NSDictionary*)responseObject;
-        NSArray* datas = dic[@"tasks"];
-        NSMutableArray* tmpArary = [NSMutableArray array];
-        for(id tmp in datas)
-        {
-            KBTaskListModel* model = [KBTaskListModel objectWithKeyValues:tmp];
-            [tmpArary addObject:model];
+    [KBHttpManager SendGetHttpReqeustWithUrl:GETURL(@"taskListUrl") Params:nil CallBack:^(id responseObject, NSError *error) {
+        if(responseObject && !error){
+            NSDictionary* dic = (NSDictionary*)responseObject;
+            NSArray* datas = dic[@"tasks"];
+            NSMutableArray* tmpArary = [NSMutableArray array];
+            for(id tmp in datas)
+            {
+                KBTaskListModel* model = [KBTaskListModel objectWithKeyValues:tmp];
+                [tmpArary addObject:model];
+            }
+            
+            dataSource = tmpArary;
+            [self.tableView reloadData];
         }
-        
-        dataSource = tmpArary;
-        [self.tableView reloadData];
-
-    }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        NSLog(@"Error: %@", error);
     }];
 }
 

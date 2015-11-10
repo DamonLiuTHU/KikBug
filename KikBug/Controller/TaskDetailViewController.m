@@ -11,6 +11,8 @@
 #import "AFNetworking.h"
 #import "KBTaskDetailModel.h"
 #import "KBOnePixelLine.h"
+#import "SDWebImageManager.h"
+#import "KBHttpManager.h"
 
 
 
@@ -25,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
 
 @end
 
@@ -59,19 +62,11 @@
 -(void)loadData
 {
     if(self.model){
-        AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://kikbug.net/api/getTaskInfo"
-          parameters:@{@"key":@"AE645A3DF53AF12A252242DC3FB660C7",
-                       @"taskId":self.model.taskId}
-             success:^(AFHTTPRequestOperation *operation, id responseObject)
-        {
+        WEAKSELF
+        [KBHttpManager SendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl") Params:@{@"taskId":self.model.taskId} CallBack:^(id responseObject, NSError *error) {
             KBTaskDetailModel* model = [KBTaskDetailModel objectWithKeyValues:responseObject];
-            self.detailModel = model;
-            [self updateUIwithModel:model];
-        }
-             failure:^(AFHTTPRequestOperation *operation, NSError *error)
-        {
-            //
+            weakSelf.detailModel = model;
+            [weakSelf updateUIwithModel:model];
         }];
     }
 }
@@ -84,6 +79,15 @@
     self.taskIdLabel.text = [NSString stringWithFormat:@"%ld",(long)model.taskId];
     self.appSizeLabel.text = model.appSize;
     self.categoryLabel.text = model.category;
+    WEAKSELF
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:model.iconLocation] options:SDWebImageAvoidAutoSetImage progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        //
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        //
+        if(!error&&image){
+            weakSelf.icon.image = image;
+        }
+    }];
 }
 //
 //-(void)addLine:(CGPoint)start end:(CGPoint)ed{

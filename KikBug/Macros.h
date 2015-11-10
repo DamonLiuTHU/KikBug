@@ -31,4 +31,11 @@
 
 #define WEAKSELF __weak __typeof(&*self)weakSelf = self;
 
+
+
+//load url from plist
+#define GETURL(key) (NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"url" ofType:@"plist"]] objectForKey:key]
+#define APPKEY (NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"property" ofType:@"plist"]] objectForKey:@"AppKey"]
+
+
 #endif /* Macros_h */

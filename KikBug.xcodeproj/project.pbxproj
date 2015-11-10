@@ -20,6 +20,9 @@
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
 		5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26C1B73585000714F7A /* LaunchScreen.xib */; };
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
+		509120071BF19134003D26E5 /* url.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509120061BF19134003D26E5 /* url.plist */; };
+		509120091BF19516003D26E5 /* property.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509120081BF19516003D26E5 /* property.plist */; };
+		5091200D1BF19793003D26E5 /* KBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5091200C1BF19793003D26E5 /* KBHttpManager.m */; };
 		50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */; };
 		50C5D4101BF0A3BA00D700A6 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */; };
 		50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859221BF075E0008896D0 /* TaskDetailViewController.m */; };
@@ -65,6 +68,10 @@
 		5039A2731B73585100714F7A /* KikBugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikBugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5039A2781B73585100714F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5039A2791B73585100714F7A /* KikBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KikBugTests.m; sourceTree = "<group>"; };
+		509120061BF19134003D26E5 /* url.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url.plist; sourceTree = "<group>"; };
+		509120081BF19516003D26E5 /* property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = property.plist; sourceTree = "<group>"; };
+		5091200B1BF19793003D26E5 /* KBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBHttpManager.h; sourceTree = "<group>"; };
+		5091200C1BF19793003D26E5 /* KBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBHttpManager.m; sourceTree = "<group>"; };
 		50BC90281BF0791100C4EBCF /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
 		50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
@@ -192,9 +199,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		509120051BF19128003D26E5 /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				509120061BF19134003D26E5 /* url.plist */,
+				509120081BF19516003D26E5 /* property.plist */,
+			);
+			name = Property;
+			sourceTree = "<group>";
+		};
+		5091200A1BF1977C003D26E5 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				5091200B1BF19793003D26E5 /* KBHttpManager.h */,
+				5091200C1BF19793003D26E5 /* KBHttpManager.m */,
+			);
+			name = HttpRequest;
+			sourceTree = "<group>";
+		};
 		50BC90271BF078E000C4EBCF /* PublicTools */ = {
 			isa = PBXGroup;
 			children = (
+				5091200A1BF1977C003D26E5 /* HttpRequest */,
+				509120051BF19128003D26E5 /* Property */,
 				50BC90291BF07D4500C4EBCF /* Category */,
 				50BC90281BF0791100C4EBCF /* Macros.h */,
 			);
@@ -349,6 +376,8 @@
 				5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */,
 				5031D0A61B79DD4500A575C8 /* appicon@2x.jpg in Resources */,
 				5031D0A81B79DDAE00A575C8 /* google@2x.png in Resources */,
+				509120071BF19134003D26E5 /* url.plist in Resources */,
+				509120091BF19516003D26E5 /* property.plist in Resources */,
 				5039A26B1B73585000714F7A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +450,7 @@
 				5038F9B01BF09E3500CE22BE /* NSString+EasyUse.m in Sources */,
 				50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */,
 				50F859341BF075E0008896D0 /* TaskCellTableViewCell.m in Sources */,
+				5091200D1BF19793003D26E5 /* KBHttpManager.m in Sources */,
 				50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				5039A2601B73585000714F7A /* main.m in Sources */,
