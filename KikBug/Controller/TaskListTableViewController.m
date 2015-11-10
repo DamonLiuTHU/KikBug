@@ -148,7 +148,7 @@ static NSString* identifier = @"kikbug";
 //    // Pass the selected object to the new view controller.
 //}
 #pragma mark - Hud Methods
-#define TIP_LOADING                                 @"加载中..."           //加载中...
+
 - (void)showLoadingView
 {
     [self showLoadingViewWithText:TIP_LOADING];

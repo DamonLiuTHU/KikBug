@@ -125,7 +125,7 @@
     }
 }
 
-#define TIP_LOADING                                 @"加载中..."           //加载中...
+
 - (void)showLoadingView
 {
     [self showLoadingViewWithText:TIP_LOADING];

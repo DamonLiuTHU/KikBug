@@ -38,4 +38,7 @@
 #define APPKEY (NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"property" ofType:@"plist"]] objectForKey:@"AppKey"]
 
 
+//
+#define TIP_LOADING                                 @"加载中..."           //加载中...
+
 #endif /* Macros_h */
