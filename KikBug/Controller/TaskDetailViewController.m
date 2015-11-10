@@ -13,6 +13,7 @@
 #import "KBOnePixelLine.h"
 #import "SDWebImageManager.h"
 #import "KBHttpManager.h"
+#import "MBProgressHUD.h"
 
 
 
@@ -20,8 +21,10 @@
 
 @property (strong,nonatomic) KBTaskListModel* model;
 @property (strong,nonatomic) KBTaskDetailModel* detailModel;
-@property (weak, nonatomic) IBOutlet UITextView *taskDescription;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
+
+@property (weak, nonatomic) IBOutlet UITextView *taskDescription;
 @property (weak, nonatomic) IBOutlet UILabel *taskIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *appSizeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
@@ -41,12 +44,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self showLoadingView];
     [self configNavigationBar];
     UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backToPreviousPage)];
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.contentView addGestureRecognizer:rec];
     [self loadData];
-    
     KBOnePixelLine* line = [KBOnePixelLine new];
     [line setFrame:CGRectMake(8, self.taskDescription.y - 1 , SCREEN_WIDTH - 8*2, 1)];
     [self.view addSubview:line];
@@ -67,6 +70,7 @@
             KBTaskDetailModel* model = [KBTaskDetailModel objectWithKeyValues:responseObject];
             weakSelf.detailModel = model;
             [weakSelf updateUIwithModel:model];
+            [weakSelf hideLoadingView];
         }];
     }
 }
@@ -120,5 +124,52 @@
 //        [[UIApplication sharedApplication]]
     }
 }
+
+#define TIP_LOADING                                 @"加载中..."           //加载中...
+- (void)showLoadingView
+{
+    [self showLoadingViewWithText:TIP_LOADING];
+}
+
+- (void)showLoadingViewWithText:(NSString *)text
+{
+    if (!self.hud) {
+        self.hud = [TaskDetailViewController hudWithLabel:text inView:[self hubShowInView]];
+    }
+    [self hubShowInView].userInteractionEnabled = NO;
+}
+
+- (void)hideLoadingView
+{
+    [self.hud hide:YES];
+    [self hubShowInView].userInteractionEnabled = YES;
+    self.hud = nil;
+}
+
+- (UIView *)hubShowInView
+{
+    UIView *inView;
+    if (self.view) {
+        inView = self.view;
+    }
+    else {
+        inView = self.view;
+    }
+    return inView;
+}
+
++ (MBProgressHUD *)hudWithLabel:(NSString *)text inView:(UIView *)inView
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
+    if (text) {
+        hud.labelText = text;
+    } else {
+        hud.labelText = @"加载中...";
+    }
+    
+    hud.removeFromSuperViewOnHide = YES;
+    return hud;
+}
+
 
 @end

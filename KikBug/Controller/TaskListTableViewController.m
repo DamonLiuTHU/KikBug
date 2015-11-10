@@ -12,11 +12,12 @@
 #import "AFNetworking.h"
 #import "KBTaskListModel.h"
 #import "KBHttpManager.h"
+#import "MBProgressHUD.h"
 
 static NSString* identifier = @"kikbug";
 
 @interface TaskListTableViewController ()
-
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 
 @end
@@ -32,6 +33,7 @@ static NSString* identifier = @"kikbug";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self showLoadingView];
     [self loadData];
     [self.tableView setRowHeight:100];
     UINib* cellnib = [UINib nibWithNibName:@"TaskCellTableViewCell" bundle:nil];
@@ -58,6 +60,7 @@ static NSString* identifier = @"kikbug";
             
             dataSource = tmpArary;
             [self.tableView reloadData];
+            [self hideLoadingView];
         }
     }];
 }
@@ -144,6 +147,52 @@ static NSString* identifier = @"kikbug";
 //    // Get the new view controller using [segue destinationViewController].
 //    // Pass the selected object to the new view controller.
 //}
+
+#define TIP_LOADING                                 @"加载中..."           //加载中...
+- (void)showLoadingView
+{
+    [self showLoadingViewWithText:TIP_LOADING];
+}
+
+- (void)showLoadingViewWithText:(NSString *)text
+{
+    if (!self.hud) {
+        self.hud = [TaskListTableViewController hudWithLabel:text inView:[self hubShowInView]];
+    }
+    [self hubShowInView].userInteractionEnabled = NO;
+}
+
+- (void)hideLoadingView
+{
+    [self.hud hide:YES];
+    [self hubShowInView].userInteractionEnabled = YES;
+    self.hud = nil;
+}
+
+- (UIView *)hubShowInView
+{
+    UIView *inView;
+    if (self.tableView) {
+        inView = self.tableView;
+    }
+    else {
+        inView = self.view;
+    }
+    return inView;
+}
+
++ (MBProgressHUD *)hudWithLabel:(NSString *)text inView:(UIView *)inView
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
+    if (text) {
+        hud.labelText = text;
+    } else {
+        hud.labelText = @"加载中...";
+    }
+    
+    hud.removeFromSuperViewOnHide = YES;
+    return hud;
+}
 
 
 @end
