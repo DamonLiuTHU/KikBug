@@ -13,6 +13,8 @@
 #import "KBTaskListModel.h"
 #import "KBHttpManager.h"
 
+static NSString* identifier = @"kikbug";
+
 @interface TaskListTableViewController ()
 
 
@@ -63,6 +65,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    dataSource = nil;
 }
 
 #pragma mark - Table view data source
@@ -79,7 +82,6 @@
     return dataSource.count;
 }
 
-static NSString* identifier = @"kikbug";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     if([cell isKindOfClass:[TaskCellTableViewCell class]]){
@@ -94,8 +96,8 @@ static NSString* identifier = @"kikbug";
     UINavigationController* nav = self.navigationController;
     TaskDetailViewController* detailVC = [[TaskDetailViewController alloc]initWithNibName:@"TaskDetailViewController" bundle:nil];
     [detailVC fillWithContent:dataSource[indexPath.row]];
-    [detailVC loadView]; //if you don't load it, the view's component will be nil.
-    [detailVC viewDidLoad];
+//    [detailVC loadView]; //if you don't load it, the view's component will be nil.
+//    [detailVC viewDidLoad];
     
     [nav pushViewController:detailVC animated:YES];
 }

@@ -97,6 +97,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.model = nil;
+    self.detailModel = nil;
 }
 -(void)fillWithContent:(KBTaskListModel *)idata{
     self.model = idata;

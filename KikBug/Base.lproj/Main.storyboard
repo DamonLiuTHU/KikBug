@@ -56,12 +56,21 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KikBug 众测客户端" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cu8-Zg-PzD">
+                                <rect key="frame" x="88" y="62" width="144" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kf6-tc-Mg9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1p2-Sl-UDA"/>
+                            <constraint firstItem="cu8-Zg-PzD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="62" id="5Ne-jQ-OGe"/>
                             <constraint firstAttribute="centerX" secondItem="Kf6-tc-Mg9" secondAttribute="centerX" id="6ni-y9-zAt"/>
+                            <constraint firstItem="cu8-Zg-PzD" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Ayb-ym-ftB"/>
                             <constraint firstAttribute="centerX" secondItem="Kf6-tc-Mg9" secondAttribute="centerX" constant="-4.5" id="NFy-Yw-VZW"/>
                             <constraint firstItem="0CZ-Jg-Pfy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="173" id="QTc-2o-Sag"/>
                             <constraint firstAttribute="centerX" secondItem="hDc-Wi-E4x" secondAttribute="centerX" id="SCW-dN-nDT"/>
