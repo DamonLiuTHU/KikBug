@@ -31,14 +31,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self loadData];
-//    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"return" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
-//    self.navigationItem.leftBarButtonItem = item;
-//    [self.navigationController.navigationBar setHidden:NO];
-//    UINavigationController* nav = self.navigationController;
-//    if(nav==nil){
-//        NSLog(@"nil");
-//    }
-//    [self.tableView registerClass:[TaskCell class] forCellReuseIdentifier:identifier ];
     [self.tableView setRowHeight:100];
     UINib* cellnib = [UINib nibWithNibName:@"TaskCellTableViewCell" bundle:nil];
     [self.tableView registerNib:cellnib forCellReuseIdentifier:identifier];
@@ -95,8 +87,6 @@ static NSString* identifier = @"kikbug";
     }
     return cell;
 }
-
-
 
 #pragma mark - UITableViewDelegate
 
