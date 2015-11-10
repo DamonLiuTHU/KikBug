@@ -134,7 +134,15 @@
 - (void)showLoadingViewWithText:(NSString *)text
 {
     if (!self.hud) {
-        self.hud = [TaskDetailViewController hudWithLabel:text inView:[self hubShowInView]];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
+        if (text) {
+            hud.labelText = text;
+        } else {
+            hud.labelText = @"加载中...";
+        }
+        
+        hud.removeFromSuperViewOnHide = YES;
+        self.hud = hud;
     }
     [self hubShowInView].userInteractionEnabled = NO;
 }
@@ -148,28 +156,8 @@
 
 - (UIView *)hubShowInView
 {
-    UIView *inView;
-    if (self.view) {
-        inView = self.view;
-    }
-    else {
-        inView = self.view;
-    }
+    UIView *inView = self.view;
     return inView;
 }
-
-+ (MBProgressHUD *)hudWithLabel:(NSString *)text inView:(UIView *)inView
-{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
-    if (text) {
-        hud.labelText = text;
-    } else {
-        hud.labelText = @"加载中...";
-    }
-    
-    hud.removeFromSuperViewOnHide = YES;
-    return hud;
-}
-
 
 @end

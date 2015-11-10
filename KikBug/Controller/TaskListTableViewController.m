@@ -147,7 +147,7 @@ static NSString* identifier = @"kikbug";
 //    // Get the new view controller using [segue destinationViewController].
 //    // Pass the selected object to the new view controller.
 //}
-
+#pragma mark - Hud Methods
 #define TIP_LOADING                                 @"加载中..."           //加载中...
 - (void)showLoadingView
 {
@@ -157,7 +157,15 @@ static NSString* identifier = @"kikbug";
 - (void)showLoadingViewWithText:(NSString *)text
 {
     if (!self.hud) {
-        self.hud = [TaskListTableViewController hudWithLabel:text inView:[self hubShowInView]];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
+        if (text) {
+            hud.labelText = text;
+        } else {
+            hud.labelText = @"加载中...";
+        }
+        
+        hud.removeFromSuperViewOnHide = YES;
+        self.hud = hud;
     }
     [self hubShowInView].userInteractionEnabled = NO;
 }
@@ -179,19 +187,6 @@ static NSString* identifier = @"kikbug";
         inView = self.view;
     }
     return inView;
-}
-
-+ (MBProgressHUD *)hudWithLabel:(NSString *)text inView:(UIView *)inView
-{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:inView animated:YES];
-    if (text) {
-        hud.labelText = text;
-    } else {
-        hud.labelText = @"加载中...";
-    }
-    
-    hud.removeFromSuperViewOnHide = YES;
-    return hud;
 }
 
 
