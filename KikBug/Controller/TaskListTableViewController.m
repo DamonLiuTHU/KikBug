@@ -13,6 +13,7 @@
 #import "KBTaskListModel.h"
 #import "KBHttpManager.h"
 #import "MBProgressHUD.h"
+#import "KBUserHomeViewController.h"
 
 static NSString* identifier = @"kikbug";
 
@@ -33,6 +34,8 @@ static NSString* identifier = @"kikbug";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    [self navigationLeftButton];
+    [self navigationRightButton];
     [self showLoadingView];
     [self loadData];
     [self.tableView setRowHeight:100];
@@ -41,9 +44,30 @@ static NSString* identifier = @"kikbug";
     [self setTitle:@"任务列表"];
 }
 -(void)close{
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(void)navigationRightButton
+{
+    UIBarButtonItem* myButton = [UIBarButtonItem new];
+    myButton.title = @"个人中心";
+    myButton.style = UIBarButtonItemStyleBordered;
+    myButton.target = self;
+    myButton.action = @selector(goToUserHome);
+    self.navigationItem.rightBarButtonItem = myButton;
+}
+
+-(void)navigationLeftButton
+{
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+}
+
+-(void)goToUserHome
+{
+    KBUserHomeViewController* vc = [KBUserHomeViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 -(void)loadData{
     
@@ -60,8 +84,11 @@ static NSString* identifier = @"kikbug";
             
             dataSource = tmpArary;
             [self.tableView reloadData];
-            [self hideLoadingView];
+            
+        }else{
+            [self showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
+        [self hideLoadingView];
     }];
 }
 

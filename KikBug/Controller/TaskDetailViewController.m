@@ -14,6 +14,7 @@
 #import "SDWebImageManager.h"
 #import "KBHttpManager.h"
 #import "MBProgressHUD.h"
+#import "KBUserHomeViewController.h"
 
 
 
@@ -60,6 +61,23 @@
     UINavigationController* nav = (UINavigationController*)[[UIApplication sharedApplication].keyWindow rootViewController];
     [nav.navigationItem.leftBarButtonItem setTitle:@"返回任务列表"];
     self.title = self.model.taskName;
+    [self navigationRightButton];
+}
+
+-(void)navigationRightButton
+{
+    UIBarButtonItem* myButton = [UIBarButtonItem new];
+    myButton.title = @"个人中心";
+    myButton.style = UIBarButtonItemStyleBordered;
+    myButton.target = self;
+    myButton.action = @selector(goToUserHome);
+    self.navigationItem.rightBarButtonItem = myButton;
+}
+
+-(void)goToUserHome
+{
+    KBUserHomeViewController* vc = [KBUserHomeViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)loadData

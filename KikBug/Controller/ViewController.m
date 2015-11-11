@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     UITapGestureRecognizer* rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard)];
     [self.view addGestureRecognizer:rec];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:nil];
 }
 
 
