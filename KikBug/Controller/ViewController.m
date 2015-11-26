@@ -22,6 +22,11 @@
     UITapGestureRecognizer* rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard)];
     [self.view addGestureRecognizer:rec];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    //a.初始化一个tabBar控制器
+    UITabBarController *tb=[[UITabBarController alloc]init];
+    //设置控制器为Window的根控制器
+    [[UIApplication sharedApplication] keyWindow].rootViewController = tb;
 }
 
 
@@ -36,5 +41,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginButtonPressed:(id)sender {
+    
+}
 
 @end

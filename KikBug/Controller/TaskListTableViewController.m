@@ -7,13 +7,14 @@
 //
 
 #import "TaskListTableViewController.h"
-#import "TaskCellTableViewCell.h"
+
 #import "TaskDetailViewController.h"
 #import "AFNetworking.h"
 #import "KBTaskListModel.h"
 #import "KBHttpManager.h"
 #import "MBProgressHUD.h"
 #import "KBUserHomeViewController.h"
+#import "TaskCellTableViewCell.h"
 
 static NSString* identifier = @"kikbug";
 
@@ -50,12 +51,12 @@ static NSString* identifier = @"kikbug";
 
 -(void)navigationRightButton
 {
-    UIBarButtonItem* myButton = [UIBarButtonItem new];
-    myButton.title = @"个人中心";
-    myButton.style = UIBarButtonItemStyleBordered;
-    myButton.target = self;
-    myButton.action = @selector(goToUserHome);
-    self.navigationItem.rightBarButtonItem = myButton;
+//    UIBarButtonItem* myButton = [UIBarButtonItem new];
+//    myButton.title = @"个人中心";
+//    myButton.style = UIBarButtonItemStyleBordered;
+//    myButton.target = self;
+//    myButton.action = @selector(goToUserHome);
+//    self.navigationItem.rightBarButtonItem = myButton;
 }
 
 -(void)navigationLeftButton
@@ -78,7 +79,7 @@ static NSString* identifier = @"kikbug";
             NSMutableArray* tmpArary = [NSMutableArray array];
             for(id tmp in datas)
             {
-                KBTaskListModel* model = [KBTaskListModel objectWithKeyValues:tmp];
+                KBTaskListModel* model = [KBTaskListModel mj_objectWithKeyValues:tmp];
                 [tmpArary addObject:model];
             }
             
@@ -123,13 +124,22 @@ static NSString* identifier = @"kikbug";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UINavigationController* nav = self.navigationController;
+//    UINavigationController* nav = self.navigationController;
+
     TaskDetailViewController* detailVC = [[TaskDetailViewController alloc]initWithNibName:@"TaskDetailViewController" bundle:nil];
     [detailVC fillWithContent:dataSource[indexPath.row]];
 //    [detailVC loadView]; //if you don't load it, the view's component will be nil.
 //    [detailVC viewDidLoad];
+//    if(!self.navigationController){
+//        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:self];
+//        [nav pushViewController:detailVC animated:YES];
+//    }else{
+        [self.navigationController pushViewController:detailVC animated:YES];
+//    [self.navigationController presentViewController:detailVC animated:YES completion:nil];
+//    }
+//    [nav pushViewController:detailVC animated:YES];
+//    [self presentViewController:nav animated:YES completion:nil];
     
-    [nav pushViewController:detailVC animated:YES];
 }
 
 /*

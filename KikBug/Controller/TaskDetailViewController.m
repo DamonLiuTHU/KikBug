@@ -15,6 +15,8 @@
 #import "KBHttpManager.h"
 #import "MBProgressHUD.h"
 #import "KBUserHomeViewController.h"
+#import "UIImageView+RJLoader.h"
+#import "UIImageView+WebCache.h"
 
 
 
@@ -58,7 +60,8 @@
 
 -(void)configNavigationBar
 {
-    UINavigationController* nav = (UINavigationController*)[[UIApplication sharedApplication].keyWindow rootViewController];
+//    UINavigationController* nav = (UINavigationController*)[[UIApplication sharedApplication].keyWindow rootViewController];
+    UINavigationController* nav = self.navigationController;
     [nav.navigationItem.leftBarButtonItem setTitle:@"返回任务列表"];
     self.title = self.model.taskName;
     [self navigationRightButton];
@@ -66,12 +69,12 @@
 
 -(void)navigationRightButton
 {
-    UIBarButtonItem* myButton = [UIBarButtonItem new];
-    myButton.title = @"个人中心";
-    myButton.style = UIBarButtonItemStyleBordered;
-    myButton.target = self;
-    myButton.action = @selector(goToUserHome);
-    self.navigationItem.rightBarButtonItem = myButton;
+//    UIBarButtonItem* myButton = [UIBarButtonItem new];
+//    myButton.title = @"个人中心";
+//    myButton.style = UIBarButtonItemStyleBordered;
+//    myButton.target = self;
+//    myButton.action = @selector(goToUserHome);
+//    self.navigationItem.rightBarButtonItem = myButton;
 }
 
 -(void)goToUserHome
@@ -84,8 +87,12 @@
 {
     if(self.model){
         WEAKSELF
-        [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl") Params:@{@"taskId":self.model.taskId} CallBack:^(id responseObject, NSError *error) {
-            KBTaskDetailModel* model = [KBTaskDetailModel objectWithKeyValues:responseObject];
+        [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl")
+                                          Params:@{@"taskId":self.model.taskId,
+                                                   @"testerId":@(10086)}
+                                        CallBack:^(id responseObject, NSError *error)
+        {
+            KBTaskDetailModel* model = [KBTaskDetailModel mj_objectWithKeyValues:responseObject];
             weakSelf.detailModel = model;
             [weakSelf updateUIwithModel:model];
             [weakSelf hideLoadingView];
@@ -102,14 +109,28 @@
     self.appSizeLabel.text = model.appSize;
     self.categoryLabel.text = model.category;
     WEAKSELF
-    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:model.iconLocation] options:SDWebImageAvoidAutoSetImage progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        //
+//    [weakSelf.icon startLoaderWithTintColor:[UIColor blackColor]];
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:model.iconLocation]
+                                                    options:SDWebImageAvoidAutoSetImage
+                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize)
+    {
+//        CGFloat process = ((CGFloat)receivedSize/(CGFloat)expectedSize);
+//        NSLog(@"show progress");
+//        [weakSelf.icon updateImageDownloadProgress:process];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         //
         if(!error&&image){
             weakSelf.icon.image = image;
+//            [weakSelf.icon reveal];
         }
     }];
+//    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.iconLocation] placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//        CGFloat process = ((CGFloat)receivedSize/(CGFloat)expectedSize);
+//        NSLog(@"show progress");
+//        [weakSelf.icon updateImageDownloadProgress:process];
+//    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        [weakSelf.icon reveal];
+//    }];
 }
 
 -(void)backToPreviousPage{

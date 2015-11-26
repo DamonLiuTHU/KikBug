@@ -24,7 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RJImageLoader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,22 +42,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
+		<key>1EAF2432BBF2E47788A61F4C12BA0FE9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2EDA4DCACB2A710EDED4FD9A696F7DC9</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAC757F95C917E8A04950E669918F252</key>
+		<key>5F0283A509A73C1D5712D76CB07D611B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD4DA5B7F954E53CDD518FFF4419A0C1</key>
+		<key>B23B3D15FFC0FC9893968F478086D58D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF6EF6812CE3AD86D643D949F44F35CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E855E7B8A5657DB154AF2380BD1FBE15</key>
 		<dict>
 			<key>primary</key>
 			<true/>

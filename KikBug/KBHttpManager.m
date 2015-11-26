@@ -11,14 +11,27 @@
 
 @implementation KBHttpManager
 
+//+(AFHTTPResponseSerializer *)kb_serializer{
+//    AFHTTPResponseSerializer *pt = [AFHTTPResponseSerializer serializer];
+//    pt.acceptableContentTypes = [NSSet setWithObjects: @"application/json", @"text/json", @"text/javascript",@"text/plain", nil];
+//    return pt;
+//}
+
 +(void)sendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
 {
     param = [KBHttpManager checkParam:param];
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+//    manager.responseSerializer = [KBHttpManager kb_serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager GET:url
       parameters:param
          success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+# if DEBUG
+         NSLog(@"%@", responseObject);
+# endif
+//         NSinlineData * data = ( NSinlineData *)responseObject;
          block(responseObject,nil);
      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -34,6 +47,9 @@
 {
     param = [KBHttpManager checkParam:param];
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+//    manager.responseSerializer = [KBHttpManager kb_serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     [manager POST:url
       parameters:param
          success:^(AFHTTPRequestOperation *operation, id responseObject)

@@ -22,4 +22,5 @@ JSONSTIRNG addDate;
 JSONSTIRNG deadline;
 JSONSTIRNG iconLocation;
 JSONSTIRNG taskName;
+@property (assign,nonatomic) BOOL isReceive;
 @end

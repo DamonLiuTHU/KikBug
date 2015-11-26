@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TaskListTableViewController.h"
+#import "KBUserHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor clearColor];
+    
+    UITabBarController *tb = [[UITabBarController alloc]init];
+    self.window.rootViewController = tb;
+    
+    TaskListTableViewController *listVC = [[TaskListTableViewController alloc] init];
+    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:listVC];
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main.storyboard" bundle:[NSBundle mainBundle]];
+    [tb addChildViewController:nav];
+    
+    
+    KBUserHomeViewController *userVC = [[KBUserHomeViewController alloc] initWithNibName:NSStringFromClass([KBUserHomeViewController class]) bundle:[NSBundle mainBundle]];
+    userVC.title = @"个人中心";
+    [tb addChildViewController:userVC];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
