@@ -54,6 +54,9 @@
       parameters:param
          success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+# if DEBUG
+         NSLog(@"%@", responseObject);
+# endif
          block(responseObject,nil);
      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)

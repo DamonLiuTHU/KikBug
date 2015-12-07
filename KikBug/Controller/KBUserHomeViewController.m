@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"个人中心";
+//    self.title = @"个人中心";
 }
 
 - (void)didReceiveMemoryWarning {
