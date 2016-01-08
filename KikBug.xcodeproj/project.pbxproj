@@ -32,6 +32,7 @@
 		50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */; };
 		50D97C3A1C3F9BFE00E37500 /* KBUserHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */; };
 		50D97C3D1C3F9C7A00E37500 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C3C1C3F9C7A00E37500 /* Info.plist */; };
+		50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */; };
 		50F859341BF075E0008896D0 /* TaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8592D1BF075E0008896D0 /* TaskCellTableViewCell.m */; };
 		50F859351BF075E0008896D0 /* TaskCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8592E1BF075E0008896D0 /* TaskCellTableViewCell.xib */; };
 		50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859371BF07693008896D0 /* KBTaskListModel.m */; };
@@ -90,6 +91,8 @@
 		50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBUserHomeViewController.xib; sourceTree = "<group>"; };
 		50D97C3B1C3F9C5900E37500 /* KikBugApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KikBugApp-Prefix.pch"; sourceTree = "<group>"; };
 		50D97C3C1C3F9C7A00E37500 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50D97C3E1C3F9E1400E37500 /* KBGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupListViewController.h; sourceTree = "<group>"; };
+		50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupListViewController.m; sourceTree = "<group>"; };
 		50F8592C1BF075E0008896D0 /* TaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCellTableViewCell.h; sourceTree = "<group>"; };
 		50F8592D1BF075E0008896D0 /* TaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCellTableViewCell.m; sourceTree = "<group>"; };
 		50F8592E1BF075E0008896D0 /* TaskCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 		50D97C261C3F9BFE00E37500 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				50D97C3E1C3F9E1400E37500 /* KBGroupListViewController.h */,
+				50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 			files = (
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
+				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
