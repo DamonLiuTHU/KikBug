@@ -12,29 +12,30 @@
 		5031D0A61B79DD4500A575C8 /* appicon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5031D0A51B79DD4500A575C8 /* appicon@2x.jpg */; };
 		5031D0A81B79DDAE00A575C8 /* google@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5031D0A71B79DDAE00A575C8 /* google@2x.png */; };
 		5031D0AF1B79F1D300A575C8 /* twitter-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5031D0AE1B79F1D300A575C8 /* twitter-1.png */; };
-		5038F9B01BF09E3500CE22BE /* NSString+EasyUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9AF1BF09E3500CE22BE /* NSString+EasyUse.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
-		5039A2601B73585000714F7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A25F1B73585000714F7A /* main.m */; };
 		5039A2631B73585000714F7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2621B73585000714F7A /* AppDelegate.m */; };
 		5039A2691B73585000714F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5039A2671B73585000714F7A /* Main.storyboard */; };
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
 		5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26C1B73585000714F7A /* LaunchScreen.xib */; };
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
-		509120071BF19134003D26E5 /* url.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509120061BF19134003D26E5 /* url.plist */; };
-		509120091BF19516003D26E5 /* property.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509120081BF19516003D26E5 /* property.plist */; };
-		5091200D1BF19793003D26E5 /* KBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5091200C1BF19793003D26E5 /* KBHttpManager.m */; };
-		50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */; };
-		50C5D4101BF0A3BA00D700A6 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */; };
-		50E16CC51BF1D94000604881 /* KBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E16CC31BF1D94000604881 /* KBUserHomeViewController.m */; };
-		50E16CC61BF1D94000604881 /* KBUserHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50E16CC41BF1D94000604881 /* KBUserHomeViewController.xib */; };
-		50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859221BF075E0008896D0 /* TaskDetailViewController.m */; };
-		50F859301BF075E0008896D0 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F859231BF075E0008896D0 /* TaskDetailViewController.xib */; };
-		50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859251BF075E0008896D0 /* TaskListTableViewController.m */; };
-		50F859321BF075E0008896D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859271BF075E0008896D0 /* ViewController.m */; };
+		50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */; };
+		50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C101C3F9BDB00E37500 /* NSString+Safe.m */; };
+		50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */; };
+		50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C151C3F9BDB00E37500 /* KBHttpManager.m */; };
+		50D97C211C3F9BDB00E37500 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C181C3F9BDB00E37500 /* main.m */; };
+		50D97C231C3F9BDB00E37500 /* property.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C1B1C3F9BDB00E37500 /* property.plist */; };
+		50D97C241C3F9BDB00E37500 /* url.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C1C1C3F9BDB00E37500 /* url.plist */; };
+		50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C291C3F9BFE00E37500 /* KBMyTaskListViewController.m */; };
+		50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C2C1C3F9BFE00E37500 /* KBTaskListTableViewController.m */; };
+		50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */; };
+		50D97C381C3F9BFE00E37500 /* KBTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */; };
+		50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */; };
+		50D97C3A1C3F9BFE00E37500 /* KBUserHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */; };
+		50D97C3D1C3F9C7A00E37500 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C3C1C3F9C7A00E37500 /* Info.plist */; };
 		50F859341BF075E0008896D0 /* TaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8592D1BF075E0008896D0 /* TaskCellTableViewCell.m */; };
 		50F859351BF075E0008896D0 /* TaskCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8592E1BF075E0008896D0 /* TaskCellTableViewCell.xib */; };
 		50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859371BF07693008896D0 /* KBTaskListModel.m */; };
-		70EA099E443CF1C21EE6D6FE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E294C6B3762B70EAFB31EA /* libPods.a */; };
+		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +55,9 @@
 		5031D0A51B79DD4500A575C8 /* appicon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "appicon@2x.jpg"; sourceTree = "<group>"; };
 		5031D0A71B79DDAE00A575C8 /* google@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google@2x.png"; sourceTree = "<group>"; };
 		5031D0AE1B79F1D300A575C8 /* twitter-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-1.png"; sourceTree = "<group>"; };
-		5038F9AE1BF09E3500CE22BE /* NSString+EasyUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyUse.h"; sourceTree = "<group>"; };
-		5038F9AF1BF09E3500CE22BE /* NSString+EasyUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyUse.m"; sourceTree = "<group>"; };
 		5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOnePixelLine.h; sourceTree = "<group>"; };
 		5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOnePixelLine.m; sourceTree = "<group>"; };
-		5038F9B51BF0A17400CE22BE /* KikBugApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KikBugApp-Prefix.pch"; sourceTree = "<group>"; };
 		5039A25A1B73585000714F7A /* KikBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KikBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5039A25E1B73585000714F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5039A25F1B73585000714F7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5039A2611B73585000714F7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5039A2621B73585000714F7A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5039A2681B73585000714F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,33 +66,38 @@
 		5039A2731B73585100714F7A /* KikBugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KikBugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5039A2781B73585100714F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5039A2791B73585100714F7A /* KikBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KikBugTests.m; sourceTree = "<group>"; };
-		509120061BF19134003D26E5 /* url.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url.plist; sourceTree = "<group>"; };
-		509120081BF19516003D26E5 /* property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = property.plist; sourceTree = "<group>"; };
-		5091200B1BF19793003D26E5 /* KBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBHttpManager.h; sourceTree = "<group>"; };
-		5091200C1BF19793003D26E5 /* KBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBHttpManager.m; sourceTree = "<group>"; };
-		50BC90281BF0791100C4EBCF /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
-		50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
-		50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
-		50C5D40E1BF0A3BA00D700A6 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
-		50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
-		50E16CC21BF1D94000604881 /* KBUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserHomeViewController.h; sourceTree = "<group>"; };
-		50E16CC31BF1D94000604881 /* KBUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserHomeViewController.m; sourceTree = "<group>"; };
-		50E16CC41BF1D94000604881 /* KBUserHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBUserHomeViewController.xib; sourceTree = "<group>"; };
-		50F859211BF075E0008896D0 /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
-		50F859221BF075E0008896D0 /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
-		50F859231BF075E0008896D0 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
-		50F859241BF075E0008896D0 /* TaskListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListTableViewController.h; sourceTree = "<group>"; };
-		50F859251BF075E0008896D0 /* TaskListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListTableViewController.m; sourceTree = "<group>"; };
-		50F859261BF075E0008896D0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		50F859271BF075E0008896D0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		50D97C0D1C3F9BDB00E37500 /* NSString+EasyUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyUse.h"; sourceTree = "<group>"; };
+		50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyUse.m"; sourceTree = "<group>"; };
+		50D97C0F1C3F9BDB00E37500 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		50D97C101C3F9BDB00E37500 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
+		50D97C111C3F9BDB00E37500 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
+		50D97C141C3F9BDB00E37500 /* KBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBHttpManager.h; sourceTree = "<group>"; };
+		50D97C151C3F9BDB00E37500 /* KBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBHttpManager.m; sourceTree = "<group>"; };
+		50D97C171C3F9BDB00E37500 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		50D97C181C3F9BDB00E37500 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50D97C1B1C3F9BDB00E37500 /* property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = property.plist; sourceTree = "<group>"; };
+		50D97C1C1C3F9BDB00E37500 /* url.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url.plist; sourceTree = "<group>"; };
+		50D97C281C3F9BFE00E37500 /* KBMyTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMyTaskListViewController.h; sourceTree = "<group>"; };
+		50D97C291C3F9BFE00E37500 /* KBMyTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMyTaskListViewController.m; sourceTree = "<group>"; };
+		50D97C2B1C3F9BFE00E37500 /* KBTaskListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskListTableViewController.h; sourceTree = "<group>"; };
+		50D97C2C1C3F9BFE00E37500 /* KBTaskListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskListTableViewController.m; sourceTree = "<group>"; };
+		50D97C2E1C3F9BFE00E37500 /* KBTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskDetailViewController.h; sourceTree = "<group>"; };
+		50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskDetailViewController.m; sourceTree = "<group>"; };
+		50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBTaskDetailViewController.xib; sourceTree = "<group>"; };
+		50D97C321C3F9BFE00E37500 /* KBUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserHomeViewController.h; sourceTree = "<group>"; };
+		50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserHomeViewController.m; sourceTree = "<group>"; };
+		50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBUserHomeViewController.xib; sourceTree = "<group>"; };
+		50D97C3B1C3F9C5900E37500 /* KikBugApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KikBugApp-Prefix.pch"; sourceTree = "<group>"; };
+		50D97C3C1C3F9C7A00E37500 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F8592C1BF075E0008896D0 /* TaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCellTableViewCell.h; sourceTree = "<group>"; };
 		50F8592D1BF075E0008896D0 /* TaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCellTableViewCell.m; sourceTree = "<group>"; };
 		50F8592E1BF075E0008896D0 /* TaskCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCellTableViewCell.xib; sourceTree = "<group>"; };
 		50F859361BF07693008896D0 /* KBTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskListModel.h; sourceTree = "<group>"; };
 		50F859371BF07693008896D0 /* KBTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskListModel.m; sourceTree = "<group>"; };
-		64E294C6B3762B70EAFB31EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E7EDCC3A28FE44905185FC40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EF06231D4A1861D309790D96 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70EA099E443CF1C21EE6D6FE /* libPods.a in Frameworks */,
+				5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,8 +161,8 @@
 		5039A25C1B73585000714F7A /* KikBug */ = {
 			isa = PBXGroup;
 			children = (
-				50BC90271BF078E000C4EBCF /* PublicTools */,
-				50F859201BF075E0008896D0 /* Controller */,
+				50D97C251C3F9BFE00E37500 /* Controller */,
+				50D97C0B1C3F9BDB00E37500 /* PublicTools */,
 				50F859281BF075E0008896D0 /* Model */,
 				50F8592B1BF075E0008896D0 /* View */,
 				5039A2611B73585000714F7A /* AppDelegate.h */,
@@ -177,12 +178,11 @@
 		5039A25D1B73585000714F7A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				50D97C3C1C3F9C7A00E37500 /* Info.plist */,
+				50D97C3B1C3F9C5900E37500 /* KikBugApp-Prefix.pch */,
 				5031D0AE1B79F1D300A575C8 /* twitter-1.png */,
 				5031D0A71B79DDAE00A575C8 /* google@2x.png */,
 				5031D0A51B79DD4500A575C8 /* appicon@2x.jpg */,
-				5039A25E1B73585000714F7A /* Info.plist */,
-				5039A25F1B73585000714F7A /* main.m */,
-				5038F9B51BF0A17400CE22BE /* KikBugApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -204,63 +204,104 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		509120051BF19128003D26E5 /* Property */ = {
+		50D97C0B1C3F9BDB00E37500 /* PublicTools */ = {
 			isa = PBXGroup;
 			children = (
-				509120061BF19134003D26E5 /* url.plist */,
-				509120081BF19516003D26E5 /* property.plist */,
+				50D97C171C3F9BDB00E37500 /* Macros.h */,
+				50D97C181C3F9BDB00E37500 /* main.m */,
+				50D97C0C1C3F9BDB00E37500 /* Category */,
+				50D97C131C3F9BDB00E37500 /* HttpRequest */,
+				50D97C191C3F9BDB00E37500 /* Property */,
 			);
-			name = Property;
+			path = PublicTools;
 			sourceTree = "<group>";
 		};
-		5091200A1BF1977C003D26E5 /* HttpRequest */ = {
+		50D97C0C1C3F9BDB00E37500 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				5091200B1BF19793003D26E5 /* KBHttpManager.h */,
-				5091200C1BF19793003D26E5 /* KBHttpManager.m */,
+				50D97C0D1C3F9BDB00E37500 /* NSString+EasyUse.h */,
+				50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */,
+				50D97C0F1C3F9BDB00E37500 /* NSString+Safe.h */,
+				50D97C101C3F9BDB00E37500 /* NSString+Safe.m */,
+				50D97C111C3F9BDB00E37500 /* UIView+Positioning.h */,
+				50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */,
 			);
-			name = HttpRequest;
+			path = Category;
 			sourceTree = "<group>";
 		};
-		50BC90271BF078E000C4EBCF /* PublicTools */ = {
+		50D97C131C3F9BDB00E37500 /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
-				5091200A1BF1977C003D26E5 /* HttpRequest */,
-				509120051BF19128003D26E5 /* Property */,
-				50BC90291BF07D4500C4EBCF /* Category */,
-				50BC90281BF0791100C4EBCF /* Macros.h */,
+				50D97C141C3F9BDB00E37500 /* KBHttpManager.h */,
+				50D97C151C3F9BDB00E37500 /* KBHttpManager.m */,
 			);
-			name = PublicTools;
+			path = HttpRequest;
 			sourceTree = "<group>";
 		};
-		50BC90291BF07D4500C4EBCF /* Category */ = {
+		50D97C191C3F9BDB00E37500 /* Property */ = {
 			isa = PBXGroup;
 			children = (
-				50C5D40E1BF0A3BA00D700A6 /* UIView+Positioning.h */,
-				50C5D40F1BF0A3BA00D700A6 /* UIView+Positioning.m */,
-				50BC902A1BF07D7900C4EBCF /* NSString+Safe.h */,
-				50BC902B1BF07D7900C4EBCF /* NSString+Safe.m */,
-				5038F9AE1BF09E3500CE22BE /* NSString+EasyUse.h */,
-				5038F9AF1BF09E3500CE22BE /* NSString+EasyUse.m */,
+				50D97C1B1C3F9BDB00E37500 /* property.plist */,
+				50D97C1C1C3F9BDB00E37500 /* url.plist */,
 			);
-			name = Category;
+			path = Property;
 			sourceTree = "<group>";
 		};
-		50F859201BF075E0008896D0 /* Controller */ = {
+		50D97C251C3F9BFE00E37500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50F859211BF075E0008896D0 /* TaskDetailViewController.h */,
-				50F859221BF075E0008896D0 /* TaskDetailViewController.m */,
-				50F859231BF075E0008896D0 /* TaskDetailViewController.xib */,
-				50F859241BF075E0008896D0 /* TaskListTableViewController.h */,
-				50F859251BF075E0008896D0 /* TaskListTableViewController.m */,
-				50F859261BF075E0008896D0 /* ViewController.h */,
-				50F859271BF075E0008896D0 /* ViewController.m */,
-				50E16CC21BF1D94000604881 /* KBUserHomeViewController.h */,
-				50E16CC31BF1D94000604881 /* KBUserHomeViewController.m */,
-				50E16CC41BF1D94000604881 /* KBUserHomeViewController.xib */,
+				50D97C261C3F9BFE00E37500 /* Group */,
+				50D97C271C3F9BFE00E37500 /* MyTasks */,
+				50D97C2A1C3F9BFE00E37500 /* PublicTasks */,
+				50D97C2D1C3F9BFE00E37500 /* TaskDetail */,
+				50D97C311C3F9BFE00E37500 /* UserHome */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		50D97C261C3F9BFE00E37500 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		50D97C271C3F9BFE00E37500 /* MyTasks */ = {
+			isa = PBXGroup;
+			children = (
+				50D97C281C3F9BFE00E37500 /* KBMyTaskListViewController.h */,
+				50D97C291C3F9BFE00E37500 /* KBMyTaskListViewController.m */,
+			);
+			path = MyTasks;
+			sourceTree = "<group>";
+		};
+		50D97C2A1C3F9BFE00E37500 /* PublicTasks */ = {
+			isa = PBXGroup;
+			children = (
+				50D97C2B1C3F9BFE00E37500 /* KBTaskListTableViewController.h */,
+				50D97C2C1C3F9BFE00E37500 /* KBTaskListTableViewController.m */,
+			);
+			path = PublicTasks;
+			sourceTree = "<group>";
+		};
+		50D97C2D1C3F9BFE00E37500 /* TaskDetail */ = {
+			isa = PBXGroup;
+			children = (
+				50D97C2E1C3F9BFE00E37500 /* KBTaskDetailViewController.h */,
+				50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */,
+				50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */,
+			);
+			path = TaskDetail;
+			sourceTree = "<group>";
+		};
+		50D97C311C3F9BFE00E37500 /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				50D97C321C3F9BFE00E37500 /* KBUserHomeViewController.h */,
+				50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */,
+				50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */,
+			);
+			path = UserHome;
 			sourceTree = "<group>";
 		};
 		50F859281BF075E0008896D0 /* Model */ = {
@@ -288,7 +329,7 @@
 		59CD1709DEF493D0FC1A4F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64E294C6B3762B70EAFB31EA /* libPods.a */,
+				EF06231D4A1861D309790D96 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -377,17 +418,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5039A2691B73585000714F7A /* Main.storyboard in Resources */,
+				50D97C381C3F9BFE00E37500 /* KBTaskDetailViewController.xib in Resources */,
+				50D97C231C3F9BDB00E37500 /* property.plist in Resources */,
 				5031D0AF1B79F1D300A575C8 /* twitter-1.png in Resources */,
 				50F859351BF075E0008896D0 /* TaskCellTableViewCell.xib in Resources */,
-				50F859301BF075E0008896D0 /* TaskDetailViewController.xib in Resources */,
 				50130E781BF06EE500D8A1B1 /* Podfile in Resources */,
 				5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */,
 				5031D0A61B79DD4500A575C8 /* appicon@2x.jpg in Resources */,
 				5031D0A81B79DDAE00A575C8 /* google@2x.png in Resources */,
-				509120071BF19134003D26E5 /* url.plist in Resources */,
-				50E16CC61BF1D94000604881 /* KBUserHomeViewController.xib in Resources */,
-				509120091BF19516003D26E5 /* property.plist in Resources */,
+				50D97C241C3F9BDB00E37500 /* url.plist in Resources */,
 				5039A26B1B73585000714F7A /* Images.xcassets in Resources */,
+				50D97C3A1C3F9BFE00E37500 /* KBUserHomeViewController.xib in Resources */,
+				50D97C3D1C3F9C7A00E37500 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,17 +497,17 @@
 			files = (
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
-				50F8592F1BF075E0008896D0 /* TaskDetailViewController.m in Sources */,
-				5038F9B01BF09E3500CE22BE /* NSString+EasyUse.m in Sources */,
-				50BC902C1BF07D7900C4EBCF /* NSString+Safe.m in Sources */,
+				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
+				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
+				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
+				50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */,
+				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
+				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
 				50F859341BF075E0008896D0 /* TaskCellTableViewCell.m in Sources */,
-				5091200D1BF19793003D26E5 /* KBHttpManager.m in Sources */,
-				50F859311BF075E0008896D0 /* TaskListTableViewController.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
-				5039A2601B73585000714F7A /* main.m in Sources */,
-				50F859321BF075E0008896D0 /* ViewController.m in Sources */,
-				50E16CC51BF1D94000604881 /* KBUserHomeViewController.m in Sources */,
-				50C5D4101BF0A3BA00D700A6 /* UIView+Positioning.m in Sources */,
+				50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */,
+				50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */,
+				50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */,
 				5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

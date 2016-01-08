@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RJImageLoader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1EAF2432BBF2E47788A61F4C12BA0FE9</key>
+		<key>02A8E7DE9D85C89D12B83EB7F176D7A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>0B3288B442C85AC9B40FD034C9FC2A93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F0283A509A73C1D5712D76CB07D611B</key>
+		<key>4878C70B21CA37D7CB8A476BF986741B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B23B3D15FFC0FC9893968F478086D58D</key>
+		<key>6BE84014A4AF115E871E518E810ACAC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF6EF6812CE3AD86D643D949F44F35CE</key>
+		<key>795F3E5D22A8615F1749454253A35882</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E855E7B8A5657DB154AF2380BD1FBE15</key>
+		<key>7CDF1FAB5E0CCA50769D9E9EE8BC3793</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
+		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDDB924C8A7B0849AAD64F27BC91D854</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "TaskListTableViewController.h"
+#import "KBTaskListTableViewController.h"
 #import "KBUserHomeViewController.h"
 
 @interface AppDelegate ()
@@ -25,7 +25,7 @@
     UITabBarController *tb = [[UITabBarController alloc]init];
     self.window.rootViewController = tb;
     
-    TaskListTableViewController *listVC = [[TaskListTableViewController alloc] init];
+    KBTaskListTableViewController *listVC = [[KBTaskListTableViewController alloc] init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:listVC];
 //    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main.storyboard" bundle:[NSBundle mainBundle]];
     [tb addChildViewController:nav];
