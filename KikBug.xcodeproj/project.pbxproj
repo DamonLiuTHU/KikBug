@@ -164,10 +164,10 @@
 		5039A25C1B73585000714F7A /* KikBug */ = {
 			isa = PBXGroup;
 			children = (
-				50D97C251C3F9BFE00E37500 /* Controller */,
-				50D97C0B1C3F9BDB00E37500 /* PublicTools */,
 				50F859281BF075E0008896D0 /* Model */,
 				50F8592B1BF075E0008896D0 /* View */,
+				50D97C251C3F9BFE00E37500 /* Controller */,
+				50D97C0B1C3F9BDB00E37500 /* PublicTools */,
 				5039A2611B73585000714F7A /* AppDelegate.h */,
 				5039A2621B73585000714F7A /* AppDelegate.m */,
 				5039A2671B73585000714F7A /* Main.storyboard */,
