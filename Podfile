@@ -7,3 +7,4 @@ pod 'MBProgressHUD', '~> 0.9.1' #  UE improvement
 pod 'RJImageLoader'
 pod "YYText"
 pod 'PureLayout'
+pod 'HHRouter', '~> 0.1.5'

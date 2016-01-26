@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TaskCellData;
-@interface KBTaskDetailViewController : UIViewController
+@class KBTaskListModel;
+@interface KBTaskDetailViewController : KBViewController
 @property (weak, nonatomic) IBOutlet UIImageView *AppIcon;
 @property (weak, nonatomic) IBOutlet UITextView *introduction;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 
 
--(void)fillWithContent:(TaskCellData*)data;
+-(void)fillWithContent:(KBTaskListModel*)data;
 @end

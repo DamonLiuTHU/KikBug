@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3C0F930F89AE9FF7D304D84E'
-               BlueprintName = 'YYText'
+               BlueprintIdentifier = 'A7D9EDF787AD96A3F7BA8775'
+               BlueprintName = 'HHRouter'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'YYText.framework'>
+               BuildableName = 'HHRouter.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KBUserHomeViewController : UIViewController
+@interface KBUserHomeViewController : KBViewController
 
 @end

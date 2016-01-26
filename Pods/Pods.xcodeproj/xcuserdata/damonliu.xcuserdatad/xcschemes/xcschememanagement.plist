@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HHRouter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -46,6 +51,52 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>183A9DE0AD5CC6541105018D2904ED43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E3BA41E378DBD4D1F8E7CCDE66F3D21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4878C70B21CA37D7CB8A476BF986741B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8CAA3A5D0C74D8EA79027D91D940BA98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D61C195EB3B15E9364905DBC6AE23B10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7C201BA21C8687E2ACE32E5CA6B074D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDDB924C8A7B0849AAD64F27BC91D854</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBD8C1B365FCF22D7899998A439F5E47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

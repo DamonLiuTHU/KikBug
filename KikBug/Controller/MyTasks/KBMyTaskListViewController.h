@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KBMyTaskListViewController : UIViewController
+@interface KBMyTaskListViewController : KBViewController
 
 @end

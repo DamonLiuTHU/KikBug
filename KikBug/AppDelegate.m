@@ -27,9 +27,7 @@
     
     KBTaskListTableViewController *listVC = [[KBTaskListTableViewController alloc] init];
     UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:listVC];
-//    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main.storyboard" bundle:[NSBundle mainBundle]];
     [tb addChildViewController:nav];
-    
     
     KBUserHomeViewController *userVC = [[KBUserHomeViewController alloc] initWithNibName:NSStringFromClass([KBUserHomeViewController class]) bundle:[NSBundle mainBundle]];
     userVC.title = @"个人中心";

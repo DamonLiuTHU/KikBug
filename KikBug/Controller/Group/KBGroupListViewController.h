@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KBGroupListViewController : UIViewController
+@interface KBGroupListViewController : KBViewController
 
 @end

@@ -14,7 +14,7 @@
 #import "KBHttpManager.h"
 #import "MBProgressHUD.h"
 #import "KBUserHomeViewController.h"
-#import "TaskCellTableViewCell.h"
+#import "KBTaskCellTableViewCell.h"
 
 static NSString* identifier = @"kikbug";
 
@@ -40,8 +40,7 @@ static NSString* identifier = @"kikbug";
     [self showLoadingView];
     [self loadData];
     [self.tableView setRowHeight:100];
-    UINib* cellnib = [UINib nibWithNibName:@"TaskCellTableViewCell" bundle:nil];
-    [self.tableView registerNib:cellnib forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
     [self setTitle:@"任务列表"];
 }
 -(void)close{
@@ -114,8 +113,8 @@ static NSString* identifier = @"kikbug";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    if([cell isKindOfClass:[TaskCellTableViewCell class]]){
+    KBTaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    if([cell isKindOfClass:[KBTaskCellTableViewCell class]]){
         [cell fillWithContent:dataSource[indexPath.row]];
     }
     return cell;
