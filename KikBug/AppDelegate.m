@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "KBTaskListTableViewController.h"
 #import "KBUserHomeViewController.h"
+#import "KBLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,20 +22,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
-    
-    UITabBarController *tb = [[UITabBarController alloc]init];
-    self.window.rootViewController = tb;
-    
-    KBTaskListTableViewController *listVC = [[KBTaskListTableViewController alloc] init];
-    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:listVC];
-    [tb addChildViewController:nav];
-    
-    KBUserHomeViewController *userVC = [[KBUserHomeViewController alloc] initWithNibName:NSStringFromClass([KBUserHomeViewController class]) bundle:[NSBundle mainBundle]];
-    userVC.title = @"个人中心";
-    [tb addChildViewController:userVC];
-    
     [self.window makeKeyAndVisible];
-    
+    [[KBNavigator sharedNavigator] showRootViewController];
+    [[HHRouter shared] map:@"/user/login" toControllerClass:[KBLoginViewController class]];
+
     return YES;
 }
 

@@ -31,7 +31,6 @@
 - (void)setUpConstraints {
     [self autoSetDimension:ALDimensionWidth toSize:110];
     [self autoSetDimension:ALDimensionHeight toSize:110];
-    [self autoAlignAxisToSuperviewAxis:ALAxisVertical];
 }
 
 - (void)setup

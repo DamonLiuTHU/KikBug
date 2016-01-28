@@ -22,4 +22,5 @@
 #import "PureLayout.h"
 #import <HHRouter/HHRouter.h>
 #import "KBViewController.h"
+#import "KBNavigator.h"
 #endif

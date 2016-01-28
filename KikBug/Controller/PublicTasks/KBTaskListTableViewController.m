@@ -36,6 +36,7 @@ static NSString* identifier = @"kikbug";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    [self navigationLeftButton];
+    [self.navigationController setNavigationBarHidden:NO];
     [self navigationRightButton];
     [self showLoadingView];
     [self loadData];
@@ -123,22 +124,13 @@ static NSString* identifier = @"kikbug";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UINavigationController* nav = self.navigationController;
+//    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
+//    [detailVC fillWithContent:dataSource[indexPath.row]];
+//    [self.navigationController pushViewController:detailVC animated:YES];
 
-    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
-    [detailVC fillWithContent:dataSource[indexPath.row]];
-//    [detailVC loadView]; //if you don't load it, the view's component will be nil.
-//    [detailVC viewDidLoad];
-//    if(!self.navigationController){
-//        UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:self];
-//        [nav pushViewController:detailVC animated:YES];
-//    }else{
-        [self.navigationController pushViewController:detailVC animated:YES];
-//    [self.navigationController presentViewController:detailVC animated:YES completion:nil];
-//    }
-//    [nav pushViewController:detailVC animated:YES];
-//    [self presentViewController:nav animated:YES completion:nil];
-    
+    UIViewController *loginVC = [[HHRouter shared] matchController:@"/user/login"];
+    [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+
 }
 
 /*

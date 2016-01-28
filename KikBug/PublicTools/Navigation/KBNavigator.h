@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,KBUIManagerShowType){
+    KBUIManagerShowTypePush = 0,
+    KBUIManagerShowTypePresent,
+};
+
 @interface KBNavigator : UIViewController
 
 SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
+
+- (void)showRootViewController;
 
 - (void)showViewControllerWithClass:(Class)cls;
 
@@ -25,5 +32,7 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 - (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param needLogin:(BOOL)needLogin;
 
 - (void)showViewController:(UIViewController *)viewController;
+
+- (void)showViewController:(UIViewController *)viewController withShowType:(KBUIManagerShowType)showType;
 
 @end

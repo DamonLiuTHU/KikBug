@@ -81,5 +81,12 @@ return [self singletonName];\
 
 #define THEME_COLOR RGB(80,118,156)
 
+/************************************* Margin ****************************************************/
+#define SMALL_MARGIN  5
+#define MEDIUM_MARGIN  10
+#define LARGE_MARGIN  15
+
+#define APP_FONT(size) [UIFont systemFontOfSize:size]
+#define TOP_TOOL_BAR_HEIGHT = 64;
 
 #endif /* Macros_h */
