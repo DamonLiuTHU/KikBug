@@ -90,3 +90,7 @@ return [self singletonName];\
 #define TOP_TOOL_BAR_HEIGHT = 64;
 
 #endif /* Macros_h */
+
+/************************************* Login ****************************************************/
+#define USER_STATUS @"USER_STATUS"
+

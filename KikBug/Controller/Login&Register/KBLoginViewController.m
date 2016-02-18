@@ -101,6 +101,7 @@
     [self.loginBtn setBackgroundColor:THEME_COLOR];
     [self.loginBtn autoSetDimension:ALDimensionWidth toSize:self.view.width - 2*MEDIUM_MARGIN];
     [self.loginBtn autoSetDimension:ALDimensionHeight toSize:35];
+    [self.loginBtn addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     self.loginBtn.layer.cornerRadius = 5;
     
     self.loginWithSMS = [UIButton new];
@@ -216,6 +217,11 @@
     [self.forgetPswBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5];
 }
 
+
+#pragma mark - LoginBtn Action
+- (void)loginButtonPressed {
+    
+}
 
 
 @end
