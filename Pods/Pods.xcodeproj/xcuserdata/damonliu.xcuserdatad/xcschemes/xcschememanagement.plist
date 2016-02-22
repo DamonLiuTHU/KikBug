@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontasticIcons.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HHRouter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>183A9DE0AD5CC6541105018D2904ED43</key>
+		<key>03AEA254AD7418E117E549F7EF8D6CCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E3BA41E378DBD4D1F8E7CCDE66F3D21</key>
+		<key>32A9C4D4929C8CA2F3D87BF542F34DF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40E4B26DAB57E27294F3E9A9EF53542A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CAA3A5D0C74D8EA79027D91D940BA98</key>
+		<key>82B2ED4F8952D8268E16F5E74919796C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AFCDF082F98FAC42E46269B80A01F6BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D61C195EB3B15E9364905DBC6AE23B10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7C201BA21C8687E2ACE32E5CA6B074D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBD8C1B365FCF22D7899998A439F5E47</key>
+		<key>F40DAB920B8261E021933E45E6BA77A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

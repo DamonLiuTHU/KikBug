@@ -10,4 +10,10 @@
 
 @implementation KBMyTaskListViewController
 
+-(void)viewDidLoad {
+//    [self setTitle:@"我的任务"];
+}
+
+
+
 @end

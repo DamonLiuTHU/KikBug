@@ -1,0 +1,6 @@
+framework module FontasticIcons {
+  umbrella header "FontasticIcons-umbrella.h"
+
+  export *
+  module * { export * }
+}

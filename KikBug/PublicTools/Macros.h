@@ -75,10 +75,7 @@ return [self singletonName];\
 
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
-
 #define HEXCOLOR(hexColorValue) [UIColor colorWithHex:hexColorValue]
-
-
 #define THEME_COLOR RGB(80,118,156)
 
 /************************************* Margin ****************************************************/
@@ -93,4 +90,10 @@ return [self singletonName];\
 
 /************************************* Login ****************************************************/
 #define USER_STATUS @"USER_STATUS"
+
+
+/************************************* Navigation Page Name ****************************************************/
+#define LOGIN_PAGE_NAME @"/user/login"
+#define MY_TASK_PAGE_NAME @"/user/tasklist"
+#define GROUPR_PAGE_NAME @"/user/group"
 

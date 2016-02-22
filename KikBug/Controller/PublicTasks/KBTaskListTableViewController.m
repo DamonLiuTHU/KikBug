@@ -42,7 +42,7 @@ static NSString* identifier = @"kikbug";
     [self loadData];
     [self.tableView setRowHeight:100];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
-    [self setTitle:@"任务列表"];
+    [self setTitle:@"任务广场"];
 }
 -(void)close{
     [self dismissViewControllerAnimated:YES completion:nil];

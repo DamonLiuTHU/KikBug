@@ -35,4 +35,6 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 - (void)showViewController:(UIViewController *)viewController withShowType:(KBUIManagerShowType)showType;
 
++ (void)registerLocalUrls;
+
 @end

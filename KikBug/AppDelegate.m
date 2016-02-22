@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "KBTaskListTableViewController.h"
-#import "KBUserHomeViewController.h"
-#import "KBLoginViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -24,8 +23,7 @@
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
     [[KBNavigator sharedNavigator] showRootViewController];
-    [[HHRouter shared] map:@"/user/login" toControllerClass:[KBLoginViewController class]];
-
+    [KBNavigator registerLocalUrls];
     return YES;
 }
 

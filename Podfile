@@ -8,3 +8,4 @@ pod 'RJImageLoader'
 pod "YYText"
 pod 'PureLayout'
 pod 'HHRouter', '~> 0.1.5'
+pod 'FontasticIcons'
