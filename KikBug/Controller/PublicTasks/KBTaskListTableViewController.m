@@ -130,7 +130,8 @@ static NSString* identifier = @"kikbug";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
+//    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
+    KBTaskDetailViewController *detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
     [detailVC fillWithContent:dataSource[indexPath.row]];
     [self.navigationController pushViewController:detailVC animated:YES];
 }

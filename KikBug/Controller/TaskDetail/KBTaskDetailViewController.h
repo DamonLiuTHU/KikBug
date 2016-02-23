@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 @class KBTaskListModel;
 @interface KBTaskDetailViewController : KBViewController
-@property (weak, nonatomic) IBOutlet UIImageView *AppIcon;
-@property (weak, nonatomic) IBOutlet UITextView *introduction;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
-
+//@property (strong, nonatomic) UIImageView *AppIcon;
+//@property (strong, nonatomic) UITextView *introduction;
+//@property (strong, nonatomic) UIView *contentView;
 
 -(void)fillWithContent:(KBTaskListModel*)data;
 @end

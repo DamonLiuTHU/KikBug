@@ -106,4 +106,5 @@ return [self singletonName];\
 #define LOGIN_PAGE_NAME @"/user/login"
 #define MY_TASK_PAGE_NAME @"/user/tasklist"
 #define GROUPR_PAGE_NAME @"/user/group"
+#define TASK_DETAIL @"/taskDetail"
 

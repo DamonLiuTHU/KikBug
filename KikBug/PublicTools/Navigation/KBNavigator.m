@@ -13,6 +13,7 @@
 #import "KBMyTaskListViewController.h"
 #import "KBGroupListViewController.h"
 #import "FontasticIcons.h"
+#import "KBTaskDetailViewController.h"
 
 @interface KBNavigator ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -156,6 +157,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:LOGIN_PAGE_NAME toControllerClass:[KBLoginViewController class]];
     [[HHRouter shared] map:MY_TASK_PAGE_NAME toControllerClass:[KBMyTaskListViewController class]];
     [[HHRouter shared] map:GROUPR_PAGE_NAME toControllerClass:[KBGroupListViewController class]];
+    [[HHRouter shared] map:TASK_DETAIL toControllerClass:[KBTaskDetailViewController class]];
 }
 
 @end

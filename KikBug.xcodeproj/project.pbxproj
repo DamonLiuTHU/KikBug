@@ -34,9 +34,7 @@
 		50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C291C3F9BFE00E37500 /* KBMyTaskListViewController.m */; };
 		50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C2C1C3F9BFE00E37500 /* KBTaskListTableViewController.m */; };
 		50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */; };
-		50D97C381C3F9BFE00E37500 /* KBTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */; };
 		50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */; };
-		50D97C3A1C3F9BFE00E37500 /* KBUserHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */; };
 		50D97C3D1C3F9C7A00E37500 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50D97C3C1C3F9C7A00E37500 /* Info.plist */; };
 		50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */; };
 		50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */; };
@@ -102,10 +100,8 @@
 		50D97C2C1C3F9BFE00E37500 /* KBTaskListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskListTableViewController.m; sourceTree = "<group>"; };
 		50D97C2E1C3F9BFE00E37500 /* KBTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskDetailViewController.h; sourceTree = "<group>"; };
 		50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskDetailViewController.m; sourceTree = "<group>"; };
-		50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBTaskDetailViewController.xib; sourceTree = "<group>"; };
 		50D97C321C3F9BFE00E37500 /* KBUserHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserHomeViewController.h; sourceTree = "<group>"; };
 		50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserHomeViewController.m; sourceTree = "<group>"; };
-		50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBUserHomeViewController.xib; sourceTree = "<group>"; };
 		50D97C3B1C3F9C5900E37500 /* KikBugApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KikBugApp-Prefix.pch"; sourceTree = "<group>"; };
 		50D97C3C1C3F9C7A00E37500 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50D97C3E1C3F9E1400E37500 /* KBGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupListViewController.h; sourceTree = "<group>"; };
@@ -361,7 +357,6 @@
 			children = (
 				50D97C2E1C3F9BFE00E37500 /* KBTaskDetailViewController.h */,
 				50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */,
-				50D97C301C3F9BFE00E37500 /* KBTaskDetailViewController.xib */,
 			);
 			path = TaskDetail;
 			sourceTree = "<group>";
@@ -371,7 +366,6 @@
 			children = (
 				50D97C321C3F9BFE00E37500 /* KBUserHomeViewController.h */,
 				50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */,
-				50D97C341C3F9BFE00E37500 /* KBUserHomeViewController.xib */,
 			);
 			path = UserHome;
 			sourceTree = "<group>";
@@ -490,7 +484,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5039A2691B73585000714F7A /* Main.storyboard in Resources */,
-				50D97C381C3F9BFE00E37500 /* KBTaskDetailViewController.xib in Resources */,
 				50D97C231C3F9BDB00E37500 /* property.plist in Resources */,
 				5031D0AF1B79F1D300A575C8 /* twitter-1.png in Resources */,
 				50130E781BF06EE500D8A1B1 /* Podfile in Resources */,
@@ -499,7 +492,6 @@
 				5031D0A81B79DDAE00A575C8 /* google@2x.png in Resources */,
 				50D97C241C3F9BDB00E37500 /* url.plist in Resources */,
 				5039A26B1B73585000714F7A /* Images.xcassets in Resources */,
-				50D97C3A1C3F9BFE00E37500 /* KBUserHomeViewController.xib in Resources */,
 				50D97C3D1C3F9C7A00E37500 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
