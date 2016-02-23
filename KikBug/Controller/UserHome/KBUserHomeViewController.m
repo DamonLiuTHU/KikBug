@@ -18,6 +18,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    self.title = @"个人中心";
+    if ([self checkIfNeedLoginPage]) {
+        UIViewController *loginVC = [[HHRouter shared] matchController:@"/user/login"];
+        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+    } else {
+        
+    }
+}
+
+- (BOOL)checkIfNeedLoginPage {
+    BOOL userLogin = [[[NSUserDefaults standardUserDefaults] objectForKey:USER_STATUS] boolValue];
+    return !userLogin;
 }
 
 - (void)didReceiveMemoryWarning {

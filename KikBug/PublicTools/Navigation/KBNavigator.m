@@ -135,11 +135,11 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 //        FIIcon *icon = [FIEntypoIcon iconWithName:imageNames[idx]];
 //        UIImage *image = [icon imageWithBounds:CGRectMake(0, 0, 20, 20) color:[UIColor grayColor]];
         UIImage *image = [UIImage imageNamed:imageNames[idx]];
-        UIImage *scaledTabBarItem1Image = [UIImage imageWithCGImage:[image CGImage] scale:(image.scale * 10) orientation:(image.imageOrientation)];
+        UIImage *scaledTabBarItem1Image = [UIImage imageWithCGImage:[image CGImage] scale:(image.scale) orientation:(image.imageOrientation)];
 //        FIIcon *iconSelected = [FIEntypoIcon iconWithName:selectedImageNames[idx]];
 //        UIImage *imageSelected = [iconSelected imageWithBounds:CGRectMake(0, 0, 20, 20) color:THEME_COLOR];
         UIImage *imageSelected = [UIImage imageNamed:selectedImageNames[idx]];
-        imageSelected = [UIImage imageWithCGImage:[imageSelected CGImage] scale:(imageSelected.scale * 10) orientation:(imageSelected.imageOrientation)];
+        imageSelected = [UIImage imageWithCGImage:[imageSelected CGImage] scale:(imageSelected.scale) orientation:(imageSelected.imageOrientation)];
         
         item.image = [scaledTabBarItem1Image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         item.selectedImage = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
