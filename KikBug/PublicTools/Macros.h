@@ -19,6 +19,16 @@
 #define APP_FONT_SIZE_SMALL  10
 
 
+/*****Fonts*****/
+#define APP_FONT_NORMAL [NSF
+
+
+
+
+/****Font Attribute**/
+#define SUBTITLE_ATTRIBUTE @{NSFontAttributeName:[UIFont systemFontOfSize:10],NSForegroundColorAttributeName:[UIColor grayColor]}
+
+#define TITLE_ATTRIBUTE @{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor blackColor]}
 //获取屏幕 宽度、高度
 #define IsPortrait ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
 

@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KikBug/Controller/PublicTasks/KBTaskListTableViewController.m"
-            timestampString = "475664858.579423"
+            timestampString = "477908000.385355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-navigationLeftButton"
             landmarkType = "5">
          </BreakpointContent>

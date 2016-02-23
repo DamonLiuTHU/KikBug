@@ -40,7 +40,8 @@ static NSString* identifier = @"kikbug";
     [self navigationRightButton];
     [self showLoadingView];
     [self loadData];
-    [self.tableView setRowHeight:100];
+//    [self.tableView setRowHeight:80];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
     [self setTitle:@"任务广场"];
 }
@@ -119,6 +120,11 @@ static NSString* identifier = @"kikbug";
         [cell fillWithContent:dataSource[indexPath.row]];
     }
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [KBTaskCellTableViewCell cellHeight];
 }
 
 #pragma mark - UITableViewDelegate

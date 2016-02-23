@@ -12,4 +12,6 @@
 @class KBTaskListModel;
 @interface KBTaskCellTableViewCell : UITableViewCell
 -(void)fillWithContent:(KBTaskListModel*)data;
+
++(CGFloat)cellHeight;
 @end
