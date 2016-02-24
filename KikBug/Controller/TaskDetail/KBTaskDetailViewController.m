@@ -112,39 +112,39 @@
 - (void)configConstrains {
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
-    [self.icon autoSetDimension:ALDimensionWidth toSize:80];
-    [self.icon autoSetDimension:ALDimensionHeight toSize:80];
+    [self.icon autoSetDimension:ALDimensionWidth toSize:60];
+    [self.icon autoSetDimension:ALDimensionHeight toSize:60];
     
     [self.jumpButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.icon];
     [self.jumpButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.icon];
     [self.jumpButton autoSetDimensionsToSize:CGSizeMake(60, 20)];
     [self.jumpButton setBackgroundColor:THEME_COLOR];
     
-    [self.taskIdLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon];
+    [self.taskIdLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
     [self.taskIdLabelHint autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.icon];
     
     [self.taskIdLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.taskIdLabelHint withOffset:5.0f];
     [self.taskIdLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.taskIdLabelHint];
     
-    [self.appSizeLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon];
+    [self.appSizeLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
     [self.appSizeLabelHint autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskIdLabelHint withOffset:5];
     
     [self.appSizeLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.appSizeLabelHint withOffset:5.0f];
     [self.appSizeLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.appSizeLabelHint];
     
-    [self.categoryLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon];
+    [self.categoryLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
     [self.categoryLabelHint autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.appSizeLabelHint withOffset:5];
     
     [self.categoryLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.categoryLabelHint withOffset:5.0f];
     [self.categoryLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.categoryLabelHint];
     
-    [self.addDateLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon];
+    [self.addDateLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
     [self.addDateLabelHint autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.categoryLabelHint withOffset:5];
     
     [self.addDateLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.addDateLabelHint withOffset:5.0f];
     [self.addDateLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.addDateLabelHint];
     
-    [self.dueDateLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon];
+    [self.dueDateLabelHint autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
     [self.dueDateLabelHint autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.addDateLabelHint withOffset:5];
     
     [self.dueDateLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.dueDateLabelHint withOffset:5.0f];
