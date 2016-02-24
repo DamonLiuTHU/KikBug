@@ -36,7 +36,7 @@
                                                                                       attributes:SUBTITLE_ATTRIBUTE]];
         [self.taskDeadLineHintLabel sizeToFit];
         self.line = [[KBOnePixelLine alloc] init];
-        [self.line setLineColor:[UIColor grayColor]];
+        [self.line setLineColor:[UIColor  lightGrayColor]];
         [self configSubViews];
     }
     return self;
