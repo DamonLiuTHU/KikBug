@@ -115,7 +115,7 @@
     [self.icon autoSetDimension:ALDimensionWidth toSize:60];
     [self.icon autoSetDimension:ALDimensionHeight toSize:60];
     
-    [self.jumpButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.icon];
+    [self.jumpButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.icon withOffset:5.0f];
     [self.jumpButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.icon];
     [self.jumpButton autoSetDimensionsToSize:CGSizeMake(60, 20)];
     [self.jumpButton setBackgroundColor:THEME_COLOR];
@@ -155,11 +155,12 @@
     
     [self.line autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.jumpButton withOffset:5.0f];
     [self.line autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.view withOffset:10];
-    [self.line autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:10];
+    [self.line autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-10];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
     
-    [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10) excludingEdge:ALEdgeTop];
+    [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, BOTTOM_BAR_HEIGHT, 10) excludingEdge:ALEdgeTop];
     [self.taskDescription autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.line withOffset:5.0f];
+    
     
     [super updateViewConstraints];
 }
@@ -207,7 +208,7 @@
 
 -(void)updateUIwithModel:(KBTaskDetailModel*)model
 {
-    self.taskDescription.attributedText = [[NSAttributedString alloc] initWithString:model.Description?model.Description:@"" attributes:TITLE_ATTRIBUTE];
+    self.taskDescription.attributedText = [[NSAttributedString alloc] initWithString:model.taskdescription?model.taskdescription:@"" attributes:TITLE_ATTRIBUTE];
     self.addDateLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString dateFromTimeStamp:model.addDate] attributes:TITLE_ATTRIBUTE];    self.dueDateLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString dateFromTimeStamp:model.deadline] attributes:TITLE_ATTRIBUTE];;
     self.taskIdLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)model.taskId] attributes:TITLE_ATTRIBUTE];;
     self.appSizeLabel.attributedText = [[NSAttributedString alloc] initWithString:model.appSize attributes:TITLE_ATTRIBUTE];;
@@ -235,6 +236,7 @@
 //    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 //        [weakSelf.icon reveal];
 //    }];
+    [self updateViewConstraints];
 }
 
 -(void)backToPreviousPage{

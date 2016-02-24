@@ -98,7 +98,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     KBGroupListViewController *groupListVC = [[KBGroupListViewController alloc] init];
     [groupListVC setTitle:@"群组"];
     
-    KBUserHomeViewController *userVC = [[KBUserHomeViewController alloc] initWithNibName:NSStringFromClass([KBUserHomeViewController class]) bundle:[NSBundle mainBundle]];
+    KBUserHomeViewController *userVC = [[KBUserHomeViewController alloc] init];
     userVC.title = @"个人中心";
     
     tb.viewControllers = @[[self navControllerWithRoot:listVC],

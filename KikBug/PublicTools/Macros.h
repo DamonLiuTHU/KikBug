@@ -94,8 +94,8 @@ return [self singletonName];\
 #define LARGE_MARGIN  15
 
 #define APP_FONT(size) [UIFont systemFontOfSize:size]
-#define TOP_TOOL_BAR_HEIGHT = 64;
-
+#define TOP_TOOL_BAR_HEIGHT  64
+#define BOTTOM_BAR_HEIGHT  49
 #endif /* Macros_h */
 
 /************************************* Login ****************************************************/

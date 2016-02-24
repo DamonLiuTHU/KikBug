@@ -9,5 +9,7 @@
 #import "KBTaskDetailModel.h"
 
 @implementation KBTaskDetailModel
-
++(NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"taskdescription":@"description"};
+}
 @end
