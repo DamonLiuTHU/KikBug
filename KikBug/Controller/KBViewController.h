@@ -10,4 +10,7 @@
 
 @interface KBViewController : UIViewController
 
+- (void)showLoadingView;
+- (void)showLoadingViewWithText:(NSString *)text;
+- (void)hideLoadingView;
 @end
