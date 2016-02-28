@@ -23,4 +23,5 @@
 #import <HHRouter/HHRouter.h>
 #import "KBViewController.h"
 #import "KBNavigator.h"
+#import "NSObject+MJKeyValue.h"
 #endif

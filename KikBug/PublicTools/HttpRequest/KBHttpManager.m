@@ -45,11 +45,25 @@
                            Params:(NSDictionary *)param
                          CallBack:(void (^)(id, NSError *))block
 {
-    param = [KBHttpManager checkParam:param];
+//    param = [KBHttpManager checkParam:param];
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
 //    manager.responseSerializer = [KBHttpManager kb_serializer];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+
+//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    AFJSONRequestSerializer *jsonRequestSerializer = [AFJSONRequestSerializer serializer];
+    [manager setRequestSerializer:jsonRequestSerializer];
+    [manager.requestSerializer setValue:@"aaa" forHTTPHeaderField:@"App-Key"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:@"aaa" forHTTPHeaderField:@"APP_KEY"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+  
+    
     [manager POST:url
       parameters:param
          success:^(AFHTTPRequestOperation *operation, id responseObject)

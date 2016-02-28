@@ -7,11 +7,10 @@
 //
 
 #import "KBLogin.h"
+#import "KBHttpManager.h"
 
 @implementation KBLogin
-+ (void)login:(NSString *)loginId password:(NSString *)password completionBlock:(DictionaryBlock)block {
-    
-}
+
 
 +(void)markUserAsLogin {
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:USER_STATUS];
@@ -20,4 +19,11 @@
 -(void)markUserAsLogOut {
     [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:USER_STATUS];
 }
+
+@end
+
+@implementation KBLoginModel
+
+//
+
 @end

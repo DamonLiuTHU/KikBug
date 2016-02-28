@@ -40,15 +40,20 @@
 //weak self
 
 #define WEAKSELF __weak __typeof(&*self)weakSelf = self;
-
+#define NSSTRING_NOT_NIL(string) string?string:@""
 
 
 //load url from plist
+#define HOST @"http://120.27.163.157:8008/kikbug-api"
 #define GETURL(key) (NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"url" ofType:@"plist"]] objectForKey:key]
 #define APPKEY (NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"property" ofType:@"plist"]] objectForKey:@"AppKey"]
 
 
 //
+
+
+/********************new url*********************/
+#define GETURL_V2(key) [HOST stringByAppendingString:((NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"url2.0" ofType:@"plist"]] objectForKey:key])]
 #define TIP_LOADING                                 @"加载中..."           //加载中...
 
 

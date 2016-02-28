@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+MJKeyValue.h"
+
 typedef void (^DictionaryBlock)(NSMutableDictionary *infoDict, NSError *error);
 @interface KBLogin : NSObject
-+ (void)login:(NSString*)loginId password:(NSString*)password completionBlock:(DictionaryBlock)block;
 
 + (void)markUserAsLogin;
 
 - (void)markUserAsLogOut;
+
+@end
+
+@interface KBLoginModel : NSObject <MJKeyValue>
+JSONSTIRNG message;
+JSONINT status;
+@property (strong,nonatomic) NSDictionary *data;    
 @end
