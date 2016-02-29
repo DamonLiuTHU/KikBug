@@ -8,6 +8,7 @@
 
 #import "KBHttpManager.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "KBBaseModel.h"
 
 @implementation KBHttpManager
 
@@ -70,8 +71,10 @@
      {
 # if DEBUG
          NSLog(@"%@", responseObject);
+         KBBaseModel *baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
+         NSDictionary *dataDic = [self dictionaryWithJsonString:baseModel.data];
 # endif
-         block(responseObject,nil);
+         block(dataDic,nil);
      }
          failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
@@ -94,6 +97,23 @@
         param = [NSDictionary dictionaryWithDictionary:dic];
     }
     return  param;
+}
+
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
 }
 
 

@@ -9,7 +9,7 @@
 #import "KBHttpManager.h"
 #import "KBLoginViewController.h"
 #import "KBLogoView.h"
-#import "KBLogin.h"
+#import "KBLoginManager.h"
 
 @interface KBLoginViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) KBLogoView* logo;
@@ -42,6 +42,13 @@
     [self setUpTextFileds];
     [self addSubviews];
     [self setUpConstrains];
+    
+    if ([KBLoginManager isUserLoggedIn]) {
+        NSString *userPhone = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE];
+        NSString *userEmail = [[NSUserDefaults standardUserDefaults] valueForKey:USER_EMAIL];
+
+        [self.phoneNumber setText:userPhone?userPhone:userEmail];
+    }
 }
 
 - (void)configNavigationBar
@@ -232,23 +239,18 @@
 #pragma mark - LoginBtn Action
 - (void)loginButtonPressed
 {
-    NSDictionary* params = @{ @"username" : NSSTRING_NOT_NIL(self.phoneNumber.text),
-                              @"password" : NSSTRING_NOT_NIL(self.pswFiled.text)};
-    [KBHttpManager sendPostHttpRequestWithUrl:GETURL_V2(@"Login") Params:params CallBack:^(id responseObject, NSError* error) {
-        KBLoginModel *model = [KBLoginModel mj_objectWithKeyValues:responseObject];
+    [KBLoginManager loginWithPhone:self.phoneNumber.text password:self.pswFiled.text completion:^(KBLoginModel *model, NSError *error) {
         if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:model.message delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
             [alertView show];
-
+            
         }
         else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.message delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
             [alertView show];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
-    
-
 }
 
 @end

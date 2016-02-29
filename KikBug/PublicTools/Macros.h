@@ -41,7 +41,7 @@
 
 #define WEAKSELF __weak __typeof(&*self)weakSelf = self;
 #define NSSTRING_NOT_NIL(string) string?string:@""
-
+#define INT_TO_STIRNG(intvalue) [NSString stringWithFormat:@"%ld",intvalue]
 
 //load url from plist
 #define HOST @"http://120.27.163.157:8008/kikbug-api"
@@ -105,6 +105,9 @@ return [self singletonName];\
 
 /************************************* Login ****************************************************/
 #define USER_STATUS @"USER_STATUS"
+#define USER_ID @"UserId"
+#define USER_PHONE @"Phone"
+#define USER_EMAIL @"Email"
 
 
 /************************************* Navigation Page Name ****************************************************/
