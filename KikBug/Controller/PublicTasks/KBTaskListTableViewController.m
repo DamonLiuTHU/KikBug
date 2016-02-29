@@ -95,7 +95,14 @@ static NSString* identifier = @"kikbug";
 //    }];
     
     [KBTaskListManager fetchPublicTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
-        
+        if(model && !error){
+            dataSource = model;
+            [self.tableView reloadData];
+
+        }else{
+            [self showLoadingViewWithText:@"网络错误，请重新刷新"];
+        }
+        [self hideLoadingView];
     }];
     
 }
