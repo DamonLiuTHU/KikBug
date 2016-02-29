@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AFHTTPRequestOperationManager;
 
 @interface KBHttpManager : NSObject
+
++ (AFHTTPRequestOperationManager *)getHttpRequestManager;
+
 +(void)sendGetHttpReqeustWithUrl:(NSString*)url
                           Params:(NSDictionary*)param
                         CallBack:(void(^)(id responseObject,NSError* error))block;

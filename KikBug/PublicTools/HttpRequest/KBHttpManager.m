@@ -85,7 +85,7 @@
         }];
 }
 
-- (AFHTTPRequestOperationManager*)getHttpRequestManager
++ (AFHTTPRequestOperationManager*)getHttpRequestManager
 {
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
@@ -95,7 +95,7 @@
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString* session = [[NSUserDefaults standardUserDefaults] valueForKey:SESSION];
     if (session) {
-        [manager.requestSerializer setValue:session forKey:@"Session"];
+        [manager.requestSerializer setValue:session forHTTPHeaderField:@"Session"];
     }
     return manager;
 }

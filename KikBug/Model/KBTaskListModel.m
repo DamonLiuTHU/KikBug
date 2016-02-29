@@ -11,4 +11,13 @@
 @implementation KBTaskListModel
 
 
+
++(NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"taskId":@"id",
+             @"taskName":@"name",
+             @"taskDeadLine":@"endDate",
+             @"taskDescription":@"description"
+             };
+}
+
 @end
