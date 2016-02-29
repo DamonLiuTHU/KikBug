@@ -16,7 +16,7 @@ typedef void (^DictionaryBlock)(NSMutableDictionary* infoDict, NSError* error);
 
 + (void)loginWithPhone:(NSString*)phone password:(NSString*)password completion:(void (^)(KBLoginModel*, NSError*))block;
 
-+ (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email;
++ (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email session:(NSString *)session;
 
 - (void)markUserAsLogOut;
 

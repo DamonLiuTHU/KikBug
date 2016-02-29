@@ -108,6 +108,7 @@ return [self singletonName];\
 #define USER_ID @"UserId"
 #define USER_PHONE @"Phone"
 #define USER_EMAIL @"Email"
+#define SESSION @"KikbugSession"
 
 
 /************************************* Navigation Page Name ****************************************************/

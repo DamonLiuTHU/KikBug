@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    self.title = @"个人中心";
-    if ([self checkIfNeedLoginPage]) {
-//    if (YES) {
+//    if ([self checkIfNeedLoginPage]) {
+    if (YES) {
         UIViewController *loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     } else {

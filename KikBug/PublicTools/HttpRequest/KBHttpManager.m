@@ -6,9 +6,9 @@
 //  Copyright © 2015年 DamonLiu. All rights reserved.
 //
 
-#import "KBHttpManager.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "KBBaseModel.h"
+#import "KBHttpManager.h"
 
 @implementation KBHttpManager
 
@@ -18,104 +18,121 @@
 //    return pt;
 //}
 
-+(void)sendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
-{
-    param = [KBHttpManager checkParam:param];
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-//    manager.responseSerializer = [KBHttpManager kb_serializer];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    [manager GET:url
-      parameters:param
-         success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-# if DEBUG
-         NSLog(@"%@", responseObject);
-# endif
-//         NSinlineData * data = ( NSinlineData *)responseObject;
-         block(responseObject,nil);
-     }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         block(nil,error);
-     }];
+//+(void)sendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
+//{
+//    param = [KBHttpManager checkParam:param];
+//    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+//    [manager GET:url
+//      parameters:param
+//         success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     {
+//# if DEBUG
+//         NSLog(@"%@", responseObject);
+//# endif
+//         block(responseObject,nil);
+//     }
+//         failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         block(nil,error);
+//     }];
+//
+//}
 
++ (void)sendGetHttpReqeustWithUrl:(NSString*)url Params:(NSDictionary*)param CallBack:(void (^)(id responseObject, NSError* err))block
+{
+    //    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    //    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
+    //    [manager setRequestSerializer:jsonRequestSerializer];
+
+    //    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
+    [manager GET:url
+        parameters:param
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
+            NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+#if DEBUG
+            NSLog(@"%@", responseObject);
+#endif
+            block(dataDic, nil);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            block(nil, error);
+        }];
 }
 
-+(void)sendPostHttpRequestWithUrl:(NSString *)url
-                           Params:(NSDictionary *)param
-                         CallBack:(void (^)(id, NSError *))block
++ (void)sendPostHttpRequestWithUrl:(NSString*)url
+                            Params:(NSDictionary*)param
+                          CallBack:(void (^)(id, NSError*))block
 {
-//    param = [KBHttpManager checkParam:param];
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-//    manager.responseSerializer = [KBHttpManager kb_serializer];
 
-//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    AFJSONRequestSerializer *jsonRequestSerializer = [AFJSONRequestSerializer serializer];
+    AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
+
+    [manager POST:url
+        parameters:param
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+#if DEBUG
+            NSLog(@"%@", responseObject);
+#endif
+            KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
+            NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+            block(dataDic, nil);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            block(nil, error);
+        }];
+}
+
+- (AFHTTPRequestOperationManager*)getHttpRequestManager
+{
+    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
     [manager setRequestSerializer:jsonRequestSerializer];
+
     [manager.requestSerializer setValue:@"aaa" forHTTPHeaderField:@"App-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"aaa" forHTTPHeaderField:@"APP_KEY"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-  
-    
-    [manager POST:url
-      parameters:param
-         success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-# if DEBUG
-         NSLog(@"%@", responseObject);
-         KBBaseModel *baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
-         NSDictionary *dataDic = [self dictionaryWithJsonString:baseModel.data];
-# endif
-         block(dataDic,nil);
-     }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         block(nil,error);
-     }];
-
+    NSString* session = [[NSUserDefaults standardUserDefaults] valueForKey:SESSION];
+    if (session) {
+        [manager.requestSerializer setValue:session forKey:@"Session"];
+    }
+    return manager;
 }
 
 //check the app key param
-+(NSDictionary*)checkParam:(NSDictionary*)param
++ (NSDictionary*)checkParam:(NSDictionary*)param
 {
-    if(!param||![[param allKeys] containsObject:@"key"]){
+    if (!param || ![[param allKeys] containsObject:@"key"]) {
         NSMutableDictionary* dic;
-        if(param){
+        if (param) {
             dic = [NSMutableDictionary dictionaryWithDictionary:param];
-        }else{
+        }
+        else {
             dic = [NSMutableDictionary dictionary];
         }
         [dic setObject:APPKEY forKey:@"key"];
         param = [NSDictionary dictionaryWithDictionary:dic];
     }
-    return  param;
+    return param;
 }
 
-+ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
++ (NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString
+{
     if (jsonString == nil) {
         return nil;
     }
-    
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError* err;
+    NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
-    if(err) {
-        NSLog(@"json解析失败：%@",err);
+    if (err) {
+        NSLog(@"json解析失败：%@", err);
         return nil;
     }
     return dic;
 }
-
-
 
 @end

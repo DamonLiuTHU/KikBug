@@ -20,13 +20,13 @@
         if (error) {
             block(nil,error);
         } else {
-            [self markUserAsLoginWithUserId:INT_TO_STIRNG(model.userId) userPhone:phone userEmail:phone];
+            [self markUserAsLoginWithUserId:INT_TO_STIRNG(model.userId) userPhone:phone userEmail:phone session:model.session];
             block(model,error);
         }
     }];
 }
 
-+ (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email
++ (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email session:(NSString *)session
 {
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:USER_STATUS];
     if (userId) {
@@ -39,6 +39,10 @@
 
     if (email && [email containsString:@"@"]) {
         [[NSUserDefaults standardUserDefaults] setObject:email forKey:USER_EMAIL];
+    }
+    
+    if (session) {
+        [[NSUserDefaults standardUserDefaults] setObject:session forKey:SESSION];
     }
 }
 
