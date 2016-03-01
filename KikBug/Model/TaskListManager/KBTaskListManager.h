@@ -13,6 +13,6 @@
 
 +(void)fetchPublicTasksWithCompletion:(void(^)(NSArray<KBTaskListModel *> *model,NSError *error))block;
 
-+(void)fetchMyTasksWithUserId:(NSString *)userId completion:(void(^)(NSArray<KBTaskListModel *> *model,NSError *error))block;
++(void)fetchMyTasksWithCompletion:(void(^)(NSArray<KBTaskListModel *> *model,NSError *error))block;
 
 @end

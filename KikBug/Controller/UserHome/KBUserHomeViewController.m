@@ -14,25 +14,24 @@
 
 @implementation KBUserHomeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-//    self.title = @"个人中心";
-//    if ([self checkIfNeedLoginPage]) {
-    if (YES) {
-        UIViewController *loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
-    } else {
-        
-    }
+    //    self.title = @"个人中心";
+    //    if ([self checkIfNeedLoginPage]) {
+//    if (YES) {
+//        UIViewController* loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+//        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+//    }
+//    else {
+//    }
 }
 
-- (BOOL)checkIfNeedLoginPage {
-    BOOL userLogin = [[[NSUserDefaults standardUserDefaults] objectForKey:USER_STATUS] boolValue];
-    return !userLogin;
-}
 
-- (void)didReceiveMemoryWarning {
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

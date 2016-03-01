@@ -7,19 +7,19 @@
 	<key>PersonalInfo</key>
 	<string>/tester/{id}</string>
 	<key>PublicTasks</key>
-	<string>/task/s</string>
+	<string>/task</string>
 	<key>JoinGroup</key>
 	<string>/tester/{id}/group</string>
 	<key>AcceptTask</key>
 	<string>/tester/{id}/task/</string>
 	<key>GetMyTasks</key>
-	<string>/task/s</string>
+	<string>/task</string>
 	<key>GetTaskDetail</key>
 	<string>/task/{taskId}</string>
 	<key>Login</key>
 	<string>/user/login/</string>
 	<key>SearchGroup</key>
-	<string>/group/s</string>
+	<string>/group</string>
 	<key>GetGroupDetail</key>
 	<string>/group/{groupId}</string>
 </dict>

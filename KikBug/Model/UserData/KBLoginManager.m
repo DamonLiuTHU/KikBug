@@ -26,6 +26,12 @@
     }];
 }
 
++ (BOOL)checkIfNeedLoginPage
+{
+    BOOL userLogin = [[[NSUserDefaults standardUserDefaults] objectForKey:USER_STATUS] boolValue];
+    return !userLogin;
+}
+
 + (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email session:(NSString *)session
 {
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:USER_STATUS];

@@ -14,6 +14,7 @@
 #import "KBGroupListViewController.h"
 #import "FontasticIcons.h"
 #import "KBTaskDetailViewController.h"
+#import "KBLoginManager.h"
 
 @interface KBNavigator ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -84,6 +85,14 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 
 
 - (void)showRootViewController {
+    
+    if ([KBLoginManager checkIfNeedLoginPage]) {
+//    if (YES) {
+        UIViewController *loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+    }
+    
+    
     UITabBarController *tb = [[UITabBarController alloc]init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     tb.delegate = self;
