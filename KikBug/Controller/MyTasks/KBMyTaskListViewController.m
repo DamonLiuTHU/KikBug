@@ -80,7 +80,6 @@ static NSString* identifier = @"KBMyTaskListViewController";
 {
     NSArray* segmentedArray = [NSArray arrayWithObjects:@"我接受的", @"来自群组", nil];
     UISegmentedControl* segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentedArray];
-    segmentedControl.frame = CGRectMake(0.0, 0.0, 150, 20.0f);
     segmentedControl.selectedSegmentIndex = 0;
     segmentedControl.tintColor = [UIColor whiteColor];
     [self.navigationItem setTitleView:segmentedControl];
@@ -101,6 +100,9 @@ static NSString* identifier = @"KBMyTaskListViewController";
 {
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
     [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-BOTTOM_BAR_HEIGHT];
+    [self.segmentedControl autoSetDimensionsToSize:CGSizeMake(150, 25)];
+    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 #pragma mark - TableView Delegate DataSource
