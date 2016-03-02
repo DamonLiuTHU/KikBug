@@ -52,7 +52,7 @@
     }
 }
 
-- (void)markUserAsLogOut
++ (void)markUserAsLogOut
 {
     [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:USER_STATUS];
 }

@@ -18,7 +18,7 @@ typedef void (^DictionaryBlock)(NSMutableDictionary* infoDict, NSError* error);
 
 + (void)markUserAsLoginWithUserId:(NSString *)userId userPhone:(NSString *)phone userEmail:(NSString *)email session:(NSString *)session;
 
-- (void)markUserAsLogOut;
++ (void)markUserAsLogOut;
 
 + (BOOL)isUserLoggedIn;
 

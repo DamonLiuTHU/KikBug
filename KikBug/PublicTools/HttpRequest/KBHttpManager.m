@@ -9,6 +9,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "KBBaseModel.h"
 #import "KBHttpManager.h"
+#import "KBLoginManager.h"
 
 @implementation KBHttpManager
 
@@ -51,12 +52,7 @@
     [manager GET:url
         parameters:param
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
-            KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
-            NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
-#if DEBUG
-            NSLog(@"%@", responseObject);
-#endif
-            block(dataDic, nil);
+            [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             block(nil, error);
@@ -73,12 +69,7 @@
     [manager POST:url
         parameters:param
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
-#if DEBUG
-            NSLog(@"%@", responseObject);
-#endif
-            KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
-            NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
-            block(dataDic, nil);
+            [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             block(nil, error);
@@ -133,6 +124,26 @@
         return nil;
     }
     return dic;
+}
+
++(void)checkResponseObj:(id)responseObject withBlock:(void (^)(id responseObject, NSError* err))block {
+#if DEBUG
+    NSLog(@"%@", responseObject);
+#endif
+    KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
+    switch (baseModel.status) {
+        case 401:
+        {
+            //处理Session过期的情况
+            [KBLoginManager markUserAsLogOut];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+    block(dataDic, nil);
 }
 
 @end

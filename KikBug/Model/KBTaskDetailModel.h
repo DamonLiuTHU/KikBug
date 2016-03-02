@@ -22,5 +22,9 @@ JSONSTIRNG addDate;
 JSONSTIRNG deadline;
 JSONSTIRNG iconLocation;
 JSONSTIRNG taskName;
+JSONINT groupId;
+JSONINT points;
+JSONINT page;
+JSONINT count;
 @property (assign,nonatomic) BOOL isReceive;
 @end

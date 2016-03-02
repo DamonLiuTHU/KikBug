@@ -30,7 +30,6 @@
     }];
 }
 
-
 + (void)fetchMyTasksWithCompletion:(void (^)(NSArray<KBTaskListModel *> *, NSError *))block {
     NSString *userId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID];
     NSString *url = GETURL_V2(@"GetMyTasks");

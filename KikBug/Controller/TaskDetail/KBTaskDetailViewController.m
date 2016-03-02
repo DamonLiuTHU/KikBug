@@ -12,6 +12,7 @@
 #import "KBTaskDetailModel.h"
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListModel.h"
+#import "KBTaskManager.h"
 #import "KBUserHomeViewController.h"
 #import "MBProgressHUD.h"
 #import "SDWebImageManager.h"
@@ -89,7 +90,7 @@
                   forState:UIControlStateNormal];
     [self.acceptTask setBackgroundColor:THEME_COLOR];
     self.acceptTask.layer.cornerRadius = 3.0f;
-    
+
     [self.jumpButton
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:@"jump"
@@ -310,19 +311,26 @@
 - (void)loadData
 {
     if (self.model) {
-        WEAKSELF [KBHttpManager
-            sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl")
-                               Params:@{
-                                   @"taskId" : self.model.taskId,
-                                   @"testerId" : @(10086)
-                               }
-                             CallBack:^(id responseObject, NSError* error) {
-                                 KBTaskDetailModel* model = [KBTaskDetailModel
-                                     mj_objectWithKeyValues:responseObject];
-                                 weakSelf.detailModel = model;
-                                 [weakSelf updateUIwithModel:model];
-                                 [weakSelf hideLoadingView];
-                             }];
+        //        WEAKSELF [KBHttpManager
+        //            sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl")
+        //                               Params:@{
+        //                                   @"taskId" : self.model.taskId,
+        //                                   @"testerId" : @(10086)
+        //                               }
+        //                             CallBack:^(id responseObject, NSError* error) {
+        //                                 KBTaskDetailModel* model = [KBTaskDetailModel
+        //                                     mj_objectWithKeyValues:responseObject];
+        //                                 weakSelf.detailModel = model;
+        //                                 [weakSelf updateUIwithModel:model];
+        //                                 [weakSelf hideLoadingView];
+        //                             }];
+        WEAKSELF;
+        [KBTaskManager fetchTaskDetailInfoWithTaskId:self.model.taskId completion:^(KBTaskDetailModel* model, NSError* error) {
+            weakSelf.detailModel = model;
+            [weakSelf updateUIwithModel:model];
+            [weakSelf hideLoadingView];
+
+        }];
     }
 }
 
@@ -343,31 +351,31 @@
             attributes:TITLE_ATTRIBUTE];
     ;
     self.appSizeLabel.attributedText =
-        [[NSAttributedString alloc] initWithString:model.appSize
+        [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.appSize)
                                         attributes:TITLE_ATTRIBUTE];
     ;
     self.categoryLabel.attributedText =
-        [[NSAttributedString alloc] initWithString:model.category
+        [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.category)
                                         attributes:TITLE_ATTRIBUTE];
-    WEAKSELF
-        //    [weakSelf.icon startLoaderWithTintColor:[UIColor blackColor]];
-        [[SDWebImageManager sharedManager]
-            downloadImageWithURL:[NSURL URLWithString:model.iconLocation]
-            options:SDWebImageAvoidAutoSetImage
-            progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                //        CGFloat process =
-                //        ((CGFloat)receivedSize/(CGFloat)expectedSize);
-                //        NSLog(@"show progress");
-                //        [weakSelf.icon updateImageDownloadProgress:process];
+    WEAKSELF;
+    //    [weakSelf.icon startLoaderWithTintColor:[UIColor blackColor]];
+    [[SDWebImageManager sharedManager]
+        downloadImageWithURL:[NSURL URLWithString:model.iconLocation]
+        options:SDWebImageAvoidAutoSetImage
+        progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            //        CGFloat process =
+            //        ((CGFloat)receivedSize/(CGFloat)expectedSize);
+            //        NSLog(@"show progress");
+            //        [weakSelf.icon updateImageDownloadProgress:process];
+        }
+        completed:^(UIImage* image, NSError* error, SDImageCacheType cacheType,
+            BOOL finished, NSURL* imageURL) {
+            //
+            if (!error && image) {
+                weakSelf.icon.image = image;
+                //            [weakSelf.icon reveal];
             }
-            completed:^(UIImage* image, NSError* error, SDImageCacheType cacheType,
-                BOOL finished, NSURL* imageURL) {
-                //
-                if (!error && image) {
-                    weakSelf.icon.image = image;
-                    //            [weakSelf.icon reveal];
-                }
-            }];
+        }];
     //    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.iconLocation]
     //    placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger
     //    receivedSize, NSInteger expectedSize) {
