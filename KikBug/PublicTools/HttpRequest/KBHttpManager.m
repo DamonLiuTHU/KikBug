@@ -136,6 +136,7 @@
         {
             //处理Session过期的情况
             [KBLoginManager markUserAsLogOut];
+            [KBLoginManager showLoginPage];
         }
             break;
             
