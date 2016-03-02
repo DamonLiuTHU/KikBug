@@ -22,8 +22,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
-    [[KBNavigator sharedNavigator] showRootViewController];
     [KBNavigator registerLocalUrls];
+    
+    [[KBNavigator sharedNavigator] showRootViewController];
+
     return YES;
 }
 

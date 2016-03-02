@@ -8,6 +8,7 @@
 
 #import "KBHttpManager.h"
 #import "KBLoginManager.h"
+#import "KBLoginViewController.h"
 
 @implementation KBLoginManager
 
@@ -62,13 +63,7 @@
     return [[[NSUserDefaults standardUserDefaults] valueForKey:USER_STATUS] boolValue];
 }
 
-+ (void)showLoginPage {
-    if ([KBLoginManager checkIfNeedLoginPage]) {
-        //    if (YES) {
-        UIViewController *loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
-    }
-}
+
 
 @end
 

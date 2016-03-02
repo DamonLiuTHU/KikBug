@@ -85,7 +85,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 
 - (void)showRootViewController
 {
-    [KBLoginManager showLoginPage];
+    [KBNavigator showLoginPage];
     UITabBarController* tb = [[UITabBarController alloc] init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     tb.delegate = self;
@@ -158,6 +158,15 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:MY_TASK_PAGE_NAME toControllerClass:[KBMyTaskListViewController class]];
     [[HHRouter shared] map:GROUPR_PAGE_NAME toControllerClass:[KBGroupListViewController class]];
     [[HHRouter shared] map:TASK_DETAIL toControllerClass:[KBTaskDetailViewController class]];
+}
+
+
++ (void)showLoginPage {
+    //    if ([KBLoginManager checkIfNeedLoginPage]) {
+    if (YES) {
+        KBLoginViewController *loginVC = (KBLoginViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+    }
 }
 
 @end

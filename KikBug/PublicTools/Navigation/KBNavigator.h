@@ -37,4 +37,6 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 + (void)registerLocalUrls;
 
++ (void)showLoginPage;
+
 @end

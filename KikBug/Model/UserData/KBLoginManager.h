@@ -24,8 +24,6 @@ typedef void (^DictionaryBlock)(NSMutableDictionary* infoDict, NSError* error);
 
 + (BOOL)checkIfNeedLoginPage;
 
-+ (void)showLoginPage;
-
 @end
 
 @interface KBLoginModel : NSObject <MJKeyValue>
