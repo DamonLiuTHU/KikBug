@@ -40,6 +40,8 @@
 		50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C2F1C3F9BFE00E37500 /* KBTaskDetailViewController.m */; };
 		50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C331C3F9BFE00E37500 /* KBUserHomeViewController.m */; };
 		50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */; };
+		50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD5081C8A6A110021D71D /* KBGroupManager.m */; };
+		50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */; };
 		50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */; };
 		50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859371BF07693008896D0 /* KBTaskListModel.m */; };
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
@@ -116,6 +118,10 @@
 		50D97C3C1C3F9C7A00E37500 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50D97C3E1C3F9E1400E37500 /* KBGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupListViewController.h; sourceTree = "<group>"; };
 		50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupListViewController.m; sourceTree = "<group>"; };
+		50EDD5071C8A6A110021D71D /* KBGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupManager.h; sourceTree = "<group>"; };
+		50EDD5081C8A6A110021D71D /* KBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupManager.m; sourceTree = "<group>"; };
+		50EDD50A1C8A70880021D71D /* KBGroupDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupDetailModel.h; sourceTree = "<group>"; };
+		50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailModel.m; sourceTree = "<group>"; };
 		50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
 		50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
 		50F859361BF07693008896D0 /* KBTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskListModel.h; path = ../KBTaskListModel.h; sourceTree = "<group>"; };
@@ -400,9 +406,21 @@
 			path = UserHome;
 			sourceTree = "<group>";
 		};
+		50EDD5061C8A6A030021D71D /* GroupManager */ = {
+			isa = PBXGroup;
+			children = (
+				50EDD5071C8A6A110021D71D /* KBGroupManager.h */,
+				50EDD5081C8A6A110021D71D /* KBGroupManager.m */,
+				50EDD50A1C8A70880021D71D /* KBGroupDetailModel.h */,
+				50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */,
+			);
+			path = GroupManager;
+			sourceTree = "<group>";
+		};
 		50F859281BF075E0008896D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				50EDD5061C8A6A030021D71D /* GroupManager */,
 				5075262B1C843F9D0071F67F /* TaskManager */,
 				507526211C83E4F10071F67F /* TaskListManager */,
 				500BAA141C82DDF1005E5831 /* UserData */,
@@ -593,7 +611,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
+				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
+				50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */,
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,

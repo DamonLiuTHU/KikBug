@@ -11,6 +11,19 @@
 @class KBBaseModel,KBTaskDetailModel;
 
 @interface KBTaskManager : NSObject
+/**
+ *  接受任务
+ *  !!!在接受任务的时候，用户必须是已经登录状态
+ *  @param taskId 任务Id
+ *  @param block  回调
+ */
 + (void)acceptTaskWithTaskId:(NSString *)taskId completion:(void(^)(KBBaseModel *,NSError *))block;
+
+/**
+ *  获取任务详情
+ *  （不需要登录）
+ *  @param taskId 任务Id
+ *  @param block  回调
+ */
 + (void)fetchTaskDetailInfoWithTaskId:(NSString *)taskId completion:(void(^)(KBTaskDetailModel *,NSError *))block;
 @end

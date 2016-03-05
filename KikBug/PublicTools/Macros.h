@@ -117,3 +117,7 @@ return [self singletonName];\
 #define GROUPR_PAGE_NAME @"/user/group"
 #define TASK_DETAIL @"/taskDetail"
 
+
+/*************************/
+#define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
+

@@ -21,7 +21,7 @@
         if (error) {
             block(nil,error);
         } else {
-            [self markUserAsLoginWithUserId:INT_TO_STIRNG(model.userId) userPhone:phone userEmail:phone session:model.session];
+            [self markUserAsLoginWithUserId:INT_TO_STIRNG((long)model.userId) userPhone:phone userEmail:phone session:model.session];
             block(model,error);
         }
     }];
