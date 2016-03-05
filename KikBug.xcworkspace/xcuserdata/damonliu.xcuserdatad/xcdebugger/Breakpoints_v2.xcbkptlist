@@ -93,29 +93,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KikBug/Model/UserData/KBLoginManager.m"
-            timestampString = "478597157.079732"
+            filePath = "KikBug/Controller/TaskDetail/KBTaskDetailViewController.m"
+            timestampString = "478860986.598395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "+loginWithPhone:password:completion:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KikBug/Model/UserData/KBLoginManager.m"
-            timestampString = "478597157.079732"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "+loginWithPhone:password:completion:"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "-acceptTaskButtonPressed"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

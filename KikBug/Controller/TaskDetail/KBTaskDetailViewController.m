@@ -18,6 +18,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
+#import "KBBaseModel.h"
 
 @interface KBTaskDetailViewController ()
 
@@ -90,6 +91,7 @@
                   forState:UIControlStateNormal];
     [self.acceptTask setBackgroundColor:THEME_COLOR];
     self.acceptTask.layer.cornerRadius = 3.0f;
+    [self.acceptTask addTarget:self action:@selector(acceptTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
     [self.jumpButton
         setAttributedTitle:[[NSAttributedString alloc]
@@ -386,7 +388,6 @@
     //    cacheType, NSURL *imageURL) {
     //        [weakSelf.icon reveal];
     //    }];
-    [self updateViewConstraints];
 }
 
 - (void)backToPreviousPage
@@ -460,6 +461,13 @@ preparation before navigation
 {
     UIView* inView = self.view;
     return inView;
+}
+
+- (void)acceptTaskButtonPressed
+{
+    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel *model, NSError *error) {
+        NSLog(model.message);
+    }];
 }
 
 @end

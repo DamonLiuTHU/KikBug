@@ -79,9 +79,11 @@
 + (AFHTTPRequestOperationManager*)getHttpRequestManager
 {
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
-    [manager setRequestSerializer:jsonRequestSerializer];
-
+    //    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
+    //    [manager setRequestSerializer:jsonRequestSerializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     [manager.requestSerializer setValue:@"aaa" forHTTPHeaderField:@"App-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString* session = [[NSUserDefaults standardUserDefaults] valueForKey:SESSION];
@@ -126,21 +128,20 @@
     return dic;
 }
 
-+(void)checkResponseObj:(id)responseObject withBlock:(void (^)(id responseObject, NSError* err))block {
++ (void)checkResponseObj:(id)responseObject withBlock:(void (^)(id responseObject, NSError* err))block
+{
 #if DEBUG
     NSLog(@"%@", responseObject);
 #endif
     KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
     switch (baseModel.status) {
-        case 401:
-        {
-            //处理Session过期的情况
-            [KBLoginManager markUserAsLogOut];
-        }
-            break;
-            
-        default:
-            break;
+    case 401: {
+        //处理Session过期的情况
+        [KBLoginManager markUserAsLogOut];
+    } break;
+
+    default:
+        break;
     }
     NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
     block(dataDic, nil);

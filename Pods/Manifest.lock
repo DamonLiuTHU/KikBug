@@ -24,6 +24,7 @@ PODS:
   - HHRouter (0.1.5)
   - MBProgressHUD (0.9.1)
   - MJExtension (3.0.7)
+  - MJRefresh (3.0.6)
   - PureLayout (3.0.1)
   - RJImageLoader (0.3.0)
   - SDWebImage (3.7.3):
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - HHRouter (~> 0.1.5)
   - MBProgressHUD (~> 0.9.1)
   - MJExtension
+  - MJRefresh
   - PureLayout
   - RJImageLoader
   - SDWebImage (~> 3.7)
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   HHRouter: c82ce169fea838ea85a819133df40d19605f5c95
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: 290cc966f0f849b12b6391a38e296e0004ae8e5e
+  MJRefresh: df419e2393f9020bcd340c552e8f0cf700073f32
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   RJImageLoader: f0d9edebeb7837feb0ce51759826900645770db7
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

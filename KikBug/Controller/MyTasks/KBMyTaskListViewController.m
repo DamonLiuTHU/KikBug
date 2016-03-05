@@ -11,6 +11,8 @@
 #import "KBTaskCellTableViewCell.h"
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListModel.h"
+#import "KBTaskListManager.h"
+#import "MJExtension.h"
 
 @interface KBMyTaskListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView* tableView;
@@ -53,26 +55,18 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)loadData
 {
-    [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskListUrl") Params:nil CallBack:^(id responseObject, NSError* error) {
-        if (responseObject && !error) {
-            NSDictionary* dic = (NSDictionary*)responseObject;
-            NSArray* datas = dic[@"tasks"];
-            NSMutableArray* tmpArary = [NSMutableArray array];
-            for (id tmp in datas) {
-                KBTaskListModel* model = [KBTaskListModel mj_objectWithKeyValues:tmp];
-                [tmpArary addObject:model];
-            }
-
-            self.dataSourceForGroup = tmpArary;
-            self.dataSourceDic = @{ @(0) : self.dataSourceForMyTasks,
+    [KBTaskListManager fetchMyTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        if (model && !error) {
+            self.dataSourceForGroup = model;
+            self.dataSourceDic = @{ @(0) : self.dataSourceForGroup,
                 @(1) : self.dataSourceForGroup };
-            self.dataSource = self.dataSourceForMyTasks;
+            self.dataSource = self.dataSourceDic[@(self.segmentedControl.selectedSegmentIndex)];
             [self.tableView reloadData];
-        }
-        else {
+
+        } else {
             [self showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
-        [self hideLoadingView];
     }];
 }
 
@@ -93,6 +87,9 @@ static NSString* identifier = @"KBMyTaskListViewController";
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadData];
+    }];
     [self.view addSubview:self.tableView];
 }
 
@@ -100,9 +97,9 @@ static NSString* identifier = @"KBMyTaskListViewController";
 {
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
     [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-BOTTOM_BAR_HEIGHT];
-    [self.segmentedControl autoSetDimensionsToSize:CGSizeMake(150, 25)];
-    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+//    [self.segmentedControl autoSetDimensionsToSize:CGSizeMake(150, 25)];
+//    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 #pragma mark - TableView Delegate DataSource
@@ -132,12 +129,14 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    
     //    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
     [self showLoadingView];
     KBTaskDetailViewController* detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
     [detailVC fillWithContent:self.dataSource[indexPath.row]];
     [self.navigationController pushViewController:detailVC animated:YES];
     [self hideLoadingView];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end

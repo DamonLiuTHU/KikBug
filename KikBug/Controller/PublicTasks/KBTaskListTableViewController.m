@@ -44,6 +44,10 @@ static NSString* identifier = @"kikbug";
 //    [self.tableView setRowHeight:80];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        [self loadData];
+    }];
     [self setTitle:@"任务广场"];
 }
 -(void)close{
@@ -95,6 +99,7 @@ static NSString* identifier = @"kikbug";
 //    }];
     
     [KBTaskListManager fetchPublicTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
+        [self.tableView.mj_header endRefreshing];
         if(model && !error){
             dataSource = model;
             [self.tableView reloadData];
@@ -149,6 +154,7 @@ static NSString* identifier = @"kikbug";
     [detailVC fillWithContent:dataSource[indexPath.row]];
     [self.navigationController pushViewController:detailVC animated:YES];
     [self hideLoadingView];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 
