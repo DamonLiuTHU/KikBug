@@ -94,11 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KikBug/Controller/TaskDetail/KBTaskDetailViewController.m"
-            timestampString = "478860986.598395"
+            timestampString = "478927880.452115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
             landmarkName = "-acceptTaskButtonPressed"
             landmarkType = "5">
          </BreakpointContent>

@@ -7,6 +7,7 @@
 //
 
 #import "AFNetworking.h"
+#import "KBBaseModel.h"
 #import "KBHttpManager.h"
 #import "KBOnePixelLine.h"
 #import "KBTaskDetailModel.h"
@@ -18,7 +19,6 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
-#import "KBBaseModel.h"
 
 @interface KBTaskDetailViewController ()
 
@@ -54,6 +54,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self showLoadingView];
+    [self createSubviews];
     [self configSubviews];
     [self configNavigationBar];
     UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc]
@@ -64,10 +65,13 @@
     [self loadData];
 }
 
-- (void)configSubviews
-{
+- (void)viewWillAppear:(BOOL)animated {
+    
+}
+
+
+- (void)createSubviews {
     self.taskDescription = [UITextView new];
-    [self.taskDescription setEditable:NO];
     self.taskDescriptionHint = [UILabel new];
     self.taskIdLabelHint = [UILabel new];
     self.taskIdLabel = [UILabel new];
@@ -82,7 +86,11 @@
     self.icon = [UIImageView new];
     self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
+}
 
+- (void)configSubviews
+{
+    [self.taskDescription setEditable:NO];
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:@"接受任务"
@@ -288,20 +296,13 @@
 
 - (void)configNavigationBar
 {
-    //    UINavigationController* nav = self.navigationController;
-    //    [nav.navigationItem.leftBarButtonItem setTitle:@"返回任务列表"];
     self.title = self.model.taskName;
     [self navigationRightButton];
 }
 
 - (void)navigationRightButton
 {
-    //    UIBarButtonItem* myButton = [UIBarButtonItem new];
-    //    myButton.title = @"个人中心";
-    //    myButton.style = UIBarButtonItemStyleBordered;
-    //    myButton.target = self;
-    //    myButton.action = @selector(goToUserHome);
-    //    self.navigationItem.rightBarButtonItem = myButton;
+    
 }
 
 - (void)goToUserHome
@@ -313,25 +314,11 @@
 - (void)loadData
 {
     if (self.model) {
-        //        WEAKSELF [KBHttpManager
-        //            sendGetHttpReqeustWithUrl:GETURL(@"taskDetailUrl")
-        //                               Params:@{
-        //                                   @"taskId" : self.model.taskId,
-        //                                   @"testerId" : @(10086)
-        //                               }
-        //                             CallBack:^(id responseObject, NSError* error) {
-        //                                 KBTaskDetailModel* model = [KBTaskDetailModel
-        //                                     mj_objectWithKeyValues:responseObject];
-        //                                 weakSelf.detailModel = model;
-        //                                 [weakSelf updateUIwithModel:model];
-        //                                 [weakSelf hideLoadingView];
-        //                             }];
         WEAKSELF;
         [KBTaskManager fetchTaskDetailInfoWithTaskId:self.model.taskId completion:^(KBTaskDetailModel* model, NSError* error) {
             weakSelf.detailModel = model;
             [weakSelf updateUIwithModel:model];
             [weakSelf hideLoadingView];
-
         }];
     }
 }
@@ -378,16 +365,6 @@
                 //            [weakSelf.icon reveal];
             }
         }];
-    //    [self.icon sd_setImageWithURL:[NSURL URLWithString:model.iconLocation]
-    //    placeholderImage:nil options:SDWebImageRetryFailed progress:^(NSInteger
-    //    receivedSize, NSInteger expectedSize) {
-    //        CGFloat process = ((CGFloat)receivedSize/(CGFloat)expectedSize);
-    //        NSLog(@"show progress");
-    //        [weakSelf.icon updateImageDownloadProgress:process];
-    //    } completed:^(UIImage *image, NSError *error, SDImageCacheType
-    //    cacheType, NSURL *imageURL) {
-    //        [weakSelf.icon reveal];
-    //    }];
 }
 
 - (void)backToPreviousPage
@@ -465,7 +442,7 @@ preparation before navigation
 
 - (void)acceptTaskButtonPressed
 {
-    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel *model, NSError *error) {
+    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
         NSLog(model.message);
     }];
 }
