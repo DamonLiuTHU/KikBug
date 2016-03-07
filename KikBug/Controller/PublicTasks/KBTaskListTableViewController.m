@@ -35,13 +35,9 @@ static NSString* identifier = @"kikbug";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [self navigationLeftButton];
     [self.navigationController setNavigationBarHidden:NO];
-    [self navigationRightButton];
     [self showLoadingView];
     [self loadData];
-//    [self.tableView setRowHeight:80];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -52,17 +48,6 @@ static NSString* identifier = @"kikbug";
 }
 -(void)close{
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
--(void)navigationRightButton
-{
-//    UIBarButtonItem* myButton = [UIBarButtonItem new];
-//    myButton.title = @"个人中心";
-//    myButton.style = UIBarButtonItemStyleBordered;
-//    myButton.target = self;
-//    myButton.action = @selector(goToUserHome);
-//    self.navigationItem.rightBarButtonItem = myButton;
 }
 
 -(void)navigationLeftButton
@@ -77,27 +62,6 @@ static NSString* identifier = @"kikbug";
 }
 
 -(void)loadData{
-    
-//    [KBHttpManager sendGetHttpReqeustWithUrl:GETURL(@"taskListUrl") Params:nil CallBack:^(id responseObject, NSError *error) {
-//        if(responseObject && !error){
-//            NSDictionary* dic = (NSDictionary*)responseObject;
-//            NSArray* datas = dic[@"tasks"];
-//            NSMutableArray* tmpArary = [NSMutableArray array];
-//            for(id tmp in datas)
-//            {
-//                KBTaskListModel* model = [KBTaskListModel mj_objectWithKeyValues:tmp];
-//                [tmpArary addObject:model];
-//            }
-//            
-//            dataSource = tmpArary;
-//            [self.tableView reloadData];
-//            
-//        }else{
-//            [self showLoadingViewWithText:@"网络错误，请重新刷新"];
-//        }
-//        [self hideLoadingView];
-//    }];
-    
     [KBTaskListManager fetchPublicTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
         [self.tableView.mj_header endRefreshing];
         if(model && !error){
@@ -109,7 +73,6 @@ static NSString* identifier = @"kikbug";
         }
         [self hideLoadingView];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

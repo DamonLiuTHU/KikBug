@@ -49,12 +49,20 @@
     CGContextRef ctx;
 }
 
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self createSubviews];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self showLoadingView];
-    [self createSubviews];
+//    [self createSubviews];
     [self configSubviews];
     [self configNavigationBar];
     UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc]

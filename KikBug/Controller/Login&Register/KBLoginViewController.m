@@ -7,9 +7,9 @@
 //
 
 #import "KBHttpManager.h"
+#import "KBLoginManager.h"
 #import "KBLoginViewController.h"
 #import "KBLogoView.h"
-#import "KBLoginManager.h"
 
 @interface KBLoginViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) KBLogoView* logo;
@@ -22,32 +22,54 @@
 @property (strong, nonatomic) UIButton* loginBtn;
 @property (strong, nonatomic) UIButton* loginWithSMS;
 @property (strong, nonatomic) UIButton* forgetPswBtn;
+@property (strong, nonatomic) UITapGestureRecognizer* rec;
 @end
 
 @implementation KBLoginViewController
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self createSubviews];
+    }
+    return self;
+}
+
+- (void)createSubviews
+{
+    self.logo = [[KBLogoView alloc] init];
+    self.plus86Label = [UILabel new];
+    self.pswLabel = [UILabel new];
+    self.onepixleLine = [[UIView alloc] init];
+    self.onepixleLine2 = [[UIView alloc] init];
+    self.loginBtn = [UIButton new];
+    self.loginWithSMS = [UIButton new];
+    self.forgetPswBtn = [UIButton new];
+    self.phoneNumber = [UITextField new];
+    self.pswFiled = [UITextField new];
+
+    self.rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboards)];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self configNavigationBar];
+    [self.view addGestureRecognizer:self.rec];
     self.title = @"登录";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self configNavigationBar];
-    UITapGestureRecognizer* rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboards)];
-    [self.view addGestureRecognizer:rec];
-    self.logo = [[KBLogoView alloc] init];
+
     [self setUpLabels];
     [self setUpLines];
     [self setUpBtns];
     [self setUpTextFileds];
     [self addSubviews];
     [self setUpConstrains];
-    
-    if ([KBLoginManager isUserLoggedIn]) {
-        NSString *userPhone = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE];
-        NSString *userEmail = [[NSUserDefaults standardUserDefaults] valueForKey:USER_EMAIL];
 
-        [self.phoneNumber setText:userPhone?userPhone:userEmail];
+    if ([KBLoginManager isUserLoggedIn]) {
+        NSString* userPhone = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE];
+        NSString* userEmail = [[NSUserDefaults standardUserDefaults] valueForKey:USER_EMAIL];
+        [self.phoneNumber setText:userPhone ? userPhone : userEmail];
     }
 }
 
@@ -64,11 +86,6 @@
 
     UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
     self.navigationItem.leftBarButtonItem = backItem;
-    //    [nav.navigationController.navigationBar addSubview: closeBtn];
-
-    //    [nav.navigationItem.leftBarButtonItem setTitle:@"关闭"];
-
-    //    [self navigationRightButton];
 }
 
 - (void)closeLoginViewController
@@ -85,22 +102,21 @@
 
 - (void)setUpLabels
 {
-    self.plus86Label = [UILabel new];
+
     self.plus86Label.text = @"+86";
     [self.plus86Label sizeToFit];
-    self.pswLabel = [UILabel new];
+
     self.pswLabel.text = @"密码";
     [self.pswLabel sizeToFit];
 }
 
 - (void)setUpLines
 {
-    self.onepixleLine = [[UIView alloc] init];
+
     [self.onepixleLine autoSetDimension:ALDimensionWidth toSize:self.view.width - 2 * MEDIUM_MARGIN];
     [self.onepixleLine autoSetDimension:ALDimensionHeight toSize:1];
     [self.onepixleLine setBackgroundColor:THEME_COLOR];
 
-    self.onepixleLine2 = [[UIView alloc] init];
     [self.onepixleLine2 autoSetDimension:ALDimensionWidth toSize:self.view.width - 2 * MEDIUM_MARGIN];
     [self.onepixleLine2 autoSetDimension:ALDimensionHeight toSize:1];
     [self.onepixleLine2 setBackgroundColor:THEME_COLOR];
@@ -108,7 +124,7 @@
 
 - (void)setUpBtns
 {
-    self.loginBtn = [UIButton new];
+
     //    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     NSAttributedString* loginBtnStr = [[NSAttributedString alloc] initWithString:@"登录" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : APP_FONT(17) }];
     [self.loginBtn setAttributedTitle:loginBtnStr forState:UIControlStateNormal];
@@ -118,12 +134,10 @@
     [self.loginBtn addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     self.loginBtn.layer.cornerRadius = 5;
 
-    self.loginWithSMS = [UIButton new];
     NSAttributedString* loginWithSMSStr = [[NSAttributedString alloc] initWithString:@"通过短信登录" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
     [self.loginWithSMS setAttributedTitle:loginWithSMSStr forState:UIControlStateNormal];
     [self.loginWithSMS setTitleColor:THEME_COLOR forState:UIControlStateNormal];
 
-    self.forgetPswBtn = [UIButton new];
     NSAttributedString* forgetPswBtnStr = [[NSAttributedString alloc] initWithString:@"忘记密码?" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
     [self.forgetPswBtn setAttributedTitle:forgetPswBtnStr forState:UIControlStateNormal];
     [self.forgetPswBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
@@ -131,19 +145,15 @@
 
 - (void)setUpTextFileds
 {
-    self.phoneNumber = [UITextField new];
-    self.phoneNumber.delegate = self;
-    [self.phoneNumber autoSetDimension:ALDimensionWidth toSize:200];
-    [self.phoneNumber autoSetDimension:ALDimensionHeight toSize:self.plus86Label.height];
-//    self.phoneNumber.keyboardType = UIKeyboardTypeNumberPad;
-    self.phoneNumber.placeholder = @"手机号/邮箱";
 
-    self.pswFiled = [UITextField new];
-    self.pswFiled.secureTextEntry = YES;
-    self.pswFiled.clearsOnBeginEditing = YES;
-    [self.pswFiled autoSetDimension:ALDimensionWidth toSize:200];
-    [self.pswFiled autoSetDimension:ALDimensionHeight toSize:self.pswLabel.height];
+    //    self.phoneNumber.delegate = self;
+    self.phoneNumber.placeholder = @"手机号/邮箱";
+    self.phoneNumber.delegate = self;
+
     self.pswFiled.placeholder = @"填写密码";
+    self.pswFiled.secureTextEntry = YES;
+    //    self.pswFiled.clearsOnBeginEditing = YES;
+    self.pswFiled.delegate = self;
 }
 
 //- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string
@@ -152,36 +162,36 @@
 //}
 
 //只允许输入数字
-- (BOOL)validateNumber:(NSString*)number
-{
-    BOOL res = YES;
-    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-    int i = 0;
-    while (i < number.length) {
-        NSString* string = [number substringWithRange:NSMakeRange(i, 1)];
-        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
-        if (range.length == 0) {
-            res = NO;
-            break;
-        }
-        i++;
-    }
-    return res;
-}
+//- (BOOL)validateNumber:(NSString*)number
+//{
+//    BOOL res = YES;
+//    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+//    int i = 0;
+//    while (i < number.length) {
+//        NSString* string = [number substringWithRange:NSMakeRange(i, 1)];
+//        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+//        if (range.length == 0) {
+//            res = NO;
+//            break;
+//        }
+//        i++;
+//    }
+//    return res;
+//}
 
 //检查是否为手机号的方法
-- (BOOL)checkPhoneNumInput:(NSString*)phoneStr
-{
-    NSString* photoRange = @"^1(3[0-9]|4[0-9]|5[0-9]|7[0-9]|8[0-9])\\d{8}$"; //正则表达式
-    NSPredicate* regexMobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", photoRange];
-    BOOL result = [regexMobile evaluateWithObject:phoneStr];
-    if (result) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
-}
+//- (BOOL)checkPhoneNumInput:(NSString*)phoneStr
+//{
+//    NSString* photoRange = @"^1(3[0-9]|4[0-9]|5[0-9]|7[0-9]|8[0-9])\\d{8}$"; //正则表达式
+//    NSPredicate* regexMobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", photoRange];
+//    BOOL result = [regexMobile evaluateWithObject:phoneStr];
+//    if (result) {
+//        return YES;
+//    }
+//    else {
+//        return NO;
+//    }
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -205,6 +215,12 @@
 
 - (void)setUpConstrains
 {
+    [self.phoneNumber autoSetDimension:ALDimensionWidth toSize:200];
+    [self.phoneNumber autoSetDimension:ALDimensionHeight toSize:self.plus86Label.height];
+
+    [self.pswFiled autoSetDimension:ALDimensionWidth toSize:200];
+    //    [self.pswFiled autoSetDimension:ALDimensionHeight toSize:LARGE_MARGIN];
+
     [self.logo autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
     [self.logo autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20];
 
@@ -234,21 +250,23 @@
 
     [self.forgetPswBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.forgetPswBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5];
+
+    [self updateViewConstraints];
 }
 
 #pragma mark - LoginBtn Action
 - (void)loginButtonPressed
 {
-    [KBLoginManager loginWithPhone:self.phoneNumber.text password:self.pswFiled.text completion:^(KBLoginModel *model, NSError *error) {
+    WEAKSELF;
+    [KBLoginManager loginWithPhone:self.phoneNumber.text password:self.pswFiled.text completion:^(KBLoginModel* model, NSError* error) {
         if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"" delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
             [alertView show];
-            
         }
         else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
             [alertView show];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }
