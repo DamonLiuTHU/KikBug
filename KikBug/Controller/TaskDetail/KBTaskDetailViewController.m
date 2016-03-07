@@ -102,10 +102,10 @@
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:@"接受任务"
-                                   attributes:@{ NSFontAttributeName : APP_FONT(10),
-                                       NSForegroundColorAttributeName : [UIColor whiteColor] }]
+                                   attributes:@{ NSFontAttributeName : APP_FONT(12),
+                                       NSForegroundColorAttributeName : THEME_COLOR }]
                   forState:UIControlStateNormal];
-    [self.acceptTask setBackgroundColor:THEME_COLOR];
+    [self.acceptTask setBackgroundColor:[UIColor whiteColor]];
     self.acceptTask.layer.cornerRadius = 3.0f;
     [self.acceptTask addTarget:self action:@selector(acceptTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
@@ -157,7 +157,7 @@
     [self.view addSubview:self.icon];
     [self.view addSubview:self.jumpButton];
     [self.view addSubview:self.line];
-    [self.view addSubview:self.acceptTask];
+//    [self.view addSubview:self.acceptTask];
 
     [self configConstrains];
 }
@@ -294,11 +294,13 @@
     //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 20)];
     //    [self.acceptTask autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.icon];
     //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:-5.0f];
-    [self.acceptTask autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:5.0f];
-    [self.acceptTask autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-5.0f];
-    [self.acceptTask autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line withOffset:-5.0f];
-    [self.acceptTask autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.acceptTask];
-
+//    [self.acceptTask autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:5.0f];
+//    [self.acceptTask autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-5.0f];
+//    [self.acceptTask autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line withOffset:-5.0f];
+//    [self.acceptTask autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.acceptTask];
+    
+//    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 40)];
+//    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [super updateViewConstraints];
 }
 
@@ -306,12 +308,18 @@
 {
     self.title = self.model.taskName;
     [self navigationRightButton];
+    
+    
 }
 
 - (void)navigationRightButton
 {
-    
+    [self.acceptTask setFrame:CGRectMake(0, 0, 60, 30)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.acceptTask];
+    self.navigationItem.rightBarButtonItem = item;
 }
+
+
 
 - (void)goToUserHome
 {
