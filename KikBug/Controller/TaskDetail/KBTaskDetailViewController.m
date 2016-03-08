@@ -98,7 +98,7 @@
 
 - (void)configSubviews
 {
-    [self.taskDescription setEditable:NO];
+//    [self.taskDescription setEditable:NO];
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:@"接受任务"

@@ -45,6 +45,7 @@
     self.loginBtn = [UIButton new];
     self.loginWithSMS = [UIButton new];
     self.forgetPswBtn = [UIButton new];
+
     self.phoneNumber = [UITextField new];
     self.pswFiled = [UITextField new];
 
@@ -54,7 +55,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configNavigationBar];
     [self.view addGestureRecognizer:self.rec];
     self.title = @"登录";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -73,16 +73,23 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self configNavigationBar];
+}
+
 - (void)configNavigationBar
 {
+    UINavigationController* nav = self.navigationController;
+    [nav setNavigationBarHidden:NO];
+    
     UIButton* closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
     [closeBtn addTarget:self action:@selector(closeLoginViewController) forControlEvents:UIControlEventTouchUpInside];
     [closeBtn setBackgroundColor:THEME_COLOR];
     closeBtn.titleLabel.font = APP_FONT(13);
     [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
     [closeBtn sizeToFit];
-    UINavigationController* nav = self.navigationController;
-    [nav setNavigationBarHidden:NO];
+
+
 
     UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
     self.navigationItem.leftBarButtonItem = backItem;
@@ -145,15 +152,25 @@
 
 - (void)setUpTextFileds
 {
-
-    //    self.phoneNumber.delegate = self;
     self.phoneNumber.placeholder = @"手机号/邮箱";
     self.phoneNumber.delegate = self;
+    self.phoneNumber.keyboardType = UIKeyboardTypeEmailAddress; //设置键盘类型为默认的
+    self.phoneNumber.returnKeyType = UIReturnKeyDone;
+    self.phoneNumber.font = APP_FONT(16);
+    self.phoneNumber.keyboardAppearance = UIKeyboardAppearanceDefault;
 
     self.pswFiled.placeholder = @"填写密码";
     self.pswFiled.secureTextEntry = YES;
-    //    self.pswFiled.clearsOnBeginEditing = YES;
     self.pswFiled.delegate = self;
+    self.pswFiled.keyboardType = UIKeyboardTypeDefault;
+    self.pswFiled.returnKeyType = UIReturnKeyDone;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 //- (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string

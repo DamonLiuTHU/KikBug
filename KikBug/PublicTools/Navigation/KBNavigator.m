@@ -60,6 +60,37 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     default:
         break;
     }
+    
+    
+    
+//    switch (showType) {
+//        case TNUIManagerShowTypePush: //push
+//        {
+//            [[self currentNavigationController] pushViewController:viewController animated:YES];
+//        }
+//            break;
+//        case TNUIManagerShowTypePresent: //modal
+//        {
+//            self.presentContainerNav = [self navControllerWithRoot:viewController];
+//            self.presentContainerNav.navigationBarHidden = YES;
+//            [self.tabBarController presentViewController:self.presentContainerNav
+//                                                animated:YES
+//                                              completion:NULL];
+//        }
+//            break;
+//        case TNUIManagerShowTypeAddSubview: //addSub
+//        {
+//            UIViewController *topViewController = [[self currentNavigationController] topViewController];
+//            [topViewController addChildViewController:viewController];
+//            [topViewController.view addSubview:viewController.view];
+//            [viewController.view setFrame:topViewController.view.frame];
+//            [viewController didMoveToParentViewController:topViewController];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
+
 }
 
 #pragma mark - Utility
@@ -67,6 +98,17 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 - (UINavigationController*)currentNavigationController
 {
     return (UINavigationController*)[self.tabBarController selectedViewController];
+}
+
+- (KBViewController *)topViewController
+{
+    UIViewController *topViewController = [self currentNavigationController].topViewController;
+    if (![topViewController isKindOfClass:[KBViewController class]])
+    {
+        return nil;
+    }
+    
+    return (KBViewController *)topViewController;
 }
 
 - (UINavigationController*)navControllerWithRoot:(UIViewController*)controller
