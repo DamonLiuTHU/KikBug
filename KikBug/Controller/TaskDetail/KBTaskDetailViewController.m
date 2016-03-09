@@ -77,15 +77,10 @@
                 action:@selector(backToPreviousPage)];
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rec];
-    [self loadData];
 
     self.acceptTask.hidden = self.model.isAccepted;
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
 }
 
 - (void)createSubviews
@@ -115,7 +110,7 @@
 {
     [self.startTestTask addTarget:self action:@selector(startTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.goToMyReportsBtn addTarget:self action:@selector(checkMyReportsButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-
+    [self.jumpButton addTarget:self action:@selector(jumpToApp:) forControlEvents:UIControlEventTouchUpInside];
     [self.taskDescription setEditable:NO];
 #if DEBUG
 //    [self.taskDescription setBackgroundColor:[UIColor lightGrayColor]];
@@ -195,7 +190,6 @@
     [self.containerView addSubview:self.taskDescription];
     [self.containerView addSubview:self.startTestTask];
 
-    [self configConstrains];
 }
 
 - (void)configConstrains
@@ -473,26 +467,6 @@
 {
     self.model = idata;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little
-preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (void)jumpToNextPage:(id)sender
-{
-    if (appUrl != nil) {
-        [[UIApplication sharedApplication] openURL:appUrl];
-    }
-    else {
-        //        [[UIApplication sharedApplication]]
-    }
-}
 
 - (void)showLoadingView
 {
@@ -545,6 +519,16 @@ preparation before navigation
 
 - (void)checkMyReportsButtonPressed
 {
+}
+
+- (void)jumpToApp:(id)sender
+{
+    if (appUrl != nil) {
+        [[UIApplication sharedApplication] openURL:appUrl];
+    }
+    else {
+        //        [[UIApplication sharedApplication]]
+    }
 }
 
 @end

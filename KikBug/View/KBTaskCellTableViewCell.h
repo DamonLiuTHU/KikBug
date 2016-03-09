@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBBaseTableViewCell.h"
 
 
 @class KBTaskListModel;
-@interface KBTaskCellTableViewCell : UITableViewCell
+@interface KBTaskCellTableViewCell : KBBaseTableViewCell
 -(void)fillWithContent:(KBTaskListModel*)data;
 
 +(CGFloat)cellHeight;

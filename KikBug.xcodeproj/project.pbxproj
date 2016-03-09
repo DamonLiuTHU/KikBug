@@ -24,6 +24,8 @@
 		507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526231C83E51B0071F67F /* KBTaskListManager.m */; };
 		5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526291C83E68B0071F67F /* KBBaseModel.m */; };
 		5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5075262D1C843FAA0071F67F /* KBTaskManager.m */; };
+		50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */; };
+		50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A31C901443002E825A /* KBBaseTableViewController.m */; };
 		50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */; };
 		50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C101C3F9BDB00E37500 /* NSString+Safe.m */; };
 		50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */; };
@@ -86,6 +88,10 @@
 		507526291C83E68B0071F67F /* KBBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseModel.m; sourceTree = "<group>"; };
 		5075262C1C843FAA0071F67F /* KBTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskManager.h; sourceTree = "<group>"; };
 		5075262D1C843FAA0071F67F /* KBTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskManager.m; sourceTree = "<group>"; };
+		50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewCell.h; sourceTree = "<group>"; };
+		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
+		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
+		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewController.m; sourceTree = "<group>"; };
 		50D97C0D1C3F9BDB00E37500 /* NSString+EasyUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyUse.h"; sourceTree = "<group>"; };
 		50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyUse.m"; sourceTree = "<group>"; };
 		50D97C0F1C3F9BDB00E37500 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 			children = (
 				50740BC71C575EDF009B30A4 /* KBViewController.h */,
 				50740BC81C575EDF009B30A4 /* KBViewController.m */,
+				50B996A21C901443002E825A /* KBBaseTableViewController.h */,
+				50B996A31C901443002E825A /* KBBaseTableViewController.m */,
 				50740BBF1C574916009B30A4 /* Login&Register */,
 				50D97C261C3F9BFE00E37500 /* Group */,
 				50D97C271C3F9BFE00E37500 /* MyTasks */,
@@ -427,6 +435,8 @@
 				5038F9B11BF09FCE00CE22BE /* CommonUITool */,
 				50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */,
 				50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */,
+				50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */,
+				50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,7 +625,9 @@
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
 				50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */,
+				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
+				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,
 				50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */,
 				50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */,
 				50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */,

@@ -10,30 +10,35 @@
 #import "MBProgressHUD.h"
 
 @interface KBViewController ()
-@property (strong, nonatomic) MBProgressHUD *hud;
+@property (strong, nonatomic) MBProgressHUD* hud;
 @end
 
 @implementation KBViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewWillAppear:(BOOL)animated {
+    [self configConstrains];
+    [self loadData];
+}
+
+- (void)loadData
+{
+}
+
+- (void)configConstrains
+{
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Hud Methods
 
@@ -42,16 +47,17 @@
     [self showLoadingViewWithText:TIP_LOADING];
 }
 
-- (void)showLoadingViewWithText:(NSString *)text
+- (void)showLoadingViewWithText:(NSString*)text
 {
     if (!self.hud) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
+        MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
         if (text) {
             hud.labelText = text;
-        } else {
+        }
+        else {
             hud.labelText = @"加载中...";
         }
-        
+
         hud.removeFromSuperViewOnHide = YES;
         self.hud = hud;
     }
@@ -65,15 +71,15 @@
     self.hud = nil;
 }
 
-- (UIView *)hubShowInView
+- (UIView*)hubShowInView
 {
-//    UIView *inView;
-//    if (self.tableView) {
-//        inView = self.tableView;
-//    }
-//    else {
-//        inView = self.view;
-//    }
+    //    UIView *inView;
+    //    if (self.tableView) {
+    //        inView = self.tableView;
+    //    }
+    //    else {
+    //        inView = self.view;
+    //    }
     return self.view;
 }
 

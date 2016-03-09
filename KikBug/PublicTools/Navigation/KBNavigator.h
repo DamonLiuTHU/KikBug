@@ -19,17 +19,17 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 - (void)showRootViewController;
 
-- (void)showViewControllerWithClass:(Class)cls;
+//- (void)showViewControllerWithClass:(Class)cls;
 
-- (void)showViewControllerWithClass:(Class)cls param:(NSDictionary *)param;
+//- (void)showViewControllerWithClass:(Class)cls param:(NSDictionary *)param;
 
-- (void)showViewControllerWithClass:(Class)cls param:(NSDictionary *)param needLogin:(BOOL)needLogin;
+//- (void)showViewControllerWithClass:(Class)cls param:(NSDictionary *)param needLogin:(BOOL)needLogin;
 
-- (void)showViewControllerWithName:(NSString *)name;
+//- (void)showViewControllerWithName:(NSString *)name;
 
-- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param;
+//- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param;
 
-- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param needLogin:(BOOL)needLogin;
+//- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param needLogin:(BOOL)needLogin;
 
 - (void)showViewController:(UIViewController *)viewController;
 

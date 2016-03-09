@@ -15,7 +15,7 @@
 #import "MJExtension.h"
 
 @interface KBMyTaskListViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UITableView* tableView;
+//@property (strong, nonatomic) UITableView* tableView;
 @property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForMyTasks;
 @property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForGroup;
 @property (strong, nonatomic) NSDictionary* dataSourceDic;
@@ -29,6 +29,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     [self setTitle:@"我的任务"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
@@ -40,9 +41,6 @@ static NSString* identifier = @"KBMyTaskListViewController";
     self.dataSource = [NSArray array];
 
     [self configSegmentControl];
-    [self configTableView];
-    [self configConstrains];
-    [self loadData];
     [self addObserver:self forKeyPath:@"self.segmentedControl.selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -55,17 +53,20 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)loadData
 {
+    [self showLoadingView];
+    WEAKSELF;
     [KBTaskListManager fetchMyTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf hideLoadingView];
         if (model && !error) {
-            self.dataSourceForGroup = model;
-            self.dataSourceDic = @{ @(0) : self.dataSourceForGroup,
-                @(1) : self.dataSourceForGroup };
-            self.dataSource = self.dataSourceDic[@(self.segmentedControl.selectedSegmentIndex)];
-            [self.tableView reloadData];
+            weakSelf.dataSourceForGroup = model;
+            weakSelf.dataSourceDic = @{ @(0) : weakSelf.dataSourceForGroup,
+                @(1) : weakSelf.dataSourceForGroup };
+            weakSelf.dataSource = weakSelf.dataSourceDic[@(weakSelf.segmentedControl.selectedSegmentIndex)];
+            [weakSelf.tableView reloadData];
 
         } else {
-            [self showLoadingViewWithText:@"网络错误，请重新刷新"];
+            [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
     }];
 }
@@ -82,24 +83,14 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)configTableView
 {
-    self.tableView = [UITableView new];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [super configTableView];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self loadData];
-    }];
-    [self.view addSubview:self.tableView];
 }
 
 - (void)configConstrains
 {
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
     [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-BOTTOM_BAR_HEIGHT];
-//    [self.segmentedControl autoSetDimensionsToSize:CGSizeMake(150, 25)];
-//    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisVertical];
-//    [self.segmentedControl autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 #pragma mark - TableView Delegate DataSource
@@ -129,9 +120,6 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    
-    //    KBTaskDetailViewController* detailVC = [[KBTaskDetailViewController alloc]initWithNibName:@"KBTaskDetailViewController" bundle:nil];
-    [self showLoadingView];
     KBTaskDetailViewController* detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
     [detailVC fillWithContent:self.dataSource[indexPath.row]];
     [self.navigationController pushViewController:detailVC animated:YES];

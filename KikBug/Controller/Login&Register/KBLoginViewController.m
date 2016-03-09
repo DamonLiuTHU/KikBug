@@ -64,7 +64,6 @@
     [self setUpBtns];
     [self setUpTextFileds];
     [self addSubviews];
-    [self setUpConstrains];
 
     if ([KBLoginManager isUserLoggedIn]) {
         NSString* userPhone = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE];
@@ -74,6 +73,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self configNavigationBar];
 }
 
@@ -230,7 +230,7 @@
     [self.view addSubview:self.forgetPswBtn];
 }
 
-- (void)setUpConstrains
+- (void)configConstrains
 {
     [self.phoneNumber autoSetDimension:ALDimensionWidth toSize:200];
     [self.phoneNumber autoSetDimension:ALDimensionHeight toSize:self.plus86Label.height];

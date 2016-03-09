@@ -21,7 +21,7 @@
     //    self.title = @"个人中心";
     //    if ([self checkIfNeedLoginPage]) {
     if (YES) {
-        KBViewController* loginVC = [[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
 //    else {
