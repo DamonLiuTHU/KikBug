@@ -47,7 +47,7 @@
 @property (strong, nonatomic) UIView* containerView;
 @property (strong, nonatomic) UIButton* goToMyReportsBtn; /**< 跳转到我的Bug报告页面 */
 
-@property (strong, nonatomic) UIButton *startTestTask;
+@property (strong, nonatomic) UIButton* startTestTask;
 
 @end
 
@@ -78,6 +78,10 @@
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rec];
     [self loadData];
+
+    self.acceptTask.hidden = self.model.isAccepted;
+    self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
+    self.startTestTask.hidden = !self.acceptTask.hidden;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,6 +113,9 @@
 
 - (void)configSubviews
 {
+    [self.startTestTask addTarget:self action:@selector(startTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.goToMyReportsBtn addTarget:self action:@selector(checkMyReportsButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
     [self.taskDescription setEditable:NO];
 #if DEBUG
 //    [self.taskDescription setBackgroundColor:[UIColor lightGrayColor]];
@@ -162,10 +169,10 @@
     [self.goToMyReportsBtn.layer setCornerRadius:5.0f];
     [self.startTestTask setBackgroundColor:THEME_COLOR];
     [self.startTestTask.layer setCornerRadius:5.0f];
-    
+
     [self.startTestTask setAttributedTitle:[[NSAttributedString alloc]
-                                           initWithString:@"开始测试"
-                                           attributes:BUTTON_TITLE_ATTRIBUTE]
+                                               initWithString:@"开始测试"
+                                                   attributes:BUTTON_TITLE_ATTRIBUTE]
                                   forState:UIControlStateNormal];
 
     [self.view addSubview:self.appSizeLabelHint];
@@ -316,11 +323,9 @@
                                                    0, 10, BOTTOM_BAR_HEIGHT, 10)
                                  excludingEdge:ALEdgeTop];
     [self.scrollView autoPinEdge:ALEdgeTop
-                             toEdge:ALEdgeBottom
-                             ofView:self.line
-                         withOffset:5.0f];
-    
-
+                          toEdge:ALEdgeBottom
+                          ofView:self.line
+                      withOffset:5.0f];
 
     //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 20)];
     //    [self.acceptTask autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.icon];
@@ -333,16 +338,15 @@
     //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 40)];
     //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight];
 
-//    [self.taskDescription autoSetDimension:ALDimensionWidth toSize:self.line.width];
+    //    [self.taskDescription autoSetDimension:ALDimensionWidth toSize:self.line.width];
     [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
 
-    
     [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
     [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
-    
+
     [self.goToMyReportsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
     [self.startTestTask autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
-    
+
     [self.startTestTask autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
     [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
 
@@ -352,7 +356,7 @@
     //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisVertical];
     //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.containerView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.goToMyReportsBtn withOffset:5.0f];
-    
+
     [super updateViewConstraints];
 }
 
@@ -362,15 +366,15 @@
     self.title = self.model.taskName;
     [self navigationRightButton];
     [self navigationLeftButton];
-//    [self.tabBarController.tabBar setHidden:YES];
+    //    [self.tabBarController.tabBar setHidden:YES];
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-//    [self.tabBarController.tabBar setHidden:NO];
+- (void)viewDidDisappear:(BOOL)animated
+{
+    //    [self.tabBarController.tabBar setHidden:NO];
 }
 - (void)navigationLeftButton
 {
-    
 }
 - (void)navigationRightButton
 {
@@ -399,15 +403,15 @@
 
 - (void)updateUIwithModel:(KBTaskDetailModel*)model
 {
-    
+
     self.taskDescription.attributedText = [[NSAttributedString alloc]
-        initWithString:model.taskdescription ? model.taskdescription :@""
+        initWithString:model.taskdescription ? model.taskdescription : @""
             attributes:TITLE_ATTRIBUTE];
-    
+
     CGFloat heightForTaskDesc = [model.taskdescription heightForString:model.taskdescription fontSize:14 andWidth:self.scrollView.width];
     [self.taskDescription autoSetDimensionsToSize:CGSizeMake(self.scrollView.width, heightForTaskDesc)];
     [self updateViewConstraints];
-    
+
     self.addDateLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString dateFromTimeStamp:model.addDate]
             attributes:TITLE_ATTRIBUTE];
@@ -459,6 +463,12 @@
     self.model = nil;
     self.detailModel = nil;
 }
+
+/**
+ *  用列表页的粗略信息填充DetailVC
+ *
+ *  @param idata 少部分信息
+ */
 - (void)fillWithContent:(KBTaskListModel*)idata
 {
     self.model = idata;
@@ -520,11 +530,21 @@ preparation before navigation
     return inView;
 }
 
+#pragma mark - UI Events
+
 - (void)acceptTaskButtonPressed
 {
     [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error){
         //        NSLog(model.message);
     }];
+}
+
+- (void)startTaskButtonPressed
+{
+}
+
+- (void)checkMyReportsButtonPressed
+{
 }
 
 @end

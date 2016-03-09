@@ -40,6 +40,7 @@
             for (NSDictionary *dic in itemsArray) {
                 KBTaskListModel *model = [KBTaskListModel mj_objectWithKeyValues:dic];
                 [array addObject:model];
+                model.isAccepted = YES;
             }
             block(array,nil);
         } else {
