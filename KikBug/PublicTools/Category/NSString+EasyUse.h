@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface NSString (EasyUse)
-+(NSString*)dateFromTimeStamp:(NSString*)timeSp;
++ (NSString*)dateFromTimeStamp:(NSString*)timeSp;
+- (CGFloat)heightForString:(NSString*)value fontSize:(CGFloat)fontSize andWidth:(CGFloat)width;
 @end

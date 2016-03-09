@@ -42,6 +42,13 @@
 @property (strong, nonatomic) UIButton* jumpButton;
 @property (strong, nonatomic) UIButton* acceptTask;
 @property (strong, nonatomic) KBOnePixelLine* line;
+
+@property (strong, nonatomic) UIScrollView* scrollView;
+@property (strong, nonatomic) UIView* containerView;
+@property (strong, nonatomic) UIButton* goToMyReportsBtn; /**< 跳转到我的Bug报告页面 */
+
+@property (strong, nonatomic) UIButton *startTestTask;
+
 @end
 
 @implementation KBTaskDetailViewController {
@@ -49,8 +56,8 @@
     CGContextRef ctx;
 }
 
-
-- (instancetype)init {
+- (instancetype)init
+{
     if (self = [super init]) {
         [self createSubviews];
     }
@@ -62,7 +69,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self showLoadingView];
-//    [self createSubviews];
+    //    [self createSubviews];
     [self configSubviews];
     [self configNavigationBar];
     UISwipeGestureRecognizer* rec = [[UISwipeGestureRecognizer alloc]
@@ -73,12 +80,13 @@
     [self loadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
+- (void)viewWillAppear:(BOOL)animated
+{
 }
 
-
-- (void)createSubviews {
+- (void)createSubviews
+{
+    self.startTestTask = [UIButton new];
     self.taskDescription = [UITextView new];
     self.taskDescriptionHint = [UILabel new];
     self.taskIdLabelHint = [UILabel new];
@@ -94,13 +102,16 @@
     self.icon = [UIImageView new];
     self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
+    self.containerView = [UIView new];
+    self.goToMyReportsBtn = [UIButton new];
+    self.scrollView = [UIScrollView new];
 }
 
 - (void)configSubviews
 {
     [self.taskDescription setEditable:NO];
 #if DEBUG
-    [self.taskDescription setBackgroundColor:THEME_COLOR];
+//    [self.taskDescription setBackgroundColor:[UIColor lightGrayColor]];
 #endif
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
@@ -122,8 +133,6 @@
     self.jumpButton.layer.cornerRadius = 3.0f;
     self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
     [self.line setLineColor:[UIColor grayColor]];
-    //    [self.line setFrame:CGRectMake(8, self.taskDescription.y - 1 ,
-    //    SCREEN_WIDTH - 8*2, 1)];
 
     [self.taskIdLabelHint setAttributedText:[[NSAttributedString alloc]
                                                 initWithString:@"任务Id"
@@ -145,8 +154,20 @@
                               initWithString:@"到期日期"
                                   attributes:SUBTITLE_ATTRIBUTE]];
 
-    [self.view addSubview:self.taskDescriptionHint];
-    [self.view addSubview:self.taskDescription];
+    [self.goToMyReportsBtn setAttributedTitle:[[NSAttributedString alloc]
+                                                  initWithString:@"查看/修改Bug报告"
+                                                      attributes:BUTTON_TITLE_ATTRIBUTE]
+                                     forState:UIControlStateNormal];
+    [self.goToMyReportsBtn setBackgroundColor:THEME_COLOR];
+    [self.goToMyReportsBtn.layer setCornerRadius:5.0f];
+    [self.startTestTask setBackgroundColor:THEME_COLOR];
+    [self.startTestTask.layer setCornerRadius:5.0f];
+    
+    [self.startTestTask setAttributedTitle:[[NSAttributedString alloc]
+                                           initWithString:@"开始测试"
+                                           attributes:BUTTON_TITLE_ATTRIBUTE]
+                                  forState:UIControlStateNormal];
+
     [self.view addSubview:self.appSizeLabelHint];
     [self.view addSubview:self.appSizeLabel];
     [self.view addSubview:self.categoryLabelHint];
@@ -160,7 +181,12 @@
     [self.view addSubview:self.icon];
     [self.view addSubview:self.jumpButton];
     [self.view addSubview:self.line];
-//    [self.view addSubview:self.acceptTask];
+    [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.containerView];
+    [self.containerView addSubview:self.goToMyReportsBtn];
+    [self.containerView addSubview:self.taskDescriptionHint];
+    [self.containerView addSubview:self.taskDescription];
+    [self.containerView addSubview:self.startTestTask];
 
     [self configConstrains];
 }
@@ -285,44 +311,73 @@
                 withOffset:-10];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
 
-    [self.taskDescription
+    [self.scrollView
         autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(
-                                                   0, 10, BOTTOM_BAR_HEIGHT + 30, 10)
+                                                   0, 10, BOTTOM_BAR_HEIGHT, 10)
                                  excludingEdge:ALEdgeTop];
-    [self.taskDescription autoPinEdge:ALEdgeTop
-                               toEdge:ALEdgeBottom
-                               ofView:self.line
-                           withOffset:5.0f];
+    [self.scrollView autoPinEdge:ALEdgeTop
+                             toEdge:ALEdgeBottom
+                             ofView:self.line
+                         withOffset:5.0f];
+    
+
 
     //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 20)];
     //    [self.acceptTask autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.icon];
     //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:-5.0f];
-//    [self.acceptTask autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:5.0f];
-//    [self.acceptTask autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-5.0f];
-//    [self.acceptTask autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line withOffset:-5.0f];
-//    [self.acceptTask autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.acceptTask];
+    //    [self.acceptTask autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:5.0f];
+    //    [self.acceptTask autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-5.0f];
+    //    [self.acceptTask autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line withOffset:-5.0f];
+    //    [self.acceptTask autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.acceptTask];
+
+    //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 40)];
+    //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight];
+
+//    [self.taskDescription autoSetDimension:ALDimensionWidth toSize:self.line.width];
+    [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+
     
-//    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 40)];
-//    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
+    [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
+    
+    [self.goToMyReportsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
+    [self.startTestTask autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
+    
+    [self.startTestTask autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
+    [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
+
+    [self.containerView autoPinEdgesToSuperviewEdges];
+    //    [self.containerView setLayoutMargins:UIEdgeInsetsZero];
+    //    [self.containerView autoPinEdgesToSuperviewMargins];
+    //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [self.containerView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.goToMyReportsBtn withOffset:5.0f];
+    
     [super updateViewConstraints];
 }
 
 - (void)configNavigationBar
 {
+    [self.navigationController setNavigationBarHidden:NO];
     self.title = self.model.taskName;
     [self navigationRightButton];
-    
-    
+    [self navigationLeftButton];
+//    [self.tabBarController.tabBar setHidden:YES];
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+//    [self.tabBarController.tabBar setHidden:NO];
+}
+- (void)navigationLeftButton
+{
+    
+}
 - (void)navigationRightButton
 {
     [self.acceptTask setFrame:CGRectMake(0, 0, 60, 30)];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.acceptTask];
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:self.acceptTask];
     self.navigationItem.rightBarButtonItem = item;
 }
-
-
 
 - (void)goToUserHome
 {
@@ -344,9 +399,15 @@
 
 - (void)updateUIwithModel:(KBTaskDetailModel*)model
 {
+    
     self.taskDescription.attributedText = [[NSAttributedString alloc]
-        initWithString:model.taskdescription ? model.taskdescription : @"/n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9/n/n/n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9/"
+        initWithString:model.taskdescription ? model.taskdescription :@""
             attributes:TITLE_ATTRIBUTE];
+    
+    CGFloat heightForTaskDesc = [model.taskdescription heightForString:model.taskdescription fontSize:14 andWidth:self.scrollView.width];
+    [self.taskDescription autoSetDimensionsToSize:CGSizeMake(self.scrollView.width, heightForTaskDesc)];
+    [self updateViewConstraints];
+    
     self.addDateLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString dateFromTimeStamp:model.addDate]
             attributes:TITLE_ATTRIBUTE];
@@ -461,8 +522,8 @@ preparation before navigation
 
 - (void)acceptTaskButtonPressed
 {
-    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
-        NSLog(model.message);
+    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error){
+        //        NSLog(model.message);
     }];
 }
 

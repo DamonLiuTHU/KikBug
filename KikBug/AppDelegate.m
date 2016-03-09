@@ -51,4 +51,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+//    
+//    
+//    
+//    
+//    return YES;
+//}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
+    NSLog(@"URL scheme:%@", [url scheme]);
+    NSLog(@"URL query: %@", [url query]);
+    return YES;
+}
+
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+//   
+//    
+//    return YES;
+//}
+
 @end
