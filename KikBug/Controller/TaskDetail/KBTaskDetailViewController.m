@@ -98,7 +98,10 @@
 
 - (void)configSubviews
 {
-//    [self.taskDescription setEditable:NO];
+    [self.taskDescription setEditable:NO];
+#if DEBUG
+    [self.taskDescription setBackgroundColor:THEME_COLOR];
+#endif
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:@"接受任务"
@@ -284,7 +287,7 @@
 
     [self.taskDescription
         autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(
-                                                   0, 10, BOTTOM_BAR_HEIGHT, 10)
+                                                   0, 10, BOTTOM_BAR_HEIGHT + 30, 10)
                                  excludingEdge:ALEdgeTop];
     [self.taskDescription autoPinEdge:ALEdgeTop
                                toEdge:ALEdgeBottom
@@ -342,7 +345,7 @@
 - (void)updateUIwithModel:(KBTaskDetailModel*)model
 {
     self.taskDescription.attributedText = [[NSAttributedString alloc]
-        initWithString:model.taskdescription ? model.taskdescription : @""
+        initWithString:model.taskdescription ? model.taskdescription : @"/n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9/n/n/n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9//n1/n2/n3/n4/n5/n6/n7/n8/n9/n0/n1/n2/n3/n4/n5/n6/n7/n8/n9/"
             attributes:TITLE_ATTRIBUTE];
     self.addDateLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString dateFromTimeStamp:model.addDate]
