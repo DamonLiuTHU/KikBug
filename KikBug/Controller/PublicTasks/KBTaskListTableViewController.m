@@ -48,16 +48,16 @@ static NSString* identifier = @"kikbug";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)navigationLeftButton
-{
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
-}
+//- (void)navigationLeftButton
+//{
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+//}
 
-- (void)goToUserHome
-{
-    KBUserHomeViewController* vc = [KBUserHomeViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)goToUserHome
+//{
+//    KBUserHomeViewController* vc = [KBUserHomeViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 - (void)loadData
 {
@@ -79,6 +79,7 @@ static NSString* identifier = @"kikbug";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     dataSource = nil;
+    
 }
 
 #pragma mark - Table view data source
@@ -166,6 +167,7 @@ static NSString* identifier = @"kikbug";
 }
 
 #pragma mark - Auto Layout
+
 
 
 @end

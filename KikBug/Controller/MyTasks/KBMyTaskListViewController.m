@@ -125,5 +125,12 @@ static NSString* identifier = @"KBMyTaskListViewController";
     [self hideLoadingView];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
-
+#pragma mark - Memory Management
+- (void)didReceiveMemoryWarning
+{
+    self.dataSource = nil;
+    self.dataSourceDic = nil;
+    self.dataSourceForGroup = nil;
+    self.dataSourceForMyTasks = nil;
+}
 @end

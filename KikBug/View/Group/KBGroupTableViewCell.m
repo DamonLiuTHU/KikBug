@@ -56,7 +56,7 @@
 
 - (void)configConstrains
 {
-    [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 0, 8)];
+    [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(5, 8, 3, 8)];
     [self.groupIdLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.groupIdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:5.0f];
     [self.createrLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.groupIdLabel withOffset:20.0f];

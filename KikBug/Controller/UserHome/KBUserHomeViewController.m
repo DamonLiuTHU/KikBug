@@ -17,15 +17,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //    self.title = @"个人中心";
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     //    if ([self checkIfNeedLoginPage]) {
     if (YES) {
         KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
-//    else {
-//    }
 }
 
 

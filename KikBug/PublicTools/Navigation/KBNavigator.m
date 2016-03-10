@@ -15,6 +15,7 @@
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListTableViewController.h"
 #import "KBUserHomeViewController.h"
+#import "KBGroupSearchViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
@@ -200,6 +201,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:MY_TASK_PAGE_NAME toControllerClass:[KBMyTaskListViewController class]];
     [[HHRouter shared] map:GROUPR_PAGE_NAME toControllerClass:[KBGroupListViewController class]];
     [[HHRouter shared] map:TASK_DETAIL toControllerClass:[KBTaskDetailViewController class]];
+    [[HHRouter shared] map:SEARCH_GROUP_PAGE_URL toControllerClass:[KBGroupSearchViewController class]];
 }
 
 
