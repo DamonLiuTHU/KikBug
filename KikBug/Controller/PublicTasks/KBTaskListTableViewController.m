@@ -39,6 +39,7 @@ static NSString* identifier = @"kikbug";
         // 进入刷新状态后会自动调用这个block
         [self loadData];
     }];
+
     [self setTitle:@"任务广场"];
     [self loadData];
 }
@@ -163,5 +164,8 @@ static NSString* identifier = @"kikbug";
     }
     return inView;
 }
+
+#pragma mark - Auto Layout
+
 
 @end

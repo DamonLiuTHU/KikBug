@@ -38,6 +38,8 @@
             NSMutableArray *array = [NSMutableArray array];
             NSArray *itemsArray = [responseObject valueForKey:@"items"];
             for (NSDictionary *dic in itemsArray) {
+//            for (int i = 0; i < 20; i++) {
+//                NSDictionary *dic = itemsArray[0];
                 KBTaskListModel *model = [KBTaskListModel mj_objectWithKeyValues:dic];
                 [array addObject:model];
                 model.isAccepted = YES;

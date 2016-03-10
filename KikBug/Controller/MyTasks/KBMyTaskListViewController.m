@@ -89,8 +89,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)configConstrains
 {
-    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-    [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:-BOTTOM_BAR_HEIGHT];
+    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero ];
 }
 
 #pragma mark - TableView Delegate DataSource
