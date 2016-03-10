@@ -40,8 +40,10 @@
 }
 
 - (id)initWithCellIdentifier:(NSString *)cellID {
-    return [self initWithStyle:UITableViewCellStyleSubtitle
+    id instant = [self initWithStyle:UITableViewCellStyleSubtitle
                reuseIdentifier:cellID];
+    [instant setSelectionStyle:UITableViewCellSelectionStyleNone];
+    return instant;
 }
 
 + (CGFloat)calculateCellHeightWithData:(id)cellData

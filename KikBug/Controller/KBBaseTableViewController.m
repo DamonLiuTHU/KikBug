@@ -41,6 +41,12 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)loadData
+{
+    [super loadData];
+    [self.tableView.mj_header endRefreshing];
+}
+
 #pragma mark - Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 0;

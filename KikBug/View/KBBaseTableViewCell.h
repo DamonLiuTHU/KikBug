@@ -21,5 +21,5 @@
 + (CGFloat)calculateCellHeightWithData:(id)cellData;
 + (CGFloat)calculateCellHeightWithData:(id)cellData containerWidth:(CGFloat)containerWidth;
 + (CGFloat)cellHeight;
-
+- (void)configConstrains;
 @end
