@@ -232,10 +232,10 @@
 
 - (void)configConstrains
 {
-    [self.phoneNumber autoSetDimension:ALDimensionWidth toSize:200];
+//    [self.phoneNumber autoSetDimension:ALDimensionWidth toSize:300];
     [self.phoneNumber autoSetDimension:ALDimensionHeight toSize:self.plus86Label.height];
 
-    [self.pswFiled autoSetDimension:ALDimensionWidth toSize:200];
+//    [self.pswFiled autoSetDimension:ALDimensionWidth toSize:300];
     //    [self.pswFiled autoSetDimension:ALDimensionHeight toSize:LARGE_MARGIN];
 
     [self.logo autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
@@ -243,21 +243,28 @@
 
     [self.plus86Label autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:23];
     [self.plus86Label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.logo withOffset:23];
-
+    [self.plus86Label setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    
     [self.phoneNumber autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.plus86Label withOffset:23];
-    [self.phoneNumber autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.self.plus86Label];
-
+    [self.phoneNumber autoAlignAxis:ALAxisBaseline toSameAxisOfView:self.self.plus86Label];
+    [self.phoneNumber autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-MEDIUM_MARGIN];
+    
     [self.onepixleLine autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.phoneNumber withOffset:5];
     [self.onepixleLine autoAlignAxisToSuperviewAxis:ALAxisVertical];
-
+    
     [self.pswLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.plus86Label];
     [self.pswLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.plus86Label withOffset:LARGE_MARGIN];
+    [self.pswLabel autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.plus86Label];
 
-    [self.pswFiled autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.phoneNumber];
-    [self.pswFiled autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.pswLabel];
-
+    [self.pswFiled autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.pswLabel withOffset:23];
+    [self.pswFiled autoAlignAxis:ALAxisBaseline toSameAxisOfView:self.pswLabel];
+    [self.pswFiled autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-MEDIUM_MARGIN];
+    
     [self.onepixleLine2 autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.pswFiled withOffset:5];
     [self.onepixleLine2 autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
+//    [self.pswFiled autoSetDimensionsToSize:self.phoneNumber.size];
+//    [self.pswFiled autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.onepixleLine2];
 
     [self.loginBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.loginBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.onepixleLine2 withOffset:60];
