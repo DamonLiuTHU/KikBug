@@ -28,6 +28,7 @@
 		5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5075262D1C843FAA0071F67F /* KBTaskManager.m */; };
 		50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */; };
 		50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A31C901443002E825A /* KBBaseTableViewController.m */; };
+		50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */; };
 		50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */; };
 		50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C101C3F9BDB00E37500 /* NSString+Safe.m */; };
 		50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */; };
@@ -98,6 +99,8 @@
 		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
 		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
 		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewController.m; sourceTree = "<group>"; };
+		50CFDA8F1C94127D007E533E /* KBGroupSearchListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchListCellModel.h; sourceTree = "<group>"; };
+		50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchListCellModel.m; sourceTree = "<group>"; };
 		50D97C0D1C3F9BDB00E37500 /* NSString+EasyUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyUse.h"; sourceTree = "<group>"; };
 		50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EasyUse.m"; sourceTree = "<group>"; };
 		50D97C0F1C3F9BDB00E37500 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
@@ -426,6 +429,8 @@
 				50EDD5081C8A6A110021D71D /* KBGroupManager.m */,
 				50EDD50A1C8A70880021D71D /* KBGroupDetailModel.h */,
 				50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */,
+				50CFDA8F1C94127D007E533E /* KBGroupSearchListCellModel.h */,
+				50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */,
 			);
 			path = GroupManager;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
+				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,

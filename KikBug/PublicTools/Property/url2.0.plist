@@ -19,7 +19,7 @@
 	<key>Login</key>
 	<string>/user/login/</string>
 	<key>SearchGroup</key>
-	<string>/group/</string>
+	<string>/group</string>
 	<key>GetGroupDetail</key>
 	<string>/group/{groupId}</string>
 </dict>

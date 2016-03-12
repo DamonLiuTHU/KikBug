@@ -30,6 +30,9 @@
 
 + (void)searchGroupWithKeyword:(NSString*)keyword block:(void (^)(KBBaseModel*, NSError*))block
 {
+//    if ([NSString isNilorEmpty:keyword]) {
+//        return;
+//    }
     NSString* url = GETURL_V2(@"SearchGroup");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
                                       Params:@{ @"userId" : NSSTRING_NOT_NIL(STORED_USER_ID),

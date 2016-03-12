@@ -7,6 +7,7 @@
 //
 
 #import "KBGroupSearchViewController.h"
+#import "KBGroupManager.h"
 
 @interface KBGroupSearchViewController ()<UISearchBarDelegate,UISearchControllerDelegate>
 @property (strong,nonatomic) UISearchBar *searchBar;
@@ -43,6 +44,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - SearchBar delegate
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+//    NSLog(@"%@",searchText);
+    [KBGroupManager searchGroupWithKeyword:searchText block:^(KBBaseModel *baseMode, NSError *error) {
+        
+    }];
 }
 
 @end
