@@ -15,7 +15,7 @@
 + (void)fetchTaskDetailInfoWithTaskId:(NSString*)taskId completion:(void (^)(KBTaskDetailModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"GetTaskDetail");
-    url = [url stringByReplacingOccurrencesOfString:@"{taskId}" withString:taskId];
+    url = [url stringByReplacingOccurrencesOfString:@"{taskId}" withString:NSSTRING_NOT_NIL(taskId)];
     [KBHttpManager sendGetHttpReqeustWithUrl:url
                                       Params:nil
                                     CallBack:^(id responseObject, NSError* error) {
@@ -33,7 +33,7 @@
 {
     NSString* userId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID];
     NSString* url = GETURL_V2(@"AcceptTask");
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:userId];
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:NSSTRING_NOT_NIL(userId)];
     [KBHttpManager sendPostHttpRequestWithUrl:url
                                        Params:@{ @"taskId" : NSSTRING_NOT_NIL(taskId) }
                                      CallBack:^(id responseObject, NSError* error) {

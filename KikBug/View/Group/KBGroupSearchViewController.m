@@ -8,8 +8,9 @@
 
 #import "KBGroupSearchViewController.h"
 
-@interface KBGroupSearchViewController ()
-
+@interface KBGroupSearchViewController ()<UISearchBarDelegate,UISearchControllerDelegate>
+@property (strong,nonatomic) UISearchBar *searchBar;
+@property (strong,nonatomic) UISearchController *searchController;
 @end
 
 @implementation KBGroupSearchViewController
@@ -18,21 +19,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.searchBar = [UISearchBar new];
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"输入小组关键字";
+    self.searchController = [UISearchController new];
+    self.searchController.delegate = self;
+    
+    [self.view addSubview:self.searchBar];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
+}
+
+- (void)configConstrains
+{
+    [self.searchBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+//    [self.searchBar autoSetDimension:ALDimensionHeight toSize:120];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
