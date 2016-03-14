@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KBBaseModel;
+@class KBBaseModel,KBGroupSearchModel;
 @interface KBGroupManager : NSObject
 
 + (void)joinGroupWithGroupId:(NSString*)groupId phrase:(NSString*)phrase block:(void (^)(KBBaseModel* baseMode, NSError* error))block;
 
-+ (void)searchGroupWithKeyword:(NSString*)keyword block:(void (^)(KBBaseModel* baseMode, NSError* error))block;
++ (void)searchGroupWithKeyword:(NSString*)keyword block:(void (^)(KBGroupSearchModel* baseMode, NSError* error))block;
 
 + (void)fetchGroupDetailWithGroupId:(NSString*)groupId block:(void (^)(KBBaseModel*, NSError*))block;
 @end

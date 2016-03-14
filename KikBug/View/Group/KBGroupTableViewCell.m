@@ -17,14 +17,6 @@
 
 @implementation KBGroupTableViewCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 - (instancetype)initWithCellIdentifier:(NSString*)cellID
 {
     if (self = [super initWithCellIdentifier:cellID]) {

@@ -6,17 +6,21 @@
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 
-#import "KBGroupSearchViewController.h"
 #import "KBGroupManager.h"
+#import "KBGroupSearchModel.h"
+#import "KBGroupSearchTableViewCell.h"
+#import "KBGroupSearchViewController.h"
 
-@interface KBGroupSearchViewController ()<UISearchBarDelegate,UISearchControllerDelegate>
-@property (strong,nonatomic) UISearchBar *searchBar;
-@property (strong,nonatomic) UISearchController *searchController;
+@interface KBGroupSearchViewController () <UISearchBarDelegate, UISearchControllerDelegate>
+@property (strong, nonatomic) UISearchBar* searchBar;
+@property (strong, nonatomic) UISearchController* searchController;
+@property (strong, nonatomic) KBGroupSearchModel* model;
 @end
 
 @implementation KBGroupSearchViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
@@ -25,8 +29,15 @@
     self.searchBar.placeholder = @"输入小组关键字";
     self.searchController = [UISearchController new];
     self.searchController.delegate = self;
-    
+
     [self.view addSubview:self.searchBar];
+}
+
+- (void)configTableView
+{
+    [super configTableView];
+//    [self.tableView registerClass:[KBGroupSearchTableViewCell class] forCellReuseIdentifier:[KBGroupSearchTableViewCell cellIdentifier]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,21 +49,43 @@
 - (void)configConstrains
 {
     [self.searchBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-//    [self.searchBar autoSetDimension:ALDimensionHeight toSize:120];
+    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+    [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.searchBar];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - SearchBar delegate
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)searchText
 {
-//    NSLog(@"%@",searchText);
-    [KBGroupManager searchGroupWithKeyword:searchText block:^(KBBaseModel *baseMode, NSError *error) {
-        
+    //    NSLog(@"%@",searchText);
+    WEAKSELF;
+    [KBGroupManager searchGroupWithKeyword:searchText block:^(KBGroupSearchModel* baseMode, NSError* error) {
+        weakSelf.model = baseMode;
+        [weakSelf.tableView reloadData];
     }];
+}
+
+#pragma mark - table view
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    KBGroupSearchTableViewCell* cell = [KBGroupSearchTableViewCell cellForTableView:tableView];
+    [cell bindModel:self.model.items[indexPath.row]];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return [KBGroupSearchTableViewCell cellHeight];
+}
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.model.items.count;
 }
 
 @end

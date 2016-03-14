@@ -7,9 +7,10 @@
 //
 
 #import "KBViewController.h"
+#import "KBBaseTableViewController.h"
 /**
  *  群组搜索页面
  */
-@interface KBGroupSearchViewController : KBViewController
+@interface KBGroupSearchViewController : KBBaseTableViewController
 
 @end
