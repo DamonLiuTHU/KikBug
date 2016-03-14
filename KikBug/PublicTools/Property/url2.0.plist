@@ -9,7 +9,7 @@
 	<key>PublicTasks</key>
 	<string>/task</string>
 	<key>JoinGroup</key>
-	<string>/tester/{id}/group</string>
+	<string>/tester/{id}/group/</string>
 	<key>AcceptTask</key>
 	<string>/tester/{id}/task/</string>
 	<key>GetMyTasks</key>

@@ -11,6 +11,10 @@
 @interface KBGroupDetailModel : NSObject<MJKeyValue>
 JSONINT groupId;
 JSONSTIRNG name;
-JSONSTIRNG groupTesters;
-JSONSTIRNG groupApps;
+//JSONSTIRNG groupTesters;
+//JSONSTIRNG groupApps;
+JSONINT status;
+JSONINT operatorId;
+JSONSTIRNG operatorName;
+JSONSTIRNG contact;
 @end

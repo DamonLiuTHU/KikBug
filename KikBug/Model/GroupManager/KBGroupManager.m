@@ -10,6 +10,7 @@
 #import "KBGroupManager.h"
 #import "KBGroupSearchModel.h"
 #import "KBHttpManager.h"
+#import "KBGroupDetailModel.h"
 
 @implementation KBGroupManager
 
@@ -65,7 +66,7 @@
                                     }];
 }
 
-+ (void)fetchGroupDetailWithGroupId:(NSString*)groupId block:(void (^)(KBBaseModel*, NSError*))block
++ (void)fetchGroupDetailWithGroupId:(NSString*)groupId block:(void (^)(KBGroupDetailModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"GetGroupDetail");
     url = [url stringByReplacingOccurrencesOfString:@"{groupId}" withString:NSSTRING_NOT_NIL(groupId)];
@@ -73,7 +74,8 @@
                                       Params:nil
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
-                                            block(responseObject, nil);
+                                            KBGroupDetailModel *model = [KBGroupDetailModel mj_objectWithKeyValues:responseObject];
+                                            block(model, nil);
                                         }
                                         else {
                                             block(nil, error);

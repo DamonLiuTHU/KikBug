@@ -24,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.title = @"搜索群组";
     self.searchBar = [UISearchBar new];
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"输入小组关键字";
@@ -36,7 +37,7 @@
 - (void)configTableView
 {
     [super configTableView];
-//    [self.tableView registerClass:[KBGroupSearchTableViewCell class] forCellReuseIdentifier:[KBGroupSearchTableViewCell cellIdentifier]];
+    //    [self.tableView registerClass:[KBGroupSearchTableViewCell class] forCellReuseIdentifier:[KBGroupSearchTableViewCell cellIdentifier]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 }
 
@@ -86,6 +87,19 @@
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.model.items.count;
+}
+
+/**
+ *  弹出群组详情页面
+ *
+ *  @param tableView tableView description
+ *  @param indexPath indexPath description
+ */
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSString *params = [NSString stringWithFormat:@"/?groupId=%ld",(long)self.model.items[indexPath.row].groupId];
+    UIViewController *vc = [[HHRouter shared] matchController:[GROUP_DETAIL_PAGE stringByAppendingString:params]];
+    [[KBNavigator sharedNavigator] showViewController:vc];
 }
 
 @end

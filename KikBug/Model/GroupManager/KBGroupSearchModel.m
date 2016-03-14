@@ -17,6 +17,9 @@
 
 @implementation KBGroupSearchItem
 
-//
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"groupId":@"id"};
+}
 
 @end
