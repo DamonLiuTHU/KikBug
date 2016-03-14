@@ -9,6 +9,11 @@
 #import "KBGroupListViewController.h"
 #import "KBGroupTableViewCell.h"
 #import "KBGroupManager.h"
+#import "KBGroupSearchModel.h"
+
+@interface KBGroupListViewController ()
+@property (strong,nonatomic) KBGroupSearchModel *model;
+@end
 
 @implementation KBGroupListViewController
 
@@ -26,7 +31,14 @@
 
 - (void)loadData
 {
-//    [KBGroupManager get]
+    WEAKSELF;
+    [KBGroupManager fetchMyGroupsWithBlock:^(KBGroupSearchModel *baseMode, NSError *error) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        if (!error) {
+            weakSelf.model = baseMode;
+            [weakSelf.tableView reloadData];
+        }
+    }];
 }
 
 - (void)configTableView {
@@ -41,13 +53,13 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.model.items.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     KBGroupTableViewCell *cell = [KBGroupTableViewCell cellForTableView:tableView];
-    [cell bindModel:nil];
+    [cell bindModel:self.model.items[indexPath.row]];
     return cell;
 }
 

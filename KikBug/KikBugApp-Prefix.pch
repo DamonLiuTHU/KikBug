@@ -25,4 +25,5 @@
 #import "KBNavigator.h"
 #import "NSObject+MJKeyValue.h"
 #import "MJRefresh.h"
+#import "KBBaseModel.h"
 #endif

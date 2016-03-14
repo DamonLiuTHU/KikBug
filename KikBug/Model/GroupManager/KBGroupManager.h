@@ -15,4 +15,6 @@
 + (void)searchGroupWithKeyword:(NSString*)keyword block:(void (^)(KBGroupSearchModel* baseMode, NSError* error))block;
 
 + (void)fetchGroupDetailWithGroupId:(NSString*)groupId block:(void (^)(KBGroupDetailModel*, NSError*))block;
+
++ (void)fetchMyGroupsWithBlock:(void (^)(KBGroupSearchModel* baseMode, NSError* error))block;
 @end

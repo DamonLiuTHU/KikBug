@@ -7,10 +7,10 @@
 //
 
 #import "KBBaseModel.h"
+#import "KBGroupDetailModel.h"
 #import "KBGroupManager.h"
 #import "KBGroupSearchModel.h"
 #import "KBHttpManager.h"
-#import "KBGroupDetailModel.h"
 
 @implementation KBGroupManager
 
@@ -74,12 +74,29 @@
                                       Params:nil
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
-                                            KBGroupDetailModel *model = [KBGroupDetailModel mj_objectWithKeyValues:responseObject];
+                                            KBGroupDetailModel* model = [KBGroupDetailModel mj_objectWithKeyValues:responseObject];
                                             block(model, nil);
                                         }
                                         else {
                                             block(nil, error);
                                         }
+                                    }];
+}
+
++ (void)fetchMyGroupsWithBlock:(void (^)(KBGroupSearchModel *, NSError *))block
+{
+    NSString *url = GETURL_V2(@"GetMyGroups");
+    [KBHttpManager sendGetHttpReqeustWithUrl:url
+                                      Params:@{@"testerId":NSSTRING_NOT_NIL(STORED_USER_ID)}
+                                    CallBack:^(id responseObject, NSError *error) {
+                                        if (!error) {
+                                            KBGroupSearchModel* model = [KBGroupSearchModel mj_objectWithKeyValues:responseObject];
+                                            block(model, nil);
+                                        }
+                                        else {
+                                            block(nil, error);
+                                        }
+
                                     }];
 }
 @end
