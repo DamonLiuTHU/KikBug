@@ -8,6 +8,7 @@
 
 #import "KBGroupListViewController.h"
 #import "KBGroupTableViewCell.h"
+#import "KBGroupManager.h"
 
 @implementation KBGroupListViewController
 
@@ -21,6 +22,11 @@
     [addButton addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)loadData
+{
+//    [KBGroupManager get]
 }
 
 - (void)configTableView {

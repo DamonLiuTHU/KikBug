@@ -142,7 +142,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     mytasklistVC.title = @"我的任务";
 
     KBGroupListViewController* groupListVC = [[KBGroupListViewController alloc] init];
-    [groupListVC setTitle:@"群组"];
+    [groupListVC setTitle:@"我的群组"];
 
     KBUserHomeViewController* userVC = [[KBUserHomeViewController alloc] init];
     userVC.title = @"个人中心";

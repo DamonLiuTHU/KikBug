@@ -102,6 +102,24 @@
     [super updateViewConstraints];
 }
 
+- (void)joinSuccess
+{
+    
+}
+
+- (void)showWrongPhraseAlertView
+{
+    WEAKSELF;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"口令错误" message:@"" preferredStyle: UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf joinButtonPressed];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - UI Event
 - (void)joinButtonPressed
 {
@@ -117,7 +135,11 @@
         }
 //        NSLog(@"%@",phraseFromUser);
         [KBGroupManager joinGroupWithGroupId:weakSelf.groupId phrase:phraseFromUser block:^(KBBaseModel *baseMode, NSError *error) {
-            //
+            if (error) {
+                [weakSelf showWrongPhraseAlertView];
+            } else {
+                [weakSelf joinSuccess];
+            }
         }];
     }]];
     
