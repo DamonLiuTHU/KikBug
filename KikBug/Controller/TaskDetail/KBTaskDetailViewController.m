@@ -19,8 +19,10 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
+#import "UIViewController+DNImagePicker.h"
+#import "DNImagePickerController.h"
 
-@interface KBTaskDetailViewController ()
+@interface KBTaskDetailViewController ()<DNImagePickerControllerDelegate>
 
 @property (strong, nonatomic) KBTaskListModel* model;
 @property (strong, nonatomic) KBTaskDetailModel* detailModel;
@@ -515,10 +517,21 @@
 
 - (void)startTaskButtonPressed
 {
+    [self jumpToApp:nil];
 }
 
 - (void)checkMyReportsButtonPressed
 {
+    DNImagePickerController *imagePicker = [[DNImagePickerController alloc] init];
+    imagePicker.imagePickerDelegate = self;
+    imagePicker.filterType = DNImagePickerFilterTypePhotos;
+//    [imagePicker showAlbumList];
+    [self presentViewController:imagePicker animated:YES completion:^{
+        //
+
+    }];
+    
+//    [[KBNavigator sharedNavigator] showViewController:imagePicker withShowType:KBUIManagerShowTypePresent];
 }
 
 - (void)jumpToApp:(id)sender
@@ -527,6 +540,25 @@
 //    if (appUrl != nil && [[UIApplication sharedApplication] canOpenURL:appUrl]) {
         [[UIApplication sharedApplication] openURL:appUrl];
 //    }
- }
+}
+
+#pragma mark - DNImagePickerControllerDelegate
+
+- (void)dnImagePickerController:(DNImagePickerController *)imagePickerController sendImages:(NSArray *)imageAssets isFullImage:(BOOL)fullImage
+{
+//    self.assetsArray = [NSMutableArray arrayWithArray:imageAssets];
+//    CollectionViewController *collectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CollectionViewController"];
+//    collectionVC.isFullImage = fullImage;
+//    collectionVC.imageArray = imageAssets;
+//    [self.navigationController pushViewController:collectionVC animated:YES];
+}
+
+- (void)dnImagePickerControllerDidCancel:(DNImagePickerController *)imagePicker
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 
 @end

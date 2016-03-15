@@ -29,6 +29,28 @@
 		5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526291C83E68B0071F67F /* KBBaseModel.m */; };
 		5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5075262D1C843FAA0071F67F /* KBTaskManager.m */; };
 		50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50873C941C96CA6300979A4C /* KBGroupDetailViewController.m */; };
+		50A4FE091C97F82F00B35124 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A4FE081C97F82F00B35124 /* AssetsLibrary.framework */; };
+		50A4FE351C97F86700B35124 /* DNAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE0C1C97F86700B35124 /* DNAlbumTableViewController.m */; };
+		50A4FE361C97F86700B35124 /* DNAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE0E1C97F86700B35124 /* DNAsset.m */; };
+		50A4FE371C97F86700B35124 /* DNImageFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE101C97F86700B35124 /* DNImageFlowViewController.m */; };
+		50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE121C97F86700B35124 /* DNImagePickerController.m */; };
+		50A4FE391C97F86700B35124 /* DNImagePickerController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50A4FE131C97F86700B35124 /* DNImagePickerController.strings */; };
+		50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE151C97F86700B35124 /* DNPhotoBrowser.m */; };
+		50A4FE3B1C97F86700B35124 /* DNImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50A4FE161C97F86700B35124 /* DNImagePicker.strings */; };
+		50A4FE3C1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE1A1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m */; };
+		50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE1C1C97F86700B35124 /* UIColor+Hex.m */; };
+		50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE1E1C97F86700B35124 /* UIView+DNImagePicker.m */; };
+		50A4FE3F1C97F86700B35124 /* UIViewController+DNImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE201C97F86700B35124 /* UIViewController+DNImagePicker.m */; };
+		50A4FE401C97F86700B35124 /* imageResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A4FE211C97F86700B35124 /* imageResources.xcassets */; };
+		50A4FE411C97F86700B35124 /* ImagesPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A4FE221C97F86700B35124 /* ImagesPicker.xcassets */; };
+		50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE251C97F86700B35124 /* DNAssetsViewCell.m */; };
+		50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE271C97F86700B35124 /* DNBadgeLabel.m */; };
+		50A4FE441C97F86700B35124 /* DNBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE291C97F86700B35124 /* DNBrowserCell.m */; };
+		50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE2B1C97F86700B35124 /* DNFullImageButton.m */; };
+		50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE2D1C97F86700B35124 /* DNSendButton.m */; };
+		50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE2F1C97F86700B35124 /* DNTapDetectingImageView.m */; };
+		50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE311C97F86700B35124 /* DNUnAuthorizedTipsView.m */; };
+		50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE331C97F86700B35124 /* JKPromptView.m */; };
 		50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */; };
 		50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A31C901443002E825A /* KBBaseTableViewController.m */; };
 		50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */; };
@@ -104,6 +126,46 @@
 		5075262D1C843FAA0071F67F /* KBTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskManager.m; sourceTree = "<group>"; };
 		50873C931C96CA6300979A4C /* KBGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupDetailViewController.h; sourceTree = "<group>"; };
 		50873C941C96CA6300979A4C /* KBGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailViewController.m; sourceTree = "<group>"; };
+		50A4FE081C97F82F00B35124 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		50A4FE0B1C97F86700B35124 /* DNAlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAlbumTableViewController.h; sourceTree = "<group>"; };
+		50A4FE0C1C97F86700B35124 /* DNAlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAlbumTableViewController.m; sourceTree = "<group>"; };
+		50A4FE0D1C97F86700B35124 /* DNAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAsset.h; sourceTree = "<group>"; };
+		50A4FE0E1C97F86700B35124 /* DNAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAsset.m; sourceTree = "<group>"; };
+		50A4FE0F1C97F86700B35124 /* DNImageFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNImageFlowViewController.h; sourceTree = "<group>"; };
+		50A4FE101C97F86700B35124 /* DNImageFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNImageFlowViewController.m; sourceTree = "<group>"; };
+		50A4FE111C97F86700B35124 /* DNImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNImagePickerController.h; sourceTree = "<group>"; };
+		50A4FE121C97F86700B35124 /* DNImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNImagePickerController.m; sourceTree = "<group>"; };
+		50A4FE131C97F86700B35124 /* DNImagePickerController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = DNImagePickerController.strings; sourceTree = "<group>"; };
+		50A4FE141C97F86700B35124 /* DNPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNPhotoBrowser.h; sourceTree = "<group>"; };
+		50A4FE151C97F86700B35124 /* DNPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNPhotoBrowser.m; sourceTree = "<group>"; };
+		50A4FE171C97F86700B35124 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DNImagePicker.strings; sourceTree = "<group>"; };
+		50A4FE191C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+DNIMagePickerUrlEqual.h"; sourceTree = "<group>"; };
+		50A4FE1A1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+DNIMagePickerUrlEqual.m"; sourceTree = "<group>"; };
+		50A4FE1B1C97F86700B35124 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		50A4FE1C1C97F86700B35124 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		50A4FE1D1C97F86700B35124 /* UIView+DNImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DNImagePicker.h"; sourceTree = "<group>"; };
+		50A4FE1E1C97F86700B35124 /* UIView+DNImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DNImagePicker.m"; sourceTree = "<group>"; };
+		50A4FE1F1C97F86700B35124 /* UIViewController+DNImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DNImagePicker.h"; sourceTree = "<group>"; };
+		50A4FE201C97F86700B35124 /* UIViewController+DNImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DNImagePicker.m"; sourceTree = "<group>"; };
+		50A4FE211C97F86700B35124 /* imageResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = imageResources.xcassets; sourceTree = "<group>"; };
+		50A4FE221C97F86700B35124 /* ImagesPicker.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImagesPicker.xcassets; sourceTree = "<group>"; };
+		50A4FE241C97F86700B35124 /* DNAssetsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAssetsViewCell.h; sourceTree = "<group>"; };
+		50A4FE251C97F86700B35124 /* DNAssetsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAssetsViewCell.m; sourceTree = "<group>"; };
+		50A4FE261C97F86700B35124 /* DNBadgeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNBadgeLabel.h; sourceTree = "<group>"; };
+		50A4FE271C97F86700B35124 /* DNBadgeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNBadgeLabel.m; sourceTree = "<group>"; };
+		50A4FE281C97F86700B35124 /* DNBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNBrowserCell.h; sourceTree = "<group>"; };
+		50A4FE291C97F86700B35124 /* DNBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNBrowserCell.m; sourceTree = "<group>"; };
+		50A4FE2A1C97F86700B35124 /* DNFullImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNFullImageButton.h; sourceTree = "<group>"; };
+		50A4FE2B1C97F86700B35124 /* DNFullImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNFullImageButton.m; sourceTree = "<group>"; };
+		50A4FE2C1C97F86700B35124 /* DNSendButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSendButton.h; sourceTree = "<group>"; };
+		50A4FE2D1C97F86700B35124 /* DNSendButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSendButton.m; sourceTree = "<group>"; };
+		50A4FE2E1C97F86700B35124 /* DNTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNTapDetectingImageView.h; sourceTree = "<group>"; };
+		50A4FE2F1C97F86700B35124 /* DNTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNTapDetectingImageView.m; sourceTree = "<group>"; };
+		50A4FE301C97F86700B35124 /* DNUnAuthorizedTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNUnAuthorizedTipsView.h; sourceTree = "<group>"; };
+		50A4FE311C97F86700B35124 /* DNUnAuthorizedTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNUnAuthorizedTipsView.m; sourceTree = "<group>"; };
+		50A4FE321C97F86700B35124 /* JKPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPromptView.h; sourceTree = "<group>"; };
+		50A4FE331C97F86700B35124 /* JKPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPromptView.m; sourceTree = "<group>"; };
+		50A4FE341C97F86700B35124 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DNImagePicker.strings"; sourceTree = "<group>"; };
 		50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewCell.h; sourceTree = "<group>"; };
 		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
 		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
@@ -152,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A4FE091C97F82F00B35124 /* AssetsLibrary.framework in Frameworks */,
 				5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,9 +386,71 @@
 			path = TaskManager;
 			sourceTree = "<group>";
 		};
+		50A4FE0A1C97F86700B35124 /* DNImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				50A4FE0B1C97F86700B35124 /* DNAlbumTableViewController.h */,
+				50A4FE0C1C97F86700B35124 /* DNAlbumTableViewController.m */,
+				50A4FE0D1C97F86700B35124 /* DNAsset.h */,
+				50A4FE0E1C97F86700B35124 /* DNAsset.m */,
+				50A4FE0F1C97F86700B35124 /* DNImageFlowViewController.h */,
+				50A4FE101C97F86700B35124 /* DNImageFlowViewController.m */,
+				50A4FE111C97F86700B35124 /* DNImagePickerController.h */,
+				50A4FE121C97F86700B35124 /* DNImagePickerController.m */,
+				50A4FE131C97F86700B35124 /* DNImagePickerController.strings */,
+				50A4FE141C97F86700B35124 /* DNPhotoBrowser.h */,
+				50A4FE151C97F86700B35124 /* DNPhotoBrowser.m */,
+				50A4FE161C97F86700B35124 /* DNImagePicker.strings */,
+				50A4FE181C97F86700B35124 /* Extensions */,
+				50A4FE211C97F86700B35124 /* imageResources.xcassets */,
+				50A4FE221C97F86700B35124 /* ImagesPicker.xcassets */,
+				50A4FE231C97F86700B35124 /* Views */,
+			);
+			path = DNImagePicker;
+			sourceTree = "<group>";
+		};
+		50A4FE181C97F86700B35124 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50A4FE191C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.h */,
+				50A4FE1A1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m */,
+				50A4FE1B1C97F86700B35124 /* UIColor+Hex.h */,
+				50A4FE1C1C97F86700B35124 /* UIColor+Hex.m */,
+				50A4FE1D1C97F86700B35124 /* UIView+DNImagePicker.h */,
+				50A4FE1E1C97F86700B35124 /* UIView+DNImagePicker.m */,
+				50A4FE1F1C97F86700B35124 /* UIViewController+DNImagePicker.h */,
+				50A4FE201C97F86700B35124 /* UIViewController+DNImagePicker.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		50A4FE231C97F86700B35124 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50A4FE241C97F86700B35124 /* DNAssetsViewCell.h */,
+				50A4FE251C97F86700B35124 /* DNAssetsViewCell.m */,
+				50A4FE261C97F86700B35124 /* DNBadgeLabel.h */,
+				50A4FE271C97F86700B35124 /* DNBadgeLabel.m */,
+				50A4FE281C97F86700B35124 /* DNBrowserCell.h */,
+				50A4FE291C97F86700B35124 /* DNBrowserCell.m */,
+				50A4FE2A1C97F86700B35124 /* DNFullImageButton.h */,
+				50A4FE2B1C97F86700B35124 /* DNFullImageButton.m */,
+				50A4FE2C1C97F86700B35124 /* DNSendButton.h */,
+				50A4FE2D1C97F86700B35124 /* DNSendButton.m */,
+				50A4FE2E1C97F86700B35124 /* DNTapDetectingImageView.h */,
+				50A4FE2F1C97F86700B35124 /* DNTapDetectingImageView.m */,
+				50A4FE301C97F86700B35124 /* DNUnAuthorizedTipsView.h */,
+				50A4FE311C97F86700B35124 /* DNUnAuthorizedTipsView.m */,
+				50A4FE321C97F86700B35124 /* JKPromptView.h */,
+				50A4FE331C97F86700B35124 /* JKPromptView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		50D97C0B1C3F9BDB00E37500 /* PublicTools */ = {
 			isa = PBXGroup;
 			children = (
+				50A4FE0A1C97F86700B35124 /* DNImagePicker */,
 				50D97C171C3F9BDB00E37500 /* Macros.h */,
 				50D97C181C3F9BDB00E37500 /* main.m */,
 				50740BC31C575CA4009B30A4 /* Navigation */,
@@ -482,6 +607,7 @@
 		59CD1709DEF493D0FC1A4F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50A4FE081C97F82F00B35124 /* AssetsLibrary.framework */,
 				EF06231D4A1861D309790D96 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -554,6 +680,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 5039A2511B73585000714F7A;
 			productRefGroup = 5039A25B1B73585000714F7A /* Products */;
@@ -571,12 +698,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A4FE3B1C97F86700B35124 /* DNImagePicker.strings in Resources */,
 				50D97C231C3F9BDB00E37500 /* property.plist in Resources */,
 				500BAA0F1C8290E4005E5831 /* url2.0.plist in Resources */,
 				50130E781BF06EE500D8A1B1 /* Podfile in Resources */,
 				5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */,
 				50D97C241C3F9BDB00E37500 /* url.plist in Resources */,
+				50A4FE391C97F86700B35124 /* DNImagePickerController.strings in Resources */,
+				50A4FE401C97F86700B35124 /* imageResources.xcassets in Resources */,
 				5039A26B1B73585000714F7A /* Images.xcassets in Resources */,
+				50A4FE411C97F86700B35124 /* ImagesPicker.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,37 +774,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
+				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
+				50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */,
 				50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */,
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
+				50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
+				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
+				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
+				50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
+				50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */,
+				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
+				50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */,
+				50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */,
 				504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */,
 				500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */,
 				50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */,
 				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
 				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
+				50A4FE441C97F86700B35124 /* DNBrowserCell.m in Sources */,
+				50A4FE3F1C97F86700B35124 /* UIViewController+DNImagePicker.m in Sources */,
+				50A4FE351C97F86700B35124 /* DNAlbumTableViewController.m in Sources */,
 				5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */,
+				50A4FE371C97F86700B35124 /* DNImageFlowViewController.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
 				50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */,
 				504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */,
+				50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */,
 				50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */,
 				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
+				50A4FE361C97F86700B35124 /* DNAsset.m in Sources */,
 				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,
 				50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */,
 				50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */,
+				50A4FE3C1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m in Sources */,
 				50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */,
 				5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */,
 			);
@@ -704,6 +852,15 @@
 				5039A26D1B73585000714F7A /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		50A4FE161C97F86700B35124 /* DNImagePicker.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A4FE171C97F86700B35124 /* en */,
+				50A4FE341C97F86700B35124 /* zh-Hans */,
+			);
+			name = DNImagePicker.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

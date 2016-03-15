@@ -30,6 +30,7 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 //- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param;
 
 //- (void)showViewControllerWithName:(NSString *)name param:(NSDictionary *)param needLogin:(BOOL)needLogin;
++ (void)setNavigationBarStyle:(UINavigationController *)aNav;
 
 - (void)showViewController:(UIViewController *)viewController;
 

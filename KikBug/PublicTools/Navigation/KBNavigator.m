@@ -117,14 +117,18 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 {
     NSParameterAssert(controller);
     UINavigationController* aNav = [[UINavigationController alloc] initWithRootViewController:controller];
+    [KBNavigator setNavigationBarStyle:aNav];
+    aNav.navigationBarHidden = YES;
+    return aNav;
+}
+
++ (void)setNavigationBarStyle:(UINavigationController *)aNav
+{
     [aNav.navigationBar setBarTintColor:THEME_COLOR];
     [aNav.navigationBar setTintColor:[UIColor whiteColor]];
     [aNav.navigationBar setTitleTextAttributes:@{ NSFontAttributeName : APP_FONT(17),
-        NSForegroundColorAttributeName : [UIColor whiteColor] }];
+                                                  NSForegroundColorAttributeName : [UIColor whiteColor] }];
     [aNav.navigationBar setTranslucent:NO];
-    aNav.navigationBarHidden = YES;
-
-    return aNav;
 }
 
 - (void)showRootViewController
