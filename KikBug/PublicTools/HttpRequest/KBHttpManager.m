@@ -140,11 +140,20 @@
         [KBLoginManager markUserAsLogOut];
     } break;
 
+    case 200: {
+        //一切正常
+        NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+        block(dataDic, nil);
+    } break;
+
+    case 403: {
+        //没有权限
+        
+    } break;
+
     default:
         break;
     }
-    NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
-    block(dataDic, nil);
 }
 
 @end
