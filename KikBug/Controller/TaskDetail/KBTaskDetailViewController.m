@@ -523,12 +523,10 @@
 
 - (void)jumpToApp:(id)sender
 {
-    if (appUrl != nil) {
+    appUrl = [NSURL URLWithString:@"NetEase://"];
+//    if (appUrl != nil && [[UIApplication sharedApplication] canOpenURL:appUrl]) {
         [[UIApplication sharedApplication] openURL:appUrl];
-    }
-    else {
-        //        [[UIApplication sharedApplication]]
-    }
-}
+//    }
+ }
 
 @end
