@@ -122,4 +122,5 @@ return [self singletonName];\
 
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
+#define TRANSLATE(responseObject) KBErrorModel *errorModel = [KBErrorModel mj_objectWithKeyValues:responseObject];
 

@@ -13,3 +13,10 @@ JSONSTIRNG message;
 JSONINT status;
 @property (strong, nonatomic) NSString* data;
 @end
+
+
+@interface KBErrorModel : NSObject<MJKeyValue>
+JSONINT status;
+JSONSTIRNG message;
+JSONSTIRNG data;
+@end

@@ -41,6 +41,8 @@
                                              block(responseObject, nil);
                                          }
                                          else {
+                                             TRANSLATE(responseObject);
+                                             NSLog(@"%@",errorModel);
                                              block(nil, error);
                                          }
                                      }];

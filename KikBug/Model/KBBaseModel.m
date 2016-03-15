@@ -11,3 +11,9 @@
 @implementation KBBaseModel
 
 @end
+
+@implementation KBErrorModel
+- (NSString *)description {
+    return  [NSString stringWithFormat:@"<%@: %ld,\"%@ \">",[self class],(long)self.status,self.message];
+}
+@end

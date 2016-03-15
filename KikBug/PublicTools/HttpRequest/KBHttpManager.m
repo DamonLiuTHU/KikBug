@@ -55,7 +55,7 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            block(nil, error);
+            block(operation.responseObject, error);
         }];
 }
 
@@ -72,7 +72,7 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            block(nil, error);
+            block(operation.responseObject, error);
         }];
 }
 
@@ -134,26 +134,26 @@
     NSLog(@"%@", responseObject);
 #endif
     KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
-    switch (baseModel.status) {
-    case 401: {
-        //处理Session过期的情况
-        [KBLoginManager markUserAsLogOut];
-    } break;
+//    switch (baseModel.status) {
+//    case 401: {
+//        //处理Session过期的情况
+//        [KBLoginManager markUserAsLogOut];
+//    } break;
+//
+//    case 200: {
+//        //一切正常
+    NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+    block(dataDic, nil);
+//    } break;
+//
+//    case 403: {
+//        //没有权限
+//        
+//    } break;
 
-    case 200: {
-        //一切正常
-        NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
-        block(dataDic, nil);
-    } break;
-
-    case 403: {
-        //没有权限
-        
-    } break;
-
-    default:
-        break;
-    }
+//    default:
+//        break;
+//    }
 }
 
 @end
