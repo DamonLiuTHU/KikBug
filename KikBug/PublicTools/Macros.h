@@ -20,7 +20,7 @@
 
 
 /*****Fonts*****/
-#define APP_FONT_NORMAL [NSFont systemFontOfSize:APP_FONT_SIZE_MIDDLE]
+#define APP_FONT_NORMAL [UIFont systemFontOfSize:APP_FONT_SIZE_MIDDLE]
 
 
 

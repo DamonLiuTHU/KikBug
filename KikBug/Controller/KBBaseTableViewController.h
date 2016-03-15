@@ -10,4 +10,5 @@
 
 @interface KBBaseTableViewController : KBViewController<UITableViewDataSource,UITableViewDelegate>
 - (void)configTableView;
++ (void)configHeaderStyle:(UITableView *)tableView;
 @end

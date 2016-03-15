@@ -16,6 +16,7 @@
 #import "KBTaskListModel.h"
 #import "KBUserHomeViewController.h"
 #import "MBProgressHUD.h"
+#import "KBBaseTableViewController.h"
 
 static NSString* identifier = @"kikbug";
 
@@ -35,11 +36,12 @@ static NSString* identifier = @"kikbug";
     [self showLoadingView];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
+    WEAKSELF;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        [self loadData];
+        [weakSelf loadData];
     }];
-
+    [KBBaseTableViewController configHeaderStyle:self.tableView];
     [self setTitle:@"任务广场"];
     [self loadData];
 }
@@ -61,16 +63,17 @@ static NSString* identifier = @"kikbug";
 
 - (void)loadData
 {
+    WEAKSELF;
     [KBTaskListManager fetchPublicTasksWithCompletion:^(NSArray<KBTaskListModel*>* model, NSError* error) {
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
         if (model && !error) {
             dataSource = model;
-            [self.tableView reloadData];
+            [weakSelf.tableView reloadData];
         }
         else {
-            [self showLoadingViewWithText:@"网络错误，请重新刷新"];
+            [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
-        [self hideLoadingView];
+        [weakSelf hideLoadingView];
     }];
 }
 

@@ -14,12 +14,14 @@
 
 @implementation KBBaseTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self configTableView];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -35,10 +37,27 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadData];
     }];
-    //    [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
+    [KBBaseTableViewController configHeaderStyle:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
+}
+
+/**
+ *  设置头部的文字样式
+ */
++ (void)configHeaderStyle:(UITableView*)tableView
+{
+    if ([tableView.mj_header isKindOfClass:[MJRefreshStateHeader class]]) {
+        MJRefreshStateHeader* header = (MJRefreshStateHeader*)tableView.mj_header;
+        // 设置字体
+        header.stateLabel.font = APP_FONT_NORMAL;
+        header.lastUpdatedTimeLabel.font = APP_FONT_NORMAL;
+
+        // 设置颜色
+        header.stateLabel.textColor = THEME_COLOR;
+        header.lastUpdatedTimeLabel.textColor = THEME_COLOR;
+    }
 }
 
 - (void)loadData
@@ -48,11 +67,13 @@
 }
 
 #pragma mark - Table view data source
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 0;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
     return nil;
 }
 
