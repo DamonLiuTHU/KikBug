@@ -56,6 +56,7 @@ static NSString* const dnAssetsViewCellReuseIdentifier = @"DNAssetsViewCell";
     [super viewDidLoad];
     [self setupView];
     [self setupData];
+    [KBNavigator setNavigationBarStyle:self.navigationController];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -104,7 +104,7 @@
 
 - (void)joinSuccess
 {
-    
+    [self showLoadingViewWithText:@"群组加入成功" withDuration:2.0f];
 }
 
 - (void)showWrongPhraseAlertView
@@ -136,7 +136,8 @@
 //        NSLog(@"%@",phraseFromUser);
         [KBGroupManager joinGroupWithGroupId:weakSelf.groupId phrase:phraseFromUser block:^(KBBaseModel *baseMode, NSError *error) {
             if (error) {
-                [weakSelf showWrongPhraseAlertView];
+                NSString *errormsg = [NSString stringWithFormat:@"%@ (%@)",baseMode.message,INT_TO_STIRNG(baseMode.status)];
+                [self showAlertViewWithText:errormsg];
             } else {
                 [weakSelf joinSuccess];
             }

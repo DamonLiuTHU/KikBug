@@ -10,7 +10,7 @@
 
 @interface KBViewController : UIViewController
 
-@property (strong,nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UITableView* tableView;
 
 /**
  *  加载数据,只需要覆盖,不需要调用!
@@ -22,8 +22,12 @@
  */
 - (void)configConstrains;
 
-
 - (void)showLoadingView;
-- (void)showLoadingViewWithText:(NSString *)text;
+- (void)showLoadingViewWithText:(NSString*)text;
+- (void)showLoadingViewWithText:(NSString*)text withDuration:(CGFloat)duration;
 - (void)hideLoadingView;
+
+- (void)showHudViewWithText:(NSString*)text;
+
+- (void)showAlertViewWithText:(NSString*)text;
 @end

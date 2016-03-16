@@ -15,8 +15,7 @@ JSONINT status;
 @end
 
 
-@interface KBErrorModel : NSObject<MJKeyValue>
-JSONINT status;
-JSONSTIRNG message;
-JSONSTIRNG data;
+@interface KBErrorModel : KBBaseModel
+//JSONINT status;
+//JSONSTIRNG message;
 @end

@@ -33,7 +33,8 @@
                                              block(responseObject, nil);
                                          }
                                          else {
-                                             block(nil, error);
+                                             TRANSLATE(responseObject)
+                                             block(errorModel, error);
                                          }
                                      }];
 }

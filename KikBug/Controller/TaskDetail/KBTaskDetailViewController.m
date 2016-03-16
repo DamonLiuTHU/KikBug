@@ -475,24 +475,6 @@
     [self showLoadingViewWithText:TIP_LOADING];
 }
 
-- (void)showLoadingViewWithText:(NSString*)text
-{
-    if (!self.hud) {
-        MBProgressHUD* hud =
-            [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
-        if (text) {
-            hud.labelText = text;
-        }
-        else {
-            hud.labelText = @"加载中...";
-        }
-
-        hud.removeFromSuperViewOnHide = YES;
-        self.hud = hud;
-    }
-    [self hubShowInView].userInteractionEnabled = NO;
-}
-
 - (void)hideLoadingView
 {
     [self.hud hide:YES];
@@ -512,6 +494,12 @@
 {
     [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error){
         //        NSLog(model.message);
+        if (!error) {
+            [self showLoadingViewWithText:@"任务添加成功" withDuration:2.0f];
+        } else {
+            NSString *errormsg = [NSString stringWithFormat:@"%@ (%@)",model.message,INT_TO_STIRNG(model.status)];
+            [self showAlertViewWithText:errormsg];
+        }
     }];
 }
 

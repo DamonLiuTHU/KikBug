@@ -43,7 +43,7 @@
                                          else {
                                              TRANSLATE(responseObject);
                                              NSLog(@"%@",errorModel);
-                                             block(nil, error);
+                                             block(errorModel, error);
                                          }
                                      }];
 }
