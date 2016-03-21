@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Register</key>
+	<string>/tester/ </string>
+	<key>GetToken</key>
+	<string>/tester/token</string>
+	<key>HasTask</key>
+	<string>/task/taken</string>
 	<key>GetMyGroups</key>
 	<string>/group</string>
 	<key>GetAuthToken</key>

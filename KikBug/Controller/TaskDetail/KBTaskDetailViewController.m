@@ -7,6 +7,7 @@
 //
 
 #import "AFNetworking.h"
+#import "DNImagePickerController.h"
 #import "KBBaseModel.h"
 #import "KBHttpManager.h"
 #import "KBOnePixelLine.h"
@@ -20,9 +21,8 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
-#import "DNImagePickerController.h"
 
-@interface KBTaskDetailViewController ()<DNImagePickerControllerDelegate>
+@interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
 @property (strong, nonatomic) KBTaskListModel* model;
 @property (strong, nonatomic) KBTaskDetailModel* detailModel;
@@ -41,7 +41,7 @@
 @property (strong, nonatomic) UILabel* dueDateLabel;
 @property (strong, nonatomic) UILabel* dueDateLabelHint;
 @property (strong, nonatomic) UIImageView* icon;
-@property (strong, nonatomic) UIButton* jumpButton;
+//@property (strong, nonatomic) UIButton* jumpButton;
 @property (strong, nonatomic) UIButton* acceptTask;
 @property (strong, nonatomic) KBOnePixelLine* line;
 
@@ -101,7 +101,7 @@
     self.dueDateLabelHint = [UILabel new];
     self.dueDateLabel = [UILabel new];
     self.icon = [UIImageView new];
-    self.jumpButton = [UIButton new];
+    //    self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
     self.containerView = [UIView new];
     self.goToMyReportsBtn = [UIButton new];
@@ -112,7 +112,7 @@
 {
     [self.startTestTask addTarget:self action:@selector(startTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.goToMyReportsBtn addTarget:self action:@selector(checkMyReportsButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.jumpButton addTarget:self action:@selector(jumpToApp:) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.jumpButton addTarget:self action:@selector(jumpToApp:) forControlEvents:UIControlEventTouchUpInside];
     [self.taskDescription setEditable:NO];
 #if DEBUG
 //    [self.taskDescription setBackgroundColor:[UIColor lightGrayColor]];
@@ -127,14 +127,14 @@
     self.acceptTask.layer.cornerRadius = 3.0f;
     [self.acceptTask addTarget:self action:@selector(acceptTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.jumpButton
-        setAttributedTitle:[[NSAttributedString alloc]
-                               initWithString:@"jump"
-                                   attributes:@{ NSFontAttributeName : APP_FONT(10),
-                                       NSForegroundColorAttributeName : [UIColor whiteColor] }]
-                  forState:UIControlStateNormal];
-    [self.jumpButton setBackgroundColor:THEME_COLOR];
-    self.jumpButton.layer.cornerRadius = 3.0f;
+    //    [self.jumpButton
+    //        setAttributedTitle:[[NSAttributedString alloc]
+    //                               initWithString:@"jump"
+    //                                   attributes:@{ NSFontAttributeName : APP_FONT(10),
+    //                                       NSForegroundColorAttributeName : [UIColor whiteColor] }]
+    //                  forState:UIControlStateNormal];
+    //    [self.jumpButton setBackgroundColor:THEME_COLOR];
+    //    self.jumpButton.layer.cornerRadius = 3.0f;
     self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
     [self.line setLineColor:[UIColor grayColor]];
 
@@ -143,7 +143,7 @@
                                                     attributes:SUBTITLE_ATTRIBUTE]];
     [self.appSizeLabelHint
         setAttributedText:[[NSAttributedString alloc]
-                              initWithString:@"App大小"
+                              initWithString:@"分数"
                                   attributes:SUBTITLE_ATTRIBUTE]];
     [self.categoryLabelHint
         setAttributedText:[[NSAttributedString alloc]
@@ -183,7 +183,7 @@
     [self.view addSubview:self.taskIdLabel];
     [self.view addSubview:self.taskIdLabelHint];
     [self.view addSubview:self.icon];
-    [self.view addSubview:self.jumpButton];
+    //    [self.view addSubview:self.jumpButton];
     [self.view addSubview:self.line];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.containerView];
@@ -191,22 +191,21 @@
     [self.containerView addSubview:self.taskDescriptionHint];
     [self.containerView addSubview:self.taskDescription];
     [self.containerView addSubview:self.startTestTask];
-
 }
 
 - (void)configConstrains
 {
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
-    [self.icon autoSetDimension:ALDimensionWidth toSize:60];
-    [self.icon autoSetDimension:ALDimensionHeight toSize:60];
+    [self.icon autoSetDimension:ALDimensionWidth toSize:80];
+    [self.icon autoSetDimension:ALDimensionHeight toSize:80];
 
-    [self.jumpButton autoPinEdge:ALEdgeTop
-                          toEdge:ALEdgeBottom
-                          ofView:self.icon
-                      withOffset:5.0f];
-    [self.jumpButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.icon];
-    [self.jumpButton autoSetDimensionsToSize:CGSizeMake(60, 20)];
+    //    [self.jumpButton autoPinEdge:ALEdgeTop
+    //                          toEdge:ALEdgeBottom
+    //                          ofView:self.icon
+    //                      withOffset:5.0f];
+    //    [self.jumpButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.icon];
+    //    [self.jumpButton autoSetDimensionsToSize:CGSizeMake(60, 20)];
 
     [self.taskIdLabelHint autoPinEdge:ALEdgeLeft
                                toEdge:ALEdgeRight
@@ -295,15 +294,16 @@
 
     [self.taskDescriptionHint autoPinEdge:ALEdgeTop
                                    toEdge:ALEdgeBottom
-                                   ofView:self.jumpButton];
+                                   ofView:self.line];
     [self.taskDescriptionHint autoPinEdge:ALEdgeLeft
                                    toEdge:ALEdgeLeft
                                    ofView:self.icon];
 
     [self.line autoPinEdge:ALEdgeTop
                     toEdge:ALEdgeBottom
-                    ofView:self.jumpButton
+                    ofView:self.dueDateLabel
                 withOffset:5.0f];
+
     [self.line autoPinEdge:ALEdgeLeft
                     toEdge:ALEdgeLeft
                     ofView:self.view
@@ -414,15 +414,12 @@
     self.dueDateLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString dateFromTimeStamp:model.deadline]
             attributes:TITLE_ATTRIBUTE];
-    ;
     self.taskIdLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString stringWithFormat:@"%ld", (long)model.taskId]
             attributes:TITLE_ATTRIBUTE];
-    ;
     self.appSizeLabel.attributedText =
-        [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.appSize)
+        [[NSAttributedString alloc] initWithString:INT_TO_STIRNG(model.points)
                                         attributes:TITLE_ATTRIBUTE];
-    ;
     self.categoryLabel.attributedText =
         [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.category)
                                         attributes:TITLE_ATTRIBUTE];
@@ -468,6 +465,23 @@
 - (void)fillWithContent:(KBTaskListModel*)idata
 {
     self.model = idata;
+
+    WEAKSELF;
+    [KBTaskManager isUserTakenTask:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
+        [weakSelf markAcceptBtnAsAccepted:![[model valueForKey:@"data"] boolValue]];
+    }];
+}
+
+- (void)markAcceptBtnAsAccepted:(BOOL)bol
+{
+    [self.acceptTask setEnabled:!bol];
+
+    [self.acceptTask
+        setAttributedTitle:[[NSAttributedString alloc]
+                               initWithString:bol ? @"已接受" : @"接受"
+                                   attributes:@{ NSFontAttributeName : APP_FONT(12),
+                                       NSForegroundColorAttributeName : THEME_COLOR }]
+                  forState:UIControlStateNormal];
 }
 
 - (void)showLoadingView
@@ -492,13 +506,15 @@
 
 - (void)acceptTaskButtonPressed
 {
-    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error){
+    WEAKSELF;
+    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
         //        NSLog(model.message);
         if (!error) {
-            [self showLoadingViewWithText:@"任务添加成功" withDuration:2.0f];
-        } else {
-            NSString *errormsg = [NSString stringWithFormat:@"%@ (%@)",model.message,INT_TO_STIRNG(model.status)];
-            [self showAlertViewWithText:errormsg];
+            [weakSelf showLoadingViewWithText:@"任务添加成功" withDuration:2.0f];
+        }
+        else {
+            NSString* errormsg = [NSString stringWithFormat:@"%@ (%@)", model.message, INT_TO_STIRNG(model.status)];
+            [weakSelf showAlertViewWithText:errormsg];
         }
     }];
 }
@@ -510,43 +526,42 @@
 
 - (void)checkMyReportsButtonPressed
 {
-    DNImagePickerController *imagePicker = [[DNImagePickerController alloc] init];
+    DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
     imagePicker.imagePickerDelegate = self;
     imagePicker.filterType = DNImagePickerFilterTypePhotos;
-//    [imagePicker showAlbumList];
+    //    [imagePicker showAlbumList];
     [self presentViewController:imagePicker animated:YES completion:^{
         //
 
     }];
-    
-//    [[KBNavigator sharedNavigator] showViewController:imagePicker withShowType:KBUIManagerShowTypePresent];
+
+    //    [[KBNavigator sharedNavigator] showViewController:imagePicker withShowType:KBUIManagerShowTypePresent];
 }
 
 - (void)jumpToApp:(id)sender
 {
     appUrl = [NSURL URLWithString:@"NetEase://"];
-//    if (appUrl != nil && [[UIApplication sharedApplication] canOpenURL:appUrl]) {
-        [[UIApplication sharedApplication] openURL:appUrl];
-//    }
+    //    if (appUrl != nil && [[UIApplication sharedApplication] canOpenURL:appUrl]) {
+    [[UIApplication sharedApplication] openURL:appUrl];
+    //    }
 }
 
 #pragma mark - DNImagePickerControllerDelegate
 
-- (void)dnImagePickerController:(DNImagePickerController *)imagePickerController sendImages:(NSArray *)imageAssets isFullImage:(BOOL)fullImage
+- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray*)imageAssets isFullImage:(BOOL)fullImage
 {
-//    self.assetsArray = [NSMutableArray arrayWithArray:imageAssets];
-//    CollectionViewController *collectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CollectionViewController"];
-//    collectionVC.isFullImage = fullImage;
-//    collectionVC.imageArray = imageAssets;
-//    [self.navigationController pushViewController:collectionVC animated:YES];
+    //    self.assetsArray = [NSMutableArray arrayWithArray:imageAssets];
+    //    CollectionViewController *collectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CollectionViewController"];
+    //    collectionVC.isFullImage = fullImage;
+    //    collectionVC.imageArray = imageAssets;
+    //    [self.navigationController pushViewController:collectionVC animated:YES];
 }
 
-- (void)dnImagePickerControllerDidCancel:(DNImagePickerController *)imagePicker
+- (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
 {
     [imagePicker dismissViewControllerAnimated:YES completion:^{
-        
+
     }];
 }
-
 
 @end

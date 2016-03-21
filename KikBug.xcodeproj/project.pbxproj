@@ -51,8 +51,11 @@
 		50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE2F1C97F86700B35124 /* DNTapDetectingImageView.m */; };
 		50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE311C97F86700B35124 /* DNUnAuthorizedTipsView.m */; };
 		50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE331C97F86700B35124 /* JKPromptView.m */; };
+		50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */; };
 		50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */; };
 		50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A31C901443002E825A /* KBBaseTableViewController.m */; };
+		50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */; };
+		50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BAE8031C9D7A56000F2D4E /* KBRegisterViewController.m */; };
 		50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */; };
 		50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C0E1C3F9BDB00E37500 /* NSString+EasyUse.m */; };
 		50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C101C3F9BDB00E37500 /* NSString+Safe.m */; };
@@ -166,10 +169,16 @@
 		50A4FE321C97F86700B35124 /* JKPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKPromptView.h; sourceTree = "<group>"; };
 		50A4FE331C97F86700B35124 /* JKPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKPromptView.m; sourceTree = "<group>"; };
 		50A4FE341C97F86700B35124 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DNImagePicker.strings"; sourceTree = "<group>"; };
+		50B3D6291C9D895B00AA8D17 /* KBRegisterStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterStep2ViewController.h; sourceTree = "<group>"; };
+		50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterStep2ViewController.m; sourceTree = "<group>"; };
 		50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewCell.h; sourceTree = "<group>"; };
 		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
 		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
 		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewController.m; sourceTree = "<group>"; };
+		50BAE7FF1C9D79F7000F2D4E /* KBRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterManager.h; sourceTree = "<group>"; };
+		50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterManager.m; sourceTree = "<group>"; };
+		50BAE8021C9D7A56000F2D4E /* KBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterViewController.h; sourceTree = "<group>"; };
+		50BAE8031C9D7A56000F2D4E /* KBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterViewController.m; sourceTree = "<group>"; };
 		50CFDA8F1C94127D007E533E /* KBGroupSearchListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchListCellModel.h; sourceTree = "<group>"; };
 		50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchListCellModel.m; sourceTree = "<group>"; };
 		50D97C0D1C3F9BDB00E37500 /* NSString+EasyUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EasyUse.h"; sourceTree = "<group>"; };
@@ -243,6 +252,8 @@
 			children = (
 				500BAA151C82DDF1005E5831 /* KBLoginManager.h */,
 				500BAA161C82DDF1005E5831 /* KBLoginManager.m */,
+				50BAE7FF1C9D79F7000F2D4E /* KBRegisterManager.h */,
+				50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -353,6 +364,10 @@
 			children = (
 				50740BC01C574926009B30A4 /* KBLoginViewController.h */,
 				50740BC11C574926009B30A4 /* KBLoginViewController.m */,
+				50BAE8021C9D7A56000F2D4E /* KBRegisterViewController.h */,
+				50BAE8031C9D7A56000F2D4E /* KBRegisterViewController.m */,
+				50B3D6291C9D895B00AA8D17 /* KBRegisterStep2ViewController.h */,
+				50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -776,6 +791,7 @@
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
 				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
+				50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */,
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
 				50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */,
 				50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */,
@@ -789,9 +805,11 @@
 				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
 				50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
+				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
 				50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */,
 				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
+				50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,

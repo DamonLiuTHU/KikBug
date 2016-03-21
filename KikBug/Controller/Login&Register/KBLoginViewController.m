@@ -23,6 +23,8 @@
 @property (strong, nonatomic) UIButton* loginWithSMS;
 @property (strong, nonatomic) UIButton* forgetPswBtn;
 @property (strong, nonatomic) UITapGestureRecognizer* rec;
+
+@property (strong, nonatomic) UIButton *registerBtn;
 @end
 
 @implementation KBLoginViewController
@@ -45,11 +47,12 @@
     self.loginBtn = [UIButton new];
     self.loginWithSMS = [UIButton new];
     self.forgetPswBtn = [UIButton new];
-
+    self.registerBtn = [UIButton new];
     self.phoneNumber = [UITextField new];
     self.pswFiled = [UITextField new];
 
     self.rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboards)];
+    [self.registerBtn addTarget:self action:@selector(registerBtnPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidLoad
@@ -148,6 +151,12 @@
     NSAttributedString* forgetPswBtnStr = [[NSAttributedString alloc] initWithString:@"忘记密码?" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
     [self.forgetPswBtn setAttributedTitle:forgetPswBtnStr forState:UIControlStateNormal];
     [self.forgetPswBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    
+    NSAttributedString* registerBtnStr = [[NSAttributedString alloc] initWithString:@"注册" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
+    [self.registerBtn setAttributedTitle:registerBtnStr forState:UIControlStateNormal];
+    [self.registerBtn setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+
+    
 }
 
 - (void)setUpTextFileds
@@ -228,6 +237,7 @@
     [self.view addSubview:self.loginBtn];
     [self.view addSubview:self.loginWithSMS];
     [self.view addSubview:self.forgetPswBtn];
+    [self.view addSubview:self.registerBtn];
 }
 
 - (void)configConstrains
@@ -274,6 +284,9 @@
 
     [self.forgetPswBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.forgetPswBtn autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:5];
+    
+    [self.registerBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.loginWithSMS withOffset:5];
+    [self.registerBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
 
     [self updateViewConstraints];
 }
@@ -293,6 +306,14 @@
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }
     }];
+}
+
+#pragma mark - Register Event
+
+- (void)registerBtnPressed
+{
+    UIViewController *vc = (UIViewController *)[[HHRouter shared] matchController:REGISTER_PAGE];
+    [[KBNavigator sharedNavigator] showViewController:vc withShowType:KBUIManagerShowTypePush];
 }
 
 @end

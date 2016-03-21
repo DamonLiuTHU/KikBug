@@ -112,6 +112,13 @@
 
 + (NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString
 {
+    if ([jsonString isEqualToString:@"false"] || [jsonString isEqualToString:@"true"]) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        BOOL result = [jsonString boolValue];
+        [dic setValue:@(result) forKey:@"data"];
+        return dic;
+    }
+    
     if (jsonString == nil) {
         return nil;
     }
@@ -119,11 +126,11 @@
     NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError* err;
     NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                        options:NSJSONReadingMutableContainers
+                                                        options:NSJSONReadingMutableLeaves
                                                           error:&err];
     if (err) {
         NSLog(@"json解析失败：%@", err);
-        return nil;
+        return dic;
     }
     return dic;
 }
@@ -142,8 +149,16 @@
 //
 //    case 200: {
 //        //一切正常
-    NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
-    block(dataDic, nil);
+    
+    if ([baseModel.data isKindOfClass:[NSString class]]) {
+//        NSString *jsonStr = [NSString stringWithFormat:@"%@",baseModel.data];
+        NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
+        block(dataDic, nil);
+    } else {
+        block(baseModel.data,nil);
+    }
+
+    
 //    } break;
 //
 //    case 403: {

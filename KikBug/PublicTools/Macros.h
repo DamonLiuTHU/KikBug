@@ -31,6 +31,8 @@
 #define TITLE_ATTRIBUTE @{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor blackColor]}
 
 #define BUTTON_TITLE_ATTRIBUTE @{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}
+
+#define BUTTON_TITLE_NOTENABLED_ATTRIBUTE @{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor lightGrayColor]}
 //获取屏幕 宽度、高度
 #define IsPortrait ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)
 
@@ -119,6 +121,7 @@ return [self singletonName];\
 #define TASK_DETAIL @"/taskDetail"
 #define SEARCH_GROUP_PAGE_URL @"/SearchGroup"
 #define GROUP_DETAIL_PAGE @"/GROUP_DETAIL_PAGE"
+#define REGISTER_PAGE @"/registerpage"
 
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]

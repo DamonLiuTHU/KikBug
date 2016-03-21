@@ -21,4 +21,5 @@ JSONSTIRNG taskDescription;
 JSONSTIRNG iconLocation; /**< 图片地址 */
 @property (assign, nonatomic) BOOL isAccepted;
 JSONINT points;
+JSONSTIRNG category;
 @end

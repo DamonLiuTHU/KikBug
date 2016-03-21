@@ -48,4 +48,22 @@
                                      }];
 }
 
+
++ (void)isUserTakenTask:(NSString *)taskId completion:(void (^)(KBBaseModel *, NSError *))block {
+    NSString *url = GETURL_V2(@"HasTask");
+    NSString* userId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID];
+    [KBHttpManager sendGetHttpReqeustWithUrl:url
+                                      Params:@{@"taskId":NSSTRING_NOT_NIL(userId)}
+                                    CallBack:^(id responseObject, NSError *error) {
+                                        if (!error) {
+                                            block(responseObject, nil);
+                                        }
+                                        else {
+                                            TRANSLATE(responseObject);
+                                            NSLog(@"%@",errorModel);
+                                            block(errorModel, error);
+                                        }
+    }];
+    
+}
 @end

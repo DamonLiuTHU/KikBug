@@ -26,4 +26,14 @@
  *  @param block  回调
  */
 + (void)fetchTaskDetailInfoWithTaskId:(NSString *)taskId completion:(void(^)(KBTaskDetailModel *,NSError *))block;
+
+
+/**
+ *  用户是否已经接受了任务
+ *
+ *  @param taskId taskId description
+ *  @param block  block description
+ */
++ (void)isUserTakenTask:(NSString *)taskId completion:(void(^)(KBBaseModel *,NSError *))block;
+
 @end

@@ -17,11 +17,13 @@
 #import "KBUserHomeViewController.h"
 #import "KBGroupSearchViewController.h"
 #import "KBGroupDetailViewController.h"
+#import "KBRegisterManager.h"
+#import "KBRegisterViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
+@property (nonatomic, strong) UINavigationController *presentingContainerVCNav;
 
-@property (nonatomic, strong) UINavigationController* presentNavController;
 @end
 
 @implementation KBNavigator
@@ -49,15 +51,15 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 {
     switch (showType) {
     case KBUIManagerShowTypePush: {
-        [[self currentNavigationController] pushViewController:viewController animated:YES];
+        UINavigationController *controller = [self currentNavigationController];
+        [controller pushViewController:viewController animated:YES];
     } break;
     case KBUIManagerShowTypePresent: {
-        self.presentNavController = [self navControllerWithRoot:viewController];
-        self.presentNavController.navigationBarHidden = YES;
-        [self.tabBarController presentViewController:self.presentNavController
+        self.presentingContainerVCNav = [self navControllerWithRoot:viewController];
+        self.presentingContainerVCNav.navigationBarHidden = YES;
+        [self.tabBarController presentViewController:self.presentingContainerVCNav
                                             animated:YES
                                           completion:NULL];
-
     } break;
     default:
         break;
@@ -99,7 +101,14 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 
 - (UINavigationController*)currentNavigationController
 {
-    return (UINavigationController*)[self.tabBarController selectedViewController];
+//    return (UINavigationController*)[self.tabBarController selectedViewController];
+    
+    if (self.tabBarController.presentedViewController
+        && self.tabBarController.presentedViewController == self.presentingContainerVCNav)
+    {
+        return self.presentingContainerVCNav;
+    }
+    return (UINavigationController *)[self.tabBarController selectedViewController];
 }
 
 - (KBViewController *)topViewController
@@ -208,6 +217,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:TASK_DETAIL toControllerClass:[KBTaskDetailViewController class]];
     [[HHRouter shared] map:SEARCH_GROUP_PAGE_URL toControllerClass:[KBGroupSearchViewController class]];
     [[HHRouter shared] map:GROUP_DETAIL_PAGE toControllerClass:[KBGroupDetailViewController class]];
+    [[HHRouter shared] map:REGISTER_PAGE toControllerClass:[KBRegisterViewController class]];
 }
 
 
