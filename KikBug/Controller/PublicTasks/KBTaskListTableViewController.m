@@ -27,6 +27,8 @@ static NSString* identifier = @"kikbug";
 @property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSource;
 @property (strong, nonatomic) NSMutableDictionary* dataSourceDic;
 @property (strong, nonatomic) UISegmentedControl* segmentedControl;
+
+@property (assign, nonatomic) BOOL isFirstLoadData;
 @end
 
 @implementation KBTaskListTableViewController
@@ -34,6 +36,7 @@ static NSString* identifier = @"kikbug";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.isFirstLoadData = YES;
     [self.navigationController setNavigationBarHidden:NO];
     [self showLoadingView];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -55,6 +58,16 @@ static NSString* identifier = @"kikbug";
     [self addObserver:self forKeyPath:@"self.segmentedControl.selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
 
 }
+
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"self.segmentedControl.selectedSegmentIndex"];
+}
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self.segmentedControl setValue:@(0) forKey:@"selectedSegmentIndex"];//应用KVO
+//    [super viewWillAppear:animated];
+//}
 
 
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
@@ -97,7 +110,10 @@ static NSString* identifier = @"kikbug";
         [weakSelf.tableView.mj_header endRefreshing];
         if (model && !error) {
             weakSelf.dataSourceDic[@(0)] = model;
-            [weakSelf.segmentedControl setValue:@(0) forKey:@"selectedSegmentIndex"];//应用KVO
+            if (self.isFirstLoadData) {
+                self.isFirstLoadData = NO;
+                self.dataSource = model;
+            }
             [weakSelf.tableView reloadData];
         }
         else {

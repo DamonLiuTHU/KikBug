@@ -24,9 +24,9 @@
 + (void)joinGroupWithGroupId:(NSString*)groupId phrase:(NSString*)phrase block:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"JoinGroup");
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:STORED_USER_ID];
+    url = [url stringByReplacingOccurrencesOfString:@"{groupId}" withString:NSSTRING_NOT_NIL(groupId)];
     [KBHttpManager sendPostHttpRequestWithUrl:url
-                                       Params:@{ @"groupId" : NSSTRING_NOT_NIL(groupId),
+                                       Params:@{ @"userId" : NSSTRING_NOT_NIL(STORED_USER_ID),
                                            @"phrase" : NSSTRING_NOT_NIL(phrase) }
                                      CallBack:^(id responseObject, NSError* error) {
                                          if (!error) {

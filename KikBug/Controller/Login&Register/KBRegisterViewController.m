@@ -33,6 +33,10 @@
     [self.view addGestureRecognizer:rec];
 }
 
+- (void)dealloc{
+    [self removeObserver:self forKeyPath:@"text"];
+}
+
 - (void)tapBackground
 {
     [self.phoneField resignFirstResponder];

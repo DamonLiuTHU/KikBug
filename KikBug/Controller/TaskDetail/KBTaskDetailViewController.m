@@ -51,6 +51,8 @@
 
 @property (strong, nonatomic) UIButton* startTestTask;
 
+@property (assign, nonatomic) BOOL isTaskAccepted;
+
 @end
 
 @implementation KBTaskDetailViewController {
@@ -62,6 +64,7 @@
 {
     if (self = [super init]) {
         [self createSubviews];
+        self.isTaskAccepted = NO;
     }
     return self;
 }
@@ -80,9 +83,23 @@
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rec];
 
-    self.acceptTask.hidden = self.model.isAccepted;
+//    self.acceptTask.hidden = self.model.isAccepted;
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
+
+    [self addObserver:self forKeyPath:@"isTaskAccepted" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
+{
+    //    self.acceptTask.hidden = self.isTaskAccepted;
+    self.goToMyReportsBtn.hidden = !self.isTaskAccepted;
+    self.startTestTask.hidden = !self.isTaskAccepted;
+}
+
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"isTaskAccepted"];
 }
 
 - (void)createSubviews
@@ -475,7 +492,7 @@
 - (void)markAcceptBtnAsAccepted:(BOOL)bol
 {
     [self.acceptTask setEnabled:!bol];
-
+    self.isTaskAccepted = bol;
     [self.acceptTask
         setAttributedTitle:[[NSAttributedString alloc]
                                initWithString:bol ? @"已接受" : @"接受"
@@ -555,6 +572,7 @@
     //    collectionVC.isFullImage = fullImage;
     //    collectionVC.imageArray = imageAssets;
     //    [self.navigationController pushViewController:collectionVC animated:YES];
+    
 }
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
