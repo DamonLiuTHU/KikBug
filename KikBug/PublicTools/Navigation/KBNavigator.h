@@ -40,4 +40,6 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 + (void)showLoginPage;
 
+- (KBViewController *)topViewController;
+
 @end

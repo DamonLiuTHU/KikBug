@@ -28,6 +28,6 @@
 - (void)hideLoadingView;
 
 - (void)showHudViewWithText:(NSString*)text;
-
+- (void)showHudViewWithText:(NSString *)text inView:(UIView *)view;
 - (void)showAlertViewWithText:(NSString*)text;
 @end

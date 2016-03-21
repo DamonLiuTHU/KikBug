@@ -9,6 +9,7 @@
 #import "KBRegisterViewController.h"
 #import "KBRegisterManager.h"
 #import "KBOnePixelLine.h"
+#import "KBLoginManager.h"
 
 @interface KBRegisterViewController ()<UITextFieldDelegate>
 @property (strong,nonatomic) UILabel *hintLabel;
@@ -47,11 +48,11 @@
     
     self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectMake(0, 0, 0, 1)];
 //    [self.line setLinePosition:GSLinePositionBottom];
-    [self.line setLineColor:[UIColor lightGrayColor]];
+    [self.line setLineColor:[UIColor grayColor]];
     
     self.hintLabel = [UILabel new];
     self.hintLabel.text = @"请输入你的手机号";
-    self.hintLabel.font = APP_FONT(25);
+    self.hintLabel.font = APP_FONT(30);
     
     self.plus86HintLabel = [UILabel new];
     self.plus86HintLabel.text = @"+86";
@@ -69,10 +70,10 @@
     [self.registerButton addTarget:self action:@selector(registerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:@"注册" attributes:BUTTON_TITLE_ATTRIBUTE];
-    [self.registerButton setAttributedTitle:attrStr forState:UIControlStateHighlighted];
+    [self.registerButton setAttributedTitle:attrStr forState:UIControlStateNormal];
     
     NSAttributedString *grayStr = [[NSAttributedString alloc] initWithString:@"注册" attributes:BUTTON_TITLE_NOTENABLED_ATTRIBUTE];
-    [self.registerButton setAttributedTitle:grayStr forState:UIControlStateNormal];
+    [self.registerButton setAttributedTitle:grayStr forState:UIControlStateDisabled];
     self.registerButton.layer.cornerRadius = 5;
 
     
@@ -106,7 +107,7 @@
     
     [self.line autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0f];
     [self.line autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0f];
-    [self.line autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.phoneField withOffset:5.0f];
+    [self.line autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.phoneField withOffset:10.0f];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
     
     [super updateViewConstraints];
@@ -163,12 +164,16 @@
 #pragma mark - Register button pressed
 - (void)registerButtonPressed
 {
+    [self.registerButton setEnabled:NO];
     [self tapBackground];
     WEAKSELF;
     [KBRegisterManager getToken:self.phoneField.text
                      completion:^(KBBaseModel *model, NSError *error) {
+                         [weakSelf.registerButton setEnabled:YES];
                          if (!error) {
-                             [weakSelf showHudViewWithText:@"验证码发送成功"];
+//                             [weakSelf showHudViewWithText:@"验证码发送成功"];
+                             UIViewController *vc = [[HHRouter shared] matchController:REGISTER_PAGE_STEP_2];
+                             [[KBNavigator sharedNavigator] showViewController:vc];
                          } else {
                              
                          }

@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,23 +61,24 @@
 
 - (void)showLoadingViewWithText:(NSString*)text withDuration:(CGFloat)duration
 {
-    if (!self.hud) {
-        MBProgressHUD* hud =
-            [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
-        if (text) {
-            hud.labelText = text;
-        }
-        else {
-            hud.labelText = @"加载中...";
-        }
-        [hud setMode:MBProgressHUDModeText];
-        hud.removeFromSuperViewOnHide = YES;
-        self.hud = hud;
-    }
-    if (duration != 0.0f) {
-        [self.hud hide:YES afterDelay:duration];
-    }
-//    [self hubShowInView].userInteractionEnabled = NO;
+
+//    MBProgressHUD* hud =
+//        [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
+//
+//    if (text) {
+//        hud.labelText = text;
+//    }
+//    else {
+//        hud.labelText = @"加载中...";
+//    }
+//    [hud setMode:MBProgressHUDModeText];
+//    hud.removeFromSuperViewOnHide = YES;
+//    self.hud = hud;
+//    if (duration != 0.0f) {
+//        [self.hud hide:YES afterDelay:duration];
+//    }
+//    //    [self hubShowInView].userInteractionEnabled = NO;
+    [self showHudViewWithText:text inView:[self hubShowInView] withDuration:duration];
 }
 
 /**
@@ -88,6 +89,30 @@
 - (void)showHudViewWithText:(NSString*)text
 {
     [self showLoadingViewWithText:text withDuration:2.0f];
+}
+
+- (void)showHudViewWithText:(NSString*)text inView:(UIView*)view
+{
+    CGFloat duration = 2.0f;
+    [self showHudViewWithText:text inView:view withDuration:duration];
+}
+
+- (void)showHudViewWithText:(NSString*)text inView:(UIView*)view withDuration:(CGFloat)duration
+{
+    MBProgressHUD* hud =
+    [MBProgressHUD showHUDAddedTo:view animated:YES];
+    if (text) {
+        hud.labelText = text;
+    }
+    else {
+        hud.labelText = @"加载中...";
+    }
+    hud.removeFromSuperViewOnHide = YES;
+    [hud setMode:MBProgressHUDModeText];
+    self.hud = hud;
+    if (duration != 0.0f) {
+        [self.hud hide:YES afterDelay:duration];
+    }
 }
 
 - (UIView*)hubShowInView

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Register</key>
-	<string>/tester/ </string>
+	<string>/tester/</string>
 	<key>GetToken</key>
 	<string>/tester/token</string>
 	<key>HasTask</key>

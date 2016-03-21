@@ -11,5 +11,5 @@
 @interface KBRegisterManager : NSObject
 + (void)getToken:(NSString *)mobile completion:(void (^)(KBBaseModel*, NSError*))block;
 
-+ (void)registerUser:(NSString *)mobile token:(NSString *)token psw:(NSString *)password completion:(void (^)(KBLoginModel*, NSError*))block;
++ (void)registerUser:(NSString *)mobile token:(NSString *)token psw:(NSString *)password completion:(void (^)(KBBaseModel*, NSError*))block;
 @end

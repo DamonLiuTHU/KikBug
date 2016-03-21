@@ -20,8 +20,10 @@
 
 
 /*****Fonts*****/
-#define APP_FONT_NORMAL [UIFont systemFontOfSize:APP_FONT_SIZE_MIDDLE]
 
+#define APP_FONT_SMALL [UIFont systemFontOfSize:18]
+#define APP_FONT_NORMAL [UIFont systemFontOfSize:20]
+#define APP_FONT_LARGE [UIFont systemFontOfSize:22]
 
 
 
@@ -60,6 +62,8 @@
 #define GETURL_V2(key) [HOST stringByAppendingString:((NSString*)[[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"url2.0" ofType:@"plist"]] objectForKey:key])]
 #define TIP_LOADING                                 @"加载中..."           //加载中...
 
+
+#define UIManager [KBNavigator sharedNavigator]
 
 //单例模式的宏
 #define SINGLETON_INTERFACE(className,singletonName) +(className *)singletonName;
@@ -122,8 +126,10 @@ return [self singletonName];\
 #define SEARCH_GROUP_PAGE_URL @"/SearchGroup"
 #define GROUP_DETAIL_PAGE @"/GROUP_DETAIL_PAGE"
 #define REGISTER_PAGE @"/registerpage"
+#define REGISTER_PAGE_STEP_2 @"/confirmToken"
 
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
+#define STORED_USER_PHONE [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE]
 #define TRANSLATE(responseObject) KBErrorModel *errorModel = [KBErrorModel mj_objectWithKeyValues:responseObject];
 
