@@ -113,12 +113,12 @@
 + (NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString
 {
     if ([jsonString isEqualToString:@"false"] || [jsonString isEqualToString:@"true"]) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        NSMutableDictionary* dic = [NSMutableDictionary dictionary];
         BOOL result = [jsonString boolValue];
         [dic setValue:@(result) forKey:@"data"];
         return dic;
     }
-    
+
     if (jsonString == nil) {
         return nil;
     }
@@ -141,34 +141,34 @@
     NSLog(@"%@", responseObject);
 #endif
     KBBaseModel* baseModel = [KBBaseModel mj_objectWithKeyValues:responseObject];
-//    switch (baseModel.status) {
-//    case 401: {
-//        //处理Session过期的情况
-//        [KBLoginManager markUserAsLogOut];
-//    } break;
-//
-//    case 200: {
-//        //一切正常
-    
+    //    switch (baseModel.status) {
+    //    case 401: {
+    //        //处理Session过期的情况
+    //        [KBLoginManager markUserAsLogOut];
+    //    } break;
+    //
+    //    case 200: {
+    //        //一切正常
+
     if ([baseModel.data isKindOfClass:[NSString class]]) {
-//        NSString *jsonStr = [NSString stringWithFormat:@"%@",baseModel.data];
+        //        NSString *jsonStr = [NSString stringWithFormat:@"%@",baseModel.data];
         NSDictionary* dataDic = [self dictionaryWithJsonString:baseModel.data];
         block(dataDic, nil);
-    } else {
-        block(baseModel.data,nil);
+    }
+    else {
+        block(baseModel.data, nil);
     }
 
-    
-//    } break;
-//
-//    case 403: {
-//        //没有权限
-//        
-//    } break;
+    //    } break;
+    //
+    //    case 403: {
+    //        //没有权限
+    //
+    //    } break;
 
-//    default:
-//        break;
-//    }
+    //    default:
+    //        break;
+    //    }
 }
 
 @end

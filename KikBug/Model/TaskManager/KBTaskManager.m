@@ -51,9 +51,9 @@
 
 + (void)isUserTakenTask:(NSString *)taskId completion:(void (^)(KBBaseModel *, NSError *))block {
     NSString *url = GETURL_V2(@"HasTask");
-    NSString* userId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID];
+//    NSString* userId = [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID];
     [KBHttpManager sendGetHttpReqeustWithUrl:url
-                                      Params:@{@"taskId":NSSTRING_NOT_NIL(userId)}
+                                      Params:@{@"taskId":NSSTRING_NOT_NIL(taskId)}
                                     CallBack:^(id responseObject, NSError *error) {
                                         if (!error) {
                                             block(responseObject, nil);

@@ -468,7 +468,7 @@
 
     WEAKSELF;
     [KBTaskManager isUserTakenTask:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
-        [weakSelf markAcceptBtnAsAccepted:![[model valueForKey:@"data"] boolValue]];
+        [weakSelf markAcceptBtnAsAccepted:[[model valueForKey:@"data"] boolValue]];
     }];
 }
 
