@@ -15,11 +15,7 @@
 #import "MJExtension.h"
 
 @interface KBMyTaskListViewController () <UITableViewDelegate, UITableViewDataSource>
-//@property (strong, nonatomic) UITableView* tableView;
-@property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForMyTasks;
-@property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForGroup;
-@property (strong, nonatomic) NSDictionary* dataSourceDic;
-@property (strong, nonatomic) UISegmentedControl* segmentedControl;
+
 @property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSource;
 @end
 
@@ -34,22 +30,10 @@ static NSString* identifier = @"KBMyTaskListViewController";
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
 
-    self.dataSourceForGroup = [NSArray array];
-    self.dataSourceForMyTasks = [NSArray array];
-    self.dataSourceDic = @{ @(0) : self.dataSourceForMyTasks,
-        @(1) : self.dataSourceForGroup };
+//    self.dataSourceForMyTasks = [NSArray array];
     self.dataSource = [NSArray array];
-
-    [self configSegmentControl];
-    [self addObserver:self forKeyPath:@"self.segmentedControl.selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
-{
-    NSInteger newIndex = self.segmentedControl.selectedSegmentIndex;
-    self.dataSource = self.dataSourceDic[@(newIndex)];
-    [self.tableView reloadData];
-}
 
 - (void)loadData
 {
@@ -59,26 +43,12 @@ static NSString* identifier = @"KBMyTaskListViewController";
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf hideLoadingView];
         if (model && !error) {
-            weakSelf.dataSourceForGroup = model;
-            weakSelf.dataSourceDic = @{ @(0) : weakSelf.dataSourceForGroup,
-                @(1) : weakSelf.dataSourceForGroup };
-            weakSelf.dataSource = weakSelf.dataSourceDic[@(weakSelf.segmentedControl.selectedSegmentIndex)];
+            weakSelf.dataSource = model;
             [weakSelf.tableView reloadData];
-
         } else {
             [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
     }];
-}
-
-- (void)configSegmentControl
-{
-    NSArray* segmentedArray = [NSArray arrayWithObjects:@"我接受的", @"来自群组", nil];
-    UISegmentedControl* segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentedArray];
-    segmentedControl.selectedSegmentIndex = 0;
-    segmentedControl.tintColor = [UIColor whiteColor];
-    [self.navigationItem setTitleView:segmentedControl];
-    self.segmentedControl = segmentedControl;
 }
 
 - (void)configTableView
@@ -129,8 +99,5 @@ static NSString* identifier = @"KBMyTaskListViewController";
 - (void)didReceiveMemoryWarning
 {
     self.dataSource = nil;
-    self.dataSourceDic = nil;
-    self.dataSourceForGroup = nil;
-    self.dataSourceForMyTasks = nil;
 }
 @end

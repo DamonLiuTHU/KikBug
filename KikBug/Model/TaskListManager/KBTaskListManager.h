@@ -11,8 +11,9 @@
 
 @interface KBTaskListManager : NSObject
 
-+(void)fetchPublicTasksWithCompletion:(void(^)(NSArray<KBTaskListModel *> *model,NSError *error))block;
++ (void)fetchPublicTasksWithCompletion:(void (^)(NSArray<KBTaskListModel*>* model, NSError* error))block;
 
-+(void)fetchMyTasksWithCompletion:(void(^)(NSArray<KBTaskListModel *> *model,NSError *error))block;
++ (void)fetchMyTasksWithCompletion:(void (^)(NSArray<KBTaskListModel*>* model, NSError* error))block;
 
++ (void)fetchTasksFromGroupWithCompletion:(void (^)(NSArray<KBTaskListModel*>* model, NSError* error))block;
 @end

@@ -22,12 +22,14 @@ static NSString* identifier = @"kikbug";
 
 @interface KBTaskListTableViewController ()
 @property (strong, nonatomic) MBProgressHUD* hud;
-
+//@property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForGroup;
+//@property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSourceForPublicTasks;
+@property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSource;
+@property (strong, nonatomic) NSMutableDictionary* dataSourceDic;
+@property (strong, nonatomic) UISegmentedControl* segmentedControl;
 @end
 
-@implementation KBTaskListTableViewController {
-    NSArray* dataSource;
-}
+@implementation KBTaskListTableViewController
 
 - (void)viewDidLoad
 {
@@ -41,10 +43,37 @@ static NSString* identifier = @"kikbug";
         // 进入刷新状态后会自动调用这个block
         [weakSelf loadData];
     }];
+    
+//    self.dataSourceForGroup = ;
+//    self.dataSourceForPublicTasks = ;
+    self.dataSourceDic = [NSMutableDictionary dictionary];
+
     [KBBaseTableViewController configHeaderStyle:self.tableView];
     [self setTitle:@"任务广场"];
     [self loadData];
+    [self configSegmentControl];
+    [self addObserver:self forKeyPath:@"self.segmentedControl.selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
+
 }
+
+
+- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
+{
+    NSInteger newIndex = self.segmentedControl.selectedSegmentIndex;
+    self.dataSource = self.dataSourceDic[@(newIndex)];
+    [self.tableView reloadData];
+}
+
+- (void)configSegmentControl
+{
+    NSArray* segmentedArray = [NSArray arrayWithObjects:@"公开任务", @"群组任务", nil];
+    UISegmentedControl* segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentedArray];
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.tintColor = [UIColor whiteColor];
+    [self.navigationItem setTitleView:segmentedControl];
+    self.segmentedControl = segmentedControl;
+}
+
 - (void)close
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -67,7 +96,19 @@ static NSString* identifier = @"kikbug";
     [KBTaskListManager fetchPublicTasksWithCompletion:^(NSArray<KBTaskListModel*>* model, NSError* error) {
         [weakSelf.tableView.mj_header endRefreshing];
         if (model && !error) {
-            dataSource = model;
+            weakSelf.dataSourceDic[@(0)] = model;
+            [weakSelf.segmentedControl setValue:@(0) forKey:@"selectedSegmentIndex"];//应用KVO
+            [weakSelf.tableView reloadData];
+        }
+        else {
+            [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
+        }
+        [weakSelf hideLoadingView];
+    }];
+    
+    [KBTaskListManager fetchTasksFromGroupWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
+        if (model && !error) {
+            weakSelf.dataSourceDic[@(1)] = model;
             [weakSelf.tableView reloadData];
         }
         else {
@@ -81,8 +122,10 @@ static NSString* identifier = @"kikbug";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    dataSource = nil;
-    
+//    self.dataSourceForPublicTasks = nil;
+//    self.dataSourceForGroup = nil;
+    self.dataSourceDic = nil;
+    self.dataSource = nil;
 }
 
 #pragma mark - Table view data source
@@ -98,14 +141,14 @@ static NSString* identifier = @"kikbug";
 {
 
     // Return the number of rows in the section.
-    return dataSource.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     KBTaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[KBTaskCellTableViewCell class]]) {
-        [cell fillWithContent:dataSource[indexPath.row]];
+        [cell fillWithContent:self.dataSource[indexPath.row]];
     }
     return cell;
 }
@@ -120,7 +163,7 @@ static NSString* identifier = @"kikbug";
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     KBTaskDetailViewController* detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
-    [detailVC fillWithContent:dataSource[indexPath.row]];
+    [detailVC fillWithContent:self.dataSource[indexPath.row]];
     //    [self.navigationController pushViewController:detailVC animated:YES];
     [[KBNavigator sharedNavigator] showViewController:detailVC];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
