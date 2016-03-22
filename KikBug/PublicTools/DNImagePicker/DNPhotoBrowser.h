@@ -23,6 +23,10 @@
 - (void)photoBrowser:(DNPhotoBrowser *)photoBrowser seleteFullImage:(BOOL)fullImage;
 @end
 
+/**
+ *  图片预览
+ */
+
 @interface DNPhotoBrowser : UIViewController
 
 @property (nonatomic, weak) id<DNPhotoBrowserDelegate> delegate;

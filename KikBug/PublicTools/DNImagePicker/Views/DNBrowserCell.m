@@ -40,7 +40,7 @@
 }
 
 #pragma mark - set
-- (void)setAsset:(ALAsset *)asset
+- (void)setAsset:(DNAsset *)asset
 {
     if (_asset != asset) {
         _asset = asset;
@@ -55,7 +55,7 @@
     self.zoomingScrollView.zoomScale = 1;
     self.zoomingScrollView.contentSize = CGSizeMake(0, 0);
     
-    UIImage *img = [UIImage imageWithCGImage:[[self.asset defaultRepresentation] fullScreenImage]];
+    UIImage *img = [UIImage imageWithCGImage:[[self.asset.baseAsset defaultRepresentation] fullScreenImage]];
     self.photoImageView.image = img;
     self.photoImageView.hidden = NO;
     CGRect photoImageViewFrame;

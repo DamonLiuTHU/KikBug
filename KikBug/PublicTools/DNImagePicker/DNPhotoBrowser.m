@@ -36,7 +36,7 @@
 @property (nonatomic, strong) DNSendButton* sendButton;
 @property (nonatomic, strong) DNFullImageButton* fullImageButton;
 
-@property (nonatomic, strong) NSMutableArray* photoDataSources;
+@property (nonatomic, strong) NSMutableArray<DNAsset *>* photoDataSources;
 @property (nonatomic, assign) NSInteger currentIndex;
 
 @property (nonatomic, getter=isFullImage) BOOL fullImage;
@@ -233,8 +233,8 @@
     self.fullImageButton.selected = self.isFullImage;
 
     if (self.isFullImage) {
-        ALAsset* asset = self.photoDataSources[self.currentIndex];
-        NSInteger size = (NSUInteger)(asset.defaultRepresentation.size / 1024);
+        DNAsset* asset = self.photoDataSources[self.currentIndex];
+        NSInteger size = (NSUInteger)(asset.baseAsset.defaultRepresentation.size / 1024);
         CGFloat imageSize = (CGFloat)size;
         NSString* imageSizeString;
         if (size > 1024) {

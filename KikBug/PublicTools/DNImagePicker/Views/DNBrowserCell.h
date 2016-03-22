@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "DNAsset.h"
 @class DNPhotoBrowser;
 
 /**
@@ -17,6 +18,6 @@
 
 @property (nonatomic, weak) DNPhotoBrowser *photoBrowser;
 
-@property (nonatomic, strong) ALAsset *asset;
+@property (nonatomic, strong) DNAsset *asset;
 
 @end
