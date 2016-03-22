@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+//#import <AssetsLibrary/AssetsLibrary.h>
 
 /**
  每一个具体的图片册的图片选取

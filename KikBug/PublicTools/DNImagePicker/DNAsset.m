@@ -10,6 +10,16 @@
 #import "NSURL+DNIMagePickerUrlEqual.h"
 @implementation DNAsset
 
++ (instancetype)assetWithALAsset:(ALAsset *)asset{
+    DNAsset *instant;
+    instant = [[DNAsset alloc] init];
+    if (instant) {
+        instant.baseAsset = asset;
+        instant.url = [asset valueForProperty:ALAssetPropertyAssetURL];
+    }
+    return instant;
+}
+
 - (BOOL)isEqual:(id)other
 {
     if (other == self) {

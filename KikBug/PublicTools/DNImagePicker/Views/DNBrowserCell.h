@@ -10,6 +10,9 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 @class DNPhotoBrowser;
 
+/**
+ *  DNPhotoBrowser中的Cell 负责展示图片以及对应描述
+ */
 @interface DNBrowserCell : UICollectionViewCell
 
 @property (nonatomic, weak) DNPhotoBrowser *photoBrowser;

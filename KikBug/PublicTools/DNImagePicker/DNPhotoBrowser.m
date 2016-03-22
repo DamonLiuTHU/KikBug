@@ -12,6 +12,7 @@
 #import "DNSendButton.h"
 #import "UIView+DNImagePicker.h"
 #import "UIViewController+DNImagePicker.h"
+#import "DNAsset.h"
 @interface DNPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate> {
     BOOL _statusBarShouldBeHidden;
     BOOL _didSavePreviousStateOfNavBar;
@@ -49,6 +50,16 @@
 
 @implementation DNPhotoBrowser
 
+
+/**
+ *  初始化方法
+ *
+ *  @param photosArray 图片
+ *  @param index       第几个
+ *  @param isFullImage 是否原图
+ *
+ *  @return instant
+ */
 - (instancetype)initWithPhotos:(NSArray*)photosArray
                   currentIndex:(NSInteger)index
                      fullImage:(BOOL)isFullImage
@@ -455,7 +466,6 @@
         [self.fullImageButton shouldAnimating:NO];
     }
 }
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView
 {
     CGFloat offsetX = scrollView.contentOffset.x;
@@ -471,7 +481,16 @@
 - (void)didScrollToPage:(NSInteger)page
 {
     self.currentIndex = page;
+    DNAsset *asset = self.photoDataSources[page];
+    NSString *userDesc = asset.userDesc;
+    self.descTextView.text = userDesc;
     [self updateNavigationBarAndToolBar];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    DNAsset *asset = self.photoDataSources[self.currentIndex];
+    asset.userDesc = self.descTextView.text;
 }
 
 #pragma mark - Control Hiding / Showing

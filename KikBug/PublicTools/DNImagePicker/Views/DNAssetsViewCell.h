@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/ALAsset.h>
+#import "DNAsset.h"
 
 @class DNAssetsViewCell;
 
@@ -20,10 +21,10 @@
 
 @interface DNAssetsViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) ALAsset *asset;
+@property (nonatomic, strong) DNAsset *asset;
 @property (nonatomic, assign) BOOL isSelected;
 @property (nonatomic, weak) id<DNAssetsViewCellDelegate> delegate;
 
-- (void)fillWithAsset:(ALAsset *)asset isSelected:(BOOL)seleted;
+- (void)fillWithAsset:(DNAsset *)asset isSelected:(BOOL)seleted;
 
 @end

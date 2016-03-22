@@ -122,11 +122,11 @@
 }
 
 
-- (void)fillWithAsset:(ALAsset *)asset isSelected:(BOOL)seleted
+- (void)fillWithAsset:(DNAsset *)asset isSelected:(BOOL)seleted
 {
     self.isSelected = seleted;
     self.asset = asset;
-    CGImageRef thumbnailImageRef = [asset thumbnail];
+    CGImageRef thumbnailImageRef = [asset.baseAsset thumbnail];
     if (thumbnailImageRef) {
         self.imageView.image = [UIImage imageWithCGImage:thumbnailImageRef];
     } else {
