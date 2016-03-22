@@ -49,6 +49,7 @@
 
     //    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
+    
     [manager GET:url
         parameters:param
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
