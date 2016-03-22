@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		500BAA0F1C8290E4005E5831 /* url2.0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 500BAA0E1C8290E4005E5831 /* url2.0.plist */; };
 		500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 500BAA161C82DDF1005E5831 /* KBLoginManager.m */; };
-		50109B401CA021CF00DB2CBB /* KBReportmanager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50109B3F1CA021CF00DB2CBB /* KBReportmanager.m */; };
+		50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50109B3F1CA021CF00DB2CBB /* KBReportManager.m */; };
 		50130E781BF06EE500D8A1B1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 50130E771BF06EE500D8A1B1 /* Podfile */; };
 		5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 503004991BF08C9D007D22BC /* KBTaskDetailModel.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
@@ -91,8 +91,8 @@
 		500BAA0E1C8290E4005E5831 /* url2.0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url2.0.plist; sourceTree = "<group>"; };
 		500BAA151C82DDF1005E5831 /* KBLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLoginManager.h; sourceTree = "<group>"; };
 		500BAA161C82DDF1005E5831 /* KBLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginManager.m; sourceTree = "<group>"; };
-		50109B3E1CA021CF00DB2CBB /* KBReportmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportmanager.h; sourceTree = "<group>"; };
-		50109B3F1CA021CF00DB2CBB /* KBReportmanager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportmanager.m; sourceTree = "<group>"; };
+		50109B3E1CA021CF00DB2CBB /* KBReportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportManager.h; sourceTree = "<group>"; };
+		50109B3F1CA021CF00DB2CBB /* KBReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportManager.m; sourceTree = "<group>"; };
 		50130E771BF06EE500D8A1B1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		503004981BF08C9D007D22BC /* KBTaskDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskDetailModel.h; sourceTree = "<group>"; };
 		503004991BF08C9D007D22BC /* KBTaskDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskDetailModel.m; sourceTree = "<group>"; };
@@ -264,8 +264,8 @@
 		50109B3D1CA021BC00DB2CBB /* ReportManager */ = {
 			isa = PBXGroup;
 			children = (
-				50109B3E1CA021CF00DB2CBB /* KBReportmanager.h */,
-				50109B3F1CA021CF00DB2CBB /* KBReportmanager.m */,
+				50109B3E1CA021CF00DB2CBB /* KBReportManager.h */,
+				50109B3F1CA021CF00DB2CBB /* KBReportManager.m */,
 			);
 			path = ReportManager;
 			sourceTree = "<group>";
@@ -811,7 +811,7 @@
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
 				50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */,
-				50109B401CA021CF00DB2CBB /* KBReportmanager.m in Sources */,
+				50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
 				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,

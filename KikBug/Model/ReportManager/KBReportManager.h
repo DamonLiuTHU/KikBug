@@ -1,5 +1,5 @@
 //
-//  KBReportmanager.h
+//  KBReportManager.h
 //  KikBug
 //
 //  Created by DamonLiu on 16/3/21.
@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DNAsset.h"
 
 @interface KBBugReportItem : KBBaseModel
 @property (strong,nonatomic) UIImage *image;
@@ -15,10 +16,12 @@
 
 @interface KBBugReport : KBBaseModel
 @property (strong,nonatomic) NSArray<KBBugReportItem *> *items;/*< 1~9 个item **/
+
++ (instancetype)reportWithDNAssets:(NSArray<DNAsset *> *)list;
 @end
 
 
-@interface KBReportmanager : NSObject
+@interface KBReportManager : NSObject
 
 + (void)uploadBugReport:(KBBugReport *)bugReport withCompletion:(void(^)(KBBaseModel *model,NSError *error))block;
 

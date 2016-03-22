@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DNAsset.h"
 @class ALAssetsFilter;
 FOUNDATION_EXTERN NSString *kDNImagePickerStoredGroupKey;
 typedef NS_ENUM(NSUInteger, DNImagePickerFilterType) {
@@ -28,7 +29,7 @@ UIKIT_EXTERN ALAssetsFilter * ALAssetsFilterFromDNImagePickerControllerFilterTyp
  *  @param fullImage             if the value is yes, the seleted photos is full image
  */
 - (void)dnImagePickerController:(DNImagePickerController *)imagePicker
-                     sendImages:(NSArray *)imageAssets
+                     sendImages:(NSArray<DNAsset *> *)imageAssets
                     isFullImage:(BOOL)fullImage;
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController *)imagePicker;

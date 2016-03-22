@@ -18,4 +18,7 @@
 
 - (BOOL)isEqualToAsset:(DNAsset *)asset;
 + (instancetype)assetWithALAsset:(ALAsset *)asset;
+//- (void)getImageUsingBlock:(void(^)(UIImage * ))block;
+- (UIImage *)getImageResource;
+
 @end

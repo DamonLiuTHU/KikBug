@@ -498,6 +498,11 @@
 - (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated
 {
     
+    if (hidden) {
+        DNAsset *asset = self.photoDataSources[self.currentIndex];
+        asset.userDesc = self.descTextView.text;
+    }
+    
     if (hidden &&
         self.keyboardHeight!=0) {
         [self.descTextView resignFirstResponder];

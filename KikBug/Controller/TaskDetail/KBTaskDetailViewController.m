@@ -21,6 +21,7 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
+#import "KBReportManager.h"
 
 @interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
@@ -565,14 +566,12 @@
 
 #pragma mark - DNImagePickerControllerDelegate
 
-- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray*)imageAssets isFullImage:(BOOL)fullImage
+- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset *> *)imageAssets isFullImage:(BOOL)fullImage
 {
-    //    self.assetsArray = [NSMutableArray arrayWithArray:imageAssets];
-    //    CollectionViewController *collectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CollectionViewController"];
-    //    collectionVC.isFullImage = fullImage;
-    //    collectionVC.imageArray = imageAssets;
-    //    [self.navigationController pushViewController:collectionVC animated:YES];
-    
+    KBBugReport *report = [KBBugReport reportWithDNAssets:imageAssets];
+    [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel *model, NSError *error) {
+        //
+    }];
 }
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
