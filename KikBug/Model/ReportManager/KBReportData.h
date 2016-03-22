@@ -17,7 +17,7 @@ JSONSTIRNG reportLocation;
 JSONSTIRNG mobileBrand;
 JSONSTIRNG mobileModel;
 JSONSTIRNG mobileOs;
-JSONINT bugFound;
+@property (assign,nonatomic) BOOL bugFound;
 JSONINT timeUsed;
 JSONSTIRNG stepDescription;
 

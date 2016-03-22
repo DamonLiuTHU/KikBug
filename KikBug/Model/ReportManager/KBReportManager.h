@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "DNAsset.h"
 @class KBTaskReport;
-@interface KBBugReportItem : KBBaseModel
-@property (strong,nonatomic) UIImage *image;
-@property (strong,nonatomic) NSString *descForImage;
-@end
+//@interface KBBugReportItem : KBBaseModel
+//@property (strong,nonatomic) UIImage *image;
+//@property (strong,nonatomic) NSString *descForImage;
+//@end
 
 @interface KBBugReport : KBBaseModel
 
@@ -21,9 +21,10 @@ JSONINT bugCategoryId;
 JSONSTIRNG bugDescription;
 JSONSTIRNG imgUrl;
 JSONINT severity;
-@property (strong,nonatomic) NSArray<KBBugReportItem *> *items;/*< 1~9 个item **/
+//@property (strong,nonatomic) NSArray<KBBugReportItem *> *items;/*< 1~9 个item **/
 
 + (instancetype)reportWithDNAssets:(NSArray<DNAsset *> *)list;
+
 @end
 
 

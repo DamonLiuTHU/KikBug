@@ -11,6 +11,7 @@
 #import "KBBaseModel.h"
 #import "KBHttpManager.h"
 #import "KBOnePixelLine.h"
+#import "KBReportManager.h"
 #import "KBTaskDetailModel.h"
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListModel.h"
@@ -21,7 +22,7 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
-#import "KBReportManager.h"
+#import "KBImageManager.h"
 
 @interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
@@ -84,7 +85,7 @@
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rec];
 
-//    self.acceptTask.hidden = self.model.isAccepted;
+    //    self.acceptTask.hidden = self.model.isAccepted;
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
 
@@ -556,21 +557,34 @@
     //    [[KBNavigator sharedNavigator] showViewController:imagePicker withShowType:KBUIManagerShowTypePresent];
 }
 
+/**
+ *  发出开始测试的Scheme
+ *
+ *  @param sender sender description
+ */
 - (void)jumpToApp:(id)sender
 {
-    appUrl = [NSURL URLWithString:@"NetEase://"];
-    //    if (appUrl != nil && [[UIApplication sharedApplication] canOpenURL:appUrl]) {
+    NSString* host = @"NetEase";
+    NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, self.detailModel.taskId];
+    appUrl = [NSURL URLWithString:str];
     [[UIApplication sharedApplication] openURL:appUrl];
-    //    }
 }
 
 #pragma mark - DNImagePickerControllerDelegate
 
-- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset *> *)imageAssets isFullImage:(BOOL)fullImage
+- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
 {
-    KBBugReport *report = [KBBugReport reportWithDNAssets:imageAssets];
-    [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel *model, NSError *error) {
-        //
+    
+  
+    
+    KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets];
+    
+
+    [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
+        if (!error) {
+        }
+        else {
+        }
     }];
 }
 

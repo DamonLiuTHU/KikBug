@@ -481,15 +481,15 @@
 - (void)didScrollToPage:(NSInteger)page
 {
     self.currentIndex = page;
-    DNAsset *asset = self.photoDataSources[page];
-    NSString *userDesc = asset.userDesc;
-    self.descTextView.text = userDesc;
+//    DNAsset *asset = self.photoDataSources[page];
+//    NSString *userDesc = asset.userDesc;
+//    self.descTextView.text = userDesc;
     [self updateNavigationBarAndToolBar];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    DNAsset *asset = self.photoDataSources[self.currentIndex];
+    DNAsset *asset = [self.photoDataSources firstObject];
     asset.userDesc = self.descTextView.text;
 }
 
@@ -499,7 +499,7 @@
 {
     
     if (hidden) {
-        DNAsset *asset = self.photoDataSources[self.currentIndex];
+        DNAsset *asset = [self.photoDataSources firstObject];
         asset.userDesc = self.descTextView.text;
     }
     

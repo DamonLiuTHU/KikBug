@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E6384CCF8493D2AFFD9026067100930270EE1D16",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E6384CCF8493D2AFFD9026067100930270EE1D16" : 0,
+    "AA047654F29F3DB0A87C90053F734680DC1B2033" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6A5C66F4-B7BA-48C8-96B0-2F7A9478B554",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E6384CCF8493D2AFFD9026067100930270EE1D16" : "KikBug\/",
+    "AA047654F29F3DB0A87C90053F734680DC1B2033" : "..\/..\/ios-sdk"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KikBug",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KikBug.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/upyun\/ios-sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AA047654F29F3DB0A87C90053F734680DC1B2033"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DamonLiuNJU\/KikBug.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E6384CCF8493D2AFFD9026067100930270EE1D16"
+    }
+  ]
+}

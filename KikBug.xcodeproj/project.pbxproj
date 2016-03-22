@@ -21,6 +21,15 @@
 		504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */; };
 		504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */; };
 		505609561CA1307400D1DB8B /* KBReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609551CA1307400D1DB8B /* KBReportData.m */; };
+		5056095A1CA13CF000D1DB8B /* KBImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609591CA13CF000D1DB8B /* KBImageManager.m */; };
+		5056098B1CA140AA00D1DB8B /* UpYun.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609791CA140AA00D1DB8B /* UpYun.m */; };
+		5056098C1CA140AA00D1DB8B /* UPYUNConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056097B1CA140AA00D1DB8B /* UPYUNConfig.m */; };
+		5056098D1CA140AA00D1DB8B /* NSData+MD5Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056097F1CA140AA00D1DB8B /* NSData+MD5Digest.m */; };
+		5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609811CA140AA00D1DB8B /* NSString+NSHash.m */; };
+		5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609831CA140AA00D1DB8B /* UPHTTPBodyPart.m */; };
+		505609901CA140AA00D1DB8B /* UPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609851CA140AA00D1DB8B /* UPHTTPClient.m */; };
+		505609911CA140AA00D1DB8B /* UPMultipartBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609871CA140AA00D1DB8B /* UPMultipartBody.m */; };
+		505609921CA140AA00D1DB8B /* UPMutUploaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056098A1CA140AA00D1DB8B /* UPMutUploaderManager.m */; };
 		5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDC1C91457000C1A0A7 /* KBGroupTableViewCell.m */; };
 		5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */; };
 		505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505A91C01C57AC160024FC18 /* KBLogoView.m */; };
@@ -115,6 +124,24 @@
 		504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchTableViewCell.m; sourceTree = "<group>"; };
 		505609541CA1307400D1DB8B /* KBReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportData.h; sourceTree = "<group>"; };
 		505609551CA1307400D1DB8B /* KBReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportData.m; sourceTree = "<group>"; };
+		505609581CA13CF000D1DB8B /* KBImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBImageManager.h; sourceTree = "<group>"; };
+		505609591CA13CF000D1DB8B /* KBImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBImageManager.m; sourceTree = "<group>"; };
+		505609781CA140AA00D1DB8B /* UpYun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpYun.h; sourceTree = "<group>"; };
+		505609791CA140AA00D1DB8B /* UpYun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpYun.m; sourceTree = "<group>"; };
+		5056097A1CA140AA00D1DB8B /* UPYUNConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPYUNConfig.h; sourceTree = "<group>"; };
+		5056097B1CA140AA00D1DB8B /* UPYUNConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPYUNConfig.m; sourceTree = "<group>"; };
+		5056097E1CA140AA00D1DB8B /* NSData+MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5Digest.h"; sourceTree = "<group>"; };
+		5056097F1CA140AA00D1DB8B /* NSData+MD5Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5Digest.m"; sourceTree = "<group>"; };
+		505609801CA140AA00D1DB8B /* NSString+NSHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSHash.h"; sourceTree = "<group>"; };
+		505609811CA140AA00D1DB8B /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
+		505609821CA140AA00D1DB8B /* UPHTTPBodyPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPHTTPBodyPart.h; sourceTree = "<group>"; };
+		505609831CA140AA00D1DB8B /* UPHTTPBodyPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPHTTPBodyPart.m; sourceTree = "<group>"; };
+		505609841CA140AA00D1DB8B /* UPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPHTTPClient.h; sourceTree = "<group>"; };
+		505609851CA140AA00D1DB8B /* UPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPHTTPClient.m; sourceTree = "<group>"; };
+		505609861CA140AA00D1DB8B /* UPMultipartBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMultipartBody.h; sourceTree = "<group>"; };
+		505609871CA140AA00D1DB8B /* UPMultipartBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMultipartBody.m; sourceTree = "<group>"; };
+		505609891CA140AA00D1DB8B /* UPMutUploaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMutUploaderManager.h; sourceTree = "<group>"; };
+		5056098A1CA140AA00D1DB8B /* UPMutUploaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMutUploaderManager.m; sourceTree = "<group>"; };
 		5056CDDB1C91457000C1A0A7 /* KBGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupTableViewCell.h; sourceTree = "<group>"; };
 		5056CDDC1C91457000C1A0A7 /* KBGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupTableViewCell.m; sourceTree = "<group>"; };
 		5056CDDE1C915C1E00C1A0A7 /* KBGroupSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBGroupSearchViewController.h; path = ../../View/Group/KBGroupSearchViewController.h; sourceTree = "<group>"; };
@@ -354,6 +381,63 @@
 				504B970F1C4C917F003B60EF /* KBLayout.m */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		505609571CA13CE700D1DB8B /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				505609771CA140AA00D1DB8B /* UpYunSDK */,
+				505609581CA13CF000D1DB8B /* KBImageManager.h */,
+				505609591CA13CF000D1DB8B /* KBImageManager.m */,
+			);
+			path = ImageManager;
+			sourceTree = "<group>";
+		};
+		505609771CA140AA00D1DB8B /* UpYunSDK */ = {
+			isa = PBXGroup;
+			children = (
+				505609781CA140AA00D1DB8B /* UpYun.h */,
+				505609791CA140AA00D1DB8B /* UpYun.m */,
+				5056097A1CA140AA00D1DB8B /* UPYUNConfig.h */,
+				5056097B1CA140AA00D1DB8B /* UPYUNConfig.m */,
+				5056097C1CA140AA00D1DB8B /* Utils */,
+			);
+			path = UpYunSDK;
+			sourceTree = "<group>";
+		};
+		5056097C1CA140AA00D1DB8B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5056097D1CA140AA00D1DB8B /* NSData+MD5Digest */,
+				505609821CA140AA00D1DB8B /* UPHTTPBodyPart.h */,
+				505609831CA140AA00D1DB8B /* UPHTTPBodyPart.m */,
+				505609841CA140AA00D1DB8B /* UPHTTPClient.h */,
+				505609851CA140AA00D1DB8B /* UPHTTPClient.m */,
+				505609861CA140AA00D1DB8B /* UPMultipartBody.h */,
+				505609871CA140AA00D1DB8B /* UPMultipartBody.m */,
+				505609881CA140AA00D1DB8B /* UPMutUpload */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5056097D1CA140AA00D1DB8B /* NSData+MD5Digest */ = {
+			isa = PBXGroup;
+			children = (
+				5056097E1CA140AA00D1DB8B /* NSData+MD5Digest.h */,
+				5056097F1CA140AA00D1DB8B /* NSData+MD5Digest.m */,
+				505609801CA140AA00D1DB8B /* NSString+NSHash.h */,
+				505609811CA140AA00D1DB8B /* NSString+NSHash.m */,
+			);
+			path = "NSData+MD5Digest";
+			sourceTree = "<group>";
+		};
+		505609881CA140AA00D1DB8B /* UPMutUpload */ = {
+			isa = PBXGroup;
+			children = (
+				505609891CA140AA00D1DB8B /* UPMutUploaderManager.h */,
+				5056098A1CA140AA00D1DB8B /* UPMutUploaderManager.m */,
+			);
+			path = UPMutUpload;
 			sourceTree = "<group>";
 		};
 		5056CDDA1C91454900C1A0A7 /* Group */ = {
@@ -610,6 +694,7 @@
 		50F859281BF075E0008896D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				505609571CA13CE700D1DB8B /* ImageManager */,
 				50109B3D1CA021BC00DB2CBB /* ReportManager */,
 				50EDD5061C8A6A030021D71D /* GroupManager */,
 				5075262B1C843F9D0071F67F /* TaskManager */,
@@ -823,37 +908,46 @@
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
 				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
 				50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */,
+				5056098D1CA140AA00D1DB8B /* NSData+MD5Digest.m in Sources */,
+				505609921CA140AA00D1DB8B /* UPMutUploaderManager.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
 				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
+				5056095A1CA13CF000D1DB8B /* KBImageManager.m in Sources */,
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
 				505609561CA1307400D1DB8B /* KBReportData.m in Sources */,
 				50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */,
 				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
 				50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */,
+				505609901CA140AA00D1DB8B /* UPHTTPClient.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
 				50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */,
+				505609911CA140AA00D1DB8B /* UPMultipartBody.m in Sources */,
 				50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */,
 				504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */,
 				500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */,
 				50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */,
 				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
 				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
+				5056098C1CA140AA00D1DB8B /* UPYUNConfig.m in Sources */,
 				50A4FE441C97F86700B35124 /* DNBrowserCell.m in Sources */,
 				50A4FE3F1C97F86700B35124 /* UIViewController+DNImagePicker.m in Sources */,
 				50A4FE351C97F86700B35124 /* DNAlbumTableViewController.m in Sources */,
 				5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */,
+				5056098B1CA140AA00D1DB8B /* UpYun.m in Sources */,
 				50A4FE371C97F86700B35124 /* DNImageFlowViewController.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
+				5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */,
 				50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */,
 				504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */,
 				50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */,
 				50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */,
 				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
+				5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				50A4FE361C97F86700B35124 /* DNAsset.m in Sources */,
 				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,

@@ -7,14 +7,15 @@
 //
 
 #import "KBHttpManager.h"
-#import "KBReportManager.h"
 #import "KBReportData.h"
+#import "KBReportManager.h"
+#import "KBImageManager.h"
 
-@implementation KBBugReportItem
-
+//@implementation KBBugReportItem
 //
-
-@end
+////
+//
+//@end
 
 @implementation KBBugReport
 
@@ -26,18 +27,38 @@
 + (instancetype)reportWithDNAssets:(NSArray<DNAsset*>*)list
 {
     KBBugReport* report = [[KBBugReport alloc] init];
-    NSMutableArray<KBBugReportItem*>* array = [NSMutableArray array];
-    for (DNAsset* asset in list) {
-        KBBugReportItem* item = [[KBBugReportItem alloc] init];
-        item.image = [asset getImageResource];
-        item.descForImage = asset.userDesc;
-        [array addObject:item];
+
+    if (![NSString isNilorEmpty:[list firstObject].userDesc]) {
+        report.bugDescription = [list firstObject].userDesc;
     }
-    report.items = array;
+    
+    NSMutableString* imageUrl = [NSMutableString string];
+    NSInteger counter = 0;
+    
+    for (DNAsset* asset in list) {
+        counter++;
+        UIImage *image = [asset getImageResource];
+        NSString *key = [KBImageManager getSaveKeyWith:@"jpg" andIndex:counter];
+        NSString *imgUrl = [@"http://kikbug-test.b0.upaiyun.com" stringByAppendingString:key];
+        [imageUrl appendString:[imgUrl stringByAppendingString:@";"]];
+        [KBImageManager uploadImage:image withKey:key completion:^(NSString *imageUrl, NSError *error) {
+            
+        }];
+    }
+
+    report.bugCategoryId = 0;
+    report.imgUrl = imageUrl;
+    report.severity = 3;
     return report;
 }
 
 @end
+
+@interface KBReportManager ()
+
+@end
+
+static NSInteger REPORT_ID = -1;
 
 @implementation KBReportManager
 
@@ -50,9 +71,14 @@
 + (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"UploadBug");
+    if (REPORT_ID >= 0) {
+        bugReport.reportId = REPORT_ID;
+    }
+    else { //如果没有reportId，那么说明服务器没有返回reportId，不可以发送bug报告。
+        return;
+    }
     [KBHttpManager sendPostHttpRequestWithUrl:url Params:[bugReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
         if (!error) {
-            //
         }
         else {
         }
@@ -64,6 +90,8 @@
     NSString* url = GETURL_V2(@"UploadTaskReport");
     [KBHttpManager sendPostHttpRequestWithUrl:url Params:[taskReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
         if (!error) {
+            NSInteger i_reportId = [[responseObject valueForKey:@"reportId"] integerValue];
+            REPORT_ID = i_reportId;
         }
         else {
         }
