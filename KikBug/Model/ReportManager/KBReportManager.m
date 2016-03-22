@@ -8,6 +8,7 @@
 
 #import "KBHttpManager.h"
 #import "KBReportManager.h"
+#import "KBReportData.h"
 
 @implementation KBBugReportItem
 
@@ -17,7 +18,10 @@
 
 @implementation KBBugReport
 
-//
++ (NSDictionary*)mj_replacedKeyFromPropertyName
+{
+    return @{ @"bugDescription" : @"description" };
+}
 
 + (instancetype)reportWithDNAssets:(NSArray<DNAsset*>*)list
 {
@@ -46,9 +50,20 @@
 + (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"UploadBug");
-    [KBHttpManager sendPostHttpRequestWithUrl:url Params:@{} CallBack:^(id responseObject, NSError* error) {
+    [KBHttpManager sendPostHttpRequestWithUrl:url Params:[bugReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
         if (!error) {
             //
+        }
+        else {
+        }
+    }];
+}
+
++ (void)uploadTaskReport:(KBTaskReport*)taskReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
+{
+    NSString* url = GETURL_V2(@"UploadTaskReport");
+    [KBHttpManager sendPostHttpRequestWithUrl:url Params:[taskReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
+        if (!error) {
         }
         else {
         }
