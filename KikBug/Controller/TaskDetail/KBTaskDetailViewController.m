@@ -23,6 +23,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
 #import "KBImageManager.h"
+#import "KBReportData.h"
 
 @interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
@@ -575,17 +576,19 @@
 - (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
 {
     
-  
-    
-    KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets];
-    
-
-    [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-        if (!error) {
-        }
-        else {
-        }
+    [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel *model, NSError *error) {
+        
+        KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets];
+        [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
+            if (!error) {
+            }
+            else {
+            }
+        }];
+        
     }];
+    
+    
 }
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker

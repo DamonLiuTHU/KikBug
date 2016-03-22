@@ -21,4 +21,6 @@ JSONSTIRNG mobileOs;
 JSONINT timeUsed;
 JSONSTIRNG stepDescription;
 
++ (instancetype)fakeReport;
+
 @end

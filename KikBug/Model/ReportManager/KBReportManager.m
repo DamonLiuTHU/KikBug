@@ -30,6 +30,8 @@
 
     if (![NSString isNilorEmpty:[list firstObject].userDesc]) {
         report.bugDescription = [list firstObject].userDesc;
+    } else {
+        report.bugDescription = @"用户没有填写bug描述";
     }
     
     NSMutableString* imageUrl = [NSMutableString string];
@@ -71,6 +73,7 @@ static NSInteger REPORT_ID = -1;
 + (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"UploadBug");
+    REPORT_ID = 10086;//test
     if (REPORT_ID >= 0) {
         bugReport.reportId = REPORT_ID;
     }

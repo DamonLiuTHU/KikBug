@@ -63,7 +63,6 @@
                             Params:(NSDictionary*)param
                           CallBack:(void (^)(id, NSError*))block
 {
-
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
 
     [manager POST:url
@@ -79,11 +78,10 @@
 + (AFHTTPRequestOperationManager*)getHttpRequestManager
 {
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    //    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
-    //    [manager setRequestSerializer:jsonRequestSerializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     [manager.requestSerializer setValue:@"aaa" forHTTPHeaderField:@"App-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString* session = [[NSUserDefaults standardUserDefaults] valueForKey:SESSION];
