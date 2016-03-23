@@ -1,26 +1,25 @@
 //
-//  KBMyTaskListViewController.m
+//  KBGroupTaskListViewController.m
 //  KikBug
 //
-//  Created by DamonLiu on 16/1/8.
+//  Created by DamonLiu on 16/3/23.
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 
-#import "KBHttpManager.h"
-#import "KBMyTaskListViewController.h"
-#import "KBTaskCellTableViewCell.h"
-#import "KBTaskDetailViewController.h"
+#import "KBGroupTaskListViewController.h"
 #import "KBTaskListModel.h"
 #import "KBTaskListManager.h"
-#import "MJExtension.h"
+#import "KBTaskCellTableViewCell.h"
+#import "KBTaskDetailViewController.h"
 
-@interface KBMyTaskListViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface KBGroupTaskListViewController ()
+@property (strong, nonatomic) NSString *groupId;
 @property (strong, nonatomic) NSArray<KBTaskListModel*>* dataSource;
 @end
 
-@implementation KBMyTaskListViewController
+@implementation KBGroupTaskListViewController
 
-static NSString* identifier = @"KBMyTaskListViewController";
+//static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)viewDidLoad
 {
@@ -28,8 +27,8 @@ static NSString* identifier = @"KBMyTaskListViewController";
     [self setTitle:@"我的任务"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
-
-//    self.dataSourceForMyTasks = [NSArray array];
+    
+    //    self.dataSourceForMyTasks = [NSArray array];
     self.dataSource = [NSArray array];
 }
 
@@ -38,7 +37,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 {
     [self showLoadingView];
     WEAKSELF;
-    [KBTaskListManager fetchMyTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
+    [KBTaskListManager fetchTasksFromGroup:self.groupId WithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf hideLoadingView];
         if (model && !error) {
@@ -53,7 +52,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 - (void)configTableView
 {
     [super configTableView];
-    [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:[KBTaskCellTableViewCell cellIdentifier]];
 }
 
 - (void)configConstrains
@@ -74,7 +73,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    KBTaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    KBTaskCellTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:[KBTaskCellTableViewCell cellIdentifier] forIndexPath:indexPath];
     if ([cell isKindOfClass:[KBTaskCellTableViewCell class]]) {
         [cell fillWithContent:self.dataSource[indexPath.row]];
     }
@@ -99,4 +98,10 @@ static NSString* identifier = @"KBMyTaskListViewController";
 {
     self.dataSource = nil;
 }
+
+- (void)setParams:(NSDictionary *)params
+{
+    self.groupId = [params valueForKey:@"groupId"];
+}
+
 @end

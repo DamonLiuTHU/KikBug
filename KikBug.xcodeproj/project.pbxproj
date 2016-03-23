@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5002D9261CA25BBC00D7347E /* KBGroupTaskListViewController.m */; };
 		500BAA0F1C8290E4005E5831 /* url2.0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 500BAA0E1C8290E4005E5831 /* url2.0.plist */; };
 		500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 500BAA161C82DDF1005E5831 /* KBLoginManager.m */; };
 		50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50109B3F1CA021CF00DB2CBB /* KBReportManager.m */; };
@@ -98,6 +99,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5002D9251CA25BBC00D7347E /* KBGroupTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupTaskListViewController.h; sourceTree = "<group>"; };
+		5002D9261CA25BBC00D7347E /* KBGroupTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupTaskListViewController.m; sourceTree = "<group>"; };
 		500BAA0E1C8290E4005E5831 /* url2.0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = url2.0.plist; sourceTree = "<group>"; };
 		500BAA151C82DDF1005E5831 /* KBLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLoginManager.h; sourceTree = "<group>"; };
 		500BAA161C82DDF1005E5831 /* KBLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginManager.m; sourceTree = "<group>"; };
@@ -636,6 +639,8 @@
 				50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */,
 				50873C931C96CA6300979A4C /* KBGroupDetailViewController.h */,
 				50873C941C96CA6300979A4C /* KBGroupDetailViewController.m */,
+				5002D9251CA25BBC00D7347E /* KBGroupTaskListViewController.h */,
+				5002D9261CA25BBC00D7347E /* KBGroupTaskListViewController.m */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -901,6 +906,7 @@
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
 				50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */,
+				5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */,
 				50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
 				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,

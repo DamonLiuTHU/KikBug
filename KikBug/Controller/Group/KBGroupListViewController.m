@@ -51,6 +51,8 @@
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
 }
 
+
+#pragma mark - Table Delegate
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.model.items.count;
@@ -66,6 +68,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [KBGroupTableViewCell calculateCellHeightWithData:nil];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KBGroupSearchItem *item = self.model.items[indexPath.row];
+    NSString *url = GROUP_TASKS;
+    UIViewController *vc = [[HHRouter shared] matchController:url];
+    [vc setParams:@{@"groupId":@(item.groupId)}];
+    [[KBNavigator sharedNavigator] showViewController:vc];
 }
 
 #pragma mark - UI Event

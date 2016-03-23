@@ -127,6 +127,7 @@ return [self singletonName];\
 #define GROUP_DETAIL_PAGE @"/GROUP_DETAIL_PAGE"
 #define REGISTER_PAGE @"/registerpage"
 #define REGISTER_PAGE_STEP_2 @"/confirmToken"
+#define GROUP_TASKS @"/tasks/group"
 
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]

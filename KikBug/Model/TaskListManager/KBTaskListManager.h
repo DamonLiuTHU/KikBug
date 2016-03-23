@@ -16,4 +16,6 @@
 + (void)fetchMyTasksWithCompletion:(void (^)(NSArray<KBTaskListModel*>* model, NSError* error))block;
 
 + (void)fetchTasksFromGroupWithCompletion:(void (^)(NSArray<KBTaskListModel*>* model, NSError* error))block;
+
++ (void)fetchTasksFromGroup:(NSString *)groupId WithCompletion:(void (^)(NSArray<KBTaskListModel*>*, NSError*))block;
 @end

@@ -79,4 +79,23 @@
     }];
 }
 
++ (void)fetchTasksFromGroup:(NSString *)groupId WithCompletion:(void (^)(NSArray<KBTaskListModel*>*, NSError*))block
+{
+    NSString* url = GETURL_V2(@"PublicTasks");
+    [KBHttpManager sendGetHttpReqeustWithUrl:url Params:@{@"groupId":NSSTRING_NOT_NIL(groupId)} CallBack:^(id responseObject, NSError* error) {
+        if (!error) {
+            NSMutableArray* array = [NSMutableArray array];
+            NSArray* itemsArray = [responseObject valueForKey:@"items"];
+            for (NSDictionary* dic in itemsArray) {
+                KBTaskListModel* model = [KBTaskListModel mj_objectWithKeyValues:dic];
+                [array addObject:model];
+            }
+            block(array, nil);
+        }
+        else {
+            block(nil, error);
+        }
+    }];
+}
+
 @end

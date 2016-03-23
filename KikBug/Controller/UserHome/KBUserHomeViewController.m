@@ -9,7 +9,7 @@
 #import "KBUserHomeViewController.h"
 
 @interface KBUserHomeViewController ()
-
+@property (strong,nonatomic) UIButton *loginButton;
 @end
 
 @implementation KBUserHomeViewController
@@ -24,6 +24,29 @@
         KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
+    
+    self.loginButton = [UIButton new];
+    [self.loginButton setBackgroundColor:THEME_COLOR];
+    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:self.loginButton];
+    [self.loginButton.layer setCornerRadius:5.0f];
+    [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [self.loginButton addTarget:self action:@selector(showLoginButton) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)showLoginButton
+{
+    KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+    [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+}
+
+- (void)configConstrains
+{
+    [super configConstrains];
+    [self.loginButton autoSetDimensionsToSize:CGSizeMake(200, 50)];
+    [self.loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.loginButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:BOTTOM_BAR_HEIGHT+10];
+    [super updateViewConstraints];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

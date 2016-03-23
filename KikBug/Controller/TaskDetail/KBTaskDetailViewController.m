@@ -565,7 +565,7 @@
  */
 - (void)jumpToApp:(id)sender
 {
-    NSString* host = @"NetEase";
+    NSString* host = @"Airvin";
     NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, self.detailModel.taskId];
     appUrl = [NSURL URLWithString:str];
     [[UIApplication sharedApplication] openURL:appUrl];
