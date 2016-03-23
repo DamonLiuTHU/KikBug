@@ -10,6 +10,7 @@
 #import "KBTaskListTableViewController.h"
 #import "KBReportData.h"
 #import "KBReportManager.h"
+#import "NSString+EasyUse.h"
 
 
 @interface AppDelegate ()
@@ -65,7 +66,9 @@
     NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
     NSLog(@"URL scheme:%@", [url scheme]);
     NSLog(@"URL query: %@", [url query]);
-    KBTaskReport *report = [KBTaskReport mj_objectWithKeyValues:[url query]];
+    
+    NSDictionary *params = [NSString splitQuery:[url query]];
+    KBTaskReport *report = [KBTaskReport mj_objectWithKeyValues:params];
     [KBReportManager uploadTaskReport:report withCompletion:^(KBBaseModel *model, NSError *error) {
         if (!error) {
             //

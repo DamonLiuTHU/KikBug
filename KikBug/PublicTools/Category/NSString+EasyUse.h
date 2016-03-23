@@ -11,4 +11,6 @@
 @interface NSString (EasyUse)
 + (NSString*)dateFromTimeStamp:(NSString*)timeSp;
 - (CGFloat)heightForString:(NSString*)value fontSize:(CGFloat)fontSize andWidth:(CGFloat)width;
++ (NSString*)concatenateQuery:(NSDictionary*)parameters;
++ (NSDictionary*)splitQuery:(NSString*)query;
 @end
