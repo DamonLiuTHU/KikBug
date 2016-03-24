@@ -15,8 +15,12 @@
 //@end
 
 @interface KBReportManager : NSObject
-
-+ (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
+/**
+ *  获取存储的ReportId
+ *
+ *  @return return value description
+ */
++ (NSInteger)getReportId;
 
 + (void)uploadTaskReport:(KBTaskReport*)taskReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
 

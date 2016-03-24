@@ -17,6 +17,7 @@
 		50359C1A1CA3D26E00DFAD45 /* KBMyBugReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C191CA3D26E00DFAD45 /* KBMyBugReportListViewController.m */; };
 		50359C1E1CA3D89600DFAD45 /* KBBugListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */; };
 		50359C211CA3DA0A00DFAD45 /* KBBugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C201CA3DA0A00DFAD45 /* KBBugReport.m */; };
+		50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C251CA41FBA00DFAD45 /* KBBugManager.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
 		5039A2631B73585000714F7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2621B73585000714F7A /* AppDelegate.m */; };
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
@@ -121,6 +122,8 @@
 		50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugListTableViewCell.m; sourceTree = "<group>"; };
 		50359C1F1CA3DA0A00DFAD45 /* KBBugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugReport.h; sourceTree = "<group>"; };
 		50359C201CA3DA0A00DFAD45 /* KBBugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugReport.m; sourceTree = "<group>"; };
+		50359C241CA41FBA00DFAD45 /* KBBugManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugManager.h; sourceTree = "<group>"; };
+		50359C251CA41FBA00DFAD45 /* KBBugManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugManager.m; sourceTree = "<group>"; };
 		5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOnePixelLine.h; sourceTree = "<group>"; };
 		5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOnePixelLine.m; sourceTree = "<group>"; };
 		5039A25A1B73585000714F7A /* KikBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KikBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +325,8 @@
 			children = (
 				50359C1F1CA3DA0A00DFAD45 /* KBBugReport.h */,
 				50359C201CA3DA0A00DFAD45 /* KBBugReport.m */,
+				50359C241CA41FBA00DFAD45 /* KBBugManager.h */,
+				50359C251CA41FBA00DFAD45 /* KBBugManager.m */,
 			);
 			path = BugManager;
 			sourceTree = "<group>";
@@ -978,6 +983,7 @@
 				5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */,
 				50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
+				50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */,
 				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
