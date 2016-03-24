@@ -64,6 +64,7 @@
 
 
 #define UIManager [KBNavigator sharedNavigator]
+#define CoreManager [CoreDataManager sharedManager]
 
 //单例模式的宏
 #define SINGLETON_INTERFACE(className,singletonName) +(className *)singletonName;

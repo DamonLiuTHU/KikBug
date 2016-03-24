@@ -13,14 +13,14 @@
 + (instancetype)fakeReport
 {
     KBTaskReport* report = [[KBTaskReport alloc] init];
-    report.taskId = 8;
+    report.taskId = 15;
     report.name = @"name";
     report.logLocation = @"testetssetsetlogLocation";
     report.reportLocation = @"asdasdfasdfasdfreportLocation";
     report.mobileBrand = @"Apple";
     report.mobileModel = @"iPhone 6s plus";
     report.mobileOs = @"iOS";
-    report.bugFound = NO;
+    report.bugFound = 0;
     report.timeUsed = 20;
     report.stepDescription = @"111111";
     

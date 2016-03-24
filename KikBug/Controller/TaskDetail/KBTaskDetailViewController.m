@@ -566,7 +566,7 @@
 - (void)jumpToApp:(id)sender
 {
     NSString* host = @"Airvin";
-    NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, self.detailModel.taskId];
+    NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, (long)self.detailModel.taskId];
     appUrl = [NSURL URLWithString:str];
     [[UIApplication sharedApplication] openURL:appUrl];
 }
@@ -577,12 +577,13 @@
 {
     
     [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel *model, NSError *error) {
-        
-        KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets];
+    
+        KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:INT_TO_STIRNG(self.detailModel.taskId]);
         [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
             if (!error) {
             }
             else {
+
             }
         }];
         

@@ -13,6 +13,10 @@
 		50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50109B3F1CA021CF00DB2CBB /* KBReportManager.m */; };
 		50130E781BF06EE500D8A1B1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 50130E771BF06EE500D8A1B1 /* Podfile */; };
 		5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 503004991BF08C9D007D22BC /* KBTaskDetailModel.m */; };
+		50359C0B1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */; };
+		50359C111CA3B83400DFAD45 /* BugReport+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */; };
+		50359C121CA3B83400DFAD45 /* BugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C101CA3B83400DFAD45 /* BugReport.m */; };
+		50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C151CA3BBA700DFAD45 /* CoreDataManager.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
 		5039A2631B73585000714F7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2621B73585000714F7A /* AppDelegate.m */; };
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
@@ -109,6 +113,13 @@
 		50130E771BF06EE500D8A1B1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		503004981BF08C9D007D22BC /* KBTaskDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskDetailModel.h; sourceTree = "<group>"; };
 		503004991BF08C9D007D22BC /* KBTaskDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskDetailModel.m; sourceTree = "<group>"; };
+		50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KBBugReportModel.xcdatamodel; sourceTree = "<group>"; };
+		50359C0D1CA3B83400DFAD45 /* BugReport+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BugReport+CoreDataProperties.h"; sourceTree = "<group>"; };
+		50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BugReport+CoreDataProperties.m"; sourceTree = "<group>"; };
+		50359C0F1CA3B83400DFAD45 /* BugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugReport.h; sourceTree = "<group>"; };
+		50359C101CA3B83400DFAD45 /* BugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugReport.m; sourceTree = "<group>"; };
+		50359C141CA3BBA700DFAD45 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		50359C151CA3BBA700DFAD45 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOnePixelLine.h; sourceTree = "<group>"; };
 		5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOnePixelLine.m; sourceTree = "<group>"; };
 		5039A25A1B73585000714F7A /* KikBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KikBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +314,27 @@
 				505609551CA1307400D1DB8B /* KBReportData.m */,
 			);
 			path = ReportManager;
+			sourceTree = "<group>";
+		};
+		50359C0C1CA3B81700DFAD45 /* BugManager */ = {
+			isa = PBXGroup;
+			children = (
+				50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */,
+				50359C0D1CA3B83400DFAD45 /* BugReport+CoreDataProperties.h */,
+				50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */,
+				50359C0F1CA3B83400DFAD45 /* BugReport.h */,
+				50359C101CA3B83400DFAD45 /* BugReport.m */,
+			);
+			path = BugManager;
+			sourceTree = "<group>";
+		};
+		50359C131CA3BB9500DFAD45 /* CoreDataTools */ = {
+			isa = PBXGroup;
+			children = (
+				50359C141CA3BBA700DFAD45 /* CoreDataManager.h */,
+				50359C151CA3BBA700DFAD45 /* CoreDataManager.m */,
+			);
+			path = CoreDataTools;
 			sourceTree = "<group>";
 		};
 		5038F9B11BF09FCE00CE22BE /* CommonUITool */ = {
@@ -569,9 +601,10 @@
 		50D97C0B1C3F9BDB00E37500 /* PublicTools */ = {
 			isa = PBXGroup;
 			children = (
-				50A4FE0A1C97F86700B35124 /* DNImagePicker */,
 				50D97C171C3F9BDB00E37500 /* Macros.h */,
 				50D97C181C3F9BDB00E37500 /* main.m */,
+				50359C131CA3BB9500DFAD45 /* CoreDataTools */,
+				50A4FE0A1C97F86700B35124 /* DNImagePicker */,
 				50740BC31C575CA4009B30A4 /* Navigation */,
 				50D97C0C1C3F9BDB00E37500 /* Category */,
 				50D97C131C3F9BDB00E37500 /* HttpRequest */,
@@ -699,6 +732,7 @@
 		50F859281BF075E0008896D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				50359C0C1CA3B81700DFAD45 /* BugManager */,
 				505609571CA13CE700D1DB8B /* ImageManager */,
 				50109B3D1CA021BC00DB2CBB /* ReportManager */,
 				50EDD5061C8A6A030021D71D /* GroupManager */,
@@ -897,6 +931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
+				50359C0B1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld in Sources */,
 				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
 				50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */,
@@ -917,6 +952,7 @@
 				5056098D1CA140AA00D1DB8B /* NSData+MD5Digest.m in Sources */,
 				505609921CA140AA00D1DB8B /* UPMutUploaderManager.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
+				50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */,
 				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
 				5056095A1CA13CF000D1DB8B /* KBImageManager.m in Sources */,
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
@@ -925,6 +961,7 @@
 				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
 				50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */,
 				505609901CA140AA00D1DB8B /* UPHTTPClient.m in Sources */,
+				50359C111CA3B83400DFAD45 /* BugReport+CoreDataProperties.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
@@ -935,6 +972,7 @@
 				50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */,
 				504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */,
 				500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */,
+				50359C121CA3B83400DFAD45 /* BugReport.m in Sources */,
 				50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */,
 				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
 				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
@@ -1190,6 +1228,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */,
+			);
+			currentVersion = 50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */;
+			name = KBBugReportModel.xcdatamodeld;
+			path = ../ReportManager/KBBugReportModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5039A2521B73585000714F7A /* Project object */;
 }

@@ -111,6 +111,7 @@
 
 + (NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString
 {
+    
     if ([jsonString isEqualToString:@"false"] || [jsonString isEqualToString:@"true"]) {
         NSMutableDictionary* dic = [NSMutableDictionary dictionary];
         BOOL result = [jsonString boolValue];
@@ -125,7 +126,7 @@
     NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError* err;
     NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                        options:NSJSONReadingMutableLeaves
+                                                        options:NSJSONReadingAllowFragments
                                                           error:&err];
     if (err) {
         NSLog(@"json解析失败：%@", err);

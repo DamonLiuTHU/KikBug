@@ -10,6 +10,7 @@
 #import "KBReportData.h"
 #import "KBReportManager.h"
 #import "KBImageManager.h"
+#import "BugReport.h"
 
 //@implementation KBBugReportItem
 //
@@ -24,7 +25,7 @@
     return @{ @"bugDescription" : @"description" };
 }
 
-+ (instancetype)reportWithDNAssets:(NSArray<DNAsset*>*)list
++ (instancetype)reportWithDNAssets:(NSArray<DNAsset*>*)list taskId:(NSString *)taskId;
 {
     KBBugReport* report = [[KBBugReport alloc] init];
 
@@ -48,9 +49,10 @@
         }];
     }
 
-    report.bugCategoryId = 0;
+    report.bugCategoryId = 1;
     report.imgUrl = imageUrl;
     report.severity = 3;
+    report.taskId = [taskId integerValue];
     return report;
 }
 
@@ -73,7 +75,7 @@ static NSInteger REPORT_ID = -1;
 + (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"UploadBug");
-    REPORT_ID = 10086;//test
+//    REPORT_ID = 10086;//test
     if (REPORT_ID >= 0) {
         bugReport.reportId = REPORT_ID;
     }
@@ -82,8 +84,11 @@ static NSInteger REPORT_ID = -1;
     }
     [KBHttpManager sendPostHttpRequestWithUrl:url Params:[bugReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
         if (!error) {
+            bugReport.bugId = [responseObject integerValue];
         }
         else {
+//            BugReport *report_model = [BugReport reportWithKBBugReport:bugReport];
+//            [report_model saveToCoreData];
         }
     }];
 }
@@ -91,12 +96,15 @@ static NSInteger REPORT_ID = -1;
 + (void)uploadTaskReport:(KBTaskReport*)taskReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
     NSString* url = GETURL_V2(@"UploadTaskReport");
-    [KBHttpManager sendPostHttpRequestWithUrl:url Params:[taskReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[taskReport mj_keyValues]];
+    [KBHttpManager sendPostHttpRequestWithUrl:url Params:params CallBack:^(id responseObject, NSError* error) {
         if (!error) {
-            NSInteger i_reportId = [[responseObject valueForKey:@"reportId"] integerValue];
+            NSInteger i_reportId = [responseObject integerValue];
             REPORT_ID = i_reportId;
+            block(nil,nil);
         }
         else {
+            block(nil,error);
         }
     }];
 }
