@@ -56,11 +56,6 @@ static NSString* identifier = @"KBMyTaskListViewController";
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
 }
 
-- (void)configConstrains
-{
-    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero ];
-}
-
 #pragma mark - TableView Delegate DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {

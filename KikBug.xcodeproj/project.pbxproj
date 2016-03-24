@@ -13,11 +13,10 @@
 		50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50109B3F1CA021CF00DB2CBB /* KBReportManager.m */; };
 		50130E781BF06EE500D8A1B1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 50130E771BF06EE500D8A1B1 /* Podfile */; };
 		5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 503004991BF08C9D007D22BC /* KBTaskDetailModel.m */; };
-		50359C0B1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */; };
-		50359C111CA3B83400DFAD45 /* BugReport+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */; };
-		50359C121CA3B83400DFAD45 /* BugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C101CA3B83400DFAD45 /* BugReport.m */; };
 		50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C151CA3BBA700DFAD45 /* CoreDataManager.m */; };
-		50359C1A1CA3D26E00DFAD45 /* MyBugReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C191CA3D26E00DFAD45 /* MyBugReportListViewController.m */; };
+		50359C1A1CA3D26E00DFAD45 /* KBMyBugReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C191CA3D26E00DFAD45 /* KBMyBugReportListViewController.m */; };
+		50359C1E1CA3D89600DFAD45 /* KBBugListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */; };
+		50359C211CA3DA0A00DFAD45 /* KBBugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C201CA3DA0A00DFAD45 /* KBBugReport.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
 		5039A2631B73585000714F7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2621B73585000714F7A /* AppDelegate.m */; };
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
@@ -112,17 +111,16 @@
 		50109B3E1CA021CF00DB2CBB /* KBReportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportManager.h; sourceTree = "<group>"; };
 		50109B3F1CA021CF00DB2CBB /* KBReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportManager.m; sourceTree = "<group>"; };
 		50130E771BF06EE500D8A1B1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		503004981BF08C9D007D22BC /* KBTaskDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskDetailModel.h; sourceTree = "<group>"; };
-		503004991BF08C9D007D22BC /* KBTaskDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskDetailModel.m; sourceTree = "<group>"; };
-		50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KBBugReportModel.xcdatamodel; sourceTree = "<group>"; };
-		50359C0D1CA3B83400DFAD45 /* BugReport+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BugReport+CoreDataProperties.h"; sourceTree = "<group>"; };
-		50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BugReport+CoreDataProperties.m"; sourceTree = "<group>"; };
-		50359C0F1CA3B83400DFAD45 /* BugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugReport.h; sourceTree = "<group>"; };
-		50359C101CA3B83400DFAD45 /* BugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugReport.m; sourceTree = "<group>"; };
+		503004981BF08C9D007D22BC /* KBTaskDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskDetailModel.h; path = ../KBTaskDetailModel.h; sourceTree = "<group>"; };
+		503004991BF08C9D007D22BC /* KBTaskDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskDetailModel.m; path = ../KBTaskDetailModel.m; sourceTree = "<group>"; };
 		50359C141CA3BBA700DFAD45 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		50359C151CA3BBA700DFAD45 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
-		50359C181CA3D26E00DFAD45 /* MyBugReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBugReportListViewController.h; sourceTree = "<group>"; };
-		50359C191CA3D26E00DFAD45 /* MyBugReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBugReportListViewController.m; sourceTree = "<group>"; };
+		50359C181CA3D26E00DFAD45 /* KBMyBugReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBMyBugReportListViewController.h; sourceTree = "<group>"; };
+		50359C191CA3D26E00DFAD45 /* KBMyBugReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBMyBugReportListViewController.m; sourceTree = "<group>"; };
+		50359C1C1CA3D89600DFAD45 /* KBBugListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugListTableViewCell.h; sourceTree = "<group>"; };
+		50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugListTableViewCell.m; sourceTree = "<group>"; };
+		50359C1F1CA3DA0A00DFAD45 /* KBBugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugReport.h; sourceTree = "<group>"; };
+		50359C201CA3DA0A00DFAD45 /* KBBugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugReport.m; sourceTree = "<group>"; };
 		5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOnePixelLine.h; sourceTree = "<group>"; };
 		5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOnePixelLine.m; sourceTree = "<group>"; };
 		5039A25A1B73585000714F7A /* KikBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KikBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,8 +167,8 @@
 		50740BC11C574926009B30A4 /* KBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginViewController.m; sourceTree = "<group>"; };
 		50740BC41C575CB3009B30A4 /* KBNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBNavigator.h; sourceTree = "<group>"; };
 		50740BC51C575CB3009B30A4 /* KBNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBNavigator.m; sourceTree = "<group>"; };
-		50740BC71C575EDF009B30A4 /* KBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBViewController.h; sourceTree = "<group>"; };
-		50740BC81C575EDF009B30A4 /* KBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBViewController.m; sourceTree = "<group>"; };
+		50740BC71C575EDF009B30A4 /* KBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBViewController.h; path = ../KBViewController.h; sourceTree = "<group>"; };
+		50740BC81C575EDF009B30A4 /* KBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBViewController.m; path = ../KBViewController.m; sourceTree = "<group>"; };
 		507526221C83E51B0071F67F /* KBTaskListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskListManager.h; sourceTree = "<group>"; };
 		507526231C83E51B0071F67F /* KBTaskListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskListManager.m; sourceTree = "<group>"; };
 		507526281C83E68B0071F67F /* KBBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseModel.h; sourceTree = "<group>"; };
@@ -223,8 +221,8 @@
 		50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterStep2ViewController.m; sourceTree = "<group>"; };
 		50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewCell.h; sourceTree = "<group>"; };
 		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
-		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
-		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewController.m; sourceTree = "<group>"; };
+		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBBaseTableViewController.h; path = ../KBBaseTableViewController.h; sourceTree = "<group>"; };
+		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBBaseTableViewController.m; path = ../KBBaseTableViewController.m; sourceTree = "<group>"; };
 		50BAE7FF1C9D79F7000F2D4E /* KBRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterManager.h; sourceTree = "<group>"; };
 		50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterManager.m; sourceTree = "<group>"; };
 		50BAE8021C9D7A56000F2D4E /* KBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterViewController.h; sourceTree = "<group>"; };
@@ -259,8 +257,8 @@
 		50EDD5081C8A6A110021D71D /* KBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupManager.m; sourceTree = "<group>"; };
 		50EDD50A1C8A70880021D71D /* KBGroupDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupDetailModel.h; sourceTree = "<group>"; };
 		50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailModel.m; sourceTree = "<group>"; };
-		50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
-		50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
+		50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskCellTableViewCell.h; path = ../KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
+		50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskCellTableViewCell.m; path = ../KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
 		50F859361BF07693008896D0 /* KBTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskListModel.h; path = ../KBTaskListModel.h; sourceTree = "<group>"; };
 		50F859371BF07693008896D0 /* KBTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskListModel.m; path = ../KBTaskListModel.m; sourceTree = "<group>"; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -322,11 +320,8 @@
 		50359C0C1CA3B81700DFAD45 /* BugManager */ = {
 			isa = PBXGroup;
 			children = (
-				50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */,
-				50359C0D1CA3B83400DFAD45 /* BugReport+CoreDataProperties.h */,
-				50359C0E1CA3B83400DFAD45 /* BugReport+CoreDataProperties.m */,
-				50359C0F1CA3B83400DFAD45 /* BugReport.h */,
-				50359C101CA3B83400DFAD45 /* BugReport.m */,
+				50359C1F1CA3DA0A00DFAD45 /* KBBugReport.h */,
+				50359C201CA3DA0A00DFAD45 /* KBBugReport.m */,
 			);
 			path = BugManager;
 			sourceTree = "<group>";
@@ -343,10 +338,40 @@
 		50359C171CA3D23D00DFAD45 /* BugReport */ = {
 			isa = PBXGroup;
 			children = (
-				50359C181CA3D26E00DFAD45 /* MyBugReportListViewController.h */,
-				50359C191CA3D26E00DFAD45 /* MyBugReportListViewController.m */,
+				50359C181CA3D26E00DFAD45 /* KBMyBugReportListViewController.h */,
+				50359C191CA3D26E00DFAD45 /* KBMyBugReportListViewController.m */,
 			);
 			path = BugReport;
+			sourceTree = "<group>";
+		};
+		50359C1B1CA3D87100DFAD45 /* BugReport */ = {
+			isa = PBXGroup;
+			children = (
+				50359C1C1CA3D89600DFAD45 /* KBBugListTableViewCell.h */,
+				50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */,
+			);
+			name = BugReport;
+			path = Bug;
+			sourceTree = "<group>";
+		};
+		50359C221CA3DAD500DFAD45 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */,
+				50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		50359C231CA3DB1100DFAD45 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				50740BC71C575EDF009B30A4 /* KBViewController.h */,
+				50740BC81C575EDF009B30A4 /* KBViewController.m */,
+				50B996A21C901443002E825A /* KBBaseTableViewController.h */,
+				50B996A31C901443002E825A /* KBBaseTableViewController.m */,
+			);
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		5038F9B11BF09FCE00CE22BE /* CommonUITool */ = {
@@ -543,6 +568,8 @@
 		5075262B1C843F9D0071F67F /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				503004981BF08C9D007D22BC /* KBTaskDetailModel.h */,
+				503004991BF08C9D007D22BC /* KBTaskDetailModel.m */,
 				5075262C1C843FAA0071F67F /* KBTaskManager.h */,
 				5075262D1C843FAA0071F67F /* KBTaskManager.m */,
 			);
@@ -661,10 +688,7 @@
 		50D97C251C3F9BFE00E37500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50740BC71C575EDF009B30A4 /* KBViewController.h */,
-				50740BC81C575EDF009B30A4 /* KBViewController.m */,
-				50B996A21C901443002E825A /* KBBaseTableViewController.h */,
-				50B996A31C901443002E825A /* KBBaseTableViewController.m */,
+				50359C231CA3DB1100DFAD45 /* BaseClass */,
 				50740BBF1C574916009B30A4 /* Login&Register */,
 				50D97C261C3F9BFE00E37500 /* Group */,
 				50D97C271C3F9BFE00E37500 /* MyTasks */,
@@ -745,6 +769,8 @@
 		50F859281BF075E0008896D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				507526281C83E68B0071F67F /* KBBaseModel.h */,
+				507526291C83E68B0071F67F /* KBBaseModel.m */,
 				50359C0C1CA3B81700DFAD45 /* BugManager */,
 				505609571CA13CE700D1DB8B /* ImageManager */,
 				50109B3D1CA021BC00DB2CBB /* ReportManager */,
@@ -752,10 +778,6 @@
 				5075262B1C843F9D0071F67F /* TaskManager */,
 				507526211C83E4F10071F67F /* TaskListManager */,
 				500BAA141C82DDF1005E5831 /* UserData */,
-				503004981BF08C9D007D22BC /* KBTaskDetailModel.h */,
-				503004991BF08C9D007D22BC /* KBTaskDetailModel.m */,
-				507526281C83E68B0071F67F /* KBBaseModel.h */,
-				507526291C83E68B0071F67F /* KBBaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -763,13 +785,13 @@
 		50F8592B1BF075E0008896D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */,
-				50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */,
 				50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */,
 				50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */,
+				5038F9B11BF09FCE00CE22BE /* CommonUITool */,
+				50359C221CA3DAD500DFAD45 /* TaskList */,
 				5056CDDA1C91454900C1A0A7 /* Group */,
 				505A91BE1C57AC060024FC18 /* Logo */,
-				5038F9B11BF09FCE00CE22BE /* CommonUITool */,
+				50359C1B1CA3D87100DFAD45 /* BugReport */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -944,7 +966,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
-				50359C0B1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld in Sources */,
 				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
 				50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */,
@@ -974,19 +995,19 @@
 				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
 				50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */,
 				505609901CA140AA00D1DB8B /* UPHTTPClient.m in Sources */,
-				50359C111CA3B83400DFAD45 /* BugReport+CoreDataProperties.m in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
+				50359C1E1CA3D89600DFAD45 /* KBBugListTableViewCell.m in Sources */,
+				50359C211CA3DA0A00DFAD45 /* KBBugReport.m in Sources */,
 				50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */,
 				505609911CA140AA00D1DB8B /* UPMultipartBody.m in Sources */,
 				50A4FE481C97F86700B35124 /* DNUnAuthorizedTipsView.m in Sources */,
 				504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */,
 				500BAA171C82DDF1005E5831 /* KBLoginManager.m in Sources */,
-				50359C121CA3B83400DFAD45 /* BugReport.m in Sources */,
-				50359C1A1CA3D26E00DFAD45 /* MyBugReportListViewController.m in Sources */,
+				50359C1A1CA3D26E00DFAD45 /* KBMyBugReportListViewController.m in Sources */,
 				50D97C371C3F9BFE00E37500 /* KBTaskDetailViewController.m in Sources */,
 				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
 				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
@@ -1242,20 +1263,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		50359C091CA3B71000DFAD45 /* KBBugReportModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */,
-			);
-			currentVersion = 50359C0A1CA3B71000DFAD45 /* KBBugReportModel.xcdatamodel */;
-			name = KBBugReportModel.xcdatamodeld;
-			path = ../ReportManager/KBBugReportModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5039A2521B73585000714F7A /* Project object */;
 }

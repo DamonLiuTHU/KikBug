@@ -130,7 +130,7 @@ return [self singletonName];\
 #define REGISTER_PAGE @"/registerpage"
 #define REGISTER_PAGE_STEP_2 @"/confirmToken"
 #define GROUP_TASKS @"/tasks/group"
-
+#define MY_BUG_REPORT_LIST @"/bug/list"
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
 #define STORED_USER_PHONE [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE]

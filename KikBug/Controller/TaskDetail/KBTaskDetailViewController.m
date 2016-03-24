@@ -24,6 +24,7 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
+#import "KBBugReport.h"
 
 @interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
@@ -549,16 +550,21 @@
  */
 - (void)checkMyReportsButtonPressed
 {
+    UIViewController *vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
+    [[KBNavigator sharedNavigator] showViewController:vc];
+}
+
+- (void)addBugReport
+{
     DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
     imagePicker.imagePickerDelegate = self;
     imagePicker.filterType = DNImagePickerFilterTypePhotos;
     //    [imagePicker showAlbumList];
     [self presentViewController:imagePicker animated:YES completion:^{
         //
-
+        
     }];
 
-    //    [[KBNavigator sharedNavigator] showViewController:imagePicker withShowType:KBUIManagerShowTypePresent];
 }
 
 /**

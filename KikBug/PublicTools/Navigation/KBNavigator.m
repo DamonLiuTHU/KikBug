@@ -21,6 +21,8 @@
 #import "KBRegisterViewController.h"
 #import "KBRegisterStep2ViewController.h"
 #import "KBGroupTaskListViewController.h"
+#import "KBBugListTableViewCell.h"
+#import "KBMyBugReportListViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
@@ -222,6 +224,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:REGISTER_PAGE toControllerClass:[KBRegisterViewController class]];
     [[HHRouter shared] map:REGISTER_PAGE_STEP_2 toControllerClass:[KBRegisterStep2ViewController class]];
     [[HHRouter shared] map:GROUP_TASKS toControllerClass:[KBGroupTaskListViewController class]];
+    [[HHRouter shared] map:MY_BUG_REPORT_LIST toControllerClass:[KBMyBugReportListViewController class]];
 }
 
 

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 
-#import "KBGroupTableViewCell.h"
 #import "KBGroupSearchModel.h"
+#import "KBGroupTableViewCell.h"
 
 @interface KBGroupTableViewCell ()
 @property (strong, nonatomic) UILabel* groupIdLabel;
@@ -37,11 +37,11 @@
     return self;
 }
 
-- (void)bindModel:(KBGroupSearchItem *)model
+- (void)bindModel:(KBGroupSearchItem*)model
 {
     self.groupIdLabel.attributedText = [[NSAttributedString alloc] initWithString:INT_TO_STIRNG(model.groupId)
                                                                        attributes:TITLE_ATTRIBUTE];
-    self.createrLabel.attributedText = [[NSAttributedString alloc] initWithString:model.name                                                                       attributes:TITLE_ATTRIBUTE];
+    self.createrLabel.attributedText = [[NSAttributedString alloc] initWithString:model.name attributes:TITLE_ATTRIBUTE];
     self.createDateLabel.attributedText = [[NSAttributedString alloc] initWithString:@"2016/12/12"
                                                                           attributes:SUBTITLE_ATTRIBUTE];
 }
@@ -62,8 +62,5 @@
 {
     return 100;
 }
-
-
-
 
 @end

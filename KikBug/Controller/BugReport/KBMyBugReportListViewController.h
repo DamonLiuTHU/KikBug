@@ -8,6 +8,6 @@
 
 #import "KBBaseTableViewController.h"
 
-@interface MyBugReportListViewController : KBBaseTableViewController
+@interface KBMyBugReportListViewController : KBBaseTableViewController
 
 @end
