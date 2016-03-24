@@ -36,7 +36,7 @@
                                                                                       attributes:SUBTITLE_ATTRIBUTE]];
         [self.taskDeadLineHintLabel sizeToFit];
         self.line = [[KBOnePixelLine alloc] init];
-        [self.line setLineColor:[UIColor  lightGrayColor]];
+//        [self.line setLineColor:[UIColor  lightGrayColor]];
         [self configSubViews];
     }
     return self;
@@ -60,7 +60,7 @@
     
 //    [self.line autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
-    [self.line autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 10) excludingEdge:ALEdgeTop];
+    [self.line autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 0) excludingEdge:ALEdgeTop];
     [super updateConstraints];
 }
 

@@ -100,7 +100,8 @@ return [self singletonName];\
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
 #define THEME_COLOR RGB(80,118,156)
-
+#define GRAY_COLOR [UIColor hexStringToColor:@"0xd4d4d4"]
+#define HEXCOLOR(hexValue) [UIColor colorWithHexNumber:hexValue]
 /************************************* Margin ****************************************************/
 #define SMALL_MARGIN  5
 #define MEDIUM_MARGIN  10

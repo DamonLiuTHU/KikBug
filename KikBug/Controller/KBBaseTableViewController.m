@@ -32,6 +32,9 @@
 - (void)configTableView
 {
     self.tableView = [UITableView new];
+//    self.tableView.backgroundColor = RGB(227, 227, 227);
+//    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     WEAKSELF;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

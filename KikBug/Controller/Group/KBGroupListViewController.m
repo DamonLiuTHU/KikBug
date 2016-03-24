@@ -43,7 +43,7 @@
 
 - (void)configTableView {
     [super configTableView];
-    self.tableView.backgroundColor = RGB(227, 227, 227);
+    [self.tableView setBackgroundColor:[UIColor colorWithHexNumber:0xe3e3e3]];
 }
 
 - (void)configConstrains

@@ -33,7 +33,7 @@
 - (void)_commonInit
 {
     self.backgroundColor = [UIColor clearColor];
-    _lineColor = [UIColor blackColor];
+    _lineColor = [UIColor hexStringToColor:@"0xd4d4d4"];
     _linePosition = GSLinePositionTop;
 }
 

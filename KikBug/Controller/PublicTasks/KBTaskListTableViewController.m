@@ -41,6 +41,7 @@ static NSString* identifier = @"kikbug";
     [self showLoadingView];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KBTaskCellTableViewCell class] forCellReuseIdentifier:identifier];
+//    self.tableView.backgroundColor = RGB(227, 227, 227);
     WEAKSELF;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block

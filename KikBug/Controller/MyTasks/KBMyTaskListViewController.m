@@ -25,7 +25,7 @@ static NSString* identifier = @"KBMyTaskListViewController";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:@"我的任务"];
+//    [self setTitle:@"我的任务"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
 

@@ -10,7 +10,9 @@
 #import "DNImagePickerController.h"
 #import "KBBaseModel.h"
 #import "KBHttpManager.h"
+#import "KBImageManager.h"
 #import "KBOnePixelLine.h"
+#import "KBReportData.h"
 #import "KBReportManager.h"
 #import "KBTaskDetailModel.h"
 #import "KBTaskDetailViewController.h"
@@ -22,8 +24,6 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
-#import "KBImageManager.h"
-#import "KBReportData.h"
 
 @interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
 
@@ -51,7 +51,7 @@
 @property (strong, nonatomic) UIScrollView* scrollView;
 @property (strong, nonatomic) UIView* containerView;
 @property (strong, nonatomic) UIButton* goToMyReportsBtn; /**< 跳转到我的Bug报告页面 */
-
+@property (strong, nonatomic) UIButton* addBugReportBtn;
 @property (strong, nonatomic) UIButton* startTestTask;
 
 @property (assign, nonatomic) BOOL isTaskAccepted;
@@ -544,6 +544,9 @@
     [self jumpToApp:nil];
 }
 
+/**
+ *  开始填写一份bug报告流程
+ */
 - (void)checkMyReportsButtonPressed
 {
     DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
@@ -575,21 +578,18 @@
 
 - (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
 {
-    
-    [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel *model, NSError *error) {
-    
+
+    [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel* model, NSError* error) {
+
         KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:INT_TO_STIRNG(self.detailModel.taskId]);
         [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
             if (!error) {
             }
             else {
-
             }
         }];
-        
+
     }];
-    
-    
 }
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
