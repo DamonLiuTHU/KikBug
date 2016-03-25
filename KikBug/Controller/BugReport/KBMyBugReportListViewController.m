@@ -95,10 +95,11 @@
 
 - (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
 {
-
+    WEAKSELF;
     KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:self.taskId];
     [[KBBugManager sharedInstance] uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
         if (!error) {
+            [weakSelf loadData];
         }
         else {
         }

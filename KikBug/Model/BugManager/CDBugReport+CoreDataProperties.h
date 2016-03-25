@@ -15,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CDBugReport (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSNumber *bugId;
 @property (nullable, nonatomic, retain) NSString *bugDesc;
+@property (nullable, nonatomic, retain) NSNumber *bugId;
 @property (nullable, nonatomic, retain) NSString *bugImgSrc;
+@property (nullable, nonatomic, retain) NSNumber *reportId;
 
 @end
 

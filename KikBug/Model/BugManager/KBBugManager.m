@@ -59,9 +59,11 @@ SINGLETON_IMPLEMENTION(KBBugManager, sharedInstance);
         if (!error) {
             bugReport.bugId = [responseObject integerValue];
             [self saveBugReport:bugReport];
+            block(nil,nil);
         }
         else {
             [self saveBugReport:bugReport];
+            block(nil,error);
         }
     }];
 }
@@ -78,6 +80,7 @@ static NSString* entityName = @"CDBugReport";
     [cdBugReport setValue:@(bugReport.bugId) forKey:@"bugId"];
     [cdBugReport setValue:bugReport.bugDescription forKey:@"bugDesc"];
     [cdBugReport setValue:bugReport.imgUrl forKey:@"bugImgSrc"];
+    [cdBugReport setValue:@(bugReport.reportId) forKey:@"reportId"];
     // 利用上下文对象，将数据同步到持久化存储库
     NSError* error = nil;
     BOOL success = [self.context save:&error];
@@ -114,6 +117,7 @@ static NSString* entityName = @"CDBugReport";
         report.bugId = [[obj valueForKey:@"bugId"] integerValue];
         report.bugDescription = [obj valueForKey:@"bugDesc"];
         report.imgUrl = [obj valueForKey:@"bugImgSrc"];
+        report.reportId = [[obj valueForKey:@"reportId"] integerValue];
         [array addObject:report];
     }
     block(array);

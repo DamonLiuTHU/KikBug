@@ -13,8 +13,9 @@
 
 @implementation CDBugReport (CoreDataProperties)
 
-@dynamic bugId;
 @dynamic bugDesc;
+@dynamic bugId;
 @dynamic bugImgSrc;
+@dynamic reportId;
 
 @end

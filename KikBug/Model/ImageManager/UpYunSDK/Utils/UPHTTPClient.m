@@ -182,7 +182,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 }
 
 - (void)dealloc {
-    NSLog(@"uphttp client dealloc");
+//    NSLog(@"uphttp client dealloc");
 }
 
 @end

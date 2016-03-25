@@ -562,6 +562,9 @@
 #pragma mark - UIEvent
 - (void)checkMyReportsButtonPressed
 {
+    if ([KBReportManager getReportId] < 0) {
+        //不允许用户填写bug报告 因为测试报告上传失败了。
+    }
     [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel* model, NSError* error) {
         UIViewController* vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
         [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
