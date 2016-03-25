@@ -64,6 +64,11 @@
     [self.bugIdLabel setAttributedText:[[NSAttributedString alloc] initWithString:bugNoStr attributes:TITLE_ATTRIBUTE]];
 //    [self.bugDescHint setAttributedText:[[NSAttributedString alloc] initWithString:bugDescHintStr attributes:TITLE_ATTRIBUTE]];
     [self.bugDescContent setAttributedText:[[NSAttributedString alloc] initWithString:bugDescHintStr attributes:SUBTITLE_ATTRIBUTE]];
+    if (model.taskId > 0) {
+        //
+    } else {
+        [self.imageView setHidden:YES];
+    }
 }
 
 - (void)configConstrains

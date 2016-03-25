@@ -61,6 +61,7 @@ SINGLETON_IMPLEMENTION(KBBugManager, sharedInstance);
             [self saveBugReport:bugReport];
         }
         else {
+            [self saveBugReport:bugReport];
         }
     }];
 }
