@@ -214,9 +214,9 @@ static NSString* const dnAssetsViewCellReuseIdentifier = @"DNAssetsViewCell";
  *  预览部分
  *
  *  @param assets 图片
- *  @param page   共几页
+ *  @param page   第几页
  */
-- (void)browserPhotoAsstes:(NSArray *)assets pageIndex:(NSInteger)page
+- (void)browserPhotoAsstes:(NSArray<DNAsset *> *)assets pageIndex:(NSInteger)page
 {
     DNPhotoBrowser *browser = [[DNPhotoBrowser alloc] initWithPhotos:assets
                                                         currentIndex:page

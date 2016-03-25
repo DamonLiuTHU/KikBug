@@ -610,9 +610,9 @@
 				50A4FE151C97F86700B35124 /* DNPhotoBrowser.m */,
 				50A4FE161C97F86700B35124 /* DNImagePicker.strings */,
 				50A4FE181C97F86700B35124 /* Extensions */,
+				50A4FE231C97F86700B35124 /* Views */,
 				50A4FE211C97F86700B35124 /* imageResources.xcassets */,
 				50A4FE221C97F86700B35124 /* ImagesPicker.xcassets */,
-				50A4FE231C97F86700B35124 /* Views */,
 			);
 			path = DNImagePicker;
 			sourceTree = "<group>";

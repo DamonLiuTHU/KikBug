@@ -88,6 +88,27 @@
     return [self getImageWithAsset:self.baseAsset isFullImage:YES];
 }
 
+- (void)imageWithALAssetUrlWithBlock:(void(^)(UIImage *))block
+{
+    ALAssetsLibrary   *lib = [[ALAssetsLibrary alloc] init];
+    [lib assetForURL:self.url resultBlock:^(ALAsset *asset)
+     {
+         // 使用asset来获取本地图片
+         ALAssetRepresentation *assetRep = [asset defaultRepresentation];
+         CGImageRef imgRef = [assetRep fullResolutionImage];
+         UIImage *img = [UIImage imageWithCGImage:imgRef
+                                                   scale:assetRep.scale
+                                             orientation:(UIImageOrientation)assetRep.orientation];
+         block(img);
+     }
+        failureBlock:^(NSError *error)
+     {
+         // 访问库文件被拒绝,则直接使用默认图片
+        
+     }
+     ];
+}
+
 - (UIImage *)getImageWithAsset:(ALAsset *)asset isFullImage:(BOOL)fullImage
 {
     

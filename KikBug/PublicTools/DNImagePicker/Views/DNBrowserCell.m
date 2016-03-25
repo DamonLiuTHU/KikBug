@@ -55,7 +55,17 @@
     self.zoomingScrollView.zoomScale = 1;
     self.zoomingScrollView.contentSize = CGSizeMake(0, 0);
     
-    UIImage *img = [UIImage imageWithCGImage:[[self.asset.baseAsset defaultRepresentation] fullScreenImage]];
+    __block UIImage *img;
+    if (self.asset.baseAsset) {
+        img = [UIImage imageWithCGImage:[[self.asset.baseAsset defaultRepresentation] fullScreenImage]];
+        
+    } else {
+        [self.asset imageWithALAssetUrlWithBlock:^(UIImage *i_img) {
+            self.photoImageView.image = i_img;
+            [self setMaxMinZoomScalesForCurrentBounds];
+        }];
+    }
+
     self.photoImageView.image = img;
     self.photoImageView.hidden = NO;
     CGRect photoImageViewFrame;

@@ -20,5 +20,5 @@
 + (instancetype)assetWithALAsset:(ALAsset *)asset;
 //- (void)getImageUsingBlock:(void(^)(UIImage * ))block;
 - (UIImage *)getImageResource;
-
+- (void)imageWithALAssetUrlWithBlock:(void(^)(UIImage *))block;
 @end

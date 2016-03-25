@@ -29,7 +29,7 @@
     
     NSMutableString* imageUrl = [NSMutableString string];
     NSInteger counter = 0;
-    
+    NSMutableString *localImageUrl = [NSMutableString string];
     for (DNAsset* asset in list) {
         counter++;
         UIImage *image = [asset getImageResource];
@@ -39,12 +39,15 @@
         [KBImageManager uploadImage:image withKey:key completion:^(NSString *imageUrl, NSError *error) {
             
         }];
+        [localImageUrl appendString:asset.url.absoluteString];
+        [localImageUrl appendString:@";"];
     }
     
     report.bugCategoryId = 1;
     report.imgUrl = imageUrl;
     report.severity = 3;
     report.taskId = [taskId integerValue];
+    report.localUrl = localImageUrl;
     return report;
 }
 

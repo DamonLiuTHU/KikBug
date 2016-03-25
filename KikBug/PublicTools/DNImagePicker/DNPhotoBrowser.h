@@ -15,12 +15,12 @@
 @protocol DNPhotoBrowserDelegate <NSObject>
 
 @required
-- (void)sendImagesFromPhotobrowser:(DNPhotoBrowser *)photoBrowse currentAsset:(DNAsset *)asset;
-- (NSUInteger)seletedPhotosNumberInPhotoBrowser:(DNPhotoBrowser *)photoBrowser;
-- (BOOL)photoBrowser:(DNPhotoBrowser *)photoBrowser currentPhotoAssetIsSeleted:(DNAsset *)asset;
-- (BOOL)photoBrowser:(DNPhotoBrowser *)photoBrowser seletedAsset:(DNAsset *)asset;
-- (void)photoBrowser:(DNPhotoBrowser *)photoBrowser deseletedAsset:(DNAsset *)asset;
-- (void)photoBrowser:(DNPhotoBrowser *)photoBrowser seleteFullImage:(BOOL)fullImage;
+- (void)sendImagesFromPhotobrowser:(DNPhotoBrowser*)photoBrowse currentAsset:(DNAsset*)asset;
+- (NSUInteger)seletedPhotosNumberInPhotoBrowser:(DNPhotoBrowser*)photoBrowser;
+- (BOOL)photoBrowser:(DNPhotoBrowser*)photoBrowser currentPhotoAssetIsSeleted:(DNAsset*)asset;
+- (BOOL)photoBrowser:(DNPhotoBrowser*)photoBrowser seletedAsset:(DNAsset*)asset;
+- (void)photoBrowser:(DNPhotoBrowser*)photoBrowser deseletedAsset:(DNAsset*)asset;
+- (void)photoBrowser:(DNPhotoBrowser*)photoBrowser seleteFullImage:(BOOL)fullImage;
 @end
 
 /**
@@ -31,10 +31,18 @@
 
 @property (nonatomic, weak) id<DNPhotoBrowserDelegate> delegate;
 
-- (instancetype)initWithPhotos:(NSArray *)photosArray
+- (instancetype)initWithPhotos:(NSArray<DNAsset*>*)photosArray
                   currentIndex:(NSInteger)index
                      fullImage:(BOOL)isFullImage;
 
+/**
+ *  仅用于浏览图片
+ *
+ *  @param photosArray photosArray description
+ *
+ *  @return return value description
+ */
+- (instancetype)initWithPhotos:(NSArray<DNAsset*>*)photosArray;
 - (void)hideControls;
 - (void)toggleControls;
 @end

@@ -14,6 +14,7 @@
 #import "KBMyBugReportListViewController.h"
 #import "KBReportData.h"
 #import "KBReportManager.h"
+#import "DNPhotoBrowser.h"
 
 @interface KBMyBugReportListViewController () <DNImagePickerControllerDelegate>
 @property (strong, nonatomic) NSArray<KBBugReport*>* dataSource;
@@ -75,6 +76,40 @@
     return self.dataSource.count;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KBBugReport *report = self.dataSource[indexPath.row];
+    NSArray *imgUrlArray = [report.localUrl componentsSeparatedByString:@";"];
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSString *url in imgUrlArray) {
+        if (![NSString isNilorEmpty:url]) {
+            DNAsset *asset = [[DNAsset alloc] init];
+            asset.url = [NSURL URLWithString:url];
+            asset.userDesc = report.bugDescription;
+            [array addObject:asset];
+        }
+    }
+    [self browserPhotoAsstes:array pageIndex:0];
+}
+
+#pragma mark - UI Utility - Photo
+
+/**
+ *  预览部分
+ *
+ *  @param assets 图片
+ *  @param page   第几页
+ */
+- (void)browserPhotoAsstes:(NSArray<DNAsset *> *)assets pageIndex:(NSInteger)page
+{
+    DNPhotoBrowser *browser = [[DNPhotoBrowser alloc] initWithPhotos:assets
+                                                        currentIndex:page
+                                                           fullImage:YES];
+//    browser.delegate = self;
+    browser.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
 #pragma mark - UI Event
 /**
  *  开始填写一份bug报告流程
@@ -90,6 +125,8 @@
 
     }];
 }
+
+
 
 #pragma mark - DNImagePickerControllerDelegate
 

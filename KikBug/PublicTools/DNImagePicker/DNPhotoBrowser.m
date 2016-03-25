@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 Dennis. All rights reserved.
 //
 
+#import "DNAsset.h"
 #import "DNBrowserCell.h"
 #import "DNFullImageButton.h"
 #import "DNPhotoBrowser.h"
 #import "DNSendButton.h"
 #import "UIView+DNImagePicker.h"
 #import "UIViewController+DNImagePicker.h"
-#import "DNAsset.h"
 @interface DNPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextViewDelegate> {
     BOOL _statusBarShouldBeHidden;
     BOOL _didSavePreviousStateOfNavBar;
@@ -36,7 +36,7 @@
 @property (nonatomic, strong) DNSendButton* sendButton;
 @property (nonatomic, strong) DNFullImageButton* fullImageButton;
 
-@property (nonatomic, strong) NSMutableArray<DNAsset *>* photoDataSources;
+@property (nonatomic, strong) NSMutableArray<DNAsset*>* photoDataSources;
 @property (nonatomic, assign) NSInteger currentIndex;
 
 @property (nonatomic, getter=isFullImage) BOOL fullImage;
@@ -46,10 +46,10 @@
 @property (strong, nonatomic) NSLayoutConstraint* descTextConstraint;
 
 @property (assign, nonatomic) CGFloat keyboardHeight;
+//@property (assign,nonatomic) BOOL isBrowsPhotoOnly;
 @end
 
 @implementation DNPhotoBrowser
-
 
 /**
  *  初始化方法
@@ -69,6 +69,13 @@
         _photoDataSources = [[NSMutableArray alloc] initWithArray:photosArray];
         _currentIndex = index;
         _fullImage = isFullImage;
+    }
+    return self;
+}
+
+- (instancetype)initWithPhotos:(NSArray<DNAsset*>*)photosArray
+{
+    if (self = [self initWithPhotos:photosArray currentIndex:0 fullImage:YES]) {
     }
     return self;
 }
@@ -195,11 +202,16 @@
     self.descTextView.font = APP_FONT(15);
     self.descTextView.delegate = self;
     [self.descTextView setBackgroundColor:[UIColor blackColor]];
-//    self.descTextView.layer.borderWidth = 1.0f;
-//    self.descTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //    self.descTextView.layer.borderWidth = 1.0f;
+    //    self.descTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 
     self.placeholderLabel = [UILabel new];
     self.placeholderLabel.attributedText = [[NSAttributedString alloc] initWithString:@"请输入对于图片中bug的描述" attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
+
+    NSString* userDesc = [self.photoDataSources firstObject].userDesc;
+    if (userDesc) {
+        self.placeholderLabel.attributedText = [[NSAttributedString alloc] initWithString:userDesc attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor lightGrayColor] }];
+    }
 
     [self.descTextView addSubview:self.placeholderLabel];
     [self.view addSubview:self.descTextView];
@@ -481,15 +493,15 @@
 - (void)didScrollToPage:(NSInteger)page
 {
     self.currentIndex = page;
-//    DNAsset *asset = self.photoDataSources[page];
-//    NSString *userDesc = asset.userDesc;
-//    self.descTextView.text = userDesc;
+    //    DNAsset *asset = self.photoDataSources[page];
+    //    NSString *userDesc = asset.userDesc;
+    //    self.descTextView.text = userDesc;
     [self updateNavigationBarAndToolBar];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+- (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView
 {
-    DNAsset *asset = [self.photoDataSources firstObject];
+    DNAsset* asset = [self.photoDataSources firstObject];
     asset.userDesc = self.descTextView.text;
 }
 
@@ -497,18 +509,20 @@
 // Fades all controls slide and fade
 - (void)setControlsHidden:(BOOL)hidden animated:(BOOL)animated
 {
-    
+    //    if (self.isBrowsPhotoOnly) {
+    //        hidden = YES;
+    //    }
+
     if (hidden) {
-        DNAsset *asset = [self.photoDataSources firstObject];
+        DNAsset* asset = [self.photoDataSources firstObject];
         asset.userDesc = self.descTextView.text;
     }
-    
-    if (hidden &&
-        self.keyboardHeight!=0) {
+
+    if (hidden && self.keyboardHeight != 0) {
         [self.descTextView resignFirstResponder];
         return;
     }
-    
+
     [self.descTextView resignFirstResponder];
     self.descTextView.hidden = hidden;
     // Force visible
@@ -564,7 +578,10 @@
 
 - (BOOL)areControlsHidden { return (_toolbar.alpha == 0); }
 - (void)hideControls { [self setControlsHidden:YES animated:YES]; }
-- (void)toggleControls { [self setControlsHidden:![self areControlsHidden] animated:YES]; }
+- (void)toggleControls
+{
+    [self setControlsHidden:![self areControlsHidden] animated:YES];
+}
 
 #pragma mark - UItextView delegate
 - (BOOL)textView:(UITextView*)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString*)text
