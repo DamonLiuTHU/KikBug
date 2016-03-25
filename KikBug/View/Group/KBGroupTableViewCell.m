@@ -48,7 +48,7 @@
 
 - (void)configConstrains
 {
-    [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(5, 8, 3, 8)];
+    [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(10, 10, 0, 10)];
     [self.groupIdLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.groupIdLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:5.0f];
     [self.createrLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.groupIdLabel withOffset:20.0f];
@@ -60,7 +60,7 @@
 
 + (CGFloat)calculateCellHeightWithData:(id)cellData
 {
-    return 100;
+    return 80;
 }
 
 @end
