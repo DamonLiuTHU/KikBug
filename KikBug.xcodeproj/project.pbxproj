@@ -18,6 +18,9 @@
 		50359C1E1CA3D89600DFAD45 /* KBBugListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */; };
 		50359C211CA3DA0A00DFAD45 /* KBBugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C201CA3DA0A00DFAD45 /* KBBugReport.m */; };
 		50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C251CA41FBA00DFAD45 /* KBBugManager.m */; };
+		50359C291CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50359C271CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodeld */; };
+		50359C2E1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C2B1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m */; };
+		50359C2F1CA4D3BE00DFAD45 /* CDBugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 50359C2D1CA4D3BE00DFAD45 /* CDBugReport.m */; };
 		5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */; };
 		5039A2631B73585000714F7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2621B73585000714F7A /* AppDelegate.m */; };
 		5039A26B1B73585000714F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26A1B73585000714F7A /* Images.xcassets */; };
@@ -124,6 +127,11 @@
 		50359C201CA3DA0A00DFAD45 /* KBBugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugReport.m; sourceTree = "<group>"; };
 		50359C241CA41FBA00DFAD45 /* KBBugManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugManager.h; sourceTree = "<group>"; };
 		50359C251CA41FBA00DFAD45 /* KBBugManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugManager.m; sourceTree = "<group>"; };
+		50359C281CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BugCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		50359C2A1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDBugReport+CoreDataProperties.h"; sourceTree = "<group>"; };
+		50359C2B1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDBugReport+CoreDataProperties.m"; sourceTree = "<group>"; };
+		50359C2C1CA4D3BE00DFAD45 /* CDBugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBugReport.h; sourceTree = "<group>"; };
+		50359C2D1CA4D3BE00DFAD45 /* CDBugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBugReport.m; sourceTree = "<group>"; };
 		5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBOnePixelLine.h; sourceTree = "<group>"; };
 		5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBOnePixelLine.m; sourceTree = "<group>"; };
 		5039A25A1B73585000714F7A /* KikBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KikBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,10 +331,15 @@
 		50359C0C1CA3B81700DFAD45 /* BugManager */ = {
 			isa = PBXGroup;
 			children = (
+				50359C2A1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.h */,
+				50359C2B1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m */,
+				50359C2C1CA4D3BE00DFAD45 /* CDBugReport.h */,
+				50359C2D1CA4D3BE00DFAD45 /* CDBugReport.m */,
 				50359C1F1CA3DA0A00DFAD45 /* KBBugReport.h */,
 				50359C201CA3DA0A00DFAD45 /* KBBugReport.m */,
 				50359C241CA41FBA00DFAD45 /* KBBugManager.h */,
 				50359C251CA41FBA00DFAD45 /* KBBugManager.m */,
+				50359C271CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodeld */,
 			);
 			path = BugManager;
 			sourceTree = "<group>";
@@ -981,6 +994,7 @@
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
 				50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */,
 				5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */,
+				50359C2E1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m in Sources */,
 				50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
 				50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */,
@@ -998,9 +1012,11 @@
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
 				505609561CA1307400D1DB8B /* KBReportData.m in Sources */,
 				50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */,
+				50359C2F1CA4D3BE00DFAD45 /* CDBugReport.m in Sources */,
 				50A4FE461C97F86700B35124 /* DNSendButton.m in Sources */,
 				50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */,
 				505609901CA140AA00D1DB8B /* UPHTTPClient.m in Sources */,
+				50359C291CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodeld in Sources */,
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
@@ -1269,6 +1285,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50359C271CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50359C281CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 50359C281CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodel */;
+			path = BugCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5039A2521B73585000714F7A /* Project object */;
 }

@@ -75,6 +75,11 @@
     [self.tableView.mj_header endRefreshing];
 }
 
+- (void)endRefreshing
+{
+    [self.tableView.mj_header endRefreshing];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {

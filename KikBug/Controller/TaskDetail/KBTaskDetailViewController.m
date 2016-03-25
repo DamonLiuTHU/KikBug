@@ -9,6 +9,8 @@
 #import "AFNetworking.h"
 #import "DNImagePickerController.h"
 #import "KBBaseModel.h"
+#import "KBBugManager.h"
+#import "KBBugReport.h"
 #import "KBHttpManager.h"
 #import "KBImageManager.h"
 #import "KBOnePixelLine.h"
@@ -24,9 +26,8 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
-#import "KBBugReport.h"
 
-@interface KBTaskDetailViewController () <DNImagePickerControllerDelegate>
+@interface KBTaskDetailViewController ()
 
 @property (strong, nonatomic) KBTaskListModel* model;
 @property (strong, nonatomic) KBTaskDetailModel* detailModel;
@@ -546,28 +547,6 @@
 }
 
 /**
- *  开始填写一份bug报告流程
- */
-- (void)checkMyReportsButtonPressed
-{
-    UIViewController *vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
-    [[KBNavigator sharedNavigator] showViewController:vc];
-}
-
-- (void)addBugReport
-{
-    DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
-    imagePicker.imagePickerDelegate = self;
-    imagePicker.filterType = DNImagePickerFilterTypePhotos;
-    //    [imagePicker showAlbumList];
-    [self presentViewController:imagePicker animated:YES completion:^{
-        //
-        
-    }];
-
-}
-
-/**
  *  发出开始测试的Scheme
  *
  *  @param sender sender description
@@ -580,29 +559,13 @@
     [[UIApplication sharedApplication] openURL:appUrl];
 }
 
-#pragma mark - DNImagePickerControllerDelegate
-
-- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
+#pragma mark - UIEvent
+- (void)checkMyReportsButtonPressed
 {
-
     [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel* model, NSError* error) {
-
-        KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:INT_TO_STIRNG(self.detailModel.taskId]);
-        [KBReportManager uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-            if (!error) {
-            }
-            else {
-            }
-        }];
-
+        UIViewController* vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
+        [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
+        [[KBNavigator sharedNavigator] showViewController:vc];
     }];
 }
-
-- (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:^{
-
-    }];
-}
-
 @end

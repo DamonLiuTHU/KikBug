@@ -23,7 +23,7 @@
 
 - (id)initWithCellIdentifier:(NSString *)cellID
 {
-    if (self = [super init]) {
+    if (self = [super initWithCellIdentifier:cellID]) {
         self.bugIdLabel = [UILabel new];
         self.bugTypeLabel = [UILabel new];
 //        self.bugDescHint = [UILabel new];

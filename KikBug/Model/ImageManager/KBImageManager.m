@@ -27,12 +27,12 @@ static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     [UPYUNConfig sharedInstance].DEFAULT_PASSCODE = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     __block UpYun* uy = [[UpYun alloc] init];
     uy.successBlocker = ^(NSURLResponse* response, id responseData) {
-        NSString* url = [responseData valueForKey:@"url"];
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:url message:@"上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        NSLog(@"response body %@", responseData);
-
-        block(responseData, nil);
+//        NSString* url = [responseData valueForKey:@"url"];
+//        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:url message:@"上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alert show];
+//        NSLog(@"response body %@", responseData);
+//
+//        block(responseData, nil);
     };
     uy.failBlocker = ^(NSError* error) {
         NSString* message = [error.userInfo objectForKey:@"message"];
@@ -45,7 +45,6 @@ static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     };
 
     // uy.uploadMethod = UPMutUPload; 分块
-
     //    如果 sinature 由服务端生成, 只需要将policy 和 密钥 拼接之后进行MD5, 否则就不用初始化signatureBlocker
     //    uy.signatureBlocker = ^(NSString *policy)
     //    {

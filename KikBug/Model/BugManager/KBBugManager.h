@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @class KBBugReport;
-
-static NSInteger REPORT_ID = -1;
-
 @interface KBBugManager : NSObject
-+ (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
+SINGLETON_INTERFACE(KBBugManager, sharedInstance);
+- (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
+- (void)getAllBugReportsWithCompletion:(void(^)(NSArray<KBBugReport*>* reports))block;
 @end
