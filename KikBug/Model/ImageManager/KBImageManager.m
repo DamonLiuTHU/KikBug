@@ -84,11 +84,11 @@ static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     /**
      *	@brief	方式1 由开发者生成saveKey
      */
-    return [NSString stringWithFormat:@"/%@/%@-%ld.%@", STORED_USER_ID, [self getDateString], (long)index, suffix];
+//    return [NSString stringWithFormat:@"/%@/%@-%ld.%@", STORED_USER_ID, [self getDateString], (long)index, suffix];
     /**
      *	@brief	方式2 由服务器生成saveKey
      */
-    //    return [NSString stringWithFormat:@"/{year}/{mon}/{filename}{.suffix}"];
+    return [NSString stringWithFormat:@"/{year}/{mon}/{day}/{filename}_{filenamemd5}{.suffix}"];
     /**
      *	@brief	更多方式 参阅 http://docs.upyun.com/api/form_api/#_4
      */

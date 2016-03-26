@@ -84,12 +84,12 @@
                                     }];
 }
 
-+ (void)fetchMyGroupsWithBlock:(void (^)(KBGroupSearchModel *, NSError *))block
++ (void)fetchMyGroupsWithBlock:(void (^)(KBGroupSearchModel*, NSError*))block
 {
-    NSString *url = GETURL_V2(@"GetMyGroups");
+    NSString* url = GETURL_V2(@"GetMyGroups");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
-                                      Params:@{@"testerId":NSSTRING_NOT_NIL(STORED_USER_ID)}
-                                    CallBack:^(id responseObject, NSError *error) {
+                                      Params:@{ @"testerId" : NSSTRING_NOT_NIL(STORED_USER_ID) }
+                                    CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
                                             KBGroupSearchModel* model = [KBGroupSearchModel mj_objectWithKeyValues:responseObject];
                                             block(model, nil);

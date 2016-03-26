@@ -48,6 +48,7 @@
 		507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526231C83E51B0071F67F /* KBTaskListManager.m */; };
 		5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526291C83E68B0071F67F /* KBBaseModel.m */; };
 		5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5075262D1C843FAA0071F67F /* KBTaskManager.m */; };
+		507967B91CA6B8BF009073EB /* UIImageView+EaseUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 507967B81CA6B8BF009073EB /* UIImageView+EaseUse.m */; };
 		50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50873C941C96CA6300979A4C /* KBGroupDetailViewController.m */; };
 		50A4FE091C97F82F00B35124 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A4FE081C97F82F00B35124 /* AssetsLibrary.framework */; };
 		50A4FE351C97F86700B35124 /* DNAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE0C1C97F86700B35124 /* DNAlbumTableViewController.m */; };
@@ -186,6 +187,8 @@
 		507526291C83E68B0071F67F /* KBBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseModel.m; sourceTree = "<group>"; };
 		5075262C1C843FAA0071F67F /* KBTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskManager.h; sourceTree = "<group>"; };
 		5075262D1C843FAA0071F67F /* KBTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskManager.m; sourceTree = "<group>"; };
+		507967B71CA6B8BF009073EB /* UIImageView+EaseUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+EaseUse.h"; sourceTree = "<group>"; };
+		507967B81CA6B8BF009073EB /* UIImageView+EaseUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+EaseUse.m"; sourceTree = "<group>"; };
 		50873C931C96CA6300979A4C /* KBGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupDetailViewController.h; sourceTree = "<group>"; };
 		50873C941C96CA6300979A4C /* KBGroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailViewController.m; sourceTree = "<group>"; };
 		50A4FE081C97F82F00B35124 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -680,6 +683,8 @@
 				50D97C101C3F9BDB00E37500 /* NSString+Safe.m */,
 				50D97C111C3F9BDB00E37500 /* UIView+Positioning.h */,
 				50D97C121C3F9BDB00E37500 /* UIView+Positioning.m */,
+				507967B71CA6B8BF009073EB /* UIImageView+EaseUse.h */,
+				507967B81CA6B8BF009073EB /* UIImageView+EaseUse.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1040,6 +1045,7 @@
 				5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */,
 				5056098B1CA140AA00D1DB8B /* UpYun.m in Sources */,
 				50A4FE371C97F86700B35124 /* DNImageFlowViewController.m in Sources */,
+				507967B91CA6B8BF009073EB /* UIImageView+EaseUse.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
 				5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */,

@@ -17,5 +17,6 @@ JSONINT count;
 @interface KBGroupSearchItem : NSObject
 JSONINT groupId;
 JSONSTIRNG name;
-JSONINT status;//状态0待审核，1通过，2拒绝  
+JSONINT status;//状态0待审核，1通过，2拒绝
+JSONSTIRNG operatorName;
 @end

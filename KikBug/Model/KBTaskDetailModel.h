@@ -26,5 +26,6 @@ JSONINT groupId;
 JSONINT points;
 JSONINT page;
 JSONINT count;
+JSONINT hasTask;
 @property (assign,nonatomic) BOOL isReceive;
 @end

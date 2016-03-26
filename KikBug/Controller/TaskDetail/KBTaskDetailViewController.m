@@ -26,6 +26,7 @@
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
+#import "UIImageView+EaseUse.h"
 
 @interface KBTaskDetailViewController ()
 
@@ -345,18 +346,6 @@
                           ofView:self.line
                       withOffset:5.0f];
 
-    //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 20)];
-    //    [self.acceptTask autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.icon];
-    //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:-5.0f];
-    //    [self.acceptTask autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:5.0f];
-    //    [self.acceptTask autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-5.0f];
-    //    [self.acceptTask autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line withOffset:-5.0f];
-    //    [self.acceptTask autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.acceptTask];
-
-    //    [self.acceptTask autoSetDimensionsToSize:CGSizeMake(60, 40)];
-    //    [self.acceptTask autoPinEdgeToSuperviewEdge:ALEdgeRight];
-
-    //    [self.taskDescription autoSetDimension:ALDimensionWidth toSize:self.line.width];
     [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
 
     [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
@@ -369,10 +358,7 @@
     [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
 
     [self.containerView autoPinEdgesToSuperviewEdges];
-    //    [self.containerView setLayoutMargins:UIEdgeInsetsZero];
-    //    [self.containerView autoPinEdgesToSuperviewMargins];
-    //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    //    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+
     [self.containerView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.goToMyReportsBtn withOffset:5.0f];
 
     [super updateViewConstraints];
@@ -384,12 +370,11 @@
     self.title = self.model.taskName;
     [self navigationRightButton];
     [self navigationLeftButton];
-    //    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    //    [self.tabBarController.tabBar setHidden:NO];
+
 }
 - (void)navigationLeftButton
 {
@@ -445,30 +430,12 @@
     self.categoryLabel.attributedText =
         [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.category)
                                         attributes:TITLE_ATTRIBUTE];
-    WEAKSELF;
-    //    [weakSelf.icon startLoaderWithTintColor:[UIColor blackColor]];
-    [[SDWebImageManager sharedManager]
-        downloadImageWithURL:[NSURL URLWithString:model.iconLocation]
-        options:SDWebImageAvoidAutoSetImage
-        progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            //        CGFloat process =
-            //        ((CGFloat)receivedSize/(CGFloat)expectedSize);
-            //        NSLog(@"show progress");
-            //        [weakSelf.icon updateImageDownloadProgress:process];
-        }
-        completed:^(UIImage* image, NSError* error, SDImageCacheType cacheType,
-            BOOL finished, NSURL* imageURL) {
-            //
-            if (!error && image) {
-                weakSelf.icon.image = image;
-                //            [weakSelf.icon reveal];
-            }
-        }];
+    [self.icon setImageWithUrl:model.iconLocation];
+    [self markAcceptBtnAsAccepted:self.detailModel.hasTask];
 }
 
 - (void)backToPreviousPage
 {
-    //    [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning
@@ -487,11 +454,6 @@
 - (void)fillWithContent:(KBTaskListModel*)idata
 {
     self.model = idata;
-
-    WEAKSELF;
-    [KBTaskManager isUserTakenTask:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
-        [weakSelf markAcceptBtnAsAccepted:[[model valueForKey:@"data"] boolValue]];
-    }];
 }
 
 - (void)markAcceptBtnAsAccepted:(BOOL)bol

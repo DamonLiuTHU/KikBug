@@ -27,4 +27,5 @@
 #import "MJRefresh.h"
 #import "KBBaseModel.h"
 #import "UIColor+Hex.h"
+#import "UIImageView+EaseUse.h"
 #endif

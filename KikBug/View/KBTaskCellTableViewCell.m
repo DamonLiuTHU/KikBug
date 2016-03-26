@@ -12,6 +12,7 @@
 #import "NSString+Safe.h"
 #import "NSString+EasyUse.h"
 #import "SDWebImageManager.h"
+#import "UIImageView+EaseUse.h"
 @interface KBTaskCellTableViewCell()
 @property (strong, nonatomic) UIImageView *appImage;
 @property (strong, nonatomic) UILabel *taskId;
@@ -99,24 +100,7 @@
         self.appImage.image = defaultImage;
     }else
     {
-        WEAKSELF
-//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//            weakSelf.appImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:data.iconLocation]]];
-//        });
-        SDWebImageManager* manager = [SDWebImageManager sharedManager];
-        [manager downloadImageWithURL:[NSURL URLWithString:data.iconLocation]
-                              options:0
-                             progress:^(NSInteger receivedSize, NSInteger expectedSize)
-        {
-            //
-        }
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL)
-        {
-            //
-            if(image){
-                weakSelf.appImage.image = image;
-            }
-        }];
+        [self.appImage setImageWithUrl:data.iconLocation];
     }
     [self configConstrains];
 }
