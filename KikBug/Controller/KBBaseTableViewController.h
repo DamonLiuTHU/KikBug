@@ -12,4 +12,7 @@
 - (void)configTableView;
 + (void)configHeaderStyle:(UITableView *)tableView;
 - (void)endRefreshing;
+
+- (void)showEmptyView;
+- (void)showErrorView;
 @end

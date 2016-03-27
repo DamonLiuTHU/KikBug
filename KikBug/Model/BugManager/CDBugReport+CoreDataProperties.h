@@ -2,7 +2,7 @@
 //  CDBugReport+CoreDataProperties.h
 //  KikBug
 //
-//  Created by DamonLiu on 16/3/25.
+//  Created by DamonLiu on 16/3/27.
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *bugId;
 @property (nullable, nonatomic, retain) NSString *bugImgSrc;
 @property (nullable, nonatomic, retain) NSNumber *reportId;
+@property (nullable, nonatomic, retain) NSNumber *taskId;
 
 @end
 

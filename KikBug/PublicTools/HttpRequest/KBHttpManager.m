@@ -56,6 +56,11 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            NSString *errorStr = [NSString stringWithFormat:@"%@",error];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
+            }]];
+            [UIManager showViewController:alert];
             block(operation.responseObject, error);
         }];
 }
@@ -72,6 +77,11 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            NSString *errorStr = [NSString stringWithFormat:@"%@",error];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
+            }]];
+            [UIManager showViewController:alert];
             block(operation.responseObject, error);
         }];
 }

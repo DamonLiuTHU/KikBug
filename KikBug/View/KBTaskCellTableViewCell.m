@@ -29,6 +29,7 @@
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.appImage = [UIImageView new];
+        self.appImage.contentMode = UIViewContentModeScaleAspectFit;
         self.taskId = [UILabel new];
         self.deadLine = [UILabel new];
         self.taskName = [UILabel new];

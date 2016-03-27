@@ -124,6 +124,7 @@
     self.dueDateLabelHint = [UILabel new];
     self.dueDateLabel = [UILabel new];
     self.icon = [UIImageView new];
+    self.icon.contentMode = UIViewContentModeScaleAspectFit;
     //    self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
     self.containerView = [UIView new];
@@ -527,7 +528,9 @@
     if ([KBReportManager getReportId] < 0) {
         //不允许用户填写bug报告 因为测试报告上传失败了。
     }
-    [KBReportManager uploadTaskReport:[KBTaskReport fakeReport] withCompletion:^(KBBaseModel* model, NSError* error) {
+    KBTaskReport *report = [KBTaskReport fakeReport];
+    report.taskId = self.detailModel.taskId;
+    [KBReportManager uploadTaskReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
         UIViewController* vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
         [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
         [[KBNavigator sharedNavigator] showViewController:vc];

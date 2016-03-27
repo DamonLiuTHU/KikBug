@@ -91,4 +91,15 @@
     return nil;
 }
 
+#pragma mark - Empty View
+- (void)showEmptyView
+{
+    
+}
+
+- (void)showErrorView
+{
+    
+}
+
 @end

@@ -12,11 +12,13 @@
 
 @implementation KBTaskListManager
 
+static NSString *interalType = @"appPlatform";
+
 + (void)fetchPublicTasksWithCompletion:(void (^)(NSArray<KBTaskListModel*>*, NSError*))block
 {
     NSString* url = GETURL_V2(@"PublicTasks");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
-                                      Params:@{ @"platform" : @"ios" }
+                                      Params:@{ interalType : @"ios" }
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
                                             NSMutableArray* array = [NSMutableArray array];
@@ -66,7 +68,7 @@
     url = [url stringByReplacingOccurrencesOfString:@"{userId}" withString:NSSTRING_NOT_NIL(userId)];
 
     [KBHttpManager sendGetHttpReqeustWithUrl:url
-                                      Params:@{ @"platform" : @"ios" }
+                                      Params:@{ interalType : @"ios" }
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
                                             NSMutableArray* array = [NSMutableArray array];
@@ -91,7 +93,7 @@
     NSString* url = GETURL_V2(@"PublicTasks");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
                                       Params:@{ @"groupId" : NSSTRING_NOT_NIL(groupId),
-                                          @"platform" : @"ios" }
+                                          interalType : @"ios" }
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
                                             NSMutableArray* array = [NSMutableArray array];

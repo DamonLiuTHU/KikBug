@@ -81,6 +81,7 @@ static NSString* entityName = @"CDBugReport";
     [cdBugReport setValue:bugReport.bugDescription forKey:@"bugDesc"];
     [cdBugReport setValue:bugReport.localUrl forKey:@"bugImgSrc"];
     [cdBugReport setValue:@(bugReport.reportId) forKey:@"reportId"];
+    [cdBugReport setValue:@(bugReport.taskId) forKey:@"taskId"];
     // 利用上下文对象，将数据同步到持久化存储库
     NSError* error = nil;
     BOOL success = [self.context save:&error];
@@ -121,5 +122,44 @@ static NSString* entityName = @"CDBugReport";
         [array addObject:report];
     }
     block(array);
+}
+
+- (void)getAllBugReportsForTask:(NSString *)taskId WithCompletion:(void (^)(NSArray<KBBugReport *> *))block
+{
+    if (!self.context) {
+        [self initContext];
+    }
+    // 初始化一个查询请求
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    // 设置要查询的实体
+    request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.context];
+    // 设置排序（按照age降序）
+    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"bugId" ascending:NO];
+    request.sortDescriptors = [NSArray arrayWithObject:sort];
+    
+    
+    NSPredicate* predicate=[NSPredicate predicateWithFormat:@"taskId==%@",taskId];
+    [request setPredicate:predicate];
+    
+    // 执行请求
+    NSError* error = nil;
+    NSArray* objs = [self.context executeFetchRequest:request error:&error];
+    if (error) {
+        [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
+        block(nil);
+        return;
+    }
+    NSMutableArray<KBBugReport*>* array = [NSMutableArray arrayWithCapacity:objs.count];
+    // 遍历数据
+    for (NSManagedObject* obj in objs) {
+        KBBugReport* report = [[KBBugReport alloc] init];
+        report.bugId = [[obj valueForKey:@"bugId"] integerValue];
+        report.bugDescription = [obj valueForKey:@"bugDesc"];
+        report.localUrl = [obj valueForKey:@"bugImgSrc"];
+        report.reportId = [[obj valueForKey:@"reportId"] integerValue];
+        [array addObject:report];
+    }
+    block(array);
+
 }
 @end

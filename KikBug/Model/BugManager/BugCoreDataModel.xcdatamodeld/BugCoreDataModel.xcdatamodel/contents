@@ -5,8 +5,9 @@
         <attribute name="bugId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bugImgSrc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reportId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="taskId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDBugReport" positionX="-2943" positionY="-9" width="128" height="105"/>
+        <element name="CDBugReport" positionX="-2943" positionY="-9" width="128" height="120"/>
     </elements>
 </model>

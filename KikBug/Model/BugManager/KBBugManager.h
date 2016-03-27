@@ -12,4 +12,5 @@
 SINGLETON_INTERFACE(KBBugManager, sharedInstance);
 - (void)uploadBugReport:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
 - (void)getAllBugReportsWithCompletion:(void(^)(NSArray<KBBugReport*>* reports))block;
+- (void)getAllBugReportsForTask:(NSString *)taskId WithCompletion:(void (^)(NSArray<KBBugReport *> *))block;
 @end

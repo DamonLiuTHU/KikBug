@@ -27,5 +27,6 @@ JSONINT points;
 JSONINT page;
 JSONINT count;
 JSONINT hasTask;
+JSONSTIRNG scheme;
 @property (assign,nonatomic) BOOL isReceive;
 @end

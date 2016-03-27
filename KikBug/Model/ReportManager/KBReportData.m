@@ -16,11 +16,11 @@
     report.taskId = 15;
     report.name = @"name";
     report.logLocation = @"testetssetsetlogLocation";
-    report.reportLocation = @"asdasdfasdfasdfreportLocation";
+//    report.reportLocation = @"asdasdfasdfasdfreportLocation";
     report.mobileBrand = @"Apple";
     report.mobileModel = @"iPhone 6s plus";
     report.mobileOs = @"iOS";
-    report.bugFound = 0;
+//    report.bugFound = 0;
     report.timeUsed = 20;
     report.stepDescription = @"111111";
     

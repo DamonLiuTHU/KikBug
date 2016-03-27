@@ -48,7 +48,7 @@
 
 - (void)loadData
 {
-    [[KBBugManager sharedInstance] getAllBugReportsWithCompletion:^(NSArray<KBBugReport*>* reports) {
+    [[KBBugManager sharedInstance] getAllBugReportsForTask:self.taskId WithCompletion:^(NSArray<KBBugReport*>* reports) {
         [self.tableView.mj_header endRefreshing];
         if (reports) {
             self.dataSource = reports;
