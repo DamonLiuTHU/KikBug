@@ -8,3 +8,7 @@ KikBug.xcworkspace/xcuserdata/damonliu.xcuserdatad/xcdebugger/Breakpoints_v2.xcb
 *.xcbkptlist
 
 KikBug.xcworkspace/xcuserdata/damonliu.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+*.xcscheme
+
+*.plist
