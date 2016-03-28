@@ -25,6 +25,11 @@
     
 }
 
+- (void)configSubviews
+{
+    
+}
+
 + (NSString *)cellIdentifier {
     return NSStringFromClass([self class]);
 }
@@ -43,6 +48,7 @@
     id instant = [self initWithStyle:UITableViewCellStyleSubtitle
                reuseIdentifier:cellID];
     [instant setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [instant configSubviews];
     return instant;
 }
 

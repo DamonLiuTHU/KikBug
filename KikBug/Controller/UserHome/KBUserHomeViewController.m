@@ -10,6 +10,16 @@
 
 @interface KBUserHomeViewController ()
 @property (strong,nonatomic) UIButton *loginButton;
+
+@property (strong,nonatomic) UILabel *registerDate;
+@property (strong,nonatomic) UILabel *credit;
+
+
+@property (strong,nonatomic) UILabel *registerDateHint;
+@property (strong,nonatomic) UILabel *creditHint;
+
+@property (strong,nonatomic) UIButton *editBtn;
+
 @end
 
 @implementation KBUserHomeViewController
@@ -19,11 +29,11 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
-    //    if ([self checkIfNeedLoginPage]) {
-    if (YES) {
-        KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
-    }
+
+//    if (YES) {
+//        KBViewController* loginVC = (KBViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+//        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+//    }
     
     self.loginButton = [UIButton new];
     [self.loginButton setBackgroundColor:THEME_COLOR];
@@ -32,6 +42,8 @@
     [self.loginButton.layer setCornerRadius:5.0f];
     [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [self.loginButton addTarget:self action:@selector(showLoginButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
 
 - (void)showLoginButton
@@ -61,15 +73,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

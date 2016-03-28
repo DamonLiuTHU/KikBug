@@ -92,9 +92,10 @@
 		50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D97C3F1C3F9E1400E37500 /* KBGroupListViewController.m */; };
 		50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD5081C8A6A110021D71D /* KBGroupManager.m */; };
 		50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */; };
-		50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */; };
 		50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859371BF07693008896D0 /* KBTaskListModel.m */; };
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
+		A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */; };
+		A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,11 +272,13 @@
 		50EDD5081C8A6A110021D71D /* KBGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupManager.m; sourceTree = "<group>"; };
 		50EDD50A1C8A70880021D71D /* KBGroupDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupDetailModel.h; sourceTree = "<group>"; };
 		50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailModel.m; sourceTree = "<group>"; };
-		50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskCellTableViewCell.h; path = ../KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
-		50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskCellTableViewCell.m; path = ../KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
 		50F859361BF07693008896D0 /* KBTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskListModel.h; path = ../KBTaskListModel.h; sourceTree = "<group>"; };
 		50F859371BF07693008896D0 /* KBTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskListModel.m; path = ../KBTaskListModel.m; sourceTree = "<group>"; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A65202D61CA9EC7F005E4A65 /* KBUserSimpleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserSimpleInfoCell.h; sourceTree = "<group>"; };
+		A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserSimpleInfoCell.m; sourceTree = "<group>"; };
+		A65202DA1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
+		A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
 		E7EDCC3A28FE44905185FC40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF06231D4A1861D309790D96 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -373,15 +376,6 @@
 			);
 			name = BugReport;
 			path = Bug;
-			sourceTree = "<group>";
-		};
-		50359C221CA3DAD500DFAD45 /* TaskList */ = {
-			isa = PBXGroup;
-			children = (
-				50F8592C1BF075E0008896D0 /* KBTaskCellTableViewCell.h */,
-				50F8592D1BF075E0008896D0 /* KBTaskCellTableViewCell.m */,
-			);
-			path = TaskList;
 			sourceTree = "<group>";
 		};
 		50359C231CA3DB1100DFAD45 /* BaseClass */ = {
@@ -808,10 +802,11 @@
 		50F8592B1BF075E0008896D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A65202D91CA9ECD4005E4A65 /* TaskList */,
+				A65202D51CA9EC7F005E4A65 /* UserHome */,
 				50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */,
 				50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */,
 				5038F9B11BF09FCE00CE22BE /* CommonUITool */,
-				50359C221CA3DAD500DFAD45 /* TaskList */,
 				5056CDDA1C91454900C1A0A7 /* Group */,
 				505A91BE1C57AC060024FC18 /* Logo */,
 				50359C1B1CA3D87100DFAD45 /* BugReport */,
@@ -826,6 +821,24 @@
 				EF06231D4A1861D309790D96 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A65202D51CA9EC7F005E4A65 /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				A65202D61CA9EC7F005E4A65 /* KBUserSimpleInfoCell.h */,
+				A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */,
+			);
+			path = UserHome;
+			sourceTree = "<group>";
+		};
+		A65202D91CA9ECD4005E4A65 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				A65202DA1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.h */,
+				A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */,
+			);
+			path = TaskList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1007,6 +1020,7 @@
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
 				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
+				A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */,
 				50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */,
 				5056098D1CA140AA00D1DB8B /* NSData+MD5Digest.m in Sources */,
 				505609921CA140AA00D1DB8B /* UPMutUploaderManager.m in Sources */,
@@ -1027,6 +1041,7 @@
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
+				A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */,
 				50359C1E1CA3D89600DFAD45 /* KBBugListTableViewCell.m in Sources */,
 				50359C211CA3DA0A00DFAD45 /* KBBugReport.m in Sources */,
 				50A4FE471C97F86700B35124 /* DNTapDetectingImageView.m in Sources */,
@@ -1052,7 +1067,6 @@
 				50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */,
 				504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */,
 				50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */,
-				50F859341BF075E0008896D0 /* KBTaskCellTableViewCell.m in Sources */,
 				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
 				5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,

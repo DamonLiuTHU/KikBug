@@ -22,4 +22,11 @@
 + (CGFloat)calculateCellHeightWithData:(id)cellData containerWidth:(CGFloat)containerWidth;
 + (CGFloat)cellHeight;
 - (void)configConstrains;
+
+/**
+ *  Override to custom subviews
+ *
+ *  @param model Model
+ */
+- (void)configSubviews;
 @end

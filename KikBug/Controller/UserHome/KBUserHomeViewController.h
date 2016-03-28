@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBBaseTableViewController.h"
 
-@interface KBUserHomeViewController : KBViewController
+@interface KBUserHomeViewController : KBBaseTableViewController
 
 @end
