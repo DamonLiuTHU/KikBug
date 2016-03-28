@@ -36,10 +36,9 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)loadData
 {
-    [self showLoadingView];
     WEAKSELF;
     [KBTaskListManager fetchMyTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
-        [weakSelf.tableView.mj_header endRefreshing];
+        [self endRefreshing];
         [weakSelf hideLoadingView];
         if (model && !error) {
             weakSelf.dataSource = model;
