@@ -48,6 +48,9 @@
     //    [manager setRequestSerializer:jsonRequestSerializer];
 
     //    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    
+//    [UIManager showLoginPageIfNeeded];
+    
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
     
     [manager GET:url
@@ -69,6 +72,8 @@
                             Params:(NSDictionary*)param
                           CallBack:(void (^)(id, NSError*))block
 {
+//    [UIManager showLoginPageIfNeeded];
+    
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
 
     [manager POST:url

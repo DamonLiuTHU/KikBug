@@ -301,9 +301,14 @@
             [alertView show];
         }
         else {
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-            [alertView show];
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+//            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+//            [alertView show];
+            if (self.block) {
+                self.block();
+            }
+            [weakSelf dismissViewControllerAnimated:YES completion:^{
+                
+            }];
         }
     }];
 }

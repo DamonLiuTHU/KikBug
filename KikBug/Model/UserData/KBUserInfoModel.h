@@ -24,4 +24,5 @@ JSONSTIRNG name; //昵称
 JSONINT registerDate;
 JSONSTIRNG avatarLocation;
 JSONINT points;
+JSONSTIRNG avatarLocalLocation;
 @end

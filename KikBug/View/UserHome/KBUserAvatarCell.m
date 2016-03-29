@@ -38,9 +38,8 @@
     [self.label autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     [self.avatar autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.rightArrow withOffset:- 10.0f];
-//    [self.avatar autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [self.avatar autoPinEdgeToSuperviewEdge:ALEdgeTop];
-    [self.avatar autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [self.avatar autoPinEdgeToSuperviewMargin:ALEdgeTop];
+    [self.avatar autoPinEdgeToSuperviewMargin:ALEdgeBottom];
     [self.avatar autoConstrainAttribute:ALAttributeHeight toAttribute:ALAttributeWidth ofView:self.avatar];
     
     [super updateConstraints];
@@ -48,7 +47,9 @@
 
 - (void)bindModel:(KBUserInfoModel *)model
 {
-    [self.avatar setImageWithUrl:model.avatarLocation];
+    NSString *thumUrl = [[NSUserDefaults standardUserDefaults] valueForKey:@"THUMBNAILAVATAR"];
+    UIImage *image = [UIImage imageWithContentsOfFile:thumUrl];
+    self.avatar.image = image;
 }
 
 @end

@@ -18,13 +18,15 @@
  
  */
 
-static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
+
+static NSString* UPYUNKEY = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
 
 @implementation KBImageManager
+
 + (void)uploadImage:(UIImage*)image withKey:(NSString*)key completion:(void (^)(NSString*, NSError*))block
 {
     [UPYUNConfig sharedInstance].DEFAULT_BUCKET = @"kikbug-test";
-    [UPYUNConfig sharedInstance].DEFAULT_PASSCODE = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
+    [UPYUNConfig sharedInstance].DEFAULT_PASSCODE = UPYUNKEY;
     __block UpYun* uy = [[UpYun alloc] init];
     uy.successBlocker = ^(NSURLResponse* response, id responseData) {
 //        NSString* url = [responseData valueForKey:@"url"];
@@ -84,7 +86,7 @@ static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     /**
      *	@brief	方式1 由开发者生成saveKey
      */
-    return [NSString stringWithFormat:@"/%@/%@-%ld.%@", STORED_USER_ID, [self getDateString], (long)index, suffix];
+    return [NSString stringWithFormat:@"/userId%@/%@-%ld.%@", STORED_USER_ID, [self getDateString], (long)index, suffix];
     /**
      *	@brief	方式2 由服务器生成saveKey
      */
@@ -104,4 +106,35 @@ static NSString* key = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     return curTime;
 }
 
++(NSString *)uploadImage:(UIImage *)image Completion :(void (^)(NSString *, NSError *))block
+{
+    [UPYUNConfig sharedInstance].DEFAULT_BUCKET = @"kikbug-test";
+    [UPYUNConfig sharedInstance].DEFAULT_PASSCODE = UPYUNKEY;
+    __block UpYun* uy = [[UpYun alloc] init];
+    uy.successBlocker = ^(NSURLResponse* response, id responseData) {
+        NSString *url = [responseData valueForKey:@"url"];
+        block(url, nil);
+    };
+    uy.failBlocker = ^(NSError* error) {
+        NSString* message = [error.userInfo objectForKey:@"message"];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"message" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"error %@", message);
+    };
+    uy.progressBlocker = ^(CGFloat percent, int64_t requestDidSendBytes) {
+        //        [_pv setProgress:percent];
+    };
+    NSString *key = [NSString stringWithFormat:@"/{year}/{mon}/{day}/userId%@/avatar.png",STORED_USER_ID];
+    [uy uploadImage:image savekey:key];
+    
+    return [KBImageManager fullImageUrlWithUrl:key];
+}
+
+static NSString *IMGURL_BASE_URL = @"http://kikbug-test.b0.upaiyun.com";
+
++ (NSString *)fullImageUrlWithUrl:(NSString *)url
+{
+    NSString *result = [IMGURL_BASE_URL stringByAppendingString:url];
+    return result;
+}
 @end

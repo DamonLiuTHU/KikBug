@@ -12,8 +12,10 @@
 #import "KBUserInfoManager.h"
 #import "KBUserInfoModel.h"
 #import "KBUserSimpleInfoCell.h"
+#import "DNImagePickerController.h"
+#import "KBImageManager.h"
 
-@interface KBUserHomeViewController ()
+@interface KBUserHomeViewController () <DNImagePickerControllerDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (strong, nonatomic) UIButton* loginButton;
 
 @property (strong, nonatomic) UILabel* registerDate;
@@ -25,6 +27,8 @@
 @property (strong, nonatomic) UIButton* editBtn;
 
 @property (strong, nonatomic) NSArray<KBUserHomeCellModel*>* dataSource;
+
+@property (strong, nonatomic) KBUserInfoModel *model;
 
 @end
 
@@ -57,19 +61,29 @@
 
 - (void)loadData
 {
-    [KBUserInfoManager fetchUserInfoCompletion:^(KBUserInfoModel* model, NSError* error) {
+    KBUserInfoModel *model = [[KBUserInfoManager manager] storedUserInfoForUserId:STORED_USER_ID];
+    if (!model) {
+        [[KBUserInfoManager manager] fetchUserInfoCompletion:^(KBUserInfoModel* model, NSError* error) {
+            [self endRefreshing];
+            self.model = model;
+            [self createDataSourceWithModel];
+            [self.tableView reloadData];
+        }];
+    } else {
         [self endRefreshing];
-
-        NSMutableArray<KBUserHomeCellModel*>* array = [NSMutableArray array];
-
-        [array addObject:[KBUserHomeCellModel emptyCellWithHeight:10.0f]];
-        
-        KBUserHomeCellModel* cellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserAvatarCell class] cellHeight:80.0f model:model];
-        [array addObject:cellModel];
-
-        self.dataSource = array;
+        self.model = model;
+        [self createDataSourceWithModel];
         [self.tableView reloadData];
-    }];
+    }
+}
+
+- (void)createDataSourceWithModel
+{
+    NSMutableArray<KBUserHomeCellModel*>* array = [NSMutableArray array];
+    [array addObject:[KBUserHomeCellModel emptyCellWithHeight:10.0f]];
+    KBUserHomeCellModel* cellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserAvatarCell class] cellHeight:80.0f model:self.model];
+    [array addObject:cellModel];
+    self.dataSource = array;
 }
 
 - (void)showLoginButton
@@ -118,4 +132,200 @@
     }
     return cell;
 }
+
+#pragma mark - UI Event
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KBUserHomeCellModel *model = self.dataSource[indexPath.row];
+    if ([model.cellClass hash] == [[KBUserAvatarCell class] hash]) {
+        [self chooseAvatarPage];
+    }
+}
+
+#pragma mark - Jump to other pages
+- (void)chooseAvatarPage
+{
+//    DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
+//    imagePicker.imagePickerDelegate = self;
+//    imagePicker.filterType = DNImagePickerFilterTypePhotos;
+//    //    [imagePicker showAlbumList];
+//    [self presentViewController:imagePicker animated:YES completion:^{
+//        //
+//        
+//    }];
+    
+    UIActionSheet* actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"请选择文件来源"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"照相机",@"本地相簿",nil];
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - DNI Delegate
+- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
+{
+
+   
+}
+
+- (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
+{
+    [imagePicker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+#pragma mark - 
+
+#pragma mark -
+#pragma UIActionSheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+//    NSLog(@"buttonIndex = [%d]",buttonIndex);
+    switch (buttonIndex) {
+        case 0://照相机
+        {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.allowsEditing = YES;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            //			[self presentModalViewController:imagePicker animated:YES];
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }
+            break;
+//        case 1://摄像机
+//        {
+//            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//            imagePicker.delegate = self;
+//            imagePicker.allowsEditing = YES;
+//            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//            imagePicker.videoQuality = UIImagePickerControllerQualityTypeLow;
+//            //			[self presentModalViewController:imagePicker animated:YES];
+//            [self presentViewController:imagePicker animated:YES completion:nil];
+//        }
+//            break;
+        case 1://本地相簿
+        {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.delegate = self;
+            imagePicker.allowsEditing = YES;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            //			[self presentModalViewController:imagePicker animated:YES];
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }
+            break;
+//        case 3://本地视频
+//        {
+//            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//            imagePicker.delegate = self;
+//            imagePicker.allowsEditing = YES;
+//            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//            //			[self presentModalViewController:imagePicker animated:YES];
+//            [self presentViewController:imagePicker animated:YES completion:nil];
+//        }
+//            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark -
+#pragma UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    [self saveImage:image];
+    [self createDataSourceWithModel];
+    [self.tableView reloadData];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [KBImageManager uploadImage:image Completion:^(NSString *url, NSError *error) {
+        if (!error) {
+            NSLog(@"Image upload success with url :%@",[KBImageManager fullImageUrlWithUrl:url]);
+            self.model.avatarLocation = [KBImageManager fullImageUrlWithUrl:url];
+            [[KBUserInfoManager manager] saveUserInfo:self.model];
+        }
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    //	[picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveImage:(UIImage *)image {
+    //	NSLog(@"保存头像！");
+    //	[userPhotoButton setImage:image forState:UIControlStateNormal];
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imageFilePath = [documentsDirectory stringByAppendingString:@"/avatarOrignal.jpg"];
+    NSString *thumbnailImagePath = [documentsDirectory stringByAppendingString:@"/avatarThumbnail.jpg"];
+//    NSLog(@"imageFile->>%@",imageFilePath);
+    success = [fileManager fileExistsAtPath:imageFilePath];
+    if(success) {
+        success = [fileManager removeItemAtPath:imageFilePath error:&error];
+    }
+//    UIImage *smallImage=[self scaleFromImage:image toSize:CGSizeMake(80.0f, 80.0f)];//将图片尺寸改为80*80
+    UIImage *smallImage = [self thumbnailWithImageWithoutScale:image size:CGSizeMake(93, 93)];
+//    [UIImage grepresentation(smallImage, 1.0f) writeToFile:imageFilePath atomically:YES];//写入文件
+    [UIImageJPEGRepresentation(smallImage, 1.0f) writeToFile:thumbnailImagePath atomically:YES];
+    [UIImageJPEGRepresentation(image, 1.0f) writeToFile:imageFilePath atomically:YES];
+//    UIImage *selfPhoto = [UIImage imageWithContentsOfFile:imageFilePath];//读取图片文件
+    //	[userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
+    [[NSUserDefaults standardUserDefaults] setValue:thumbnailImagePath forKey:@"THUMBNAILAVATAR"];
+    [[NSUserDefaults standardUserDefaults] setValue:imageFilePath forKey:@"AVATAR"];
+}
+
+// 改变图像的尺寸，方便上传服务器
+- (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size
+{
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
+//2.保持原来的长宽比，生成一个缩略图
+- (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
+{
+    UIImage *newimage;
+    if (nil == image) {
+        newimage = nil;
+    }
+    else{
+        CGSize oldsize = image.size;
+        CGRect rect;
+        if (asize.width/asize.height > oldsize.width/oldsize.height) {
+            rect.size.width = asize.height*oldsize.width/oldsize.height;
+            rect.size.height = asize.height;
+            rect.origin.x = (asize.width - rect.size.width)/2;
+            rect.origin.y = 0;
+        }
+        else{
+            rect.size.width = asize.width;
+            rect.size.height = asize.width*oldsize.height/oldsize.width;
+            rect.origin.x = 0;
+            rect.origin.y = (asize.height - rect.size.height)/2;
+        }
+        UIGraphicsBeginImageContext(asize);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+        UIRectFill(CGRectMake(0, 0, asize.width, asize.height));//clear background
+        [image drawInRect:rect];
+        newimage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    return newimage;
+}
+
+
 @end

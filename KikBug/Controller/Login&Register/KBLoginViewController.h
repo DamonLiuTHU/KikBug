@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^loginSuccessBlock)(void);
 @interface KBLoginViewController : KBViewController
-
+@property (copy,nonatomic) loginSuccessBlock block;
 @end

@@ -227,10 +227,18 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:MY_BUG_REPORT_LIST toControllerClass:[KBMyBugReportListViewController class]];
 }
 
+- (void)showLoginPageIfNeededWithSuccessCompletion:(void(^)())block
+{
+    if ([KBLoginManager checkIfNeedLoginPage]) {
+        KBLoginViewController *loginVC = (KBLoginViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        [UIApplication sharedApplication].keyWindow.rootViewController = [self navControllerWithRoot:loginVC];
+        loginVC.block = block;
+//        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+    }
+}
 
 + (void)showLoginPage {
-    //    if ([KBLoginManager checkIfNeedLoginPage]) {
-    if (YES) {
+    if ([KBLoginManager checkIfNeedLoginPage]) {
         KBLoginViewController *loginVC = (KBLoginViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }

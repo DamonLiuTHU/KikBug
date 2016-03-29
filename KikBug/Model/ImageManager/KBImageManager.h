@@ -12,4 +12,6 @@
 @interface KBImageManager : NSObject
 + (NSString * )getSaveKeyWith:(NSString *)suffix andIndex:(NSInteger)index;
 + (void)uploadImage:(UIImage *)image withKey:(NSString *)key completion:(void(^)(NSString *imageUrl,NSError *error))block;
++ (NSString *)uploadImage:(UIImage *)image Completion:(void (^)(NSString *, NSError *))block;
++ (NSString *)fullImageUrlWithUrl:(NSString *)url;
 @end

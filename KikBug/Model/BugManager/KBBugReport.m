@@ -28,28 +28,33 @@
         report.bugDescription = @"用户没有填写bug描述";
     }
 
-    NSMutableString* imageUrl = [NSMutableString string];
+    NSMutableString* onlineStoredImageUrl = [NSMutableString string];
     NSInteger counter = 0;
     NSMutableString* localImageUrl = [NSMutableString string];
     NSInteger totalImags = list.count;
+    
     for (DNAsset* asset in list) {
         counter++;
         UIImage* image = [asset getImageResource];
-        NSString* key = [KBImageManager getSaveKeyWith:@"jpg" andIndex:counter];
-        NSString* imgUrl = [@"http://kikbug-test.b0.upaiyun.com" stringByAppendingString:key];
-        [imageUrl appendString:[imgUrl stringByAppendingString:@";"]];
+        NSString* key = [KBImageManager getSaveKeyWith:@"png" andIndex:counter];
+        NSString *imageOnlineUrl = [KBImageManager fullImageUrlWithUrl:key];
+
         [KBImageManager uploadImage:image withKey:key completion:^(NSString* imageUrl, NSError* error){
 
         }];
         NSString* str = asset.url.absoluteString;
+        
         [localImageUrl appendString:str];
+        [onlineStoredImageUrl appendString:imageOnlineUrl];
+        
         if (counter < totalImags) {
             [localImageUrl appendString:@";"];
+            [onlineStoredImageUrl appendString:@";"];
         }
     }
 
     report.bugCategoryId = 1;
-    report.imgUrl = imageUrl;
+    report.imgUrl = onlineStoredImageUrl;
     report.severity = 3;
     report.taskId = [taskId integerValue];
     report.localUrl = localImageUrl;

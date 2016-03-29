@@ -118,7 +118,7 @@
     
     UIImage *image;
 //    NSString *string;
-    if (fullImage) {
+    if (!fullImage) {
         NSNumber *orientationValue = [asset valueForProperty:ALAssetPropertyOrientation];
         UIImageOrientation orientation = UIImageOrientationUp;
         if (orientationValue != nil) {

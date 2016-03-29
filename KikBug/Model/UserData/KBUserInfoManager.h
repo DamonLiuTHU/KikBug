@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 @class KBUserInfoModel;
 @interface KBUserInfoManager : NSObject
-
-+ (void)fetchUserInfoCompletion:(void (^)(KBUserInfoModel*, NSError*))block;
-+ (void)fetchUserInfoWithUserId:(NSString *)userId completion:(void(^)(KBUserInfoModel *model,NSError *error))block;
-
+@property (strong, nonatomic) NSManagedObjectContext* context;
+SINGLETON_INTERFACE(KBUserInfoManager, manager);
+- (void)fetchUserInfoCompletion:(void (^)(KBUserInfoModel*, NSError*))block;
+- (void)fetchUserInfoWithUserId:(NSString *)userId completion:(void(^)(KBUserInfoModel *model,NSError *error))block;
+- (KBUserInfoModel *)storedUserInfoForUserId:(NSString *)userId;
+- (void)saveUserInfo:(KBUserInfoModel *)model;
 @end

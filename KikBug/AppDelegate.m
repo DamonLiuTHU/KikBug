@@ -26,13 +26,19 @@
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
     [KBNavigator registerLocalUrls];
-
-    [[KBNavigator sharedNavigator] showRootViewController];
-
+    
     if ([KBLoginManager checkIfNeedLoginPage]) {
-        KBViewController* loginVC = (KBViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+        [UIManager showLoginPageIfNeededWithSuccessCompletion:^{
+            [[KBNavigator sharedNavigator] showRootViewController];    
+        }];
+    } else {
+        [[KBNavigator sharedNavigator] showRootViewController];
     }
+    
+   //    if ([KBLoginManager checkIfNeedLoginPage]) {
+//        KBViewController* loginVC = (KBViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+//        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+//    }
 
     return YES;
 }

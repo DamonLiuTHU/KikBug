@@ -105,6 +105,9 @@
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
 		A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */; };
 		A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */; };
+		A65202DF1CAA77DE005E4A65 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A65202DD1CAA77DE005E4A65 /* UserInfo.xcdatamodeld */; };
+		A65202E41CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202E11CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m */; };
+		A65202E51CAA7853005E4A65 /* CDUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202E31CAA7853005E4A65 /* CDUserInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +309,11 @@
 		A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserSimpleInfoCell.m; sourceTree = "<group>"; };
 		A65202DA1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskCellTableViewCell.h; sourceTree = "<group>"; };
 		A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskCellTableViewCell.m; sourceTree = "<group>"; };
+		A65202DE1CAA77DE005E4A65 /* UserInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfo.xcdatamodel; sourceTree = "<group>"; };
+		A65202E01CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDUserInfoModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A65202E11CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDUserInfoModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A65202E21CAA7853005E4A65 /* CDUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserInfoModel.h; sourceTree = "<group>"; };
+		A65202E31CAA7853005E4A65 /* CDUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserInfoModel.m; sourceTree = "<group>"; };
 		E7EDCC3A28FE44905185FC40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF06231D4A1861D309790D96 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -342,12 +350,17 @@
 		500BAA141C82DDF1005E5831 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
+				A65202E01CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.h */,
+				A65202E11CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m */,
+				A65202E21CAA7853005E4A65 /* CDUserInfoModel.h */,
+				A65202E31CAA7853005E4A65 /* CDUserInfoModel.m */,
 				507967BA1CAA1972009073EB /* KBUserHomeCellModel.h */,
 				507967BB1CAA1972009073EB /* KBUserHomeCellModel.m */,
 				507967C01CAA1B65009073EB /* KBUserInfoModel.h */,
 				507967C11CAA1B65009073EB /* KBUserInfoModel.m */,
 				507967C31CAA1C67009073EB /* KBUserInfoManager.h */,
 				507967C41CAA1C67009073EB /* KBUserInfoManager.m */,
+				A65202DD1CAA77DE005E4A65 /* UserInfo.xcdatamodeld */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -835,10 +848,10 @@
 		50F859281BF075E0008896D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				507967C71CAA1C87009073EB /* Register */,
-				507967C61CAA1C80009073EB /* Login */,
 				507526281C83E68B0071F67F /* KBBaseModel.h */,
 				507526291C83E68B0071F67F /* KBBaseModel.m */,
+				507967C71CAA1C87009073EB /* Register */,
+				507967C61CAA1C80009073EB /* Login */,
 				50359C0C1CA3B81700DFAD45 /* BugManager */,
 				505609571CA13CE700D1DB8B /* ImageManager */,
 				50109B3D1CA021BC00DB2CBB /* ReportManager */,
@@ -1092,6 +1105,8 @@
 				50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */,
 				507967BF1CAA1A64009073EB /* KBEmptyCell.m in Sources */,
 				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
+				A65202E41CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m in Sources */,
+				A65202DF1CAA77DE005E4A65 /* UserInfo.xcdatamodeld in Sources */,
 				5056095A1CA13CF000D1DB8B /* KBImageManager.m in Sources */,
 				50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */,
 				505609561CA1307400D1DB8B /* KBReportData.m in Sources */,
@@ -1131,6 +1146,7 @@
 				507967B91CA6B8BF009073EB /* UIImageView+EaseUse.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
+				A65202E51CAA7853005E4A65 /* CDUserInfoModel.m in Sources */,
 				5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */,
 				507967D01CAA1F98009073EB /* KBUserAccountNumberCell.m in Sources */,
 				50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */,
@@ -1384,6 +1400,16 @@
 			);
 			currentVersion = 50359C281CA4D13F00DFAD45 /* BugCoreDataModel.xcdatamodel */;
 			path = BugCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		A65202DD1CAA77DE005E4A65 /* UserInfo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A65202DE1CAA77DE005E4A65 /* UserInfo.xcdatamodel */,
+			);
+			currentVersion = A65202DE1CAA77DE005E4A65 /* UserInfo.xcdatamodel */;
+			path = UserInfo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
