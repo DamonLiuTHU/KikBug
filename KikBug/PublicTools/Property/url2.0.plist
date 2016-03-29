@@ -19,7 +19,7 @@
 	<key>GetAuthToken</key>
 	<string>/user/auth/token</string>
 	<key>PersonalInfo</key>
-	<string>/tester/{id}</string>
+	<string>/tester/{userId}</string>
 	<key>PublicTasks</key>
 	<string>/task</string>
 	<key>JoinGroup</key>

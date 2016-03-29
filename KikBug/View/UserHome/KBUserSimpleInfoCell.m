@@ -13,12 +13,19 @@
 
 - (void)configSubviews
 {
-    
+    self.headIcon = [UIImageView new];
+    self.userName = [UILabel new];
+    self.accountNumber = [UILabel new];
+    self.arrowImage = [UIImageView new];
+    [self addSubview:self.headIcon];
+    [self addSubview:self.userName];
+    [self addSubview:self.accountNumber];
+    [self addSubview:self.arrowImage];
 }
 
 - (void)bindModel:(KBGroupSearchItem*)model
 {
-
+    
 }
 
 - (void)configConstrains

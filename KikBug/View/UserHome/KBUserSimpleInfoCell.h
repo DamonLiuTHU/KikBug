@@ -12,7 +12,7 @@
 @property (strong,nonatomic) UIImageView *headIcon;
 @property (strong,nonatomic) UILabel *accountNumber;
 @property (strong,nonatomic) UILabel *userName;
-
-@property (strong,nonatomic) UILabel *accountNumberHint;
-@property (strong,nonatomic) UILabel *userNameHint;
+@property (strong,nonatomic) UIImageView *arrowImage;
+//@property (strong,nonatomic) UILabel *accountNumberHint;
+//@property (strong,nonatomic) UILabel *userNameHint;
 @end

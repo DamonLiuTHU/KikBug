@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface KBBaseTableViewCell : UITableViewCell
+
+@property (strong,nonatomic) UIImageView *rightArrow;
 /**
  *  Override to bind model for cell
  *

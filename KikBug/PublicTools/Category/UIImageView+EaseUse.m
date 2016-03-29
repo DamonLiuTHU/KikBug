@@ -12,6 +12,9 @@
 @implementation UIImageView (EaseUse)
 - (void)setImageWithUrl:(NSString *)str
 {
+    if ([NSString isNilorEmpty:str]) {
+        return;
+    }
     WEAKSELF;
     str =[NSString stringWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *url=[NSURL URLWithString:str];

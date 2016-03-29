@@ -27,7 +27,10 @@
 
 - (void)configSubviews
 {
-    
+    self.rightArrow = [UIImageView new];
+    self.rightArrow.image = [UIImage imageNamed:@"Arrow_Right"];
+    [self.rightArrow setHidden:YES];
+    [self addSubview:self.rightArrow];
 }
 
 + (NSString *)cellIdentifier {
@@ -41,6 +44,7 @@
     if (cell == nil) {
         cell = [[self alloc] initWithCellIdentifier:cellID];
     }
+    
     return cell;
 }
 
@@ -49,6 +53,7 @@
                reuseIdentifier:cellID];
     [instant setSelectionStyle:UITableViewCellSelectionStyleNone];
     [instant configSubviews];
+    [instant configConstrains];
     return instant;
 }
 
@@ -68,7 +73,10 @@
 
 - (void)configConstrains
 {
-    
+    [self.rightArrow autoSetDimensionsToSize:CGSizeMake(10, 20)];
+    [self.rightArrow autoPinEdgeToSuperviewMargin:ALEdgeRight];
+    [self.rightArrow autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [super updateConstraints];
 }
 
 @end
