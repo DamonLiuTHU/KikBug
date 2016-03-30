@@ -6,10 +6,10 @@
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 
+#import "CDUserInfoModel.h"
 #import "KBHttpManager.h"
 #import "KBUserInfoManager.h"
 #import "KBUserInfoModel.h"
-#import "CDUserInfoModel.h"
 
 @implementation KBUserInfoManager
 
@@ -19,17 +19,17 @@ SINGLETON_IMPLEMENTION(KBUserInfoManager, manager);
 {
     NSString* url = GETURL_V2(@"PersonalInfo");
     url = [url stringByReplacingOccurrencesOfString:@"{userId}" withString:NSSTRING_NOT_NIL(userId)];
-    [KBHttpManager sendGetHttpReqeustWithUrl:url Params:nil CallBack:^(id responseObject, NSError* error){
+    [KBHttpManager sendGetHttpReqeustWithUrl:url Params:nil CallBack:^(id responseObject, NSError* error) {
         if (!error) {
-            KBUserInfoModel *model = [KBUserInfoModel mj_objectWithKeyValues:responseObject];
+            KBUserInfoModel* model = [KBUserInfoModel mj_objectWithKeyValues:responseObject];
             [[KBUserInfoManager manager] saveUserInfo:model];
-            block(model,nil);
-        } else {
-            block(nil,error);
+            block(model, nil);
+        }
+        else {
+            block(nil, error);
         }
     }];
 }
-
 
 - (void)fetchUserInfoCompletion:(void (^)(KBUserInfoModel*, NSError*))block
 {
@@ -61,7 +61,7 @@ SINGLETON_IMPLEMENTION(KBUserInfoManager, manager);
 
 static NSString* entityName = @"CDUserInfoModel";
 
-- (KBUserInfoModel *)storedUserInfoForUserId:(NSString *)userId
+- (KBUserInfoModel*)storedUserInfoForUserId:(NSString*)userId
 {
     if (!self.context) {
         [self initContext];
@@ -73,7 +73,7 @@ static NSString* entityName = @"CDUserInfoModel";
     // 设置排序（按照age降序）
     //    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"bugId" ascending:NO];
     //    request.sortDescriptors = [NSArray arrayWithObject:sort];
-    NSPredicate* predicate=[NSPredicate predicateWithFormat:@"userId==%@",userId];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"userId==%@", userId];
     [request setPredicate:predicate];
     // 执行请求
     NSError* error = nil;
@@ -82,10 +82,10 @@ static NSString* entityName = @"CDUserInfoModel";
         [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
         return nil;
     }
-    
+
     // 遍历数据
     for (NSManagedObject* obj in objs) {
-        KBUserInfoModel *model = [[KBUserInfoModel alloc] init];
+        KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
         model.userId = [[obj valueForKey:@"userId"] integerValue];
         model.name = [obj valueForKey:@"name"];
         model.avatarLocation = [obj valueForKey:@"avatarLocation"];
@@ -95,10 +95,9 @@ static NSString* entityName = @"CDUserInfoModel";
         return model;
     }
     return nil;
-
 }
 
-- (KBUserInfoModel *)storedUserInfo
+- (KBUserInfoModel*)storedUserInfo
 {
     if (!self.context) {
         [self initContext];
@@ -108,9 +107,9 @@ static NSString* entityName = @"CDUserInfoModel";
     // 设置要查询的实体
     request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.context];
     // 设置排序（按照age降序）
-//    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"bugId" ascending:NO];
-//    request.sortDescriptors = [NSArray arrayWithObject:sort];
-    
+    //    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"bugId" ascending:NO];
+    //    request.sortDescriptors = [NSArray arrayWithObject:sort];
+
     // 执行请求
     NSError* error = nil;
     NSArray* objs = [self.context executeFetchRequest:request error:&error];
@@ -121,7 +120,7 @@ static NSString* entityName = @"CDUserInfoModel";
 
     // 遍历数据
     for (NSManagedObject* obj in objs) {
-        KBUserInfoModel *model = [[KBUserInfoModel alloc] init];
+        KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
         model.userId = [[obj valueForKey:@"userId"] integerValue];
         model.name = [obj valueForKey:@"name"];
         model.avatarLocation = [obj valueForKey:@"avatarLocation"];
@@ -133,12 +132,12 @@ static NSString* entityName = @"CDUserInfoModel";
     return nil;
 }
 
-- (void)saveUserInfo:(KBUserInfoModel *)model
+- (void)saveUserInfo:(KBUserInfoModel*)model
 {
     if (!self.context) {
         [self initContext];
     }
-    KBUserInfoModel *stored_model = [[KBUserInfoManager manager] storedUserInfoForUserId:INT_TO_STIRNG(model.userId)];
+    KBUserInfoModel* stored_model = [[KBUserInfoManager manager] storedUserInfoForUserId:INT_TO_STIRNG(model.userId)];
     if (stored_model) {
         [self updateUserInfo:model];
         return;
@@ -157,27 +156,26 @@ static NSString* entityName = @"CDUserInfoModel";
     if (!success) {
         [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
     }
-
 }
 
-- (void)updateUserInfo:(KBUserInfoModel *)model
+- (void)updateUserInfo:(KBUserInfoModel*)model
 {
     if (!self.context) {
         [self initContext];
     }
-    
+
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.context];
-    NSPredicate* predicate=[NSPredicate predicateWithFormat:@"userId==%ld",(long)model.userId];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"userId==%ld", (long)model.userId];
     [request setPredicate:predicate];
 
     NSError* error = nil;
     NSArray* objs = [self.context executeFetchRequest:request error:&error];
     if (error) {
         [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
-        return ;
+        return;
     }
-    
+
     // 遍历数据
     for (NSManagedObject* obj in objs) {
         [obj setValue:model.avatarLocation forKey:@"avatarLocation"];
@@ -186,13 +184,29 @@ static NSString* entityName = @"CDUserInfoModel";
         [obj setValue:@(model.registerDate) forKey:@"registerDate"];
         [obj setValue:model.account forKey:@"account"];
     }
-    
+
     BOOL success = [self.context save:&error];
     if (!success) {
         [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
     }
 }
 
-
+- (void)updateUserName:(NSString*)userName andAvatar:(NSString*)avatarLocation withCompletion:(void (^)(KBBaseModel*, NSError*))block
+{
+    NSString* url = GETURL_V2(@"PersonalInfo");
+    url = [url stringByReplacingOccurrencesOfString:@"{userId}" withString:NSSTRING_NOT_NIL(STORED_USER_ID)];
+    [KBHttpManager sendPutHttpRequestWithUrl:url
+                                      Params:@{ @"name" : NSSTRING_NOT_NIL(userName),
+                                          @"avatarLocation" : NSSTRING_NOT_NIL(avatarLocation),
+                                      }
+                                    CallBack:^(id responseObject, NSError* error) {
+                                        if (!error) {
+                                            block(responseObject, nil);
+                                        }
+                                        else {
+                                            block(nil, error);
+                                        }
+                                    }];
+}
 
 @end

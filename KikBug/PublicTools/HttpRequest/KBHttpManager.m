@@ -13,56 +13,20 @@
 
 @implementation KBHttpManager
 
-//+(AFHTTPResponseSerializer *)kb_serializer{
-//    AFHTTPResponseSerializer *pt = [AFHTTPResponseSerializer serializer];
-//    pt.acceptableContentTypes = [NSSet setWithObjects: @"application/json", @"text/json", @"text/javascript",@"text/plain", nil];
-//    return pt;
-//}
-
-//+(void)sendGetHttpReqeustWithUrl:(NSString *)url Params:(NSDictionary *)param CallBack:(void (^)(id responseObject, NSError *err))block
-//{
-//    param = [KBHttpManager checkParam:param];
-//    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-//    [manager GET:url
-//      parameters:param
-//         success:^(AFHTTPRequestOperation *operation, id responseObject)
-//     {
-//# if DEBUG
-//         NSLog(@"%@", responseObject);
-//# endif
-//         block(responseObject,nil);
-//     }
-//         failure:^(AFHTTPRequestOperation *operation, NSError *error)
-//     {
-//         block(nil,error);
-//     }];
-//
-//}
-
 + (void)sendGetHttpReqeustWithUrl:(NSString*)url Params:(NSDictionary*)param CallBack:(void (^)(id responseObject, NSError* err))block
 {
-    //    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    //    AFJSONRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
-    //    [manager setRequestSerializer:jsonRequestSerializer];
-
-    //    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-    
-//    [UIManager showLoginPageIfNeeded];
-    
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
-    
+
     [manager GET:url
         parameters:param
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            NSString *errorStr = [NSString stringWithFormat:@"%@",error];
+            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
-            }]];
+                             }]];
             [UIManager showViewController:alert];
             block(operation.responseObject, error);
         }];
@@ -72,8 +36,6 @@
                             Params:(NSDictionary*)param
                           CallBack:(void (^)(id, NSError*))block
 {
-//    [UIManager showLoginPageIfNeeded];
-    
     AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
 
     [manager POST:url
@@ -82,10 +44,30 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            NSString *errorStr = [NSString stringWithFormat:@"%@",error];
+            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
-            }]];
+                             }]];
+            [UIManager showViewController:alert];
+            block(operation.responseObject, error);
+        }];
+}
+
++ (void)sendPutHttpRequestWithUrl:(NSString*)url
+                           Params:(NSDictionary*)param
+                         CallBack:(void (^)(id, NSError*))block
+{
+    AFHTTPRequestOperationManager* manager = [self getHttpRequestManager];
+    [manager PUT:url
+        parameters:param
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            [self checkResponseObj:responseObject withBlock:block];
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
+                             }]];
             [UIManager showViewController:alert];
             block(operation.responseObject, error);
         }];
@@ -96,8 +78,6 @@
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     [manager.requestSerializer setValue:@"aaa" forHTTPHeaderField:@"App-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString* session = [[NSUserDefaults standardUserDefaults] valueForKey:SESSION];
@@ -126,7 +106,7 @@
 
 + (NSDictionary*)dictionaryWithJsonString:(NSString*)jsonString
 {
-    
+
     if ([jsonString isEqualToString:@"false"] || [jsonString isEqualToString:@"true"]) {
         NSMutableDictionary* dic = [NSMutableDictionary dictionary];
         BOOL result = [jsonString boolValue];
