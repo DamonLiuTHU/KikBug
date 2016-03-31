@@ -81,7 +81,7 @@
 {
     NSMutableArray<KBUserHomeCellModel*>* array = [NSMutableArray array];
     [array addObject:[KBUserHomeCellModel emptyCellWithHeight:10.0f]];
-    KBUserHomeCellModel* cellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserAvatarCell class] cellHeight:80.0f model:self.model];
+    KBUserHomeCellModel* cellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserAvatarCell class] cellHeight:90.0f model:self.model];
     [array addObject:cellModel];
     self.dataSource = array;
 }

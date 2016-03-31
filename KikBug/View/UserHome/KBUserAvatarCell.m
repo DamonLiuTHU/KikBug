@@ -26,6 +26,11 @@
     self.label = label;
     
     self.avatar = [UIImageView new];
+    self.avatar.layer.cornerRadius = 5.0f;
+    self.avatar.layer.borderWidth = 1.0f;
+    self.avatar.clipsToBounds = YES;
+    self.avatar.layer.borderColor = [UIColor colorWithHexNumber:0xe3e3e3].CGColor;
+    
     [self addSubview:self.avatar];
     
     [self.rightArrow setHidden:NO];
