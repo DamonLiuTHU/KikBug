@@ -47,9 +47,17 @@
 
 - (void)bindModel:(KBUserInfoModel *)model
 {
-    NSString *thumUrl = [[NSUserDefaults standardUserDefaults] valueForKey:@"THUMBNAILAVATAR"];
-    UIImage *image = [UIImage imageWithContentsOfFile:thumUrl];
-    self.avatar.image = image;
+//    NSString *thumUrl = [[NSUserDefaults standardUserDefaults] valueForKey:@"THUMBNAILAVATAR"];
+    if (model.avatarLocalLocation) {
+        UIImage *image = [UIImage imageWithContentsOfFile:model.avatarLocalLocation];
+        if (!image) {
+            [self.avatar setImageWithUrl:model.avatarLocation];
+            return;
+        }
+        self.avatar.image = image;
+    } else {
+        [self.avatar setImageWithUrl:model.avatarLocation];
+    }
 }
 
 @end

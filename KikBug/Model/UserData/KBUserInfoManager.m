@@ -85,14 +85,7 @@ static NSString* entityName = @"CDUserInfoModel";
 
     // 遍历数据
     for (NSManagedObject* obj in objs) {
-        KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
-        model.userId = [[obj valueForKey:@"userId"] integerValue];
-        model.name = [obj valueForKey:@"name"];
-        model.avatarLocation = [obj valueForKey:@"avatarLocation"];
-        model.points = [[obj valueForKey:@"points"] integerValue];
-        model.registerDate = [[obj valueForKey:@"registerDate"] integerValue];
-        model.account = [obj valueForKey:@"account"];
-        return model;
+        return [self getModelWithManagedObj:obj];
     }
     return nil;
 }
@@ -120,14 +113,7 @@ static NSString* entityName = @"CDUserInfoModel";
 
     // 遍历数据
     for (NSManagedObject* obj in objs) {
-        KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
-        model.userId = [[obj valueForKey:@"userId"] integerValue];
-        model.name = [obj valueForKey:@"name"];
-        model.avatarLocation = [obj valueForKey:@"avatarLocation"];
-        model.points = [[obj valueForKey:@"points"] integerValue];
-        model.registerDate = [[obj valueForKey:@"registerDate"] integerValue];
-        model.account = [obj valueForKey:@"account"];
-        return model;
+        return [self getModelWithManagedObj:obj];
     }
     return nil;
 }
@@ -144,12 +130,7 @@ static NSString* entityName = @"CDUserInfoModel";
     }
     // 传入上下文，创建一个Person实体对象
     NSManagedObject* cdBugReport = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
-    [cdBugReport setValue:@(model.userId) forKey:@"userId"];
-    [cdBugReport setValue:model.avatarLocation forKey:@"avatarLocation"];
-    [cdBugReport setValue:model.name forKey:@"name"];
-    [cdBugReport setValue:@(model.points) forKey:@"points"];
-    [cdBugReport setValue:@(model.registerDate) forKey:@"registerDate"];
-    [cdBugReport setValue:model.account forKey:@"account"];
+    [self configManagedObj:cdBugReport WithModel:model];
     // 利用上下文对象，将数据同步到持久化存储库
     NSError* error = nil;
     BOOL success = [self.context save:&error];
@@ -160,6 +141,10 @@ static NSString* entityName = @"CDUserInfoModel";
 
 - (void)updateUserInfo:(KBUserInfoModel*)model
 {
+    [[KBUserInfoManager manager] updateUserName:model.name andAvatar:model.avatarLocation withCompletion:^(KBBaseModel *model, NSError *error) {
+        //
+    }];
+    
     if (!self.context) {
         [self initContext];
     }
@@ -178,17 +163,50 @@ static NSString* entityName = @"CDUserInfoModel";
 
     // 遍历数据
     for (NSManagedObject* obj in objs) {
-        [obj setValue:model.avatarLocation forKey:@"avatarLocation"];
-        [obj setValue:model.name forKey:@"name"];
-        [obj setValue:@(model.points) forKey:@"points"];
-        [obj setValue:@(model.registerDate) forKey:@"registerDate"];
-        [obj setValue:model.account forKey:@"account"];
+        [self configManagedObj:obj WithModel:model];
     }
 
     BOOL success = [self.context save:&error];
     if (!success) {
         [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
     }
+}
+
+/**
+ *  使用Model来填充Core Data的模型
+ *
+ *  @param obj   CoreData模型
+ *  @param model 实际model
+ */
+- (void)configManagedObj:(NSManagedObject *)obj WithModel:(KBUserInfoModel *)model
+{
+    [obj setValue:@(model.userId) forKey:@"userId"];
+    [obj setValue:model.avatarLocation forKey:@"avatarLocation"];
+    [obj setValue:model.name forKey:@"name"];
+    [obj setValue:@(model.points) forKey:@"points"];
+    [obj setValue:@(model.registerDate) forKey:@"registerDate"];
+    [obj setValue:model.account forKey:@"account"];
+    [obj setValue:model.avatarLocalLocation forKey:@"avatarLocalLocation"];
+}
+
+/**
+ *  使用Core Data模型来创建Model
+ *
+ *  @param obj Core Data 模型
+ *
+ *  @return Model
+ */
+- (KBUserInfoModel *)getModelWithManagedObj:(NSManagedObject *)obj
+{
+    KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
+    model.userId = [[obj valueForKey:@"userId"] integerValue];
+    model.name = [obj valueForKey:@"name"];
+    model.avatarLocation = [obj valueForKey:@"avatarLocation"];
+    model.points = [[obj valueForKey:@"points"] integerValue];
+    model.registerDate = [[obj valueForKey:@"registerDate"] integerValue];
+    model.account = [obj valueForKey:@"account"];
+    model.avatarLocalLocation = [obj valueForKey:@"avatarLocalLocation"];
+    return model;
 }
 
 - (void)updateUserName:(NSString*)userName andAvatar:(NSString*)avatarLocation withCompletion:(void (^)(KBBaseModel*, NSError*))block

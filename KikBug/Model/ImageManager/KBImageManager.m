@@ -124,7 +124,7 @@ static NSString* UPYUNKEY = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     uy.progressBlocker = ^(CGFloat percent, int64_t requestDidSendBytes) {
         //        [_pv setProgress:percent];
     };
-    NSString *key = [NSString stringWithFormat:@"/{year}/{mon}/{day}/userId%@/avatar.png",STORED_USER_ID];
+    NSString *key = [NSString stringWithFormat:@"/%@/userId%@/avatar.png",[self getDateString],STORED_USER_ID];
     [uy uploadImage:image savekey:key];
     
     return [KBImageManager fullImageUrlWithUrl:key];

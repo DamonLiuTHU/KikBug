@@ -146,15 +146,6 @@
 #pragma mark - Jump to other pages
 - (void)chooseAvatarPage
 {
-//    DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
-//    imagePicker.imagePickerDelegate = self;
-//    imagePicker.filterType = DNImagePickerFilterTypePhotos;
-//    //    [imagePicker showAlbumList];
-//    [self presentViewController:imagePicker animated:YES completion:^{
-//        //
-//        
-//    }];
-    
     UIActionSheet* actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择文件来源"
                                   delegate:self
@@ -238,16 +229,19 @@
 {
     UIImage *image = info[UIImagePickerControllerEditedImage];
     [self saveImage:image];
+    [[KBUserInfoManager manager] saveUserInfo:self.model];
     [self createDataSourceWithModel];
     [self.tableView reloadData];
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
-    [KBImageManager uploadImage:image Completion:^(NSString *url, NSError *error) {
+    
+    //更新在线数据
+    self.model.avatarLocation = [KBImageManager uploadImage:image Completion:^(NSString *url, NSError *error) {
         if (!error) {
             NSLog(@"Image upload success with url :%@",[KBImageManager fullImageUrlWithUrl:url]);
-            self.model.avatarLocation = [KBImageManager fullImageUrlWithUrl:url];
-            [[KBUserInfoManager manager] saveUserInfo:self.model];
         }
     }];
+    [[KBUserInfoManager manager] saveUserInfo:self.model];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -281,6 +275,7 @@
     //	[userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
     [[NSUserDefaults standardUserDefaults] setValue:thumbnailImagePath forKey:@"THUMBNAILAVATAR"];
     [[NSUserDefaults standardUserDefaults] setValue:imageFilePath forKey:@"AVATAR"];
+    self.model.avatarLocalLocation = imageFilePath;
 }
 
 // 改变图像的尺寸，方便上传服务器
