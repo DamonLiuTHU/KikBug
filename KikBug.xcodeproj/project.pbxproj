@@ -27,6 +27,7 @@
 		5039A26E1B73585000714F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5039A26C1B73585000714F7A /* LaunchScreen.xib */; };
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
 		504B97101C4C917F003B60EF /* KBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 504B970F1C4C917F003B60EF /* KBLayout.m */; };
+		504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */; };
 		504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */; };
 		504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */; };
 		505609561CA1307400D1DB8B /* KBReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609551CA1307400D1DB8B /* KBReportData.m */; };
@@ -158,6 +159,8 @@
 		5039A2791B73585100714F7A /* KikBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KikBugTests.m; sourceTree = "<group>"; };
 		504B970E1C4C917F003B60EF /* KBLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLayout.h; sourceTree = "<group>"; };
 		504B970F1C4C917F003B60EF /* KBLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLayout.m; sourceTree = "<group>"; };
+		504BE9511CAD42F300879B92 /* KBSimpleEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSimpleEditorViewController.h; sourceTree = "<group>"; };
+		504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSimpleEditorViewController.m; sourceTree = "<group>"; };
 		504BF98C1C969BA60067EA70 /* KBGroupSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchModel.h; sourceTree = "<group>"; };
 		504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchModel.m; sourceTree = "<group>"; };
 		504BF98F1C96A0A60067EA70 /* KBGroupSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 				50D97C131C3F9BDB00E37500 /* HttpRequest */,
 				504B970D1C4C9163003B60EF /* Layout */,
 				50D97C191C3F9BDB00E37500 /* Property */,
+				504BE9511CAD42F300879B92 /* KBSimpleEditorViewController.h */,
+				504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */,
 			);
 			path = PublicTools;
 			sourceTree = "<group>";
@@ -1145,6 +1150,7 @@
 				50A4FE371C97F86700B35124 /* DNImageFlowViewController.m in Sources */,
 				507967B91CA6B8BF009073EB /* UIImageView+EaseUse.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
+				504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */,
 				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
 				A65202E51CAA7853005E4A65 /* CDUserInfoModel.m in Sources */,
 				5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */,

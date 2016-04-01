@@ -32,21 +32,20 @@
     NSInteger counter = 0;
     NSMutableString* localImageUrl = [NSMutableString string];
     NSInteger totalImags = list.count;
-    
+
     for (DNAsset* asset in list) {
         counter++;
         UIImage* image = [asset getImageResource];
         NSString* key = [KBImageManager getSaveKeyWith:@"png" andIndex:counter];
-        NSString *imageOnlineUrl = [KBImageManager fullImageUrlWithUrl:key];
-
+        NSString* imageOnlineUrl = [KBImageManager fullImageUrlWithUrl:key];
         [KBImageManager uploadImage:image withKey:key completion:^(NSString* imageUrl, NSError* error){
 
         }];
         NSString* str = asset.url.absoluteString;
-        
+
         [localImageUrl appendString:str];
         [onlineStoredImageUrl appendString:imageOnlineUrl];
-        
+
         if (counter < totalImags) {
             [localImageUrl appendString:@";"];
             [onlineStoredImageUrl appendString:@";"];

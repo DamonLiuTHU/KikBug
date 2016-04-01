@@ -7,26 +7,27 @@
 //
 
 #import "FontasticIcons.h"
+#import "KBBugListTableViewCell.h"
+#import "KBGroupDetailViewController.h"
 #import "KBGroupListViewController.h"
+#import "KBGroupSearchViewController.h"
+#import "KBGroupTaskListViewController.h"
 #import "KBLoginManager.h"
 #import "KBLoginViewController.h"
+#import "KBMyBugReportListViewController.h"
 #import "KBMyTaskListViewController.h"
 #import "KBNavigator.h"
+#import "KBRegisterManager.h"
+#import "KBRegisterStep2ViewController.h"
+#import "KBRegisterViewController.h"
+#import "KBSimpleEditorViewController.h"
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListTableViewController.h"
 #import "KBUserHomeViewController.h"
-#import "KBGroupSearchViewController.h"
-#import "KBGroupDetailViewController.h"
-#import "KBRegisterManager.h"
-#import "KBRegisterViewController.h"
-#import "KBRegisterStep2ViewController.h"
-#import "KBGroupTaskListViewController.h"
-#import "KBBugListTableViewCell.h"
-#import "KBMyBugReportListViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
-@property (nonatomic, strong) UINavigationController *presentingContainerVCNav;
+@property (nonatomic, strong) UINavigationController* presentingContainerVCNav;
 
 @end
 
@@ -55,7 +56,7 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 {
     switch (showType) {
     case KBUIManagerShowTypePush: {
-        UINavigationController *controller = [self currentNavigationController];
+        UINavigationController* controller = [self currentNavigationController];
         [controller pushViewController:viewController animated:YES];
     } break;
     case KBUIManagerShowTypePresent: {
@@ -68,62 +69,57 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     default:
         break;
     }
-    
-    
-    
-//    switch (showType) {
-//        case TNUIManagerShowTypePush: //push
-//        {
-//            [[self currentNavigationController] pushViewController:viewController animated:YES];
-//        }
-//            break;
-//        case TNUIManagerShowTypePresent: //modal
-//        {
-//            self.presentContainerNav = [self navControllerWithRoot:viewController];
-//            self.presentContainerNav.navigationBarHidden = YES;
-//            [self.tabBarController presentViewController:self.presentContainerNav
-//                                                animated:YES
-//                                              completion:NULL];
-//        }
-//            break;
-//        case TNUIManagerShowTypeAddSubview: //addSub
-//        {
-//            UIViewController *topViewController = [[self currentNavigationController] topViewController];
-//            [topViewController addChildViewController:viewController];
-//            [topViewController.view addSubview:viewController.view];
-//            [viewController.view setFrame:topViewController.view.frame];
-//            [viewController didMoveToParentViewController:topViewController];
-//        }
-//            break;
-//        default:
-//            break;
-//    }
 
+    //    switch (showType) {
+    //        case TNUIManagerShowTypePush: //push
+    //        {
+    //            [[self currentNavigationController] pushViewController:viewController animated:YES];
+    //        }
+    //            break;
+    //        case TNUIManagerShowTypePresent: //modal
+    //        {
+    //            self.presentContainerNav = [self navControllerWithRoot:viewController];
+    //            self.presentContainerNav.navigationBarHidden = YES;
+    //            [self.tabBarController presentViewController:self.presentContainerNav
+    //                                                animated:YES
+    //                                              completion:NULL];
+    //        }
+    //            break;
+    //        case TNUIManagerShowTypeAddSubview: //addSub
+    //        {
+    //            UIViewController *topViewController = [[self currentNavigationController] topViewController];
+    //            [topViewController addChildViewController:viewController];
+    //            [topViewController.view addSubview:viewController.view];
+    //            [viewController.view setFrame:topViewController.view.frame];
+    //            [viewController didMoveToParentViewController:topViewController];
+    //        }
+    //            break;
+    //        default:
+    //            break;
+    //    }
 }
 
 #pragma mark - Utility
 
 - (UINavigationController*)currentNavigationController
 {
-//    return (UINavigationController*)[self.tabBarController selectedViewController];
-    
+    //    return (UINavigationController*)[self.tabBarController selectedViewController];
+
     if (self.tabBarController.presentedViewController
-        && self.tabBarController.presentedViewController == self.presentingContainerVCNav)
-    {
+        && self.tabBarController.presentedViewController == self.presentingContainerVCNav) {
         return self.presentingContainerVCNav;
     }
-    return (UINavigationController *)[self.tabBarController selectedViewController];
+    return (UINavigationController*)[self.tabBarController selectedViewController];
 }
 
-- (KBViewController *)topViewController
+- (KBViewController*)topViewController
 {
-    UIViewController *topViewController = [self currentNavigationController].topViewController;
-    if (![topViewController isKindOfClass:[KBViewController class]])
-    {
+    UIViewController* topViewController = [self currentNavigationController].topViewController;
+    if (![topViewController isKindOfClass:[KBViewController class]]) {
         return nil;
     }
-    
-    return (KBViewController *)topViewController;
+
+    return (KBViewController*)topViewController;
 }
 
 - (UINavigationController*)navControllerWithRoot:(UIViewController*)controller
@@ -135,12 +131,12 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     return aNav;
 }
 
-+ (void)setNavigationBarStyle:(UINavigationController *)aNav
++ (void)setNavigationBarStyle:(UINavigationController*)aNav
 {
     [aNav.navigationBar setBarTintColor:THEME_COLOR];
     [aNav.navigationBar setTintColor:[UIColor whiteColor]];
     [aNav.navigationBar setTitleTextAttributes:@{ NSFontAttributeName : APP_FONT(17),
-                                                  NSForegroundColorAttributeName : [UIColor whiteColor] }];
+        NSForegroundColorAttributeName : [UIColor whiteColor] }];
     [aNav.navigationBar setTranslucent:NO];
 }
 
@@ -225,21 +221,23 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:REGISTER_PAGE_STEP_2 toControllerClass:[KBRegisterStep2ViewController class]];
     [[HHRouter shared] map:GROUP_TASKS toControllerClass:[KBGroupTaskListViewController class]];
     [[HHRouter shared] map:MY_BUG_REPORT_LIST toControllerClass:[KBMyBugReportListViewController class]];
+    [[HHRouter shared] map:SIMPLE_EDITOR toControllerClass:[KBSimpleEditorViewController class]];
 }
 
-- (void)showLoginPageIfNeededWithSuccessCompletion:(void(^)())block
+- (void)showLoginPageIfNeededWithSuccessCompletion:(void (^)())block
 {
     if ([KBLoginManager checkIfNeedLoginPage]) {
-        KBLoginViewController *loginVC = (KBLoginViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        KBLoginViewController* loginVC = (KBLoginViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [UIApplication sharedApplication].keyWindow.rootViewController = [self navControllerWithRoot:loginVC];
         loginVC.block = block;
-//        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+        //        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
 }
 
-+ (void)showLoginPage {
++ (void)showLoginPage
+{
     if ([KBLoginManager checkIfNeedLoginPage]) {
-        KBLoginViewController *loginVC = (KBLoginViewController *)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+        KBLoginViewController* loginVC = (KBLoginViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
 }

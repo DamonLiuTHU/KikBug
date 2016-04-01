@@ -12,7 +12,7 @@
 
 @implementation KBTaskListManager
 
-static NSString *interalType = @"appPlatform";
+static NSString* interalType = @"appPlatform";
 
 + (void)fetchPublicTasksWithCompletion:(void (^)(NSArray<KBTaskListModel*>*, NSError*))block
 {
@@ -41,6 +41,7 @@ static NSString *interalType = @"appPlatform";
     NSString* url = GETURL_V2(@"GetMyTasks");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
                                       Params:@{ @"userId" : NSSTRING_NOT_NIL(userId),
+                                          interalType : @"ios"
                                       }
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
