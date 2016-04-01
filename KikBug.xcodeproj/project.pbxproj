@@ -28,6 +28,7 @@
 		5039A27A1B73585100714F7A /* KikBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5039A2791B73585100714F7A /* KikBugTests.m */; };
 		504B97101C4C917F003B60EF /* KBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 504B970F1C4C917F003B60EF /* KBLayout.m */; };
 		504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */; };
+		504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9551CAE424E00879B92 /* KBLogOutCell.m */; };
 		504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */; };
 		504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */; };
 		505609561CA1307400D1DB8B /* KBReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609551CA1307400D1DB8B /* KBReportData.m */; };
@@ -161,6 +162,8 @@
 		504B970F1C4C917F003B60EF /* KBLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLayout.m; sourceTree = "<group>"; };
 		504BE9511CAD42F300879B92 /* KBSimpleEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSimpleEditorViewController.h; sourceTree = "<group>"; };
 		504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSimpleEditorViewController.m; sourceTree = "<group>"; };
+		504BE9541CAE424E00879B92 /* KBLogOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLogOutCell.h; sourceTree = "<group>"; };
+		504BE9551CAE424E00879B92 /* KBLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogOutCell.m; sourceTree = "<group>"; };
 		504BF98C1C969BA60067EA70 /* KBGroupSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchModel.h; sourceTree = "<group>"; };
 		504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchModel.m; sourceTree = "<group>"; };
 		504BF98F1C96A0A60067EA70 /* KBGroupSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -907,6 +910,8 @@
 				507967D21CAA1FA2009073EB /* KBUserPointsCell.m */,
 				507967D41CAA1FD1009073EB /* KBUserRegisterDateCell.h */,
 				507967D51CAA1FD1009073EB /* KBUserRegisterDateCell.m */,
+				504BE9541CAE424E00879B92 /* KBLogOutCell.h */,
+				504BE9551CAE424E00879B92 /* KBLogOutCell.m */,
 			);
 			path = UserHome;
 			sourceTree = "<group>";
@@ -1162,6 +1167,7 @@
 				5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				507967CD1CAA1F8D009073EB /* KBUserNameCell.m in Sources */,
+				504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */,
 				50A4FE361C97F86700B35124 /* DNAsset.m in Sources */,
 				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,
 				50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */,

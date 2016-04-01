@@ -16,6 +16,7 @@
 #import "KBUserInfoModel.h"
 #import "KBUserNameCell.h"
 #import "KBUserSimpleInfoCell.h"
+#import "KBLogOutCell.h"
 
 @interface KBUserHomeViewController () <DNImagePickerControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KBSimpleEditorViewControllerDelegate>
 @property (strong, nonatomic) UIButton* loginButton;
@@ -94,6 +95,11 @@
     //昵称
     KBUserHomeCellModel* nickNameCellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserNameCell class] cellHeight:[KBUserNameCell cellHeight] model:self.model];
     [array addObject:nickNameCellModel];
+    
+    //登出
+     [array addObject:[KBUserHomeCellModel emptyCellWithHeight:20.0f]];
+    KBUserHomeCellModel *logoutModel = [[KBUserHomeCellModel alloc] initWithClass:[KBLogOutCell class] cellHeight:[KBLogOutCell cellHeight] model:nil];
+    [array addObject:logoutModel];
 
     self.dataSource = array;
 
@@ -159,6 +165,10 @@
     if (model.cellClass == [KBUserNameCell class]) {
         [self editNickName];
     }
+    
+    if (model.cellClass == [KBLogOutCell class]) {
+        [self logOutButtonPressed];
+    }
 }
 
 #pragma mark - Jump to other pages
@@ -179,6 +189,17 @@
     [vc setValue:self forKeyPath:@"delegate"];
     [vc setParams:@{ @"text" : self.model.name }];
     [UIManager showViewController:vc];
+}
+
+- (void)logOutButtonPressed
+{
+//    UIActionSheet* actionSheet = [[UIActionSheet alloc]
+//                                  initWithTitle:@"请选择文件来源"
+//                                  delegate:self
+//                                  cancelButtonTitle:@"取消"
+//                                  destructiveButtonTitle:nil
+//                                  otherButtonTitles:@"照相机", @"本地相簿", nil];
+//    [actionSheet showInView:self.view];
 }
 
 #pragma mark - DNI Delegate
