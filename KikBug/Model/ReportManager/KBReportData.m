@@ -14,15 +14,15 @@
 {
     KBTaskReport* report = [[KBTaskReport alloc] init];
     report.taskId = 15;
-    report.name = @"name";
-    report.logLocation = @"testetssetsetlogLocation";
-    report.reportLocation = @"asdasdfasdfasdfreportLocation";
+    report.name = @"Default Task Report";
+    report.logLocation = @"no log";
+    report.reportLocation = @"no report";
     report.mobileBrand = @"Apple";
-    report.mobileModel = @"iPhone 6s plus";
+    report.mobileModel = @"iPhone";
     report.mobileOs = @"iOS";
 //    report.bugFound = 0;
-    report.timeUsed = 20;
-    report.stepDescription = @"111111";
+    report.timeUsed = 0;
+    report.stepDescription = @"no step description";
     
     return report;
 }

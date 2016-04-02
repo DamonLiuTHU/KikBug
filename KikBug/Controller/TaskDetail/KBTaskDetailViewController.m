@@ -23,10 +23,10 @@
 #import "KBUserHomeViewController.h"
 #import "MBProgressHUD.h"
 #import "SDWebImageManager.h"
+#import "UIImageView+EaseUse.h"
 #import "UIImageView+RJLoader.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+DNImagePicker.h"
-#import "UIImageView+EaseUse.h"
 
 @interface KBTaskDetailViewController ()
 
@@ -56,6 +56,8 @@
 @property (strong, nonatomic) UIButton* goToMyReportsBtn; /**< 跳转到我的Bug报告页面 */
 @property (strong, nonatomic) UIButton* addBugReportBtn;
 @property (strong, nonatomic) UIButton* startTestTask;
+
+@property (strong, nonatomic) UIButton* installBtn;
 
 @property (assign, nonatomic) BOOL isTaskAccepted;
 
@@ -130,6 +132,7 @@
     self.containerView = [UIView new];
     self.goToMyReportsBtn = [UIButton new];
     self.scrollView = [UIScrollView new];
+    self.installBtn = [UIButton new];
 }
 
 - (void)configSubviews
@@ -138,6 +141,7 @@
     [self.goToMyReportsBtn addTarget:self action:@selector(checkMyReportsButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     //    [self.jumpButton addTarget:self action:@selector(jumpToApp:) forControlEvents:UIControlEventTouchUpInside];
     [self.taskDescription setEditable:NO];
+    [self.installBtn addTarget:self action:@selector(installAppBtnPressed) forControlEvents:UIControlEventTouchUpInside];
 #if DEBUG
 //    [self.taskDescription setBackgroundColor:[UIColor lightGrayColor]];
 #endif
@@ -190,11 +194,18 @@
     [self.goToMyReportsBtn.layer setCornerRadius:5.0f];
     [self.startTestTask setBackgroundColor:THEME_COLOR];
     [self.startTestTask.layer setCornerRadius:5.0f];
+    [self.installBtn setBackgroundColor:THEME_COLOR];
+    [self.installBtn.layer setCornerRadius:5.0f];
 
     [self.startTestTask setAttributedTitle:[[NSAttributedString alloc]
                                                initWithString:@"开始测试"
                                                    attributes:BUTTON_TITLE_ATTRIBUTE]
                                   forState:UIControlStateNormal];
+
+    [self.installBtn setAttributedTitle:[[NSAttributedString alloc]
+                                            initWithString:@"安装"
+                                                attributes:BUTTON_TITLE_ATTRIBUTE]
+                               forState:UIControlStateNormal];
 
     [self.view addSubview:self.appSizeLabelHint];
     [self.view addSubview:self.appSizeLabel];
@@ -215,6 +226,7 @@
     [self.containerView addSubview:self.taskDescriptionHint];
     [self.containerView addSubview:self.taskDescription];
     [self.containerView addSubview:self.startTestTask];
+    [self.containerView addSubview:self.installBtn];
 }
 
 - (void)configConstrains
@@ -350,6 +362,7 @@
     [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
 
     [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
+    [self.installBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
     [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
 
     [self.goToMyReportsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
@@ -358,9 +371,12 @@
     [self.startTestTask autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
     [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
 
+    [self.installBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
+    [self.installBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.startTestTask withOffset:20.0f];
+
     [self.containerView autoPinEdgesToSuperviewEdges];
 
-    [self.containerView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.goToMyReportsBtn withOffset:5.0f];
+    [self.containerView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.installBtn withOffset:5.0f];
 
     [super updateViewConstraints];
 }
@@ -375,7 +391,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-
 }
 - (void)navigationLeftButton
 {
@@ -528,12 +543,20 @@
     if ([KBReportManager getReportId] < 0) {
         //不允许用户填写bug报告 因为测试报告上传失败了。
     }
-    KBTaskReport *report = [KBTaskReport fakeReport];
+    KBTaskReport* report = [KBTaskReport fakeReport];
     report.taskId = self.detailModel.taskId;
     [KBReportManager uploadTaskReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
         UIViewController* vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
         [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
         [[KBNavigator sharedNavigator] showViewController:vc];
     }];
+}
+
+- (void)installAppBtnPressed
+{
+    //
+//    NSString* str = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.detailModel.appLocation];
+    NSString *str = self.detailModel.appLocation;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 @end
