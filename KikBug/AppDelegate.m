@@ -12,6 +12,7 @@
 #import "KBReportManager.h"
 #import "KBTaskListTableViewController.h"
 #import "NSString+EasyUse.h"
+#import "KBLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,13 +25,15 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];  
     [self.window makeKeyAndVisible];
     [KBNavigator registerLocalUrls];
     
     if ([KBLoginManager checkIfNeedLoginPage]) {
-        [UIManager showLoginPageIfNeededWithSuccessCompletion:^{
+        KBLoginViewController *vc = [UIManager showLoginPageIfNeededWithSuccessCompletion:^{
             [[KBNavigator sharedNavigator] showRootViewController];    
         }];
+        vc.navigationItem.leftBarButtonItem = nil;
     } else {
         [[KBNavigator sharedNavigator] showRootViewController];
     }

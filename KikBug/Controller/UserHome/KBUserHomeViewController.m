@@ -17,9 +17,11 @@
 #import "KBUserNameCell.h"
 #import "KBUserSimpleInfoCell.h"
 #import "KBLogOutCell.h"
+#import "KBLoginManager.h"
+#import "KBLoginViewController.h"
 
 @interface KBUserHomeViewController () <DNImagePickerControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KBSimpleEditorViewControllerDelegate>
-@property (strong, nonatomic) UIButton* loginButton;
+//@property (strong, nonatomic) UIButton* loginButton;
 
 @property (strong, nonatomic) UILabel* registerDate;
 @property (strong, nonatomic) UILabel* credit;
@@ -47,13 +49,13 @@
     //        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     //    }
 
-    self.loginButton = [UIButton new];
-    [self.loginButton setBackgroundColor:THEME_COLOR];
-    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:self.loginButton];
-    [self.loginButton.layer setCornerRadius:5.0f];
-    [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
-    [self.loginButton addTarget:self action:@selector(showLoginButton) forControlEvents:UIControlEventTouchUpInside];
+//    self.loginButton = [UIButton new];
+//    [self.loginButton setBackgroundColor:THEME_COLOR];
+//    [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.view addSubview:self.loginButton];
+//    [self.loginButton.layer setCornerRadius:5.0f];
+//    [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
+//    [self.loginButton addTarget:self action:@selector(showLoginButton) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configTableView
@@ -112,14 +114,14 @@
     [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
 }
 
-- (void)configConstrains
-{
-    [super configConstrains];
-    [self.loginButton autoSetDimensionsToSize:CGSizeMake(200, 50)];
-    [self.loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.loginButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:BOTTOM_BAR_HEIGHT + 10];
-    [super updateViewConstraints];
-}
+//- (void)configConstrains
+//{
+//    [super configConstrains];
+////    [self.loginButton autoSetDimensionsToSize:CGSizeMake(200, 50)];
+////    [self.loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+////    [self.loginButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:BOTTOM_BAR_HEIGHT + 10];
+//    [super updateViewConstraints];
+//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -200,6 +202,12 @@
 //                                  destructiveButtonTitle:nil
 //                                  otherButtonTitles:@"照相机", @"本地相簿", nil];
 //    [actionSheet showInView:self.view];
+    [KBLoginManager userLogOut];
+    KBLoginViewController *vc = [UIManager showLoginPageIfNeededWithSuccessCompletion:^{
+        [UIManager showRootViewController];
+    }];
+    vc.navigationItem.leftBarButtonItem = nil;
+    
 }
 
 #pragma mark - DNI Delegate

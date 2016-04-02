@@ -85,17 +85,17 @@
     UINavigationController* nav = self.navigationController;
     [nav setNavigationBarHidden:NO];
     
-    UIButton* closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
-    [closeBtn addTarget:self action:@selector(closeLoginViewController) forControlEvents:UIControlEventTouchUpInside];
-    [closeBtn setBackgroundColor:THEME_COLOR];
-    closeBtn.titleLabel.font = APP_FONT(13);
-    [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
-    [closeBtn sizeToFit];
-
-
-
-    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
-    self.navigationItem.leftBarButtonItem = backItem;
+//    UIButton* closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
+//    [closeBtn addTarget:self action:@selector(closeLoginViewController) forControlEvents:UIControlEventTouchUpInside];
+//    [closeBtn setBackgroundColor:THEME_COLOR];
+//    closeBtn.titleLabel.font = APP_FONT(13);
+//    [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
+//    [closeBtn sizeToFit];
+//
+//    
+//    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
+//    self.closePageButton = backItem;
+//    self.navigationItem.leftBarButtonItem = backItem;
 }
 
 - (void)closeLoginViewController

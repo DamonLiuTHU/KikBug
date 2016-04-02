@@ -224,14 +224,16 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:SIMPLE_EDITOR toControllerClass:[KBSimpleEditorViewController class]];
 }
 
-- (void)showLoginPageIfNeededWithSuccessCompletion:(void (^)())block
+- (KBLoginViewController *)showLoginPageIfNeededWithSuccessCompletion:(void (^)())block
 {
     if ([KBLoginManager checkIfNeedLoginPage]) {
         KBLoginViewController* loginVC = (KBLoginViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
         [UIApplication sharedApplication].keyWindow.rootViewController = [self navControllerWithRoot:loginVC];
         loginVC.block = block;
+        return loginVC;
         //        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
     }
+    return nil;
 }
 
 + (void)showLoginPage

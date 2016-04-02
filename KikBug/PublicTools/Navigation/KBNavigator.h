@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger,KBUIManagerShowType){
     KBUIManagerShowTypePresent,
 };
 
+@class KBLoginViewController;
+
 @interface KBNavigator : UIViewController
 
 SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
@@ -40,7 +42,7 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 + (void)showLoginPage;
 
-- (void)showLoginPageIfNeededWithSuccessCompletion:(void(^)())block;
+- (KBLoginViewController *)showLoginPageIfNeededWithSuccessCompletion:(void(^)())block;
 
 - (KBViewController *)topViewController;
 

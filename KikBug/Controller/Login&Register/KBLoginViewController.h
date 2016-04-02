@@ -10,4 +10,5 @@
 typedef void(^loginSuccessBlock)(void);
 @interface KBLoginViewController : KBViewController
 @property (copy,nonatomic) loginSuccessBlock block;
+@property (strong,nonatomic) UIBarButtonItem *closePageButton;
 @end
