@@ -23,13 +23,20 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
-                             }]];
-            [UIManager showViewController:alert];
+            [self showErrorAlertWithInput:operation error:error];
             block(operation.responseObject, error);
         }];
+}
+
++ (void)showErrorAlertWithInput:(AFHTTPRequestOperation* )operation error:(NSError*) error
+{
+    NSString* errorStr = [NSString stringWithFormat:@"%@", error];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
+    }]];
+//    [UIManager showViewController:alert];
+    UIViewController *top = [UIManager topViewController];
+    [top presentViewController:alert animated:YES completion:nil];
 }
 
 + (void)sendPostHttpRequestWithUrl:(NSString*)url
@@ -44,11 +51,7 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
-                             }]];
-            [UIManager showViewController:alert];
+            [self showErrorAlertWithInput:operation error:error];
             block(operation.responseObject, error);
         }];
 }
@@ -64,11 +67,7 @@
             [self checkResponseObj:responseObject withBlock:block];
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
-            NSString* errorStr = [NSString stringWithFormat:@"%@", error];
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
-                             }]];
-            [UIManager showViewController:alert];
+           [self showErrorAlertWithInput:operation error:error];
             block(operation.responseObject, error);
         }];
 }

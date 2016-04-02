@@ -13,7 +13,7 @@
 JSONINT taskId;
 JSONSTIRNG name;           //报告名称
 JSONSTIRNG logLocation;    //系统生成的
-//JSONSTIRNG reportLocation; //
+JSONSTIRNG reportLocation; //
 JSONSTIRNG mobileBrand;//苹果
 JSONSTIRNG mobileModel;//iPhone 6s
 JSONSTIRNG mobileOs;   //

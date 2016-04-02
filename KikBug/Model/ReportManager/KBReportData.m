@@ -16,7 +16,7 @@
     report.taskId = 15;
     report.name = @"name";
     report.logLocation = @"testetssetsetlogLocation";
-//    report.reportLocation = @"asdasdfasdfasdfreportLocation";
+    report.reportLocation = @"asdasdfasdfasdfreportLocation";
     report.mobileBrand = @"Apple";
     report.mobileModel = @"iPhone 6s plus";
     report.mobileOs = @"iOS";
