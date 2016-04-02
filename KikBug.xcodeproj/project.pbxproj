@@ -29,6 +29,7 @@
 		504B97101C4C917F003B60EF /* KBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 504B970F1C4C917F003B60EF /* KBLayout.m */; };
 		504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */; };
 		504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9551CAE424E00879B92 /* KBLogOutCell.m */; };
+		504BE9591CAF4D4900879B92 /* KBEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9581CAF4D4900879B92 /* KBEmptyView.m */; };
 		504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */; };
 		504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */; };
 		505609561CA1307400D1DB8B /* KBReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609551CA1307400D1DB8B /* KBReportData.m */; };
@@ -164,6 +165,8 @@
 		504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSimpleEditorViewController.m; sourceTree = "<group>"; };
 		504BE9541CAE424E00879B92 /* KBLogOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLogOutCell.h; sourceTree = "<group>"; };
 		504BE9551CAE424E00879B92 /* KBLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogOutCell.m; sourceTree = "<group>"; };
+		504BE9571CAF4D4900879B92 /* KBEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBEmptyView.h; sourceTree = "<group>"; };
+		504BE9581CAF4D4900879B92 /* KBEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBEmptyView.m; sourceTree = "<group>"; };
 		504BF98C1C969BA60067EA70 /* KBGroupSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchModel.h; sourceTree = "<group>"; };
 		504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchModel.m; sourceTree = "<group>"; };
 		504BF98F1C96A0A60067EA70 /* KBGroupSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 				5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */,
 				507967BD1CAA1A64009073EB /* KBEmptyCell.h */,
 				507967BE1CAA1A64009073EB /* KBEmptyCell.m */,
+				504BE9571CAF4D4900879B92 /* KBEmptyView.h */,
+				504BE9581CAF4D4900879B92 /* KBEmptyView.m */,
 			);
 			name = CommonUITool;
 			sourceTree = "<group>";
@@ -1165,6 +1170,7 @@
 				50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */,
 				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
 				5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */,
+				504BE9591CAF4D4900879B92 /* KBEmptyView.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				507967CD1CAA1F8D009073EB /* KBUserNameCell.m in Sources */,
 				504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */,

@@ -14,5 +14,7 @@
 - (void)endRefreshing;
 
 - (void)showEmptyView;
+- (void)showEmptyViewWithText:(NSString *)text;
 - (void)showErrorView;
+- (void)removeEmptyView;
 @end

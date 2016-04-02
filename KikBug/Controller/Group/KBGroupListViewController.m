@@ -37,6 +37,8 @@
         if (!error) {
             weakSelf.model = baseMode;
             [weakSelf.tableView reloadData];
+        } else {
+            [weakSelf showEmptyView];
         }
     }];
 }

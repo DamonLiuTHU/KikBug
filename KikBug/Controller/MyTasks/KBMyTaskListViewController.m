@@ -36,14 +36,21 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)loadData
 {
+//    [super loadData];
     WEAKSELF;
     [KBTaskListManager fetchMyTasksWithCompletion:^(NSArray<KBTaskListModel *> *model, NSError *error) {
         [self endRefreshing];
         [weakSelf hideLoadingView];
         if (model && !error) {
             weakSelf.dataSource = model;
-            [weakSelf.tableView reloadData];
+            if (model.count > 0) {
+                [weakSelf removeEmptyView];
+                [weakSelf.tableView reloadData];
+            } else {
+                [weakSelf showEmptyViewWithText:@"您还没有添加任务,请到任务广场中添加"];
+            }
         } else {
+            [weakSelf showErrorView];
             [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
         }
     }];

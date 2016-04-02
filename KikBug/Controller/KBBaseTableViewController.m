@@ -7,9 +7,10 @@
 //
 
 #import "KBBaseTableViewController.h"
+#import "KBEmptyView.h"
 
 @interface KBBaseTableViewController ()
-
+@property (strong,nonatomic) KBEmptyView *emptyView;
 @end
 
 @implementation KBBaseTableViewController
@@ -72,6 +73,7 @@
 - (void)loadData
 {
     [super loadData];
+    [self removeEmptyView];
     [self.tableView.mj_header endRefreshing];
 }
 
@@ -92,14 +94,64 @@
 }
 
 #pragma mark - Empty View
+- (void)showEmptyViewWithText:(NSString *)text
+{
+    if (!self.emptyView) {
+        self.emptyView = [KBEmptyView new];
+        self.emptyView.tipText = text;
+        WEAKSELF;
+        self.emptyView.block = ^(){
+            [weakSelf loadData];
+        };
+    }
+    if ([self.view.subviews containsObject:self.emptyView]) {
+        [self.view bringSubviewToFront:self.emptyView];
+    } else {
+        [self.view addSubview:self.emptyView];
+        [self.emptyView autoPinEdgesToSuperviewEdges];
+    }
+}
+
 - (void)showEmptyView
 {
-    
+    if (!self.emptyView) {
+        self.emptyView = [KBEmptyView new];
+        self.emptyView.tipText = @"没有找到可以展示的数据";
+        WEAKSELF;
+        self.emptyView.block = ^(){
+            [weakSelf loadData];
+        };
+    }
+    if ([self.view.subviews containsObject:self.emptyView]) {
+        [self.view bringSubviewToFront:self.emptyView];
+    } else {
+        [self.view addSubview:self.emptyView];
+        [self.emptyView autoPinEdgesToSuperviewEdges];
+    }
+}
+
+- (void)removeEmptyView
+{
+    if (self.emptyView) {
+        [self.emptyView removeFromSuperview];
+    }
 }
 
 - (void)showErrorView
 {
-    
+    if (!self.emptyView) {
+        self.emptyView = [KBEmptyView new];
+        WEAKSELF;
+        self.emptyView.block = ^(){
+            [weakSelf loadData];
+        };
+    }
+    if ([self.view.subviews containsObject:self.emptyView]) {
+        [self.view bringSubviewToFront:self.emptyView];
+    } else {
+        [self.view addSubview:self.emptyView];
+        [self.emptyView autoPinEdgesToSuperviewEdges];
+    }
 }
 
 @end

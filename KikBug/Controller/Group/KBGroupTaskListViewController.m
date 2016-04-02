@@ -42,9 +42,16 @@
         [weakSelf hideLoadingView];
         if (model && !error) {
             weakSelf.dataSource = model;
-            [weakSelf.tableView reloadData];
+            if (model.count > 0) {
+                [weakSelf removeEmptyView];
+                [weakSelf.tableView reloadData];
+            } else {
+                [weakSelf showEmptyViewWithText:@"这个群组还没有发布任务"];
+            }
+//            [weakSelf.tableView reloadData];
         } else {
-            [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
+//            [weakSelf showLoadingViewWithText:@"网络错误，请重新刷新"];
+            [weakSelf showErrorView];
         }
     }];
 }
