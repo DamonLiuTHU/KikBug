@@ -29,6 +29,8 @@
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.appImage = [UIImageView new];
+        self.appImage.layer.cornerRadius = 5.0f;
+        self.appImage.clipsToBounds = YES;
         self.appImage.contentMode = UIViewContentModeScaleAspectFit;
         self.taskId = [UILabel new];
         self.deadLine = [UILabel new];
@@ -38,7 +40,7 @@
                                                                                       attributes:SUBTITLE_ATTRIBUTE]];
         [self.taskDeadLineHintLabel sizeToFit];
         self.line = [[KBOnePixelLine alloc] init];
-//        [self.line setLineColor:[UIColor  lightGrayColor]];
+        [self.line setLineColor:LIGHT_GRAY_COLOR];
         [self configSubViews];
     }
     return self;

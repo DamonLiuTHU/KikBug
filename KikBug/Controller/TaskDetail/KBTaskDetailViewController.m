@@ -126,6 +126,8 @@
     self.dueDateLabelHint = [UILabel new];
     self.dueDateLabel = [UILabel new];
     self.icon = [UIImageView new];
+    self.icon.layer.cornerRadius = 5.0f;
+    self.icon.clipsToBounds = YES;
     self.icon.contentMode = UIViewContentModeScaleAspectFit;
     //    self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
@@ -155,16 +157,8 @@
     self.acceptTask.layer.cornerRadius = 3.0f;
     [self.acceptTask addTarget:self action:@selector(acceptTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    //    [self.jumpButton
-    //        setAttributedTitle:[[NSAttributedString alloc]
-    //                               initWithString:@"jump"
-    //                                   attributes:@{ NSFontAttributeName : APP_FONT(10),
-    //                                       NSForegroundColorAttributeName : [UIColor whiteColor] }]
-    //                  forState:UIControlStateNormal];
-    //    [self.jumpButton setBackgroundColor:THEME_COLOR];
-    //    self.jumpButton.layer.cornerRadius = 3.0f;
     self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
-    [self.line setLineColor:[UIColor grayColor]];
+    [self.line setLineColor:LIGHT_GRAY_COLOR];
 
     [self.taskIdLabelHint setAttributedText:[[NSAttributedString alloc]
                                                 initWithString:@"任务Id"
