@@ -116,7 +116,10 @@
 //+ (CGFloat)cellHeight
 + (CGFloat)calculateCellHeightWithData:(NSString *)cellData
 {
-    CGFloat baseHeight = 62;  //除了bug报告以外的高度
+    if (!cellData || ![cellData isKindOfClass:[NSString class]]) {
+        return 0.0f;
+    }
+    CGFloat baseHeight = 68;  //除了bug报告以外的高度
     CGSize calculatedSize = [cellData sizeForFontSize:10 andWidth:304];//注意 这里的10是bugDescCOntentlabel 的内容字体大小。
     return baseHeight + calculatedSize.height;
 }
