@@ -29,7 +29,7 @@
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.appImage = [UIImageView new];
-        self.appImage.layer.cornerRadius = 5.0f;
+        self.appImage.layer.cornerRadius = 8.0f;
         self.appImage.clipsToBounds = YES;
         self.appImage.contentMode = UIViewContentModeScaleAspectFit;
         self.taskId = [UILabel new];
@@ -48,7 +48,8 @@
 
 - (void)configConstrains {
     [self.appImage autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 8, 8) excludingEdge:ALEdgeRight];
-    [self.appImage autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.appImage];
+//    [self.appImage autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:self.appImage];
+    [self.appImage autoSetDimensionsToSize:CGSizeMake(60, 60)];
     
     [self.taskId autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.appImage withOffset:5];
     [self.taskId autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self withOffset:10];
@@ -110,7 +111,7 @@
 
 
 + (CGFloat)cellHeight {
-    return 50.0f;
+    return 80.0f;
 }
 
 
