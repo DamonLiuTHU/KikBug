@@ -29,7 +29,7 @@
 - (CGSize)sizeForFontSize:(CGFloat)fontSize andWidth:(CGFloat)width //根据字符串的的长度来计算UITextView的高度
 {
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.lineBreakMode = NSLineBreakByWordWrapping;
+//    style.lineBreakMode = NSLineBreakByClipping;
     style.lineSpacing = 0;
     return [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
                               options:NSStringDrawingUsesLineFragmentOrigin

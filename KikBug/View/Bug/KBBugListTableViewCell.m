@@ -59,7 +59,7 @@
         return;
     }
     NSString *bugNoStr = [NSString stringWithFormat:@"Bug No.%ld",(long)model.bugId];
-    NSString *bugDescHintStr = [NSString stringWithFormat:@"Bug描述:%@",model.bugDescription];
+    NSString *bugDescHintStr = [NSString stringWithFormat:@"%@",model.bugDescription];
     [self.bugIdLabel setAttributedText:[[NSAttributedString alloc] initWithString:bugNoStr attributes:TITLE_ATTRIBUTE]];
 //    [self.bugDescHint setAttributedText:[[NSAttributedString alloc] initWithString:bugDescHintStr attributes:TITLE_ATTRIBUTE]];
     [self.bugDescContent setAttributedText:[[NSAttributedString alloc] initWithString:bugDescHintStr attributes:SUBTITLE_ATTRIBUTE]];
