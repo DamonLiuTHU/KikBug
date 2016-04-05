@@ -42,6 +42,7 @@
 //weak self
 
 #define WEAKSELF __weak __typeof(&*self) weakSelf = self;
+#define STRONGSELF __strong typeof(self) strongSelf = weakSelf;
 #define NSSTRING_NOT_NIL(string) string ? string : @""
 #define INT_TO_STIRNG(intvalue) [NSString stringWithFormat:@"%ld", intvalue]
 
@@ -121,7 +122,9 @@
 #define REGISTER_PAGE_STEP_2 @"/confirmToken"
 #define GROUP_TASKS @"/tasks/group"
 #define MY_BUG_REPORT_LIST @"/bug/list"
+#define MY_TASK_REPORT @"/task/report"
 #define SIMPLE_EDITOR @"/editor"
+#define ADD_BUG_STEP_1 @"/createBug/step1"
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
 #define STORED_USER_PHONE [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE]

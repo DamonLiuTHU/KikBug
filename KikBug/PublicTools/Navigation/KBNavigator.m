@@ -24,6 +24,8 @@
 #import "KBTaskDetailViewController.h"
 #import "KBTaskListTableViewController.h"
 #import "KBUserHomeViewController.h"
+#import "KBBugReportStep1ViewController.h"
+#import "KBTaskReportListViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
@@ -222,6 +224,8 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     [[HHRouter shared] map:GROUP_TASKS toControllerClass:[KBGroupTaskListViewController class]];
     [[HHRouter shared] map:MY_BUG_REPORT_LIST toControllerClass:[KBMyBugReportListViewController class]];
     [[HHRouter shared] map:SIMPLE_EDITOR toControllerClass:[KBSimpleEditorViewController class]];
+    [[HHRouter shared] map:ADD_BUG_STEP_1 toControllerClass:[KBBugReportStep1ViewController class]];
+    [[HHRouter shared] map:MY_TASK_REPORT toControllerClass:[KBTaskReportListViewController class]];
 }
 
 - (KBLoginViewController *)showLoginPageIfNeededWithSuccessCompletion:(void (^)())block

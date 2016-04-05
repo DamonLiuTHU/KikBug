@@ -14,7 +14,8 @@
 
 + (NSDictionary*)mj_replacedKeyFromPropertyName
 {
-    return @{ @"bugDescription" : @"description" };
+    return @{ @"bugDescription" : @"description",
+              @"bugId":@"id"};
 }
 
 + (instancetype)reportWithDNAssets:(NSArray<DNAsset*>*)list taskId:(NSString*)taskId;
@@ -52,9 +53,9 @@
         }
     }
 
-    report.bugCategoryId = 1;
+//    report.bugCategoryId = 1;
     report.imgUrl = onlineStoredImageUrl;
-    report.severity = 3;
+//    report.severity = 3;
     report.taskId = [taskId integerValue];
     report.localUrl = localImageUrl;
     return report;

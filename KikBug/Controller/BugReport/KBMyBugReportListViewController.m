@@ -15,10 +15,12 @@
 #import "KBReportData.h"
 #import "KBReportManager.h"
 #import "DNPhotoBrowser.h"
+#import "KBBugReportStep1ViewController.h"
+#import "KBImageBrowser.h"
 
-@interface KBMyBugReportListViewController () <DNImagePickerControllerDelegate>
+@interface KBMyBugReportListViewController () 
 @property (strong, nonatomic) NSArray<KBBugReport*>* dataSource;
-@property (strong, nonatomic) NSString* taskId;
+@property (strong, nonatomic) NSString* reportId;
 @end
 
 @implementation KBMyBugReportListViewController
@@ -48,7 +50,7 @@
 
 - (void)loadData
 {
-    [[KBBugManager sharedInstance] getAllBugReportsForTask:self.taskId WithCompletion:^(NSArray<KBBugReport*>* reports) {
+    [[KBBugManager sharedInstance] getAllBugReportsForReport:self.reportId withCompletion:^(NSArray<KBBugReport *> *reports, NSError *error) {
         [self.tableView.mj_header endRefreshing];
         if (reports) {
             self.dataSource = reports;
@@ -68,7 +70,7 @@
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return [KBBugListTableViewCell cellHeight];
+    return [KBBugListTableViewCell calculateCellHeightWithData:self.dataSource[indexPath.row].bugDescription];
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -79,17 +81,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     KBBugReport *report = self.dataSource[indexPath.row];
-    NSArray *imgUrlArray = [report.localUrl componentsSeparatedByString:@";"];
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSString *url in imgUrlArray) {
-        if (![NSString isNilorEmpty:url]) {
-            DNAsset *asset = [[DNAsset alloc] init];
-            asset.url = [NSURL URLWithString:url];
-            asset.userDesc = report.bugDescription;
-            [array addObject:asset];
-        }
+    NSArray *imgUrlArray = [report.imgUrl componentsSeparatedByString:@";"];
+    if (!imgUrlArray) {
+        imgUrlArray = @[report.imgUrl];
     }
-    [self browserPhotoAsstes:array pageIndex:0];
+    KBImageBrowser *browser = [[KBImageBrowser alloc] initWithImageUrls:imgUrlArray];
+    [UIManager showViewController:browser];
 }
 
 #pragma mark - UI Utility - Photo
@@ -111,49 +108,22 @@
 }
 
 #pragma mark - UI Event
+
 /**
  *  开始填写一份bug报告流程
  */
 - (void)addButtonPressed
 {
-    DNImagePickerController* imagePicker = [[DNImagePickerController alloc] init];
-    imagePicker.imagePickerDelegate = self;
-    imagePicker.filterType = DNImagePickerFilterTypePhotos;
-    //    [imagePicker showAlbumList];
-    [self presentViewController:imagePicker animated:YES completion:^{
-        //
-
-    }];
-}
-
-
-
-#pragma mark - DNImagePickerControllerDelegate
-
-- (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
-{
-    WEAKSELF;
-    KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:self.taskId];
-    [[KBBugManager sharedInstance] uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-        if (!error) {
-            [weakSelf loadData];
-        }
-        else {
-        }
-    }];
-}
-
-- (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:^{
-
-    }];
+    UIViewController *vc = [[HHRouter shared] matchController:ADD_BUG_STEP_1];
+    [vc setParams:@{@"reportId":self.reportId,
+                    @"taskId":@(self.dataSource.firstObject.taskId)}];
+    [UIManager showViewController:vc];
 }
 
 #pragma mark - Parse Param
 - (void)setParams:(NSDictionary*)params
 {
-    self.taskId = params[@"taskId"];
+    self.reportId = params[@"reportId"];
 }
 
 @end

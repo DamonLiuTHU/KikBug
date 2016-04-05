@@ -68,6 +68,31 @@ SINGLETON_IMPLEMENTION(KBBugManager, sharedInstance);
     }];
 }
 
+/**
+ *  上传bug报告
+ *
+ *  @param bugReport bugReport description
+ *  @param block     block description
+ */
+- (void)uploadBugReportWithReportId:(NSString *) reportId reportd:(KBBugReport*)bugReport withCompletion:(void (^)(KBBaseModel*, NSError*))block
+{
+    NSString* url = GETURL_V2(@"UploadBug");
+    
+    bugReport.reportId = [reportId integerValue];;
+    
+    [KBHttpManager sendPostHttpRequestWithUrl:url Params:[bugReport mj_keyValues] CallBack:^(id responseObject, NSError* error) {
+        if (!error) {
+            bugReport.bugId = [responseObject integerValue];
+//            [self saveBugReport:bugReport];
+            block(nil,nil);
+        }
+        else {
+//            [self saveBugReport:bugReport];
+            block(nil,error);
+        }
+    }];
+}
+
 static NSString* entityName = @"CDBugReport";
 
 - (void)saveBugReport:(KBBugReport*)bugReport
@@ -124,6 +149,21 @@ static NSString* entityName = @"CDBugReport";
     block(array);
 }
 
+- (void)getAllBugReportsForReport:(NSString *)reportId withCompletion:(void (^)(NSArray<KBBugReport *> *,NSError *error))block
+{
+    NSString *url = GETURL_V2(@"GetBugList");
+    [KBHttpManager sendGetHttpReqeustWithUrl:url Params:@{@"reportId":NSSTRING_NOT_NIL(reportId)} CallBack:^(id responseObject, NSError *error) {
+        if (!error) {
+            NSMutableArray *array = [NSMutableArray array];
+            for (id value in responseObject[@"items"]) {
+                KBBugReport *report = [KBBugReport mj_objectWithKeyValues:value];
+                [array addObject:report];
+            }
+            block(array,nil);
+        }
+    }];
+}
+
 - (void)getAllBugReportsForTask:(NSString *)taskId WithCompletion:(void (^)(NSArray<KBBugReport *> *))block
 {
     if (!self.context) {
@@ -161,5 +201,41 @@ static NSString* entityName = @"CDBugReport";
     }
     block(array);
 
+}
+
+- (void)getAllBugCategorysWithCompletion:(void (^)(KBBugCategory *, NSError *))block
+{
+    if (self.categoryDic) {
+        block(self.categoryDic,nil);
+        return;
+    }
+    NSString *url = GETURL_V2(@"BugCategories");
+    [KBHttpManager sendGetHttpReqeustWithUrl:url Params:nil CallBack:^(id responseObject, NSError *error) {
+        KBBugCategory *bugCate = [KBBugCategory mj_objectWithKeyValues:responseObject];
+        if (!error) {
+            self.categoryDic = bugCate;
+            block(bugCate,nil);
+        }
+    }];
+}
+
+
+@end
+
+@implementation KBBugCategory
+//+ (NSDictionary *)mj_objectClassInArray
+//{
+//    return @{@"categories":[KBBugCategoryItem class]};
+//}
+@end
+
+@implementation KBBugCategoryItem
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"category1":@"1",
+             @"category2":@"2",
+             @"category3":@"3",
+             @"category4":@"4",
+             @"category5":@"5",};
 }
 @end

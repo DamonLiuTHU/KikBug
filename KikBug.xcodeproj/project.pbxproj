@@ -30,6 +30,11 @@
 		504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9521CAD42F300879B92 /* KBSimpleEditorViewController.m */; };
 		504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9551CAE424E00879B92 /* KBLogOutCell.m */; };
 		504BE9591CAF4D4900879B92 /* KBEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9581CAF4D4900879B92 /* KBEmptyView.m */; };
+		504BE95C1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE95B1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m */; };
+		504BE95F1CAFAE1500879B92 /* KBImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE95E1CAFAE1500879B92 /* KBImageBrowser.m */; };
+		504BE9621CAFB3FD00879B92 /* KBImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9611CAFB3FD00879B92 /* KBImageBrowserCell.m */; };
+		504BE9651CB3607400879B92 /* KBTaskReportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9641CB3607400879B92 /* KBTaskReportListViewController.m */; };
+		504BE9681CB3615B00879B92 /* KBReportListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BE9671CB3615B00879B92 /* KBReportListCell.m */; };
 		504BF98E1C969BA60067EA70 /* KBGroupSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */; };
 		504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504BF9901C96A0A60067EA70 /* KBGroupSearchTableViewCell.m */; };
 		505609561CA1307400D1DB8B /* KBReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 505609551CA1307400D1DB8B /* KBReportData.m */; };
@@ -45,6 +50,7 @@
 		5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDC1C91457000C1A0A7 /* KBGroupTableViewCell.m */; };
 		5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */; };
 		505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505A91C01C57AC160024FC18 /* KBLogoView.m */; };
+		50688F481CB3975F00179D28 /* KBBugTypeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F471CB3975F00179D28 /* KBBugTypeLabel.m */; };
 		50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC11C574926009B30A4 /* KBLoginViewController.m */; };
 		50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC51C575CB3009B30A4 /* KBNavigator.m */; };
 		50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC81C575EDF009B30A4 /* KBViewController.m */; };
@@ -167,6 +173,16 @@
 		504BE9551CAE424E00879B92 /* KBLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogOutCell.m; sourceTree = "<group>"; };
 		504BE9571CAF4D4900879B92 /* KBEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBEmptyView.h; sourceTree = "<group>"; };
 		504BE9581CAF4D4900879B92 /* KBEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBEmptyView.m; sourceTree = "<group>"; };
+		504BE95A1CAF8DBC00879B92 /* KBBugReportStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugReportStep1ViewController.h; sourceTree = "<group>"; };
+		504BE95B1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugReportStep1ViewController.m; sourceTree = "<group>"; };
+		504BE95D1CAFAE1500879B92 /* KBImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBImageBrowser.h; sourceTree = "<group>"; };
+		504BE95E1CAFAE1500879B92 /* KBImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBImageBrowser.m; sourceTree = "<group>"; };
+		504BE9601CAFB3FD00879B92 /* KBImageBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBImageBrowserCell.h; sourceTree = "<group>"; };
+		504BE9611CAFB3FD00879B92 /* KBImageBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBImageBrowserCell.m; sourceTree = "<group>"; };
+		504BE9631CB3607400879B92 /* KBTaskReportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskReportListViewController.h; sourceTree = "<group>"; };
+		504BE9641CB3607400879B92 /* KBTaskReportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskReportListViewController.m; sourceTree = "<group>"; };
+		504BE9661CB3615B00879B92 /* KBReportListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportListCell.h; sourceTree = "<group>"; };
+		504BE9671CB3615B00879B92 /* KBReportListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportListCell.m; sourceTree = "<group>"; };
 		504BF98C1C969BA60067EA70 /* KBGroupSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchModel.h; sourceTree = "<group>"; };
 		504BF98D1C969BA60067EA70 /* KBGroupSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupSearchModel.m; sourceTree = "<group>"; };
 		504BF98F1C96A0A60067EA70 /* KBGroupSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGroupSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -197,6 +213,8 @@
 		5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBGroupSearchViewController.m; path = ../../View/Group/KBGroupSearchViewController.m; sourceTree = "<group>"; };
 		505A91BF1C57AC160024FC18 /* KBLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLogoView.h; sourceTree = "<group>"; };
 		505A91C01C57AC160024FC18 /* KBLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogoView.m; sourceTree = "<group>"; };
+		50688F461CB3975F00179D28 /* KBBugTypeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugTypeLabel.h; sourceTree = "<group>"; };
+		50688F471CB3975F00179D28 /* KBBugTypeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugTypeLabel.m; sourceTree = "<group>"; };
 		50740BC01C574926009B30A4 /* KBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLoginViewController.h; sourceTree = "<group>"; };
 		50740BC11C574926009B30A4 /* KBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginViewController.m; sourceTree = "<group>"; };
 		50740BC41C575CB3009B30A4 /* KBNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBNavigator.h; sourceTree = "<group>"; };
@@ -415,6 +433,10 @@
 			children = (
 				50359C181CA3D26E00DFAD45 /* KBMyBugReportListViewController.h */,
 				50359C191CA3D26E00DFAD45 /* KBMyBugReportListViewController.m */,
+				504BE95A1CAF8DBC00879B92 /* KBBugReportStep1ViewController.h */,
+				504BE95B1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m */,
+				504BE9631CB3607400879B92 /* KBTaskReportListViewController.h */,
+				504BE9641CB3607400879B92 /* KBTaskReportListViewController.m */,
 			);
 			path = BugReport;
 			sourceTree = "<group>";
@@ -424,6 +446,10 @@
 			children = (
 				50359C1C1CA3D89600DFAD45 /* KBBugListTableViewCell.h */,
 				50359C1D1CA3D89600DFAD45 /* KBBugListTableViewCell.m */,
+				504BE9661CB3615B00879B92 /* KBReportListCell.h */,
+				504BE9671CB3615B00879B92 /* KBReportListCell.m */,
+				50688F461CB3975F00179D28 /* KBBugTypeLabel.h */,
+				50688F471CB3975F00179D28 /* KBBugTypeLabel.m */,
 			);
 			name = BugReport;
 			path = Bug;
@@ -449,6 +475,8 @@
 				507967BE1CAA1A64009073EB /* KBEmptyCell.m */,
 				504BE9571CAF4D4900879B92 /* KBEmptyView.h */,
 				504BE9581CAF4D4900879B92 /* KBEmptyView.m */,
+				504BE9601CAFB3FD00879B92 /* KBImageBrowserCell.h */,
+				504BE9611CAFB3FD00879B92 /* KBImageBrowserCell.m */,
 			);
 			name = CommonUITool;
 			sourceTree = "<group>";
@@ -788,6 +816,8 @@
 				50D97C2D1C3F9BFE00E37500 /* TaskDetail */,
 				50D97C311C3F9BFE00E37500 /* UserHome */,
 				50359C171CA3D23D00DFAD45 /* BugReport */,
+				504BE95D1CAFAE1500879B92 /* KBImageBrowser.h */,
+				504BE95E1CAFAE1500879B92 /* KBImageBrowser.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1095,6 +1125,7 @@
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
 				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
+				504BE95F1CAFAE1500879B92 /* KBImageBrowser.m in Sources */,
 				50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */,
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
 				50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */,
@@ -1106,6 +1137,7 @@
 				5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */,
 				50359C2E1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m in Sources */,
 				50109B401CA021CF00DB2CBB /* KBReportManager.m in Sources */,
+				504BE95C1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m in Sources */,
 				50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */,
 				50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */,
 				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,
@@ -1119,6 +1151,7 @@
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
 				50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */,
 				507967BF1CAA1A64009073EB /* KBEmptyCell.m in Sources */,
+				504BE9621CAFB3FD00879B92 /* KBImageBrowserCell.m in Sources */,
 				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
 				A65202E41CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m in Sources */,
 				A65202DF1CAA77DE005E4A65 /* UserInfo.xcdatamodeld in Sources */,
@@ -1136,6 +1169,8 @@
 				5039A2631B73585000714F7A /* AppDelegate.m in Sources */,
 				50D97C401C3F9E1400E37500 /* KBGroupListViewController.m in Sources */,
 				50D97C1F1C3F9BDB00E37500 /* UIView+Positioning.m in Sources */,
+				504BE9651CB3607400879B92 /* KBTaskReportListViewController.m in Sources */,
+				504BE9681CB3615B00879B92 /* KBReportListCell.m in Sources */,
 				50D97C1E1C3F9BDB00E37500 /* NSString+Safe.m in Sources */,
 				50D97C361C3F9BFE00E37500 /* KBTaskListTableViewController.m in Sources */,
 				A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */,
@@ -1173,6 +1208,7 @@
 				504BE9591CAF4D4900879B92 /* KBEmptyView.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
 				507967CD1CAA1F8D009073EB /* KBUserNameCell.m in Sources */,
+				50688F481CB3975F00179D28 /* KBBugTypeLabel.m in Sources */,
 				504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */,
 				50A4FE361C97F86700B35124 /* DNAsset.m in Sources */,
 				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,

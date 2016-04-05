@@ -540,23 +540,23 @@
 #pragma mark - UIEvent
 - (void)checkMyReportsButtonPressed
 {
-    if ([KBReportManager getReportId] < 0) {
+    if ([KBReportManager getReportId] <= 0) {
         //不允许用户填写bug报告 因为测试报告上传失败了。
+        KBTaskReport* report = [KBTaskReport fakeReport];
+        report.taskId = self.detailModel.taskId;
+        [KBReportManager uploadTaskReport:report withCompletion:^(KBBaseModel* model, NSError* error){
+        }];
     }
-    KBTaskReport* report = [KBTaskReport fakeReport];
-    report.taskId = self.detailModel.taskId;
-    [KBReportManager uploadTaskReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-        UIViewController* vc = [[HHRouter shared] matchController:MY_BUG_REPORT_LIST];
-        [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
-        [[KBNavigator sharedNavigator] showViewController:vc];
-    }];
+    UIViewController* vc = [[HHRouter shared] matchController:MY_TASK_REPORT];
+    [vc setParams:@{ @"taskId" : @(self.detailModel.taskId) }];
+    [[KBNavigator sharedNavigator] showViewController:vc];
 }
 
 - (void)installAppBtnPressed
 {
     //
-//    NSString* str = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.detailModel.appLocation];
-    NSString *str = self.detailModel.appLocation;
+    //    NSString* str = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.detailModel.appLocation];
+    NSString* str = self.detailModel.appLocation;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 @end

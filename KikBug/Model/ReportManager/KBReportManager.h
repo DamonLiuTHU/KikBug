@@ -9,10 +9,13 @@
 #import "DNAsset.h"
 #import <Foundation/Foundation.h>
 @class KBTaskReport, KBBugReport;
-//@interface KBBugReportItem : KBBaseModel
-//@property (strong,nonatomic) UIImage *image;
-//@property (strong,nonatomic) NSString *descForImage;
-//@end
+
+@interface KBReportListModel : NSObject
+JSONINT reportId;
+JSONSTIRNG name;
+JSONSTIRNG createDate;
+JSONINT bugNumber;
+@end
 
 @interface KBReportManager : NSObject
 /**
@@ -23,5 +26,7 @@
 + (NSInteger)getReportId;
 
 + (void)uploadTaskReport:(KBTaskReport*)taskReport withCompletion:(void (^)(KBBaseModel* model, NSError* error))block;
+
++ (void)getAllUserReportForTaskId:(NSString*)taskId completion:(void (^)(NSArray <KBReportListModel *>* model, NSError* error))block;
 
 @end

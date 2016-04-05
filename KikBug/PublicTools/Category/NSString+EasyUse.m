@@ -26,6 +26,19 @@
     return height;
 }
 
+- (CGSize)sizeForFontSize:(CGFloat)fontSize andWidth:(CGFloat)width //根据字符串的的长度来计算UITextView的高度
+{
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    style.lineBreakMode = NSLineBreakByWordWrapping;
+    style.lineSpacing = 0;
+    return [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                              options:NSStringDrawingUsesLineFragmentOrigin
+                           attributes:@{NSFontAttributeName:APP_FONT(fontSize),
+                                        NSParagraphStyleAttributeName:style}
+                              context:nil]
+        .size;
+}
+
 /**
  *  将字典组合成url请求体
  *
