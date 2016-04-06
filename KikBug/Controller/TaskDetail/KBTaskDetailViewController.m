@@ -38,8 +38,8 @@
 @property (strong, nonatomic) UILabel* taskDescriptionHint;
 @property (strong, nonatomic) UILabel* taskIdLabel;
 @property (strong, nonatomic) UILabel* taskIdLabelHint;
-@property (strong, nonatomic) UILabel* appSizeLabel;
-@property (strong, nonatomic) UILabel* appSizeLabelHint;
+@property (strong, nonatomic) UILabel* pointsLabel;
+@property (strong, nonatomic) UILabel* pointsHintLbale;
 @property (strong, nonatomic) UILabel* categoryLabel;
 @property (strong, nonatomic) UILabel* categoryLabelHint;
 @property (strong, nonatomic) UILabel* addDateLabel;
@@ -117,8 +117,8 @@
     self.taskDescriptionHint = [UILabel new];
     self.taskIdLabelHint = [UILabel new];
     self.taskIdLabel = [UILabel new];
-    self.appSizeLabel = [UILabel new];
-    self.appSizeLabelHint = [UILabel new];
+    self.pointsLabel = [UILabel new];
+    self.pointsHintLbale = [UILabel new];
     self.categoryLabelHint = [UILabel new];
     self.categoryLabel = [UILabel new];
     self.addDateLabelHint = [UILabel new];
@@ -163,7 +163,7 @@
     [self.taskIdLabelHint setAttributedText:[[NSAttributedString alloc]
                                                 initWithString:@"任务Id"
                                                     attributes:SUBTITLE_ATTRIBUTE]];
-    [self.appSizeLabelHint
+    [self.pointsHintLbale
         setAttributedText:[[NSAttributedString alloc]
                               initWithString:@"分数"
                                   attributes:SUBTITLE_ATTRIBUTE]];
@@ -181,7 +181,7 @@
                                   attributes:SUBTITLE_ATTRIBUTE]];
 
     [self.goToMyReportsBtn setAttributedTitle:[[NSAttributedString alloc]
-                                                  initWithString:@"查看/修改Bug报告"
+                                                  initWithString:@"查看任务报告"
                                                       attributes:BUTTON_TITLE_ATTRIBUTE]
                                      forState:UIControlStateNormal];
     [self.goToMyReportsBtn setBackgroundColor:THEME_COLOR];
@@ -201,8 +201,8 @@
                                                 attributes:BUTTON_TITLE_ATTRIBUTE]
                                forState:UIControlStateNormal];
 
-    [self.view addSubview:self.appSizeLabelHint];
-    [self.view addSubview:self.appSizeLabel];
+    [self.view addSubview:self.pointsHintLbale];
+    [self.view addSubview:self.pointsLabel];
     [self.view addSubview:self.categoryLabelHint];
     [self.view addSubview:self.categoryLabel];
     [self.view addSubview:self.addDateLabelHint];
@@ -246,30 +246,30 @@
                                ofView:self.icon];
 
     [self.taskIdLabel autoPinEdge:ALEdgeLeft
-                           toEdge:ALEdgeRight
-                           ofView:self.taskIdLabelHint
-                       withOffset:5.0f];
+                           toEdge:ALEdgeLeft
+                           ofView:self.dueDateLabel];
+    
     [self.taskIdLabel autoPinEdge:ALEdgeBottom
                            toEdge:ALEdgeBottom
                            ofView:self.taskIdLabelHint];
 
-    [self.appSizeLabelHint autoPinEdge:ALEdgeLeft
+    [self.pointsHintLbale autoPinEdge:ALEdgeLeft
                                 toEdge:ALEdgeRight
                                 ofView:self.icon
                             withOffset:5.0f];
 
-    [self.appSizeLabelHint autoPinEdge:ALEdgeTop
+    [self.pointsHintLbale autoPinEdge:ALEdgeTop
                                 toEdge:ALEdgeBottom
                                 ofView:self.taskIdLabelHint
                             withOffset:5];
 
-    [self.appSizeLabel autoPinEdge:ALEdgeLeft
-                            toEdge:ALEdgeRight
-                            ofView:self.appSizeLabelHint
-                        withOffset:5.0f];
-    [self.appSizeLabel autoPinEdge:ALEdgeBottom
+    [self.pointsLabel autoPinEdge:ALEdgeLeft
+                            toEdge:ALEdgeLeft
+                            ofView:self.dueDateLabel];
+    
+    [self.pointsLabel autoPinEdge:ALEdgeBottom
                             toEdge:ALEdgeBottom
-                            ofView:self.appSizeLabelHint];
+                            ofView:self.pointsHintLbale];
 
     [self.categoryLabelHint autoPinEdge:ALEdgeLeft
                                  toEdge:ALEdgeRight
@@ -277,13 +277,13 @@
                              withOffset:5.0f];
     [self.categoryLabelHint autoPinEdge:ALEdgeTop
                                  toEdge:ALEdgeBottom
-                                 ofView:self.appSizeLabelHint
+                                 ofView:self.pointsHintLbale
                              withOffset:5];
 
     [self.categoryLabel autoPinEdge:ALEdgeLeft
-                             toEdge:ALEdgeRight
-                             ofView:self.categoryLabelHint
-                         withOffset:5.0f];
+                             toEdge:ALEdgeLeft
+                             ofView:self.dueDateLabel];
+    
     [self.categoryLabel autoPinEdge:ALEdgeBottom
                              toEdge:ALEdgeBottom
                              ofView:self.categoryLabelHint];
@@ -325,6 +325,7 @@
     [self.taskDescriptionHint autoPinEdge:ALEdgeTop
                                    toEdge:ALEdgeBottom
                                    ofView:self.line];
+    
     [self.taskDescriptionHint autoPinEdge:ALEdgeLeft
                                    toEdge:ALEdgeLeft
                                    ofView:self.icon];
@@ -378,7 +379,7 @@
 - (void)configNavigationBar
 {
     [self.navigationController setNavigationBarHidden:NO];
-    self.title = self.model.taskName;
+//    self.title = self.model.taskName;
     [self navigationRightButton];
     [self navigationLeftButton];
 }
@@ -434,7 +435,7 @@
     self.taskIdLabel.attributedText = [[NSAttributedString alloc]
         initWithString:[NSString stringWithFormat:@"%ld", (long)model.taskId]
             attributes:TITLE_ATTRIBUTE];
-    self.appSizeLabel.attributedText =
+    self.pointsLabel.attributedText =
         [[NSAttributedString alloc] initWithString:INT_TO_STIRNG(model.points)
                                         attributes:TITLE_ATTRIBUTE];
     self.categoryLabel.attributedText =

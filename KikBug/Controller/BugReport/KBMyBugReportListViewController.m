@@ -34,6 +34,7 @@
     [addButton addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     self.navigationItem.rightBarButtonItem = item;
+    self.title = @"Bug报告";
 }
 
 - (void)configTableView

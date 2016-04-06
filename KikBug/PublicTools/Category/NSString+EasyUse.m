@@ -11,7 +11,7 @@
 @implementation NSString (EasyUse)
 + (NSString*)dateFromTimeStamp:(NSString*)timeSp
 {
-    double timestampval = [timeSp doubleValue] / 1000.0f;
+    double timestampval = [timeSp doubleValue];
     NSTimeInterval timestamp = (NSTimeInterval)timestampval;
     NSDate* updatetimestamp = [NSDate dateWithTimeIntervalSince1970:timestamp];
     NSDateFormatter* formatter = [NSDateFormatter new];

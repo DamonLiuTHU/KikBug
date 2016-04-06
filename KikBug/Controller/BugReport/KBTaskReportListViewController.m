@@ -20,6 +20,7 @@ JSONSTIRNG taskId;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"任务报告";
 }
 
 - (void)didReceiveMemoryWarning {
