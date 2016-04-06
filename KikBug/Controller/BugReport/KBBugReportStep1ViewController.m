@@ -58,6 +58,7 @@
     self.pickerView = [UIPickerView new];
     self.pickerView.delegate = self;
     [self.view addSubview:self.pickerView];
+    self.pickerView.tintColor = THEME_COLOR;
 
     self.selectedCategory = [UILabel new];
     [self.view addSubview:self.selectedCategory];
@@ -94,7 +95,10 @@
     [self.chooseLabelHint autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20.0f];
 
     [self.pickerView autoSetDimension:ALDimensionHeight toSize:200];
-    [self.pickerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
+    [self.pickerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.pickerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+//    [self.pickerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
+    [self.pickerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.severitySelectedLable withOffset:20];
 
     [self.selectedCategory autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.chooseLabelHint withOffset:10.0f];
     [self.selectedCategory autoAlignAxis:ALAxisBaseline toSameAxisOfView:self.chooseLabelHint];
