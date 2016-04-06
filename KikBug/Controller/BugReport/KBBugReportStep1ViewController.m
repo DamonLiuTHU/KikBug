@@ -36,8 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.selectedCategoryValue = 0;
-    self.selectedSeverityValue = 0;
+    self.selectedCategoryValue = 1;
+    self.selectedSeverityValue = 1;
     // Do any additional setup after loading the view.
     self.chooseLabelHint = [UILabel new];
     [self.view addSubview:self.chooseLabelHint];
@@ -49,7 +49,7 @@
     self.severityHintLable.textColor = [UIColor grayColor];
 
     self.severitySelectedLable = [UILabel new];
-    //    self.severitySelectedLable.
+    self.severitySelectedLable.text = @"未选择";
     [self.view addSubview:self.severityHintLable];
     [self.view addSubview:self.severitySelectedLable];
 
@@ -61,6 +61,7 @@
 
     self.selectedCategory = [UILabel new];
     [self.view addSubview:self.selectedCategory];
+    self.selectedCategory.text = @"未选择";
 
     [self configNavigationRightButton];
 }
@@ -77,7 +78,6 @@
 - (void)configNavigationRightButton
 {
     UIButton* rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 28)];
-    ;
     [rightBtn addTarget:self action:@selector(rightBarButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn setBackgroundColor:THEME_COLOR];
     [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -193,8 +193,8 @@
     KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:self.taskId];
     report.severity = self.selectedSeverityValue;
     report.bugCategoryId = self.selectedCategoryValue;
-//    [[KBBugManager sharedInstance] uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-    [[KBBugManager sharedInstance] uploadBugReportWithReportId:self.reportId reportd:report withCompletion:^(KBBaseModel *model, NSError *error) {
+    //    [[KBBugManager sharedInstance] uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
+    [[KBBugManager sharedInstance] uploadBugReportWithReportId:self.reportId reportd:report withCompletion:^(KBBaseModel* model, NSError* error) {
         if (!error) {
             [weakSelf showHudViewWithText:@"Bug上传成功"];
         }
