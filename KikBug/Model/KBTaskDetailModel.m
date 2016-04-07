@@ -30,6 +30,7 @@
              @"taskName":@"name",
              @"addDate":@"createDate",
              @"deadline":@"endDate",
-             @"taskdescription":@"description",};
+             @"taskdescription":@"description",
+             @"scehme":@"schema"};
 }
 @end

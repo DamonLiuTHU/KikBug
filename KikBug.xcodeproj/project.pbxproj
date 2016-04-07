@@ -51,6 +51,7 @@
 		5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */; };
 		505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505A91C01C57AC160024FC18 /* KBLogoView.m */; };
 		50688F481CB3975F00179D28 /* KBBugTypeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F471CB3975F00179D28 /* KBBugTypeLabel.m */; };
+		50688F4C1CB61C9600179D28 /* KBUIConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F4B1CB61C9600179D28 /* KBUIConstant.m */; };
 		50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC11C574926009B30A4 /* KBLoginViewController.m */; };
 		50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC51C575CB3009B30A4 /* KBNavigator.m */; };
 		50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC81C575EDF009B30A4 /* KBViewController.m */; };
@@ -215,6 +216,8 @@
 		505A91C01C57AC160024FC18 /* KBLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogoView.m; sourceTree = "<group>"; };
 		50688F461CB3975F00179D28 /* KBBugTypeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugTypeLabel.h; sourceTree = "<group>"; };
 		50688F471CB3975F00179D28 /* KBBugTypeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugTypeLabel.m; sourceTree = "<group>"; };
+		50688F4A1CB61C9600179D28 /* KBUIConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUIConstant.h; sourceTree = "<group>"; };
+		50688F4B1CB61C9600179D28 /* KBUIConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUIConstant.m; sourceTree = "<group>"; };
 		50740BC01C574926009B30A4 /* KBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLoginViewController.h; sourceTree = "<group>"; };
 		50740BC11C574926009B30A4 /* KBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginViewController.m; sourceTree = "<group>"; };
 		50740BC41C575CB3009B30A4 /* KBNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBNavigator.h; sourceTree = "<group>"; };
@@ -758,6 +761,8 @@
 			children = (
 				50D97C171C3F9BDB00E37500 /* Macros.h */,
 				50D97C181C3F9BDB00E37500 /* main.m */,
+				50688F4A1CB61C9600179D28 /* KBUIConstant.h */,
+				50688F4B1CB61C9600179D28 /* KBUIConstant.m */,
 				50359C131CA3BB9500DFAD45 /* CoreDataTools */,
 				50A4FE0A1C97F86700B35124 /* DNImagePicker */,
 				50740BC31C575CA4009B30A4 /* Navigation */,
@@ -1217,6 +1222,7 @@
 				50A4FE3C1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m in Sources */,
 				50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */,
 				5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */,
+				50688F4C1CB61C9600179D28 /* KBUIConstant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

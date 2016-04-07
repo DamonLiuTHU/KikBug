@@ -94,7 +94,7 @@
     //    self.acceptTask.hidden = self.model.isAccepted;
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
-
+    self.installBtn.hidden = YES;
     [self addObserver:self forKeyPath:@"isTaskAccepted" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -526,7 +526,7 @@
  */
 - (void)jumpToApp:(id)sender
 {
-    NSString* host = @"Airvin";
+    NSString* host = self.detailModel.scheme;
     NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, (long)self.detailModel.taskId];
     appUrl = [NSURL URLWithString:str];
     [[UIApplication sharedApplication] openURL:appUrl];

@@ -6,6 +6,7 @@
 //  Copyright © 2015年 DamonLiu. All rights reserved.
 //
 
+#import "KBUIConstant.h"
 #ifndef Macros_h
 #define Macros_h
 
@@ -90,7 +91,8 @@
 
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:a]
 #define RGB(r, g, b) RGBA(r, g, b, 1.0f)
-#define THEME_COLOR RGB(80, 118, 156)
+//#define THEME_COLOR RGB(80, 118, 156)
+#define THEME_COLOR [KBUIConstant themeColor]
 #define GRAY_COLOR [UIColor hexStringToColor:@"0xd4d4d4"]
 #define LIGHT_GRAY_COLOR [UIColor colorWithHexNumber:0xe3e3e3]
 #define HEXCOLOR(hexValue) [UIColor colorWithHexNumber:hexValue]
