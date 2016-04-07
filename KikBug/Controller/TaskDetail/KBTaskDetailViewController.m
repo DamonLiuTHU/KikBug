@@ -30,7 +30,7 @@
 
 @interface KBTaskDetailViewController ()
 
-@property (strong, nonatomic) KBTaskListModel* model;
+//@property (strong, nonatomic) KBTaskListModel* model;
 @property (strong, nonatomic) KBTaskDetailModel* detailModel;
 @property (strong, nonatomic) MBProgressHUD* hud;
 
@@ -60,12 +60,17 @@
 @property (strong, nonatomic) UIButton* installBtn;
 
 @property (assign, nonatomic) BOOL isTaskAccepted;
+@property (copy, nonatomic) NSString* taskId;
+
+@property (strong, nonatomic) UILabel* taskNameHintLabel;
+@property (strong, nonatomic) UILabel* taskNameLabel;
+
+@property (strong,nonatomic) KBOnePixelLine *lineUnderAppIcon;
 
 @end
 
 @implementation KBTaskDetailViewController {
     NSURL* appUrl;
-    CGContextRef ctx;
 }
 
 - (instancetype)init
@@ -91,7 +96,6 @@
     [rec setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rec];
 
-    //    self.acceptTask.hidden = self.model.isAccepted;
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
     self.installBtn.hidden = YES;
@@ -135,6 +139,14 @@
     self.goToMyReportsBtn = [UIButton new];
     self.scrollView = [UIScrollView new];
     self.installBtn = [UIButton new];
+    
+    self.lineUnderAppIcon = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
+    [self.lineUnderAppIcon setLineColor:LIGHT_GRAY_COLOR];
+    self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
+    [self.line setLineColor:LIGHT_GRAY_COLOR];
+
+    self.taskNameLabel = [UILabel new];
+    self.taskNameHintLabel = [UILabel new];
 }
 
 - (void)configSubviews
@@ -157,33 +169,48 @@
     self.acceptTask.layer.cornerRadius = 3.0f;
     [self.acceptTask addTarget:self action:@selector(acceptTaskButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 
-    self.line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
-    [self.line setLineColor:LIGHT_GRAY_COLOR];
-
+   
     [self.taskIdLabelHint setAttributedText:[[NSAttributedString alloc]
                                                 initWithString:@"任务Id"
-                                                    attributes:SUBTITLE_ATTRIBUTE]];
+                                                    attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                                        NSForegroundColorAttributeName : [UIColor grayColor] }]];
     [self.pointsHintLbale
         setAttributedText:[[NSAttributedString alloc]
                               initWithString:@"分数"
-                                  attributes:SUBTITLE_ATTRIBUTE]];
+                                  attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                      NSForegroundColorAttributeName : [UIColor grayColor] }]];
     [self.categoryLabelHint
         setAttributedText:[[NSAttributedString alloc]
                               initWithString:@"分类"
-                                  attributes:SUBTITLE_ATTRIBUTE]];
+                                  attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                      NSForegroundColorAttributeName : [UIColor grayColor] }]];
     [self.addDateLabelHint
         setAttributedText:[[NSAttributedString alloc]
                               initWithString:@"添加日期"
-                                  attributes:SUBTITLE_ATTRIBUTE]];
+                                  attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                      NSForegroundColorAttributeName : [UIColor grayColor] }]];
     [self.dueDateLabelHint
         setAttributedText:[[NSAttributedString alloc]
                               initWithString:@"到期日期"
-                                  attributes:SUBTITLE_ATTRIBUTE]];
+                                  attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                      NSForegroundColorAttributeName : [UIColor grayColor] }]];
+
+    [self.taskNameHintLabel
+        setAttributedText:[[NSAttributedString alloc]
+                              initWithString:@"任务名称"
+                                  attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                      NSForegroundColorAttributeName : [UIColor grayColor] }]];
 
     [self.goToMyReportsBtn setAttributedTitle:[[NSAttributedString alloc]
                                                   initWithString:@"查看任务报告"
                                                       attributes:BUTTON_TITLE_ATTRIBUTE]
                                      forState:UIControlStateNormal];
+
+    [self.taskDescriptionHint setAttributedText:[[NSAttributedString alloc]
+                                                    initWithString:@"任务描述"
+                                                        attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
+                                                            NSForegroundColorAttributeName : [UIColor grayColor] }]];
+
     [self.goToMyReportsBtn setBackgroundColor:THEME_COLOR];
     [self.goToMyReportsBtn.layer setCornerRadius:5.0f];
     [self.startTestTask setBackgroundColor:THEME_COLOR];
@@ -212,10 +239,16 @@
     [self.view addSubview:self.taskIdLabel];
     [self.view addSubview:self.taskIdLabelHint];
     [self.view addSubview:self.icon];
+
+    [self.view addSubview:self.taskNameLabel];
+    [self.view addSubview:self.taskNameHintLabel];
+
     //    [self.view addSubview:self.jumpButton];
     [self.view addSubview:self.line];
+    [self.view addSubview:self.lineUnderAppIcon];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.containerView];
+
     [self.containerView addSubview:self.goToMyReportsBtn];
     [self.containerView addSubview:self.taskDescriptionHint];
     [self.containerView addSubview:self.taskDescription];
@@ -242,34 +275,35 @@
                                ofView:self.icon
                            withOffset:5.0f];
     [self.taskIdLabelHint autoPinEdge:ALEdgeTop
-                               toEdge:ALEdgeTop
-                               ofView:self.icon];
+                               toEdge:ALEdgeBottom
+                               ofView:self.taskNameHintLabel
+                           withOffset:5.0f];
 
     [self.taskIdLabel autoPinEdge:ALEdgeLeft
                            toEdge:ALEdgeLeft
-                           ofView:self.dueDateLabel];
-    
+                           ofView:self.taskNameLabel];
+
     [self.taskIdLabel autoPinEdge:ALEdgeBottom
                            toEdge:ALEdgeBottom
                            ofView:self.taskIdLabelHint];
 
     [self.pointsHintLbale autoPinEdge:ALEdgeLeft
-                                toEdge:ALEdgeRight
-                                ofView:self.icon
-                            withOffset:5.0f];
+                               toEdge:ALEdgeRight
+                               ofView:self.icon
+                           withOffset:5.0f];
 
     [self.pointsHintLbale autoPinEdge:ALEdgeTop
-                                toEdge:ALEdgeBottom
-                                ofView:self.taskIdLabelHint
-                            withOffset:5];
+                               toEdge:ALEdgeBottom
+                               ofView:self.taskIdLabelHint
+                           withOffset:5];
 
     [self.pointsLabel autoPinEdge:ALEdgeLeft
-                            toEdge:ALEdgeLeft
-                            ofView:self.dueDateLabel];
-    
+                           toEdge:ALEdgeLeft
+                           ofView:self.taskNameLabel];
+
     [self.pointsLabel autoPinEdge:ALEdgeBottom
-                            toEdge:ALEdgeBottom
-                            ofView:self.pointsHintLbale];
+                           toEdge:ALEdgeBottom
+                           ofView:self.pointsHintLbale];
 
     [self.categoryLabelHint autoPinEdge:ALEdgeLeft
                                  toEdge:ALEdgeRight
@@ -282,33 +316,32 @@
 
     [self.categoryLabel autoPinEdge:ALEdgeLeft
                              toEdge:ALEdgeLeft
-                             ofView:self.dueDateLabel];
-    
+                             ofView:self.taskNameLabel];
+
     [self.categoryLabel autoPinEdge:ALEdgeBottom
                              toEdge:ALEdgeBottom
                              ofView:self.categoryLabelHint];
 
-    [self.addDateLabelHint autoPinEdge:ALEdgeLeft
-                                toEdge:ALEdgeRight
-                                ofView:self.icon
-                            withOffset:5.0f];
+    [self.addDateLabelHint autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+
     [self.addDateLabelHint autoPinEdge:ALEdgeTop
                                 toEdge:ALEdgeBottom
-                                ofView:self.categoryLabelHint
+                                ofView:self.lineUnderAppIcon
                             withOffset:5];
 
     [self.addDateLabel autoPinEdge:ALEdgeLeft
                             toEdge:ALEdgeRight
                             ofView:self.addDateLabelHint
                         withOffset:5.0f];
+    
     [self.addDateLabel autoPinEdge:ALEdgeBottom
                             toEdge:ALEdgeBottom
                             ofView:self.addDateLabelHint];
 
     [self.dueDateLabelHint autoPinEdge:ALEdgeLeft
-                                toEdge:ALEdgeRight
-                                ofView:self.icon
-                            withOffset:5.0f];
+                                toEdge:ALEdgeLeft
+                                ofView:self.addDateLabelHint];
+    
     [self.dueDateLabelHint autoPinEdge:ALEdgeTop
                                 toEdge:ALEdgeBottom
                                 ofView:self.addDateLabelHint
@@ -322,39 +355,41 @@
                             toEdge:ALEdgeBottom
                             ofView:self.dueDateLabelHint];
 
-    [self.taskDescriptionHint autoPinEdge:ALEdgeTop
-                                   toEdge:ALEdgeBottom
-                                   ofView:self.line];
-    
-    [self.taskDescriptionHint autoPinEdge:ALEdgeLeft
-                                   toEdge:ALEdgeLeft
-                                   ofView:self.icon];
+    [self.taskNameHintLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.icon withOffset:5.0f];
+    [self.taskNameHintLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.icon];
 
+    [self.taskNameLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.taskNameHintLabel withOffset:5.0f];
+    [self.taskNameLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.taskNameHintLabel];
+
+    [self.taskDescriptionHint autoPinEdgeToSuperviewEdge:ALEdgeTop];
+
+    [self.taskDescriptionHint autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+
+    [self.lineUnderAppIcon autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.icon withOffset:5.0f];
+    [self.lineUnderAppIcon autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [self.lineUnderAppIcon autoPinEdgeToSuperviewMargin:ALEdgeRight];
+    [self.lineUnderAppIcon autoSetDimension:ALDimensionHeight toSize:1.0f];
+    
     [self.line autoPinEdge:ALEdgeTop
                     toEdge:ALEdgeBottom
                     ofView:self.dueDateLabel
                 withOffset:5.0f];
 
-    [self.line autoPinEdge:ALEdgeLeft
-                    toEdge:ALEdgeLeft
-                    ofView:self.view
-                withOffset:10];
-    [self.line autoPinEdge:ALEdgeRight
-                    toEdge:ALEdgeRight
-                    ofView:self.view
-                withOffset:-10];
+    [self.line autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [self.line autoPinEdgeToSuperviewMargin:ALEdgeRight];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
 
-    [self.scrollView
-        autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(
-                                                   0, 10, BOTTOM_BAR_HEIGHT, 10)
+    [self.scrollView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, BOTTOM_BAR_HEIGHT, 10)
                                  excludingEdge:ALEdgeTop];
     [self.scrollView autoPinEdge:ALEdgeTop
                           toEdge:ALEdgeBottom
                           ofView:self.line
                       withOffset:5.0f];
 
-    [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+    //    [self.taskDescription autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+    [self.taskDescription autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.taskDescription autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [self.taskDescription autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescriptionHint];
 
     [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
     [self.installBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
@@ -379,7 +414,6 @@
 - (void)configNavigationBar
 {
     [self.navigationController setNavigationBarHidden:NO];
-//    self.title = self.model.taskName;
     [self navigationRightButton];
     [self navigationLeftButton];
 }
@@ -405,14 +439,12 @@
 
 - (void)loadData
 {
-    if (self.model) {
-        WEAKSELF;
-        [KBTaskManager fetchTaskDetailInfoWithTaskId:self.model.taskId completion:^(KBTaskDetailModel* model, NSError* error) {
-            weakSelf.detailModel = model;
-            [weakSelf updateUIwithModel:model];
-            [weakSelf hideLoadingView];
-        }];
-    }
+    WEAKSELF;
+    [KBTaskManager fetchTaskDetailInfoWithTaskId:self.taskId completion:^(KBTaskDetailModel* model, NSError* error) {
+        weakSelf.detailModel = model;
+        [weakSelf updateUIwithModel:model];
+        [weakSelf hideLoadingView];
+    }];
 }
 
 - (void)updateUIwithModel:(KBTaskDetailModel*)model
@@ -441,6 +473,11 @@
     self.categoryLabel.attributedText =
         [[NSAttributedString alloc] initWithString:NSSTRING_NOT_NIL(model.category)
                                         attributes:TITLE_ATTRIBUTE];
+
+    self.taskNameLabel.attributedText =
+        [[NSAttributedString alloc] initWithString:model.taskName
+                                        attributes:TITLE_ATTRIBUTE];
+
     [self.icon setImageWithUrl:model.iconLocation];
     [self markAcceptBtnAsAccepted:self.detailModel.hasTask];
 }
@@ -453,18 +490,8 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    self.model = nil;
-    self.detailModel = nil;
-}
 
-/**
- *  用列表页的粗略信息填充DetailVC
- *
- *  @param idata 少部分信息
- */
-- (void)fillWithContent:(KBTaskListModel*)idata
-{
-    self.model = idata;
+    self.detailModel = nil;
 }
 
 - (void)markAcceptBtnAsAccepted:(BOOL)bol
@@ -502,7 +529,7 @@
 - (void)acceptTaskButtonPressed
 {
     WEAKSELF;
-    [KBTaskManager acceptTaskWithTaskId:self.model.taskId completion:^(KBBaseModel* model, NSError* error) {
+    [KBTaskManager acceptTaskWithTaskId:self.taskId completion:^(KBBaseModel* model, NSError* error) {
         //        NSLog(model.message);
         if (!error) {
             [weakSelf showLoadingViewWithText:@"任务添加成功" withDuration:2.0f];
@@ -553,5 +580,10 @@
     //    NSString* str = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.detailModel.appLocation];
     NSString* str = self.detailModel.appLocation;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+
+- (void)setParams:(NSDictionary*)params
+{
+    self.taskId = params[@"taskId"];
 }
 @end

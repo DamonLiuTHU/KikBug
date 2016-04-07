@@ -89,9 +89,9 @@ static NSString* identifier = @"KBMyTaskListViewController";
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    KBTaskDetailViewController* detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
-    [detailVC fillWithContent:self.dataSource[indexPath.row]];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    UIViewController* detailVC = (KBTaskDetailViewController*)[[HHRouter shared] matchController:TASK_DETAIL];
+    [detailVC setParams:@{@"taskId":self.dataSource[indexPath.row].taskId}];
+    [UIManager showViewController:detailVC withShowType:KBUIManagerShowTypePush];
     [self hideLoadingView];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
