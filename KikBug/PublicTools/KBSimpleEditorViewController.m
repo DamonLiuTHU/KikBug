@@ -18,6 +18,11 @@
 {
     if (self = [super init]) {
         self.editor = [UITextField new];
+        UIView *emptyView = [UIView new];
+        emptyView.backgroundColor = [UIColor clearColor];
+        self.editor.leftView = emptyView;
+        [emptyView autoSetDimension:ALDimensionWidth toSize:10];
+        self.editor.leftViewMode = UITextFieldViewModeAlways;
     }
     return self;
 }
