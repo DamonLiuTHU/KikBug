@@ -108,11 +108,11 @@
     [self.tableView reloadData];
 }
 
-- (void)showLoginButton
-{
-    KBViewController* loginVC = (KBViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-    [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
-}
+//- (void)showLoginButton
+//{
+//    KBViewController* loginVC = (KBViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
+//    [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
+//}
 
 //- (void)configConstrains
 //{

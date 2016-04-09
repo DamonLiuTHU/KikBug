@@ -106,12 +106,14 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 - (UINavigationController*)currentNavigationController
 {
     //    return (UINavigationController*)[self.tabBarController selectedViewController];
-
-    if (self.tabBarController.presentedViewController
-        && self.tabBarController.presentedViewController == self.presentingContainerVCNav) {
+    UIViewController *presentedViewController = self.tabBarController.presentedViewController;
+    if ((presentedViewController && presentedViewController == self.presentingContainerVCNav)) {
+        return self.presentingContainerVCNav;
+    } else if ([self.tabBarController selectedViewController] && !self.presentingContainerVCNav){
+        return (UINavigationController*)[self.tabBarController selectedViewController];
+    } else {
         return self.presentingContainerVCNav;
     }
-    return (UINavigationController*)[self.tabBarController selectedViewController];
 }
 
 - (KBViewController*)topViewController
@@ -144,7 +146,8 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 
 - (void)showRootViewController
 {
-    [KBNavigator showLoginPage];
+    self.presentingContainerVCNav = nil;
+    [UIManager showLoginPageIfNeededWithSuccessCompletion:nil];
     UITabBarController* tb = [[UITabBarController alloc] init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     tb.delegate = self;
@@ -232,7 +235,8 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 {
     if ([KBLoginManager checkIfNeedLoginPage]) {
         KBLoginViewController* loginVC = (KBLoginViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [UIApplication sharedApplication].keyWindow.rootViewController = [self navControllerWithRoot:loginVC];
+        self.presentingContainerVCNav = [self navControllerWithRoot:loginVC];
+        [UIApplication sharedApplication].keyWindow.rootViewController = self.presentingContainerVCNav;
         loginVC.block = block;
         return loginVC;
         //        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
@@ -240,12 +244,5 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     return nil;
 }
 
-+ (void)showLoginPage
-{
-    if ([KBLoginManager checkIfNeedLoginPage]) {
-        KBLoginViewController* loginVC = (KBLoginViewController*)[[HHRouter shared] matchController:LOGIN_PAGE_NAME];
-        [[KBNavigator sharedNavigator] showViewController:loginVC withShowType:KBUIManagerShowTypePresent];
-    }
-}
 
 @end

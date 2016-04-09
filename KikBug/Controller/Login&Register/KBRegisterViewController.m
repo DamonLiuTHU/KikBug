@@ -22,19 +22,28 @@
 
 @implementation KBRegisterViewController
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.phoneField = [UITextField new];
+        [self.phoneField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self configSubviews];
     [self configNavigationBar];
-    [self.phoneField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.phoneField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground)];
     [self.view addGestureRecognizer:rec];
 }
 
 - (void)dealloc{
-    [self removeObserver:self forKeyPath:@"text"];
+    [self.phoneField removeObserver:self forKeyPath:@"text"];
 }
 
 - (void)tapBackground
@@ -62,7 +71,7 @@
     self.plus86HintLabel.text = @"+86";
     self.plus86HintLabel.font = APP_FONT(APP_FONT_SIZE_LARGE);
     
-    self.phoneField = [UITextField new];
+    
     self.phoneField.keyboardType = UIKeyboardTypeNumberPad;
 //    self.phoneField.clearsOnBeginEditing = YES;
     self.phoneField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -124,20 +133,20 @@
 
 - (void)configNavigationBar
 {
-    UINavigationController* nav = self.navigationController;
-    [nav setNavigationBarHidden:NO];
-    
-    UIButton* closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
-    [closeBtn addTarget:self action:@selector(closeLoginViewController) forControlEvents:UIControlEventTouchUpInside];
-    [closeBtn setBackgroundColor:THEME_COLOR];
-    closeBtn.titleLabel.font = APP_FONT(13);
-    [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
-    [closeBtn sizeToFit];
-    
-    
-    
-    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
-    self.navigationItem.leftBarButtonItem = backItem;
+//    UINavigationController* nav = self.navigationController;
+//    [nav setNavigationBarHidden:NO];
+//    
+//    UIButton* closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
+//    [closeBtn addTarget:self action:@selector(closeLoginViewController) forControlEvents:UIControlEventTouchUpInside];
+//    [closeBtn setBackgroundColor:THEME_COLOR];
+//    closeBtn.titleLabel.font = APP_FONT(13);
+//    [closeBtn setTitle:@"关闭" forState:UIControlStateNormal];
+//    [closeBtn sizeToFit];
+//    
+//    
+//    
+//    UIBarButtonItem* backItem = [[UIBarButtonItem alloc] initWithCustomView:closeBtn];
+//    self.navigationItem.leftBarButtonItem = backItem;
 }
 
 - (void)closeLoginViewController

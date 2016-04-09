@@ -40,7 +40,7 @@ SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 
 + (void)registerLocalUrls;
 
-+ (void)showLoginPage;
+//+ (void)showLoginPage;
 
 - (KBLoginViewController *)showLoginPageIfNeededWithSuccessCompletion:(void(^)())block;
 

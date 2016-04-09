@@ -78,6 +78,7 @@
     if (self = [super init]) {
         [self createSubviews];
         self.isTaskAccepted = NO;
+        [self addObserver:self forKeyPath:@"isTaskAccepted" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -99,7 +100,6 @@
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
     self.installBtn.hidden = YES;
-    [self addObserver:self forKeyPath:@"isTaskAccepted" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
