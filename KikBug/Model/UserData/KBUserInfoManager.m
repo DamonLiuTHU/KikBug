@@ -33,7 +33,13 @@ SINGLETON_IMPLEMENTION(KBUserInfoManager, manager);
 
 - (void)fetchUserInfoCompletion:(void (^)(KBUserInfoModel*, NSError*))block
 {
-    [[KBUserInfoManager manager] fetchUserInfoWithUserId:STORED_USER_ID completion:block];
+    KBUserInfoModel* model = [self storedUserInfo];
+    if (model) {
+        block(model, nil);
+    }
+    else {
+        [[KBUserInfoManager manager] fetchUserInfoWithUserId:STORED_USER_ID completion:block];
+    }
 }
 
 #pragma mark - Core Data Part
@@ -60,6 +66,12 @@ SINGLETON_IMPLEMENTION(KBUserInfoManager, manager);
 }
 
 static NSString* entityName = @"CDUserInfoModel";
+
+- (KBUserInfoModel*)storedUserInfo
+{
+    NSString* userId = STORED_USER_ID;
+    return [self storedUserInfoForUserId:userId];
+}
 
 - (KBUserInfoModel*)storedUserInfoForUserId:(NSString*)userId
 {
@@ -90,61 +102,41 @@ static NSString* entityName = @"CDUserInfoModel";
     return nil;
 }
 
-- (KBUserInfoModel*)storedUserInfo
-{
-    if (!self.context) {
-        [self initContext];
-    }
-    // 初始化一个查询请求
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    // 设置要查询的实体
-    request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.context];
-    // 设置排序（按照age降序）
-    //    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"bugId" ascending:NO];
-    //    request.sortDescriptors = [NSArray arrayWithObject:sort];
-
-    // 执行请求
-    NSError* error = nil;
-    NSArray* objs = [self.context executeFetchRequest:request error:&error];
-    if (error) {
-        [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
-        return nil;
-    }
-
-    // 遍历数据
-    for (NSManagedObject* obj in objs) {
-        return [self getModelWithManagedObj:obj];
-    }
-    return nil;
-}
-
 - (void)saveUserInfo:(KBUserInfoModel*)model
 {
+    //Step1 更新本地的
     if (!self.context) {
         [self initContext];
     }
     KBUserInfoModel* stored_model = [[KBUserInfoManager manager] storedUserInfoForUserId:INT_TO_STIRNG(model.userId)];
-    if (stored_model) {
-        [self updateUserInfo:model];
-        return;
+    if (stored_model) { //找到本地存储的用户信息的话，更新
+        [self updateLocalUserInfo:model];
     }
-    // 传入上下文，创建一个Person实体对象
-    NSManagedObject* cdBugReport = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
-    [self configManagedObj:cdBugReport WithModel:model];
-    // 利用上下文对象，将数据同步到持久化存储库
-    NSError* error = nil;
-    BOOL success = [self.context save:&error];
-    if (!success) {
-        [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
+    else {
+        // 传入上下文，创建一个Person实体对象
+        NSManagedObject* cdBugReport = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.context];
+        [self configManagedObj:cdBugReport WithModel:model];
+        // 利用上下文对象，将数据同步到持久化存储库
+        NSError* error = nil;
+        BOOL success = [self.context save:&error];
+        if (!success) {
+            [NSException raise:@"DBError" format:@"%@", [error localizedDescription]];
+        }
     }
-}
 
-- (void)updateUserInfo:(KBUserInfoModel*)model
-{
-    [[KBUserInfoManager manager] updateUserName:model.name andAvatar:model.avatarLocation withCompletion:^(KBBaseModel *model, NSError *error) {
+    //Step2 更新网上的
+    [[KBUserInfoManager manager] updateUserName:model.name andAvatar:model.avatarLocation withCompletion:^(KBBaseModel* model, NSError* error){
         //
     }];
-    
+}
+
+/**
+ *  更新本地存储的用户信息
+ *
+ *  @param model model
+ */
+- (void)updateLocalUserInfo:(KBUserInfoModel*)model
+{
     if (!self.context) {
         [self initContext];
     }
@@ -178,7 +170,7 @@ static NSString* entityName = @"CDUserInfoModel";
  *  @param obj   CoreData模型
  *  @param model 实际model
  */
-- (void)configManagedObj:(NSManagedObject *)obj WithModel:(KBUserInfoModel *)model
+- (void)configManagedObj:(NSManagedObject*)obj WithModel:(KBUserInfoModel*)model
 {
     [obj setValue:@(model.userId) forKey:@"userId"];
     [obj setValue:model.avatarLocation forKey:@"avatarLocation"];
@@ -196,7 +188,7 @@ static NSString* entityName = @"CDUserInfoModel";
  *
  *  @return Model
  */
-- (KBUserInfoModel *)getModelWithManagedObj:(NSManagedObject *)obj
+- (KBUserInfoModel*)getModelWithManagedObj:(NSManagedObject*)obj
 {
     KBUserInfoModel* model = [[KBUserInfoModel alloc] init];
     model.userId = [[obj valueForKey:@"userId"] integerValue];
@@ -211,6 +203,9 @@ static NSString* entityName = @"CDUserInfoModel";
 
 - (void)updateUserName:(NSString*)userName andAvatar:(NSString*)avatarLocation withCompletion:(void (^)(KBBaseModel*, NSError*))block
 {
+    if ([NSString isNilorEmpty:userName] && [NSString isNilorEmpty:avatarLocation]) {
+        return;
+    }
     NSString* url = GETURL_V2(@"PersonalInfo");
     url = [url stringByReplacingOccurrencesOfString:@"{userId}" withString:NSSTRING_NOT_NIL(STORED_USER_ID)];
     [KBHttpManager sendPutHttpRequestWithUrl:url

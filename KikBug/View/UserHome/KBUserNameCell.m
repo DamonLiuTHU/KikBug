@@ -52,7 +52,7 @@
 
 - (void)bindModel:(KBUserInfoModel*)model
 {
-    self.nickName.text = model.name;
+    self.nickName.text = NSSTRING_NOT_NIL(model.name);
 }
 
 + (CGFloat)cellHeight

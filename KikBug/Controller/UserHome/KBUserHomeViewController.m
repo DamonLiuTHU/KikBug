@@ -66,20 +66,12 @@
 
 - (void)loadData
 {
+    WEAKSELF;
     [[KBUserInfoManager manager] fetchUserInfoCompletion:^(KBUserInfoModel* model, NSError* error) {
-        [self endRefreshing];
-        self.model = model;
-        [self createDataSourceWithModel];
+        [weakSelf endRefreshing];
+        weakSelf.model = model;
+        [weakSelf createDataSourceWithModel];
     }];
-    //    KBUserInfoModel* model = [[KBUserInfoManager manager] storedUserInfoForUserId:STORED_USER_ID];
-    //    if (!model) {
-    //
-    //    }
-    //    else {
-    //        [self endRefreshing];
-    //        self.model = model;
-    //        [self createDataSourceWithModel];
-    //    }
 }
 
 /**
@@ -189,7 +181,7 @@
 {
     UIViewController* vc = [[HHRouter shared] matchController:SIMPLE_EDITOR];
     [vc setValue:self forKeyPath:@"delegate"];
-    [vc setParams:@{ @"text" : self.model.name }];
+    [vc setParams:@{ @"text" : NSSTRING_NOT_NIL(self.model.name) }];
     [UIManager showViewController:vc];
 }
 
@@ -275,23 +267,25 @@
 }
 
 #pragma mark -
-#pragma UIImagePickerController Delegate
+#pragma mark - UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
     UIImage* image = info[UIImagePickerControllerEditedImage];
     [self saveImage:image];
     [[KBUserInfoManager manager] saveUserInfo:self.model];
     [self createDataSourceWithModel];
-
     [picker dismissViewControllerAnimated:YES completion:nil];
 
     //更新在线数据
-    self.model.avatarLocation = [KBImageManager uploadImage:image Completion:^(NSString* url, NSError* error) {
+    WEAKSELF;
+    [KBImageManager uploadImage:image Completion:^(NSString* url, NSError* error) {
+        STRONGSELF;
         if (!error) {
             NSLog(@"Image upload success with url :%@", [KBImageManager fullImageUrlWithUrl:url]);
+            strongSelf.model.avatarLocation = [KBImageManager fullImageUrlWithUrl:url];
+            [[KBUserInfoManager manager] saveUserInfo:strongSelf.model];
         }
     }];
-    [[KBUserInfoManager manager] saveUserInfo:self.model];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
@@ -322,8 +316,6 @@
     //    [UIImage grepresentation(smallImage, 1.0f) writeToFile:imageFilePath atomically:YES];//写入文件
     [UIImageJPEGRepresentation(smallImage, 1.0f) writeToFile:thumbnailImagePath atomically:YES];
     [UIImageJPEGRepresentation(image, 1.0f) writeToFile:imageFilePath atomically:YES];
-    //    UIImage *selfPhoto = [UIImage imageWithContentsOfFile:imageFilePath];//读取图片文件
-    //	[userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
     [[NSUserDefaults standardUserDefaults] setValue:thumbnailImagePath forKey:@"THUMBNAILAVATAR"];
     [[NSUserDefaults standardUserDefaults] setValue:imageFilePath forKey:@"AVATAR"];
     self.model.avatarLocalLocation = imageFilePath;
@@ -378,9 +370,6 @@
     self.model.name = str;
     [self createDataSourceWithModel];
     [[KBUserInfoManager manager] saveUserInfo:self.model];
-    [[KBUserInfoManager manager] updateUserName:str andAvatar:nil withCompletion:^(KBBaseModel* model, NSError* error){
-        //
-    }];
 }
 
 @end
