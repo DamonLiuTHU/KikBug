@@ -8,6 +8,7 @@
 
 #import "KBRegisterManager.h"
 #import "KBRegisterStep2ViewController.h"
+#import "KBLoginManager.h"
 
 @interface KBRegisterStep2ViewController ()
 @property (strong, nonatomic) UILabel* titleLabel;
@@ -135,9 +136,12 @@
     WEAKSELF;
     [KBRegisterManager registerUser:STORED_USER_PHONE token:self.tokenTextField.text psw:self.pswField.text completion:^(KBBaseModel* model, NSError* error) {
         if (!error) {
-            [weakSelf dismissViewControllerAnimated:YES completion:^{
-                UIViewController *vc = [[KBNavigator sharedNavigator] topViewController];
-                [weakSelf showHudViewWithText:@"注册成功" inView:vc.view];
+//            [weakSelf dismissViewControllerAnimated:YES completion:^{
+//                UIViewController *vc = [[KBNavigator sharedNavigator] topViewController];
+//                [weakSelf showHudViewWithText:@"注册成功" inView:vc.view];
+//            }];
+            [KBLoginManager loginWithPhone:STORED_USER_PHONE password:weakSelf.pswField.text completion:^(KBLoginModel *model, NSError *error) {
+                [UIManager showRootViewController];
             }];
         }
         else {
