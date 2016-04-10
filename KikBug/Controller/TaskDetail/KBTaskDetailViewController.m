@@ -553,8 +553,10 @@
  */
 - (void)jumpToApp:(id)sender
 {
-//    NSString* host = self.detailModel.scheme;
-    NSString *host = @"Airvin";
+    NSString* host = self.detailModel.scheme;
+#if DEBUG
+     host = @"Airvin";
+#endif
     NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, (long)self.detailModel.taskId];
     appUrl = [NSURL URLWithString:str];
     [[UIApplication sharedApplication] openURL:appUrl];
