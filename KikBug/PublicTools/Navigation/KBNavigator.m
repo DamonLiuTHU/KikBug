@@ -26,6 +26,8 @@
 #import "KBUserHomeViewController.h"
 #import "KBBugReportStep1ViewController.h"
 #import "KBTaskReportListViewController.h"
+#import "KBLeftSlideViewController.h"
+#import "KBLeftSortsViewController.h"
 
 @interface KBNavigator () <UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBarController* tabBarController;
@@ -177,6 +179,11 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 
     //    [self setTabbarImages];
     [self setIconForFirstTab];
+    
+//    KBLeftSortsViewController *leftVC = [[KBLeftSortsViewController alloc] init];
+//    leftVC.viewControllers = tb.viewControllers;
+//    self.LeftSlideVC = [[KBLeftSlideViewController alloc] initWithLeftView:leftVC andMainView:self.tabBarController];
+//    [UIApplication sharedApplication].keyWindow.rootViewController = self.LeftSlideVC;
 }
 
 #pragma mark - Set Image For Tabbar

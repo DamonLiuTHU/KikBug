@@ -57,15 +57,15 @@
 //    [self.layer addSublayer:_contentLayer];
     
     self.roundView = [[UIView alloc] init];
-    self.roundView.backgroundColor = THEME_COLOR;
+    self.roundView.backgroundColor = [UIColor clearColor];
+
     [self addSubview:self.roundView];
     
-    UILabel *appNameLabel = [[UILabel alloc] init];
-    appNameLabel.text = @"Kikbug";
-    appNameLabel.textColor = [UIColor whiteColor];
-    [appNameLabel sizeToFit];
-    [self addSubview:appNameLabel];
-    self.nameLabel = appNameLabel;
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_logo"]];
+    [self addSubview:imageView];
+    imageView.layer.borderColor = [UIColor clearColor].CGColor;
+    [imageView autoPinEdgesToSuperviewEdges];
+
 }
 
 - (void)setImage:(UIImage *)image

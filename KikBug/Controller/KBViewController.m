@@ -6,6 +6,7 @@
 //  Copyright © 2016年 DamonLiu. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "KBViewController.h"
 #import "MBProgressHUD.h"
 
@@ -20,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+//    [self configLeftBarButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -30,6 +32,28 @@
 
 - (void)loadData
 {
+}
+
+- (void)configLeftBarButton
+{
+    UIButton* btn = [UIButton new];
+    btn.frame = CGRectMake(0, 0, 20, 18);
+    [btn setTitle:@"left" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(showLeftDock) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = item;
+}
+
+- (void)showLeftDock
+{
+//    AppDelegate* tempAppDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+    if (UIManager.LeftSlideVC.closed) {
+        [UIManager.LeftSlideVC openLeftView];
+    }
+    else {
+        [UIManager.LeftSlideVC closeLeftView];
+    }
 }
 
 - (void)configConstrains
@@ -62,22 +86,22 @@
 - (void)showLoadingViewWithText:(NSString*)text withDuration:(CGFloat)duration
 {
 
-//    MBProgressHUD* hud =
-//        [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
-//
-//    if (text) {
-//        hud.labelText = text;
-//    }
-//    else {
-//        hud.labelText = @"加载中...";
-//    }
-//    [hud setMode:MBProgressHUDModeText];
-//    hud.removeFromSuperViewOnHide = YES;
-//    self.hud = hud;
-//    if (duration != 0.0f) {
-//        [self.hud hide:YES afterDelay:duration];
-//    }
-//    //    [self hubShowInView].userInteractionEnabled = NO;
+    //    MBProgressHUD* hud =
+    //        [MBProgressHUD showHUDAddedTo:[self hubShowInView] animated:YES];
+    //
+    //    if (text) {
+    //        hud.labelText = text;
+    //    }
+    //    else {
+    //        hud.labelText = @"加载中...";
+    //    }
+    //    [hud setMode:MBProgressHUDModeText];
+    //    hud.removeFromSuperViewOnHide = YES;
+    //    self.hud = hud;
+    //    if (duration != 0.0f) {
+    //        [self.hud hide:YES afterDelay:duration];
+    //    }
+    //    //    [self hubShowInView].userInteractionEnabled = NO;
     [self showHudViewWithText:text inView:[self hubShowInView] withDuration:duration];
 }
 
@@ -100,7 +124,7 @@
 - (void)showHudViewWithText:(NSString*)text inView:(UIView*)view withDuration:(CGFloat)duration
 {
     MBProgressHUD* hud =
-    [MBProgressHUD showHUDAddedTo:view animated:YES];
+        [MBProgressHUD showHUDAddedTo:view animated:YES];
     if (text) {
         hud.labelText = text;
     }

@@ -13,9 +13,12 @@ typedef NS_ENUM(NSInteger,KBUIManagerShowType){
     KBUIManagerShowTypePresent,
 };
 
-@class KBLoginViewController;
+@class KBLoginViewController,KBLeftSlideViewController;
 
 @interface KBNavigator : UIViewController
+
+@property (strong, nonatomic) KBLeftSlideViewController *LeftSlideVC;
+//@property (strong, nonatomic) UINavigationController *mainNavigationController;
 
 SINGLETON_INTERFACE(KBNavigator, sharedNavigator);
 

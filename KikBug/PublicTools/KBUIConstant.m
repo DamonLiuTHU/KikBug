@@ -11,6 +11,6 @@
 @implementation KBUIConstant
 + (UIColor *)themeColor
 {
-    return RGB(21, 99, 124);
+    return RGB(235, 105, 96);
 }
 @end
