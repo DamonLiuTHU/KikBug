@@ -56,8 +56,8 @@
     if ([tableView.mj_header isKindOfClass:[MJRefreshStateHeader class]]) {
         MJRefreshStateHeader* header = (MJRefreshStateHeader*)tableView.mj_header;
         // 设置字体
-        header.stateLabel.font = APP_FONT(14);
-        header.lastUpdatedTimeLabel.font = APP_FONT(14);
+        header.stateLabel.font = APP_FONT(12);
+        header.lastUpdatedTimeLabel.font = APP_FONT(10);
 
         // 设置颜色
         header.stateLabel.textColor = [KBUIConstant themeDarkColor];
