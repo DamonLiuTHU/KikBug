@@ -13,4 +13,9 @@
 {
     return RGB(235, 105, 96);
 }
+
++ (UIColor *)themeDarkColor
+{
+    return RGB(66, 67, 68);
+}
 @end

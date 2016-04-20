@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "KBBaseTableViewController.h"
 
+/**
+ *  我的群组列表页
+ */
 @interface KBGroupListViewController : KBBaseTableViewController
 
 @end

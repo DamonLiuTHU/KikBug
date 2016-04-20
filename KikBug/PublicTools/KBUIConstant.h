@@ -11,4 +11,6 @@
 
 @interface KBUIConstant : NSObject
 + (UIColor *)themeColor;
+
++ (UIColor *)themeDarkColor;
 @end

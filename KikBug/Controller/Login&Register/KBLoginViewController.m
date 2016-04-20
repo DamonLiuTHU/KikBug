@@ -138,7 +138,7 @@
     //    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     NSAttributedString* loginBtnStr = [[NSAttributedString alloc] initWithString:@"登录" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : APP_FONT(17) }];
     [self.loginBtn setAttributedTitle:loginBtnStr forState:UIControlStateNormal];
-    [self.loginBtn setBackgroundColor:[UIColor blackColor]];
+    [self.loginBtn setBackgroundColor:[KBUIConstant themeDarkColor]];
     [self.loginBtn autoSetDimension:ALDimensionWidth toSize:self.view.width - 2 * MEDIUM_MARGIN];
     [self.loginBtn autoSetDimension:ALDimensionHeight toSize:35];
     [self.loginBtn addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];

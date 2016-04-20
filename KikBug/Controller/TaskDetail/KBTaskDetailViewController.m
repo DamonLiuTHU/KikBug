@@ -211,11 +211,11 @@
                                                         attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:14],
                                                             NSForegroundColorAttributeName : [UIColor grayColor] }]];
 
-    [self.goToMyReportsBtn setBackgroundColor:THEME_COLOR];
+    [self.goToMyReportsBtn setBackgroundColor:[KBUIConstant themeDarkColor]];
     [self.goToMyReportsBtn.layer setCornerRadius:5.0f];
-    [self.startTestTask setBackgroundColor:THEME_COLOR];
+    [self.startTestTask setBackgroundColor:[KBUIConstant themeDarkColor]];
     [self.startTestTask.layer setCornerRadius:5.0f];
-    [self.installBtn setBackgroundColor:THEME_COLOR];
+    [self.installBtn setBackgroundColor:[KBUIConstant themeDarkColor]];
     [self.installBtn.layer setCornerRadius:5.0f];
 
     [self.startTestTask setAttributedTitle:[[NSAttributedString alloc]

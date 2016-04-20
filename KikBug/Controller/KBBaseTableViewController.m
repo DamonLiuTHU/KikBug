@@ -8,6 +8,7 @@
 
 #import "KBBaseTableViewController.h"
 #import "KBEmptyView.h"
+#import "KBUIConstant.h"
 
 @interface KBBaseTableViewController ()
 @property (strong,nonatomic) KBEmptyView *emptyView;
@@ -59,8 +60,8 @@
         header.lastUpdatedTimeLabel.font = APP_FONT(14);
 
         // 设置颜色
-        header.stateLabel.textColor = THEME_COLOR;
-        header.lastUpdatedTimeLabel.textColor = THEME_COLOR;
+        header.stateLabel.textColor = [KBUIConstant themeDarkColor];
+        header.lastUpdatedTimeLabel.textColor = [KBUIConstant themeDarkColor];
     }
 }
 

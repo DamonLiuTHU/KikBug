@@ -28,7 +28,8 @@ static NSString* identifier = @"KBMyTaskListViewController";
 //    [self setTitle:@"我的任务"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
-
+//    self.tabBarController.tabBar.tintColor = [UIColor yellowColor];
+    
 //    self.dataSourceForMyTasks = [NSArray array];
     self.dataSource = [NSArray array];
 }

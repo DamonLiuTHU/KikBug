@@ -151,7 +151,11 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
     self.presentingContainerVCNav = nil;
     [UIManager showLoginPageIfNeededWithSuccessCompletion:nil];
     UITabBarController* tb = [[UITabBarController alloc] init];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    tb.tabBar.tintColor = [KBUIConstant themeColor];
+//    tb.tabBar.backgroundColor = [KBUIConstant themeDarkColor];
+    tb.tabBar.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+    [tb.tabBar setBarTintColor:[UIColor clearColor]];
     tb.delegate = self;
     tb.automaticallyAdjustsScrollViewInsets = NO;
     [UIApplication sharedApplication].keyWindow.rootViewController = tb;
@@ -192,15 +196,13 @@ SINGLETON_IMPLEMENTION(KBNavigator, sharedNavigator);
 {
 
     NSArray* imageNames = @[ @"TaskList_icon",
-        @"UserCenter_icon",
+        @"My_Task",
         @"Group_icon",
-        @"UserCenter_icon",
-        @"UserCenter_icon" ];
-    NSArray* selectedImageNames = @[ @"TaskList_icon",
-        @"UserCenter_icon",
-        @"Group_icon",
-        @"UserCenter_icon",
-        @"UserCenter_icon" ];
+        @"UserCenter_icon",];
+    NSArray* selectedImageNames = @[ @"TaskList_Selected",
+        @"My_Task_Selected",
+        @"Group_Selected",
+        @"UserCenter_Selected",];
 
     [self.tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem* item, NSUInteger idx, BOOL* stop) {
         //        FIIcon *icon = [FIEntypoIcon iconWithName:imageNames[idx]];

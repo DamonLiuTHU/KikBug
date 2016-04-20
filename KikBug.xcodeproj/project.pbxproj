@@ -116,6 +116,8 @@
 		50FE33941CC62DD800A50B17 /* KBLeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33911CC62DD800A50B17 /* KBLeftSlideViewController.m */; };
 		50FE33951CC62DD800A50B17 /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33931CC62DD800A50B17 /* UIView_extra.m */; };
 		50FE33981CC62FB100A50B17 /* KBLeftSortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */; };
+		50FE339B1CC65A7E00A50B17 /* KBSegmentSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */; };
+		50FE339F1CC65DB200A50B17 /* KBSegmentControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */; };
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
 		A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */; };
 		A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */; };
@@ -346,6 +348,10 @@
 		50FE33931CC62DD800A50B17 /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIView_extra.m; path = ../../../../../LeftSlide/LeftSlideViewController/UIView_extra.m; sourceTree = "<group>"; };
 		50FE33961CC62FB100A50B17 /* KBLeftSortsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBLeftSortsViewController.h; path = ../../../../../LeftSlide/LeftSlide/KBLeftSortsViewController.h; sourceTree = "<group>"; };
 		50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBLeftSortsViewController.m; path = ../../../../../LeftSlide/LeftSlide/KBLeftSortsViewController.m; sourceTree = "<group>"; };
+		50FE33991CC65A7E00A50B17 /* KBSegmentSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSegmentSelectView.h; sourceTree = "<group>"; };
+		50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSegmentSelectView.m; sourceTree = "<group>"; };
+		50FE339D1CC65DB200A50B17 /* KBSegmentControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSegmentControlCell.h; sourceTree = "<group>"; };
+		50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSegmentControlCell.m; sourceTree = "<group>"; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A65202D61CA9EC7F005E4A65 /* KBUserSimpleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserSimpleInfoCell.h; sourceTree = "<group>"; };
 		A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserSimpleInfoCell.m; sourceTree = "<group>"; };
@@ -490,6 +496,7 @@
 		5038F9B11BF09FCE00CE22BE /* CommonUITool */ = {
 			isa = PBXGroup;
 			children = (
+				50FE339C1CC65D7200A50B17 /* SegmentControl */,
 				5038F9B21BF09FF000CE22BE /* KBOnePixelLine.h */,
 				5038F9B31BF09FF000CE22BE /* KBOnePixelLine.m */,
 				507967BD1CAA1A64009073EB /* KBEmptyCell.h */,
@@ -946,6 +953,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		50FE339C1CC65D7200A50B17 /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				50FE33991CC65A7E00A50B17 /* KBSegmentSelectView.h */,
+				50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */,
+				50FE339D1CC65DB200A50B17 /* KBSegmentControlCell.h */,
+				50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */,
+			);
+			name = SegmentControl;
+			sourceTree = "<group>";
+		};
 		59CD1709DEF493D0FC1A4F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1147,6 +1165,7 @@
 			files = (
 				507967BC1CAA1972009073EB /* KBUserHomeCellModel.m in Sources */,
 				507967C51CAA1C67009073EB /* KBUserInfoManager.m in Sources */,
+				50FE339F1CC65DB200A50B17 /* KBSegmentControlCell.m in Sources */,
 				504B97101C4C917F003B60EF /* KBLayout.m in Sources */,
 				50A4FE3D1C97F86700B35124 /* UIColor+Hex.m in Sources */,
 				50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */,
@@ -1244,6 +1263,7 @@
 				50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */,
 				50A4FE3C1C97F86700B35124 /* NSURL+DNIMagePickerUrlEqual.m in Sources */,
 				50688F4F1CB6575C00179D28 /* KBTaskDetailViewControllerV2.m in Sources */,
+				50FE339B1CC65A7E00A50B17 /* KBSegmentSelectView.m in Sources */,
 				50D97C391C3F9BFE00E37500 /* KBUserHomeViewController.m in Sources */,
 				5038F9B41BF09FF000CE22BE /* KBOnePixelLine.m in Sources */,
 				50688F4C1CB61C9600179D28 /* KBUIConstant.m in Sources */,

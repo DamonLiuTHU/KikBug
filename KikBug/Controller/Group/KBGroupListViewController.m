@@ -37,8 +37,11 @@
         if (!error) {
             weakSelf.model = baseMode;
             [weakSelf.tableView reloadData];
+            if (baseMode.items && baseMode.items.count == 0){
+                [weakSelf showEmptyViewWithText:@"你还没有加入任何群组,点击加号立即加入群组!"];
+            }
         } else {
-            [weakSelf showEmptyView];
+            
         }
     }];
 }

@@ -34,6 +34,16 @@
     [self.view addSubview:self.searchBar];
 }
 
+- (void)loadData
+{
+    WEAKSELF;
+    [KBGroupManager searchGroupWithKeyword:@"" block:^(KBGroupSearchModel* baseMode, NSError* error) {
+        [weakSelf endRefreshing];
+        weakSelf.model = baseMode;
+        [weakSelf.tableView reloadData];
+    }];
+}
+
 - (void)configTableView
 {
     [super configTableView];

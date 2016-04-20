@@ -7,6 +7,7 @@
 //
 
 #import "KBEmptyView.h"
+#import "KBUIConstant.h"
 @interface KBEmptyView()
 @property (strong,nonatomic) UILabel *tipLabel;
 @end
@@ -22,7 +23,7 @@
         textLabel.textAlignment = NSTextAlignmentCenter;
         UIButton* btn = [UIButton new];
         [btn setTitle:@"重新加载" forState:UIControlStateNormal];
-        [btn setBackgroundColor:THEME_COLOR];
+        [btn setBackgroundColor:[KBUIConstant themeDarkColor]];
         
         btn.layer.cornerRadius = 5;
         [btn addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
