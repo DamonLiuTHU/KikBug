@@ -31,6 +31,7 @@
 
 - (void)loadData
 {
+    [self showLoadingView];
     WEAKSELF;
     [KBGroupManager fetchMyGroupsWithBlock:^(KBGroupSearchModel *baseMode, NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
