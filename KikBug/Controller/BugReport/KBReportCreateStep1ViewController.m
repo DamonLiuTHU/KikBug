@@ -86,7 +86,7 @@
     [self.reportNameField autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:20.0f];
     [self.reportNameField autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.f];
     [self.reportNameField autoSetDimension:ALDimensionHeight toSize:50.0f];
-    [self.uploadButton autoSetDimension:ALDimensionHeight toSize:80.0f];
+    [self.uploadButton autoSetDimension:ALDimensionHeight toSize:40.0f];
     [self.uploadButton autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, 10 + BOTTOM_BAR_HEIGHT, 10) excludingEdge:ALEdgeTop];
     
     [super updateViewConstraints];

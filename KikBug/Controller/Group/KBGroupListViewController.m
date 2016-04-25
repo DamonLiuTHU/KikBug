@@ -31,15 +31,18 @@
 
 - (void)loadData
 {
-    [self showLoadingView];
+//    [self showLoadingView];
     WEAKSELF;
     [KBGroupManager fetchMyGroupsWithBlock:^(KBGroupSearchModel *baseMode, NSError *error) {
-        [weakSelf.tableView.mj_header endRefreshing];
+//        [weakSelf hideLoadingView];
+        [weakSelf endRefreshing];
         if (!error) {
             weakSelf.model = baseMode;
             [weakSelf.tableView reloadData];
             if (baseMode.items && baseMode.items.count == 0){
                 [weakSelf showEmptyViewWithText:@"你还没有加入任何群组,点击加号立即加入群组!"];
+            } else {
+                [weakSelf removeEmptyView];
             }
         } else {
             
