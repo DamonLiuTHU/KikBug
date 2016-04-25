@@ -21,6 +21,13 @@ JSONSTIRNG taskId;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"任务报告";
+    
+    //右上角的加号按钮
+    UIButton* addButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [addButton setImage:[UIImage imageNamed:@"Add_icon"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(addButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +85,13 @@ JSONSTIRNG taskId;
 
 #pragma mark - UI Event
 
+- (void)addButtonPressed
+{
+    UIViewController *vc = [[HHRouter shared] matchController:CREATE_REPORT_STEP_1];
+    [vc setParams:@{@"taskId":self.taskId,
+                    }];
+    [UIManager showViewController:vc];
+}
 
 #pragma mark - Parse Param
 - (void)setParams:(NSDictionary*)params

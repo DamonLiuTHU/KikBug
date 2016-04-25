@@ -120,6 +120,7 @@
 		50FE339F1CC65DB200A50B17 /* KBSegmentControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */; };
 		50FE33A21CCDBA8F00A50B17 /* KBUserProtocolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */; };
 		50FE33A51CCDBBA100A50B17 /* KBProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A41CCDBBA100A50B17 /* KBProtocolViewController.m */; };
+		50FE33A81CCE077A00A50B17 /* KBReportCreateStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A71CCE077A00A50B17 /* KBReportCreateStep1ViewController.m */; };
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
 		A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */; };
 		A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */; };
@@ -358,6 +359,8 @@
 		50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserProtocolCell.m; sourceTree = "<group>"; };
 		50FE33A31CCDBBA100A50B17 /* KBProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBProtocolViewController.h; sourceTree = "<group>"; };
 		50FE33A41CCDBBA100A50B17 /* KBProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBProtocolViewController.m; sourceTree = "<group>"; };
+		50FE33A61CCE077A00A50B17 /* KBReportCreateStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBReportCreateStep1ViewController.h; sourceTree = "<group>"; };
+		50FE33A71CCE077A00A50B17 /* KBReportCreateStep1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBReportCreateStep1ViewController.m; sourceTree = "<group>"; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A65202D61CA9EC7F005E4A65 /* KBUserSimpleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserSimpleInfoCell.h; sourceTree = "<group>"; };
 		A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserSimpleInfoCell.m; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 				504BE95B1CAF8DBC00879B92 /* KBBugReportStep1ViewController.m */,
 				504BE9631CB3607400879B92 /* KBTaskReportListViewController.h */,
 				504BE9641CB3607400879B92 /* KBTaskReportListViewController.m */,
+				50FE33A61CCE077A00A50B17 /* KBReportCreateStep1ViewController.h */,
+				50FE33A71CCE077A00A50B17 /* KBReportCreateStep1ViewController.m */,
 			);
 			path = BugReport;
 			sourceTree = "<group>";
@@ -1183,6 +1188,7 @@
 				50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */,
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
 				50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */,
+				50FE33A81CCE077A00A50B17 /* KBReportCreateStep1ViewController.m in Sources */,
 				50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */,
 				50FE33A21CCDBA8F00A50B17 /* KBUserProtocolCell.m in Sources */,
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,

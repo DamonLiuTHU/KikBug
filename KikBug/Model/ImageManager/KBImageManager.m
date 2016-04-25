@@ -34,7 +34,7 @@ static NSString* UPYUNKEY = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
 //        [alert show];
 //        NSLog(@"response body %@", responseData);
 //
-//        block(responseData, nil);
+        block(responseData, nil);
     };
     uy.failBlocker = ^(NSError* error) {
         NSString* message = [error.userInfo objectForKey:@"message"];
@@ -44,6 +44,7 @@ static NSString* UPYUNKEY = @"52TA3sfwGKHqsHOs+R+JjoDR5dw=";
     };
     uy.progressBlocker = ^(CGFloat percent, int64_t requestDidSendBytes) {
         //        [_pv setProgress:percent];
+//        NSLog(percent);
     };
 
     // uy.uploadMethod = UPMutUPload; 分块

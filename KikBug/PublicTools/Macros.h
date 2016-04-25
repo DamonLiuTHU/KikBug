@@ -128,6 +128,7 @@
 #define SIMPLE_EDITOR @"/editor"
 #define ADD_BUG_STEP_1 @"/createBug/step1"
 #define PROTOCOL_PAGE @"/register/protocol"
+#define CREATE_REPORT_STEP_1 @"/report/new"
 
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]

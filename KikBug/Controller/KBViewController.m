@@ -12,6 +12,7 @@
 
 @interface KBViewController ()
 @property (strong, nonatomic) MBProgressHUD* hud;
+@property (strong, nonatomic) UITapGestureRecognizer* tapBackgroundRec;
 @end
 
 @implementation KBViewController
@@ -21,7 +22,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+//    self.tapBackgroundRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoards)];
+//    [self.view addGestureRecognizer:self.tapBackgroundRec];
 //    [self configLeftBarButton];
+}
+
+- (void)hideKeyBoards
+{
+    [self resignFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated

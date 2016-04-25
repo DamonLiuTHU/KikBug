@@ -10,6 +10,7 @@
 #import "KBBugManager.h"
 #import "KBBugReport.h"
 #import "KBBugReportStep1ViewController.h"
+#import "KBImageManager.h"
 
 @interface KBBugReportStep1ViewController () <UIPickerViewDelegate, DNImagePickerControllerDelegate>
 @property (strong, nonatomic) KBBugCategory* category;
@@ -70,7 +71,9 @@
 - (void)loadData
 {
     WEAKSELF;
+    [self showLoadingView];
     [[KBBugManager sharedInstance] getAllBugCategorysWithCompletion:^(KBBugCategory* category, NSError* error) {
+        [weakSelf hideLoadingView];
         weakSelf.category = category;
         [weakSelf.pickerView reloadAllComponents];
     }];
@@ -97,7 +100,7 @@
     [self.pickerView autoSetDimension:ALDimensionHeight toSize:200];
     [self.pickerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.pickerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-//    [self.pickerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
+    //    [self.pickerView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
     [self.pickerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.severitySelectedLable withOffset:20];
 
     [self.selectedCategory autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.chooseLabelHint withOffset:10.0f];
@@ -194,18 +197,75 @@
 - (void)dnImagePickerController:(DNImagePickerController*)imagePickerController sendImages:(NSArray<DNAsset*>*)imageAssets isFullImage:(BOOL)fullImage
 {
     WEAKSELF;
-    KBBugReport* report = [KBBugReport reportWithDNAssets:imageAssets taskId:self.taskId];
-    report.severity = self.selectedSeverityValue;
-    report.bugCategoryId = self.selectedCategoryValue;
-    //    [[KBBugManager sharedInstance] uploadBugReport:report withCompletion:^(KBBaseModel* model, NSError* error) {
-    [[KBBugManager sharedInstance] uploadBugReportWithReportId:self.reportId reportd:report withCompletion:^(KBBaseModel* model, NSError* error) {
-        if (!error) {
-            [weakSelf showHudViewWithText:@"Bug上传成功"];
-        }
-        else {
-        }
+    [self showLoadingViewWithText:@"上传中"];
+    [self reportWithDNAssets:imageAssets taskId:self.taskId withImageUploadCompletion:^(KBBugReport *report) {
+        STRONGSELF;
+        [strongSelf hideLoadingView];
+        report.severity = strongSelf.selectedSeverityValue;
+        report.bugCategoryId = strongSelf.selectedCategoryValue;
+
+        [[KBBugManager sharedInstance] uploadBugReportWithReportId:strongSelf.reportId reportd:report withCompletion:^(KBBaseModel* model, NSError* error) {
+            [strongSelf hideLoadingView];
+            if (!error) {
+                [strongSelf.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                [strongSelf.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     }];
-    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (KBBugReport*)reportWithDNAssets:(NSArray<DNAsset*>*)list taskId:(NSString*)taskId withImageUploadCompletion:(void (^)(KBBugReport* report))block
+{
+    KBBugReport* report = [[KBBugReport alloc] init];
+
+    if (![NSString isNilorEmpty:[list firstObject].userDesc]) {
+        report.bugDescription = [list firstObject].userDesc;
+    }
+    else {
+        report.bugDescription = @"用户没有填写bug描述";
+    }
+
+    NSMutableString* onlineStoredImageUrl = [NSMutableString string];
+    NSInteger counter = 0;
+    NSMutableString* localImageUrl = [NSMutableString string];
+    NSInteger totalImags = list.count;
+
+    dispatch_group_t serviceGroup = dispatch_group_create();
+
+    for (DNAsset* asset in list) {
+        counter++;
+        UIImage* image = [asset getImageResource];
+        NSString* key = [KBImageManager getSaveKeyWith:@"png" andIndex:counter];
+        NSString* imageOnlineUrl = [KBImageManager fullImageUrlWithUrl:key];
+        NSLog([NSString stringWithFormat:@"上传中-%ld",(long)counter]);
+        dispatch_group_enter(serviceGroup);
+        [KBImageManager uploadImage:image withKey:key completion:^(NSString* imageUrl, NSError* error) {
+            NSLog(@"上传成功");
+            dispatch_group_leave(serviceGroup);
+        }];
+        NSString* str = asset.url.absoluteString;
+
+        [localImageUrl appendString:str];
+        [onlineStoredImageUrl appendString:imageOnlineUrl];
+
+        if (counter < totalImags) {
+            [localImageUrl appendString:@";"];
+            [onlineStoredImageUrl appendString:@";"];
+        }
+    }
+
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        block(report);
+    });
+
+    //    report.bugCategoryId = 1;
+    report.imgUrl = onlineStoredImageUrl;
+    //    report.severity = 3;
+    report.taskId = [taskId integerValue];
+    report.localUrl = localImageUrl;
+    return report;
 }
 
 - (void)dnImagePickerControllerDidCancel:(DNImagePickerController*)imagePicker

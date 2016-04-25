@@ -104,7 +104,7 @@
 
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
 {
-    self.acceptTask.hidden = !self.isTaskAccepted;
+//    self.acceptTask.hidden = !self.isTaskAccepted;
     self.goToMyReportsBtn.hidden = !self.isTaskAccepted;
     self.startTestTask.hidden = !self.isTaskAccepted;
     self.installBtn.hidden = !self.isTaskAccepted;
