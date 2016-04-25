@@ -34,6 +34,9 @@
 
         [textLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
         [textLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100];
+        [textLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+        [textLabel autoPinEdgeToSuperviewEdge:ALEdgeRight];
+        textLabel.numberOfLines = 0;
 
         [btn autoAlignAxis:ALAxisVertical toSameAxisOfView:textLabel];
         [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:textLabel withOffset:20];

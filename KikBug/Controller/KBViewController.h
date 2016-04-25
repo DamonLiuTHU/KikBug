@@ -29,5 +29,8 @@
 
 - (void)showHudViewWithText:(NSString*)text;
 - (void)showHudViewWithText:(NSString *)text inView:(UIView *)view;
+
 - (void)showAlertViewWithText:(NSString*)text;
+- (void)showAlertViewWithTitle:(NSString *)title Text:(NSString*)text;
+
 @end

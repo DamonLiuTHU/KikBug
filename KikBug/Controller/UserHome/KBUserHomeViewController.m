@@ -19,6 +19,8 @@
 #import "KBLogOutCell.h"
 #import "KBLoginManager.h"
 #import "KBLoginViewController.h"
+#import "KBUserPointsCell.h"
+#import "KBUserRegisterDateCell.h"
 
 @interface KBUserHomeViewController () <DNImagePickerControllerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KBSimpleEditorViewControllerDelegate>
 //@property (strong, nonatomic) UIButton* loginButton;
@@ -90,10 +92,20 @@
     KBUserHomeCellModel* nickNameCellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserNameCell class] cellHeight:[KBUserNameCell cellHeight] model:self.model];
     [array addObject:nickNameCellModel];
     
+    //
+    KBUserHomeCellModel *pointsCellModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserPointsCell class] cellHeight:[KBUserPointsCell cellHeight] model:self.model];
+    [array addObject:pointsCellModel];
+    
+    //
+    KBUserHomeCellModel *registerDateModel = [[KBUserHomeCellModel alloc] initWithClass:[KBUserRegisterDateCell class] cellHeight:[KBUserRegisterDateCell cellHeight] model:self.model];
+    [array addObject:registerDateModel];
+    
     //登出
      [array addObject:[KBUserHomeCellModel emptyCellWithHeight:20.0f]];
     KBUserHomeCellModel *logoutModel = [[KBUserHomeCellModel alloc] initWithClass:[KBLogOutCell class] cellHeight:[KBLogOutCell cellHeight] model:nil];
     [array addObject:logoutModel];
+    
+    
 
     self.dataSource = array;
 

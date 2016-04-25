@@ -118,6 +118,8 @@
 		50FE33981CC62FB100A50B17 /* KBLeftSortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */; };
 		50FE339B1CC65A7E00A50B17 /* KBSegmentSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */; };
 		50FE339F1CC65DB200A50B17 /* KBSegmentControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */; };
+		50FE33A21CCDBA8F00A50B17 /* KBUserProtocolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */; };
+		50FE33A51CCDBBA100A50B17 /* KBProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A41CCDBBA100A50B17 /* KBProtocolViewController.m */; };
 		5D87770580D18DBB4868E7CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF06231D4A1861D309790D96 /* Pods.framework */; };
 		A65202D81CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */; };
 		A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A65202DB1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m */; };
@@ -352,6 +354,10 @@
 		50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSegmentSelectView.m; sourceTree = "<group>"; };
 		50FE339D1CC65DB200A50B17 /* KBSegmentControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSegmentControlCell.h; sourceTree = "<group>"; };
 		50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSegmentControlCell.m; sourceTree = "<group>"; };
+		50FE33A01CCDBA8F00A50B17 /* KBUserProtocolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserProtocolCell.h; sourceTree = "<group>"; };
+		50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserProtocolCell.m; sourceTree = "<group>"; };
+		50FE33A31CCDBBA100A50B17 /* KBProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBProtocolViewController.h; sourceTree = "<group>"; };
+		50FE33A41CCDBBA100A50B17 /* KBProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBProtocolViewController.m; sourceTree = "<group>"; };
 		911207F9D26579F3D20BE1BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A65202D61CA9EC7F005E4A65 /* KBUserSimpleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUserSimpleInfoCell.h; sourceTree = "<group>"; };
 		A65202D71CA9EC7F005E4A65 /* KBUserSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBUserSimpleInfoCell.m; sourceTree = "<group>"; };
@@ -667,6 +673,8 @@
 				50BAE8031C9D7A56000F2D4E /* KBRegisterViewController.m */,
 				50B3D6291C9D895B00AA8D17 /* KBRegisterStep2ViewController.h */,
 				50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */,
+				50FE33A31CCDBBA100A50B17 /* KBProtocolViewController.h */,
+				50FE33A41CCDBBA100A50B17 /* KBProtocolViewController.m */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -990,6 +998,8 @@
 				507967D51CAA1FD1009073EB /* KBUserRegisterDateCell.m */,
 				504BE9541CAE424E00879B92 /* KBLogOutCell.h */,
 				504BE9551CAE424E00879B92 /* KBLogOutCell.m */,
+				50FE33A01CCDBA8F00A50B17 /* KBUserProtocolCell.h */,
+				50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */,
 			);
 			path = UserHome;
 			sourceTree = "<group>";
@@ -1174,6 +1184,7 @@
 				507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */,
 				50A4FE3A1C97F86700B35124 /* DNPhotoBrowser.m in Sources */,
 				50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */,
+				50FE33A21CCDBA8F00A50B17 /* KBUserProtocolCell.m in Sources */,
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				507967D31CAA1FA2009073EB /* KBUserPointsCell.m in Sources */,
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
@@ -1187,6 +1198,7 @@
 				50359C261CA41FBA00DFAD45 /* KBBugManager.m in Sources */,
 				50A4FE381C97F86700B35124 /* DNImagePickerController.m in Sources */,
 				50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */,
+				50FE33A51CCDBBA100A50B17 /* KBProtocolViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
 				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
 				50FE33951CC62DD800A50B17 /* UIView_extra.m in Sources */,
@@ -1402,10 +1414,10 @@
 				INFOPLIST_FILE = KikBug/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoocTest.KikBug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nanjing.MoocTest.Information.KikBug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1421,10 +1433,10 @@
 				INFOPLIST_FILE = KikBug/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MoocTest.KikBug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nanjing.MoocTest.Information.KikBug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -99,14 +99,15 @@
 
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
     self.startTestTask.hidden = !self.acceptTask.hidden;
-    self.installBtn.hidden = YES;
+    self.installBtn.hidden = self.startTestTask.hidden;
 }
 
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
 {
-    //    self.acceptTask.hidden = self.isTaskAccepted;
+    self.acceptTask.hidden = !self.isTaskAccepted;
     self.goToMyReportsBtn.hidden = !self.isTaskAccepted;
     self.startTestTask.hidden = !self.isTaskAccepted;
+    self.installBtn.hidden = !self.isTaskAccepted;
 }
 
 - (void)dealloc
@@ -133,7 +134,7 @@
     self.icon.layer.cornerRadius = 5.0f;
     self.icon.clipsToBounds = YES;
     self.icon.contentMode = UIViewContentModeScaleAspectFit;
-    //    self.jumpButton = [UIButton new];
+//        self.jumpButton = [UIButton new];
     self.acceptTask = [UIButton new];
     self.containerView = [UIView new];
     self.goToMyReportsBtn = [UIButton new];
@@ -391,9 +392,9 @@
     [self.taskDescription autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [self.taskDescription autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescriptionHint];
 
-    [self.startTestTask autoSetDimensionsToSize:CGSizeMake(150, 40)];
-    [self.installBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
-    [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(150, 40)];
+    [self.startTestTask autoSetDimensionsToSize:CGSizeMake(120, 40)];
+    [self.installBtn autoSetDimensionsToSize:CGSizeMake(120, 40)];
+    [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(120, 40)];
 
     [self.goToMyReportsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
     [self.startTestTask autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
@@ -555,7 +556,7 @@
 {
     NSString* host = self.detailModel.scheme;
 #if DEBUG
-     host = @"Airvin";
+    host = @"Airvin";
 #endif
     NSString* str = [NSString stringWithFormat:@"%@://?taskId=%ld", host, (long)self.detailModel.taskId];
     appUrl = [NSURL URLWithString:str];
@@ -579,10 +580,15 @@
 
 - (void)installAppBtnPressed
 {
+    [self showAlertViewWithTitle:@"提示" Text:@"App将跳转到AppStore，如未发生跳转，需要您自行前往AppStore进行App的安装"];
     //
     //    NSString* str = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.detailModel.appLocation];
-    NSString* str = self.detailModel.appLocation;
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+//    NSString* str = self.detailModel.appLocation;
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    NSString *url = self.detailModel.appLocation;
+//    url = @"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993?mt=8";
+//    url = @"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=286274367";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (void)setParams:(NSDictionary*)params

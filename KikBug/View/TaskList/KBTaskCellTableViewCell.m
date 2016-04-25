@@ -29,22 +29,22 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.appImage = [UIImageView new];
-        self.appImage.layer.cornerRadius = 5.0f;
-        self.appImage.clipsToBounds = YES;
-        self.appImage.contentMode = UIViewContentModeScaleAspectFit;
-        self.taskId = [UILabel new];
-        self.deadLine = [UILabel new];
-        self.taskName = [UILabel new];
-        self.taskDeadLineHintLabel = [UILabel new];
+    if (self                         = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    self.appImage                    = [UIImageView new];
+    self.appImage.layer.cornerRadius = 5.0f;
+    self.appImage.clipsToBounds      = YES;
+    self.appImage.contentMode        = UIViewContentModeScaleAspectFit;
+    self.taskId                      = [UILabel new];
+    self.deadLine                    = [UILabel new];
+    self.taskName                    = [UILabel new];
+    self.taskDeadLineHintLabel       = [UILabel new];
         [self.taskDeadLineHintLabel setAttributedText:[[NSAttributedString alloc] initWithString:@"到期时间"
                                                                                       attributes:SUBTITLE_ATTRIBUTE]];
         [self.taskDeadLineHintLabel sizeToFit];
-        self.line = [[KBOnePixelLine alloc] init];
+    self.line                        = [[KBOnePixelLine alloc] init];
         [self.line setLineColor:LIGHT_GRAY_COLOR];
-        
-        self.categoryLabel = [UILabel new];
+
+    self.categoryLabel               = [UILabel new];
         [self configSubViews];
     }
     return self;
@@ -63,7 +63,7 @@
     [self.taskName autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.taskId];
 
     [self.taskDeadLineHintLabel autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.deadLine withOffset:-5];
-        [self.taskDeadLineHintLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.taskName];
+    [self.taskDeadLineHintLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.taskName];
     //    [self.taskDeadLineHintLabel autoPinEdgeToSuperviewMargin:ALEdgeRight];
 //    [self.taskDeadLineHintLabel autoAlignAxis:ALAxisFirstBaseline toSameAxisOfView:self.taskName];
 
@@ -74,7 +74,7 @@
     //    [self.line autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self.line autoSetDimension:ALDimensionHeight toSize:1.0f];
     [self.line autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 10, 0, 0) excludingEdge:ALEdgeTop];
-    
+
 //    [self.categoryLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.line];
     [self.categoryLabel autoAlignAxis:ALAxisBaseline toSameAxisOfView:self.appImage];
     [self.categoryLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.taskId];
@@ -84,8 +84,8 @@
 - (void)configSubViews
 {
     [self layoutSubviews];
-    self.appImage.contentMode = UIViewContentModeScaleAspectFit;
-    defaultImage = [UIImage imageNamed:@"appicon@2x.jpg"];
+    self.appImage.contentMode        = UIViewContentModeScaleAspectFit;
+    defaultImage                     = [UIImage imageNamed:@"appicon@2x.jpg"];
 
     [self addSubview:self.line];
     [self addSubview:self.taskDeadLineHintLabel];
@@ -110,7 +110,8 @@
     //    [self.taskId setText:data.taskId];
     [self.taskId setAttributedText:[[NSAttributedString alloc] initWithString:data.taskId
                                                                    attributes:SUBTITLE_ATTRIBUTE]];
-    NSString* dateStr = [NSString dateFromTimeStamp:data.taskDeadLine];
+    
+    NSString* dateStr = [NSString simpleDateFromTimeStamp:data.taskDeadLine];
     [self.deadLine setAttributedText:[[NSAttributedString alloc] initWithString:dateStr
                                                                      attributes:SUBTITLE_ATTRIBUTE]];
     [self.taskName setAttributedText:[[NSAttributedString alloc] initWithString:data.taskName
@@ -119,9 +120,9 @@
     [self.categoryLabel setAttributedText:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"分类:%@",data.category]
                                                                      attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:12],
                                                                                    NSForegroundColorAttributeName : [UIColor grayColor] }]];
-    
+
     if ([NSString isNilorEmpty:data.iconLocation]) {
-        self.appImage.image = defaultImage;
+    self.appImage.image              = defaultImage;
     }
     else {
         [self.appImage setImageWithUrl:data.iconLocation];

@@ -1,5 +1,5 @@
 use_frameworks!
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod 'AFNetworking', '~> 2.0'
 pod 'MJExtension'  #model convenient
 pod 'SDWebImage','~>3.7'   #for cache

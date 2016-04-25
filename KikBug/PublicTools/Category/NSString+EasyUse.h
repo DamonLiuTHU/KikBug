@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 @interface NSString (EasyUse)
 + (NSString*)dateFromTimeStamp:(NSString*)timeSp;
++ (NSString*)simpleDateFromTimeStamp:(NSString*)timeSp;
 - (CGFloat)heightForString:(NSString*)value fontSize:(CGFloat)fontSize andWidth:(CGFloat)width;
 - (CGSize)sizeForFontSize:(CGFloat)fontSize andWidth:(CGFloat)width; //根据字符串的的长度来计算UITextView的高度
 + (NSString*)concatenateQuery:(NSDictionary*)parameters;

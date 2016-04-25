@@ -151,6 +151,16 @@
     return self.view;
 }
 
+- (void)showAlertViewWithTitle:(NSString *)title Text:(NSString*)text
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action){
+    }]];
+    [self.navigationController presentViewController:alert animated:YES completion:^{
+        //
+    }];
+}
+
 - (void)showAlertViewWithText:(NSString*)text
 {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"错误" message:text preferredStyle:UIAlertControllerStyleAlert];

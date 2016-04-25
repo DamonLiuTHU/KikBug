@@ -45,7 +45,7 @@
 #define WEAKSELF __weak __typeof(&*self) weakSelf = self;
 #define STRONGSELF __strong typeof(self) strongSelf = weakSelf;
 #define NSSTRING_NOT_NIL(string) string ? string : @""
-#define INT_TO_STIRNG(intvalue) [NSString stringWithFormat:@"%ld", intvalue]
+#define INT_TO_STIRNG(intvalue) [NSString stringWithFormat:@"%ld", (long)intvalue]
 
 //load url from plist
 #define HOST @"http://120.27.163.157:8008/kikbug-api"
@@ -127,6 +127,8 @@
 #define MY_TASK_REPORT @"/task/report"
 #define SIMPLE_EDITOR @"/editor"
 #define ADD_BUG_STEP_1 @"/createBug/step1"
+#define PROTOCOL_PAGE @"/register/protocol"
+
 /*************************/
 #define STORED_USER_ID [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]
 #define STORED_USER_PHONE [[NSUserDefaults standardUserDefaults] valueForKey:USER_PHONE]

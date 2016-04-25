@@ -144,9 +144,10 @@
     [self.loginBtn addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     self.loginBtn.layer.cornerRadius = 5;
 
-    NSAttributedString* loginWithSMSStr = [[NSAttributedString alloc] initWithString:@"通过短信登录" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
+    NSAttributedString* loginWithSMSStr = [[NSAttributedString alloc] initWithString:@"KikBug用户协议" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
     [self.loginWithSMS setAttributedTitle:loginWithSMSStr forState:UIControlStateNormal];
     [self.loginWithSMS setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+    [self.loginWithSMS addTarget:self action:@selector(checkProtocolBtnPressed) forControlEvents:UIControlEventTouchUpInside];
 
     NSAttributedString* forgetPswBtnStr = [[NSAttributedString alloc] initWithString:@"忘记密码?" attributes:@{ NSFontAttributeName : APP_FONT(11), NSForegroundColorAttributeName : THEME_COLOR }];
     [self.forgetPswBtn setAttributedTitle:forgetPswBtnStr forState:UIControlStateNormal];
@@ -319,6 +320,11 @@
 {
     UIViewController *vc = (UIViewController *)[[HHRouter shared] matchController:REGISTER_PAGE];
     [[KBNavigator sharedNavigator] showViewController:vc withShowType:KBUIManagerShowTypePush];
+}
+
+- (void)checkProtocolBtnPressed
+{
+    [[KBNavigator sharedNavigator] showViewController:[[HHRouter shared] matchController:PROTOCOL_PAGE] withShowType:KBUIManagerShowTypePush];
 }
 
 @end

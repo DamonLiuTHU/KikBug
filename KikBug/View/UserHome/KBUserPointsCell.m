@@ -7,15 +7,57 @@
 //
 
 #import "KBUserPointsCell.h"
+#import "KBOnePixelLine.h"
+#import "KBUserInfoModel.h"
+@interface KBUserPointsCell ()
+@property (strong, nonatomic) UILabel* label;
+@property (strong, nonatomic) UILabel* nickName;
+@end
 
 @implementation KBUserPointsCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)configSubviews
+{
+    [super configSubviews];
+    UILabel* label = [UILabel new];
+    label.text = @"积分";
+    [self addSubview:label];
+    self.label = label;
+    
+    self.nickName = [UILabel new];
+    [self addSubview:self.nickName];
+    
+    [self.rightArrow setHidden:YES];
+    
+    KBOnePixelLine* line = [[KBOnePixelLine alloc] initWithFrame:CGRectZero];
+    [self addSubview:line];
+    [line autoSetDimension:ALDimensionHeight toSize:1.0f];
+    [line autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [line autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [line autoPinEdgeToSuperviewEdge:ALEdgeRight];
 }
-*/
+
+- (void)configConstrains
+{
+    [super configConstrains];
+    [self.label autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [self.label autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    
+    [self.nickName autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.rightArrow withOffset:-10.0f];
+    [self.nickName autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.label];
+    
+    [super updateConstraints];
+}
+
+- (void)bindModel:(KBUserInfoModel*)model
+{
+    self.nickName.text = INT_TO_STIRNG(model.points);
+}
+
++ (CGFloat)cellHeight
+{
+    return 50.0f;
+}
+
 
 @end
