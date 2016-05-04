@@ -148,6 +148,10 @@
 
     self.taskNameLabel = [UILabel new];
     self.taskNameHintLabel = [UILabel new];
+    
+    //审核
+    self.pointsLabel.hidden = YES;
+    self.pointsHintLbale.hidden = YES;
 }
 
 - (void)configSubviews
@@ -220,7 +224,7 @@
     [self.installBtn.layer setCornerRadius:5.0f];
 
     [self.startTestTask setAttributedTitle:[[NSAttributedString alloc]
-                                               initWithString:@"开始测试"
+                                               initWithString:@"开始任务"
                                                    attributes:BUTTON_TITLE_ATTRIBUTE]
                                   forState:UIControlStateNormal];
 
@@ -261,8 +265,8 @@
 {
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
     [self.icon autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
-    [self.icon autoSetDimension:ALDimensionWidth toSize:80];
-    [self.icon autoSetDimension:ALDimensionHeight toSize:80];
+    [self.icon autoSetDimension:ALDimensionWidth toSize:60];
+    [self.icon autoSetDimension:ALDimensionHeight toSize:60];
 
     //    [self.jumpButton autoPinEdge:ALEdgeTop
     //                          toEdge:ALEdgeBottom
@@ -288,40 +292,58 @@
                            toEdge:ALEdgeBottom
                            ofView:self.taskIdLabelHint];
 
-    [self.pointsHintLbale autoPinEdge:ALEdgeLeft
+//    [self.pointsHintLbale autoPinEdge:ALEdgeLeft
+//                               toEdge:ALEdgeRight
+//                               ofView:self.icon
+//                           withOffset:5.0f];
+//
+//    [self.pointsHintLbale autoPinEdge:ALEdgeTop
+//                               toEdge:ALEdgeBottom
+//                               ofView:self.taskIdLabelHint
+//                           withOffset:5];
+//
+//    [self.pointsLabel autoPinEdge:ALEdgeLeft
+//                           toEdge:ALEdgeLeft
+//                           ofView:self.taskNameLabel];
+//
+//    [self.pointsLabel autoPinEdge:ALEdgeBottom
+//                           toEdge:ALEdgeBottom
+//                           ofView:self.pointsHintLbale];
+    
+    [self.categoryLabelHint autoPinEdge:ALEdgeLeft
                                toEdge:ALEdgeRight
                                ofView:self.icon
                            withOffset:5.0f];
 
-    [self.pointsHintLbale autoPinEdge:ALEdgeTop
+    [self.categoryLabelHint autoPinEdge:ALEdgeTop
                                toEdge:ALEdgeBottom
                                ofView:self.taskIdLabelHint
                            withOffset:5];
 
-    [self.pointsLabel autoPinEdge:ALEdgeLeft
+    [self.categoryLabel autoPinEdge:ALEdgeLeft
                            toEdge:ALEdgeLeft
                            ofView:self.taskNameLabel];
 
-    [self.pointsLabel autoPinEdge:ALEdgeBottom
-                           toEdge:ALEdgeBottom
-                           ofView:self.pointsHintLbale];
-
-    [self.categoryLabelHint autoPinEdge:ALEdgeLeft
-                                 toEdge:ALEdgeRight
-                                 ofView:self.icon
-                             withOffset:5.0f];
-    [self.categoryLabelHint autoPinEdge:ALEdgeTop
-                                 toEdge:ALEdgeBottom
-                                 ofView:self.pointsHintLbale
-                             withOffset:5];
-
-    [self.categoryLabel autoPinEdge:ALEdgeLeft
-                             toEdge:ALEdgeLeft
-                             ofView:self.taskNameLabel];
-
     [self.categoryLabel autoPinEdge:ALEdgeBottom
-                             toEdge:ALEdgeBottom
-                             ofView:self.categoryLabelHint];
+                           toEdge:ALEdgeBottom
+                           ofView:self.categoryLabelHint];
+
+//    [self.categoryLabelHint autoPinEdge:ALEdgeLeft
+//                                 toEdge:ALEdgeRight
+//                                 ofView:self.icon
+//                             withOffset:5.0f];
+//    [self.categoryLabelHint autoPinEdge:ALEdgeTop
+//                                 toEdge:ALEdgeBottom
+//                                 ofView:self.pointsHintLbale
+//                             withOffset:5];
+//
+//    [self.categoryLabel autoPinEdge:ALEdgeLeft
+//                             toEdge:ALEdgeLeft
+//                             ofView:self.taskNameLabel];
+//
+//    [self.categoryLabel autoPinEdge:ALEdgeBottom
+//                             toEdge:ALEdgeBottom
+//                             ofView:self.categoryLabelHint];
 
     [self.addDateLabelHint autoPinEdgeToSuperviewMargin:ALEdgeLeft];
 
@@ -554,6 +576,7 @@
  */
 - (void)jumpToApp:(id)sender
 {
+    [self showAlertViewWithTitle:@"提示" Text:@"App将跳转到其他App，如未安装被任务所需App，则需要您先安装之"];
     NSString* host = self.detailModel.scheme;
 #if DEBUG
     host = @"Airvin";

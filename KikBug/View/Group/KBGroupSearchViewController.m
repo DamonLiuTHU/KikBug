@@ -36,12 +36,12 @@
 
 - (void)loadData
 {
-    WEAKSELF;
-    [KBGroupManager searchGroupWithKeyword:@"" block:^(KBGroupSearchModel* baseMode, NSError* error) {
-        [weakSelf endRefreshing];
-        weakSelf.model = baseMode;
-        [weakSelf.tableView reloadData];
-    }];
+//    WEAKSELF;
+//    [KBGroupManager searchGroupWithKeyword:@"" block:^(KBGroupSearchModel* baseMode, NSError* error) {
+//        [weakSelf endRefreshing];
+//        weakSelf.model = baseMode;
+//        [weakSelf.tableView reloadData];
+//    }];
 }
 
 - (void)configTableView

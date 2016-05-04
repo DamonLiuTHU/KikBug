@@ -141,8 +141,8 @@ static NSString* identifier = @"kikbug";
     // Dispose of any resources that can be recreated.
 //    self.dataSourceForPublicTasks = nil;
 //    self.dataSourceForGroup = nil;
-    self.dataSourceDic = nil;
-    self.dataSource = nil;
+//    self.dataSourceDic = nil;
+//    self.dataSource = nil;
 }
 
 #pragma mark - Table view data source
