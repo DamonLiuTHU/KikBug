@@ -98,16 +98,16 @@
     [self.view addGestureRecognizer:rec];
 
     self.goToMyReportsBtn.hidden = !self.acceptTask.hidden;
-    self.startTestTask.hidden = !self.acceptTask.hidden;
-    self.installBtn.hidden = self.startTestTask.hidden;
+//    self.startTestTask.hidden = !self.acceptTask.hidden;
+//    self.installBtn.hidden = self.startTestTask.hidden;
 }
 
 - (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary<NSString*, id>*)change context:(void*)context
 {
 //    self.acceptTask.hidden = !self.isTaskAccepted;
     self.goToMyReportsBtn.hidden = !self.isTaskAccepted;
-    self.startTestTask.hidden = !self.isTaskAccepted;
-    self.installBtn.hidden = !self.isTaskAccepted;
+//    self.startTestTask.hidden = !self.isTaskAccepted;
+//    self.installBtn.hidden = !self.isTaskAccepted;
 }
 
 - (void)dealloc
@@ -152,6 +152,8 @@
     //审核
     self.pointsLabel.hidden = YES;
     self.pointsHintLbale.hidden = YES;
+    self.installBtn.hidden = YES;
+    self.startTestTask.hidden = YES;
 }
 
 - (void)configSubviews
@@ -416,14 +418,19 @@
 
     [self.startTestTask autoSetDimensionsToSize:CGSizeMake(120, 40)];
     [self.installBtn autoSetDimensionsToSize:CGSizeMake(120, 40)];
-    [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(120, 40)];
+//    [self.goToMyReportsBtn autoSetDimensionsToSize:CGSizeMake(120, 40)];
 
     [self.goToMyReportsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
     [self.startTestTask autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.taskDescription withOffset:5.0f];
 
     [self.startTestTask autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
-    [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
+//    [self.goToMyReportsBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:+80];
 
+    [self.goToMyReportsBtn autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.goToMyReportsBtn autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:5.0];
+    [self.goToMyReportsBtn autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:5.0f];
+    [self.goToMyReportsBtn autoSetDimension:ALDimensionHeight toSize:40.0];
+    
     [self.installBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:self.containerView withOffset:-80];
     [self.installBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.startTestTask withOffset:20.0f];
 
