@@ -50,12 +50,16 @@
 		5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDC1C91457000C1A0A7 /* KBGroupTableViewCell.m */; };
 		5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */; };
 		505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505A91C01C57AC160024FC18 /* KBLogoView.m */; };
+		5060FDB21CF808B500BF8D8C /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5060FDA91CF808B500BF8D8C /* KBBaseTableViewController.m */; };
+		5060FDB31CF808B500BF8D8C /* KBLeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5060FDAB1CF808B500BF8D8C /* KBLeftSlideViewController.m */; };
+		5060FDB41CF808B500BF8D8C /* KBLeftSortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5060FDAD1CF808B500BF8D8C /* KBLeftSortsViewController.m */; };
+		5060FDB51CF808B500BF8D8C /* KBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5060FDAF1CF808B500BF8D8C /* KBViewController.m */; };
+		5060FDB61CF808B500BF8D8C /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 5060FDB11CF808B500BF8D8C /* UIView_extra.m */; };
 		50688F481CB3975F00179D28 /* KBBugTypeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F471CB3975F00179D28 /* KBBugTypeLabel.m */; };
 		50688F4C1CB61C9600179D28 /* KBUIConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F4B1CB61C9600179D28 /* KBUIConstant.m */; };
 		50688F4F1CB6575C00179D28 /* KBTaskDetailViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 50688F4E1CB6575C00179D28 /* KBTaskDetailViewControllerV2.m */; };
 		50740BC21C574926009B30A4 /* KBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC11C574926009B30A4 /* KBLoginViewController.m */; };
 		50740BC61C575CB3009B30A4 /* KBNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC51C575CB3009B30A4 /* KBNavigator.m */; };
-		50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50740BC81C575EDF009B30A4 /* KBViewController.m */; };
 		507526241C83E51B0071F67F /* KBTaskListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526231C83E51B0071F67F /* KBTaskListManager.m */; };
 		5075262A1C83E68B0071F67F /* KBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 507526291C83E68B0071F67F /* KBBaseModel.m */; };
 		5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5075262D1C843FAA0071F67F /* KBTaskManager.m */; };
@@ -94,7 +98,6 @@
 		50A4FE491C97F86700B35124 /* JKPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4FE331C97F86700B35124 /* JKPromptView.m */; };
 		50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */; };
 		50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */; };
-		50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B996A31C901443002E825A /* KBBaseTableViewController.m */; };
 		50BAE8011C9D79F7000F2D4E /* KBRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */; };
 		50BAE8041C9D7A56000F2D4E /* KBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BAE8031C9D7A56000F2D4E /* KBRegisterViewController.m */; };
 		50CFDA911C94127D007E533E /* KBGroupSearchListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CFDA901C94127D007E533E /* KBGroupSearchListCellModel.m */; };
@@ -113,9 +116,6 @@
 		50EDD5091C8A6A110021D71D /* KBGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD5081C8A6A110021D71D /* KBGroupManager.m */; };
 		50EDD50C1C8A70880021D71D /* KBGroupDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */; };
 		50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F859371BF07693008896D0 /* KBTaskListModel.m */; };
-		50FE33941CC62DD800A50B17 /* KBLeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33911CC62DD800A50B17 /* KBLeftSlideViewController.m */; };
-		50FE33951CC62DD800A50B17 /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33931CC62DD800A50B17 /* UIView_extra.m */; };
-		50FE33981CC62FB100A50B17 /* KBLeftSortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */; };
 		50FE339B1CC65A7E00A50B17 /* KBSegmentSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */; };
 		50FE339F1CC65DB200A50B17 /* KBSegmentControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE339E1CC65DB200A50B17 /* KBSegmentControlCell.m */; };
 		50FE33A21CCDBA8F00A50B17 /* KBUserProtocolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE33A11CCDBA8F00A50B17 /* KBUserProtocolCell.m */; };
@@ -223,6 +223,16 @@
 		5056CDDF1C915C1E00C1A0A7 /* KBGroupSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBGroupSearchViewController.m; path = ../../View/Group/KBGroupSearchViewController.m; sourceTree = "<group>"; };
 		505A91BF1C57AC160024FC18 /* KBLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLogoView.h; sourceTree = "<group>"; };
 		505A91C01C57AC160024FC18 /* KBLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLogoView.m; sourceTree = "<group>"; };
+		5060FDA81CF808B500BF8D8C /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewController.h; sourceTree = "<group>"; };
+		5060FDA91CF808B500BF8D8C /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewController.m; sourceTree = "<group>"; };
+		5060FDAA1CF808B500BF8D8C /* KBLeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLeftSlideViewController.h; sourceTree = "<group>"; };
+		5060FDAB1CF808B500BF8D8C /* KBLeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLeftSlideViewController.m; sourceTree = "<group>"; };
+		5060FDAC1CF808B500BF8D8C /* KBLeftSortsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBLeftSortsViewController.h; sourceTree = "<group>"; };
+		5060FDAD1CF808B500BF8D8C /* KBLeftSortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLeftSortsViewController.m; sourceTree = "<group>"; };
+		5060FDAE1CF808B500BF8D8C /* KBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBViewController.h; sourceTree = "<group>"; };
+		5060FDAF1CF808B500BF8D8C /* KBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBViewController.m; sourceTree = "<group>"; };
+		5060FDB01CF808B500BF8D8C /* UIView_extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_extra.h; sourceTree = "<group>"; };
+		5060FDB11CF808B500BF8D8C /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_extra.m; sourceTree = "<group>"; };
 		50688F461CB3975F00179D28 /* KBBugTypeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBugTypeLabel.h; sourceTree = "<group>"; };
 		50688F471CB3975F00179D28 /* KBBugTypeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBugTypeLabel.m; sourceTree = "<group>"; };
 		50688F4A1CB61C9600179D28 /* KBUIConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBUIConstant.h; sourceTree = "<group>"; };
@@ -233,8 +243,6 @@
 		50740BC11C574926009B30A4 /* KBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBLoginViewController.m; sourceTree = "<group>"; };
 		50740BC41C575CB3009B30A4 /* KBNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBNavigator.h; sourceTree = "<group>"; };
 		50740BC51C575CB3009B30A4 /* KBNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBNavigator.m; sourceTree = "<group>"; };
-		50740BC71C575EDF009B30A4 /* KBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBViewController.h; path = ../KBViewController.h; sourceTree = "<group>"; };
-		50740BC81C575EDF009B30A4 /* KBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBViewController.m; path = ../KBViewController.m; sourceTree = "<group>"; };
 		507526221C83E51B0071F67F /* KBTaskListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBTaskListManager.h; sourceTree = "<group>"; };
 		507526231C83E51B0071F67F /* KBTaskListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBTaskListManager.m; sourceTree = "<group>"; };
 		507526281C83E68B0071F67F /* KBBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseModel.h; sourceTree = "<group>"; };
@@ -307,8 +315,6 @@
 		50B3D62A1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBRegisterStep2ViewController.m; sourceTree = "<group>"; };
 		50B9969F1C9011F5002E825A /* KBBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBBaseTableViewCell.h; sourceTree = "<group>"; };
 		50B996A01C9011F5002E825A /* KBBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBBaseTableViewCell.m; sourceTree = "<group>"; };
-		50B996A21C901443002E825A /* KBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBBaseTableViewController.h; path = ../KBBaseTableViewController.h; sourceTree = "<group>"; };
-		50B996A31C901443002E825A /* KBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBBaseTableViewController.m; path = ../KBBaseTableViewController.m; sourceTree = "<group>"; };
 		50BAE7FF1C9D79F7000F2D4E /* KBRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBRegisterManager.h; path = ../UserData/KBRegisterManager.h; sourceTree = "<group>"; };
 		50BAE8001C9D79F7000F2D4E /* KBRegisterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBRegisterManager.m; path = ../UserData/KBRegisterManager.m; sourceTree = "<group>"; };
 		50BAE8021C9D7A56000F2D4E /* KBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBRegisterViewController.h; sourceTree = "<group>"; };
@@ -345,12 +351,6 @@
 		50EDD50B1C8A70880021D71D /* KBGroupDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGroupDetailModel.m; sourceTree = "<group>"; };
 		50F859361BF07693008896D0 /* KBTaskListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBTaskListModel.h; path = ../KBTaskListModel.h; sourceTree = "<group>"; };
 		50F859371BF07693008896D0 /* KBTaskListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBTaskListModel.m; path = ../KBTaskListModel.m; sourceTree = "<group>"; };
-		50FE33901CC62DD800A50B17 /* KBLeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBLeftSlideViewController.h; path = ../../../../../LeftSlide/LeftSlideViewController/KBLeftSlideViewController.h; sourceTree = "<group>"; };
-		50FE33911CC62DD800A50B17 /* KBLeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBLeftSlideViewController.m; path = ../../../../../LeftSlide/LeftSlideViewController/KBLeftSlideViewController.m; sourceTree = "<group>"; };
-		50FE33921CC62DD800A50B17 /* UIView_extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIView_extra.h; path = ../../../../../LeftSlide/LeftSlideViewController/UIView_extra.h; sourceTree = "<group>"; };
-		50FE33931CC62DD800A50B17 /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIView_extra.m; path = ../../../../../LeftSlide/LeftSlideViewController/UIView_extra.m; sourceTree = "<group>"; };
-		50FE33961CC62FB100A50B17 /* KBLeftSortsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBLeftSortsViewController.h; path = ../../../../../LeftSlide/LeftSlide/KBLeftSortsViewController.h; sourceTree = "<group>"; };
-		50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBLeftSortsViewController.m; path = ../../../../../LeftSlide/LeftSlide/KBLeftSortsViewController.m; sourceTree = "<group>"; };
 		50FE33991CC65A7E00A50B17 /* KBSegmentSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSegmentSelectView.h; sourceTree = "<group>"; };
 		50FE339A1CC65A7E00A50B17 /* KBSegmentSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBSegmentSelectView.m; sourceTree = "<group>"; };
 		50FE339D1CC65DB200A50B17 /* KBSegmentControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBSegmentControlCell.h; sourceTree = "<group>"; };
@@ -485,23 +485,6 @@
 			);
 			name = BugReport;
 			path = Bug;
-			sourceTree = "<group>";
-		};
-		50359C231CA3DB1100DFAD45 /* BaseClass */ = {
-			isa = PBXGroup;
-			children = (
-				50FE33961CC62FB100A50B17 /* KBLeftSortsViewController.h */,
-				50FE33971CC62FB100A50B17 /* KBLeftSortsViewController.m */,
-				50FE33901CC62DD800A50B17 /* KBLeftSlideViewController.h */,
-				50FE33911CC62DD800A50B17 /* KBLeftSlideViewController.m */,
-				50FE33921CC62DD800A50B17 /* UIView_extra.h */,
-				50FE33931CC62DD800A50B17 /* UIView_extra.m */,
-				50740BC71C575EDF009B30A4 /* KBViewController.h */,
-				50740BC81C575EDF009B30A4 /* KBViewController.m */,
-				50B996A21C901443002E825A /* KBBaseTableViewController.h */,
-				50B996A31C901443002E825A /* KBBaseTableViewController.m */,
-			);
-			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		5038F9B11BF09FCE00CE22BE /* CommonUITool */ = {
@@ -667,6 +650,23 @@
 				505A91C01C57AC160024FC18 /* KBLogoView.m */,
 			);
 			path = Logo;
+			sourceTree = "<group>";
+		};
+		5060FDA71CF808B500BF8D8C /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				5060FDA81CF808B500BF8D8C /* KBBaseTableViewController.h */,
+				5060FDA91CF808B500BF8D8C /* KBBaseTableViewController.m */,
+				5060FDAA1CF808B500BF8D8C /* KBLeftSlideViewController.h */,
+				5060FDAB1CF808B500BF8D8C /* KBLeftSlideViewController.m */,
+				5060FDAC1CF808B500BF8D8C /* KBLeftSortsViewController.h */,
+				5060FDAD1CF808B500BF8D8C /* KBLeftSortsViewController.m */,
+				5060FDAE1CF808B500BF8D8C /* KBViewController.h */,
+				5060FDAF1CF808B500BF8D8C /* KBViewController.m */,
+				5060FDB01CF808B500BF8D8C /* UIView_extra.h */,
+				5060FDB11CF808B500BF8D8C /* UIView_extra.m */,
+			);
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		50740BBF1C574916009B30A4 /* Login&Register */ = {
@@ -851,7 +851,7 @@
 		50D97C251C3F9BFE00E37500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50359C231CA3DB1100DFAD45 /* BaseClass */,
+				5060FDA71CF808B500BF8D8C /* BaseClass */,
 				50740BBF1C574916009B30A4 /* Login&Register */,
 				50D97C261C3F9BFE00E37500 /* Group */,
 				50D97C271C3F9BFE00E37500 /* MyTasks */,
@@ -1194,7 +1194,6 @@
 				50F859381BF07693008896D0 /* KBTaskListModel.m in Sources */,
 				507967D31CAA1FA2009073EB /* KBUserPointsCell.m in Sources */,
 				5056CDE01C915C1E00C1A0A7 /* KBGroupSearchViewController.m in Sources */,
-				50FE33981CC62FB100A50B17 /* KBLeftSortsViewController.m in Sources */,
 				50A4FE451C97F86700B35124 /* DNFullImageButton.m in Sources */,
 				5002D9271CA25BBC00D7347E /* KBGroupTaskListViewController.m in Sources */,
 				50359C2E1CA4D3BE00DFAD45 /* CDBugReport+CoreDataProperties.m in Sources */,
@@ -1207,15 +1206,15 @@
 				50FE33A51CCDBBA100A50B17 /* KBProtocolViewController.m in Sources */,
 				5075262E1C843FAA0071F67F /* KBTaskManager.m in Sources */,
 				50A4FE3E1C97F86700B35124 /* UIView+DNImagePicker.m in Sources */,
-				50FE33951CC62DD800A50B17 /* UIView_extra.m in Sources */,
 				A65202DC1CA9ECD4005E4A65 /* KBTaskCellTableViewCell.m in Sources */,
 				50A4FE421C97F86700B35124 /* DNAssetsViewCell.m in Sources */,
+				5060FDB61CF808B500BF8D8C /* UIView_extra.m in Sources */,
 				5056098D1CA140AA00D1DB8B /* NSData+MD5Digest.m in Sources */,
+				5060FDB51CF808B500BF8D8C /* KBViewController.m in Sources */,
 				505609921CA140AA00D1DB8B /* UPMutUploaderManager.m in Sources */,
 				5056CDDD1C91457000C1A0A7 /* KBGroupTableViewCell.m in Sources */,
 				50359C161CA3BBA700DFAD45 /* CoreDataManager.m in Sources */,
 				507967BF1CAA1A64009073EB /* KBEmptyCell.m in Sources */,
-				50FE33941CC62DD800A50B17 /* KBLeftSlideViewController.m in Sources */,
 				504BE9621CAFB3FD00879B92 /* KBImageBrowserCell.m in Sources */,
 				50B3D62B1C9D895B00AA8D17 /* KBRegisterStep2ViewController.m in Sources */,
 				A65202E41CAA7853005E4A65 /* CDUserInfoModel+CoreDataProperties.m in Sources */,
@@ -1252,6 +1251,7 @@
 				50D97C351C3F9BFE00E37500 /* KBMyTaskListViewController.m in Sources */,
 				50D97C211C3F9BDB00E37500 /* main.m in Sources */,
 				5056098C1CA140AA00D1DB8B /* UPYUNConfig.m in Sources */,
+				5060FDB41CF808B500BF8D8C /* KBLeftSortsViewController.m in Sources */,
 				50A4FE441C97F86700B35124 /* DNBrowserCell.m in Sources */,
 				50A4FE3F1C97F86700B35124 /* UIViewController+DNImagePicker.m in Sources */,
 				50A4FE351C97F86700B35124 /* DNAlbumTableViewController.m in Sources */,
@@ -1261,14 +1261,13 @@
 				507967B91CA6B8BF009073EB /* UIImageView+EaseUse.m in Sources */,
 				505A91C11C57AC160024FC18 /* KBLogoView.m in Sources */,
 				504BE9531CAD42F300879B92 /* KBSimpleEditorViewController.m in Sources */,
-				50740BC91C575EDF009B30A4 /* KBViewController.m in Sources */,
 				A65202E51CAA7853005E4A65 /* CDUserInfoModel.m in Sources */,
+				5060FDB21CF808B500BF8D8C /* KBBaseTableViewController.m in Sources */,
 				5056098F1CA140AA00D1DB8B /* UPHTTPBodyPart.m in Sources */,
 				507967D01CAA1F98009073EB /* KBUserAccountNumberCell.m in Sources */,
 				50873C951C96CA6300979A4C /* KBGroupDetailViewController.m in Sources */,
 				504BF9911C96A0A60067EA70 /* KBGroupSearchTableViewCell.m in Sources */,
 				50A4FE431C97F86700B35124 /* DNBadgeLabel.m in Sources */,
-				50B996A41C901443002E825A /* KBBaseTableViewController.m in Sources */,
 				5056098E1CA140AA00D1DB8B /* NSString+NSHash.m in Sources */,
 				504BE9591CAF4D4900879B92 /* KBEmptyView.m in Sources */,
 				5030049A1BF08C9D007D22BC /* KBTaskDetailModel.m in Sources */,
@@ -1276,6 +1275,7 @@
 				50688F481CB3975F00179D28 /* KBBugTypeLabel.m in Sources */,
 				504BE9561CAE424E00879B92 /* KBLogOutCell.m in Sources */,
 				50A4FE361C97F86700B35124 /* DNAsset.m in Sources */,
+				5060FDB31CF808B500BF8D8C /* KBLeftSlideViewController.m in Sources */,
 				50B996A11C9011F5002E825A /* KBBaseTableViewCell.m in Sources */,
 				50D97C1D1C3F9BDB00E37500 /* NSString+EasyUse.m in Sources */,
 				50D97C201C3F9BDB00E37500 /* KBHttpManager.m in Sources */,
