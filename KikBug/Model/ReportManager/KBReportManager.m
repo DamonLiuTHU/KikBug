@@ -70,7 +70,8 @@
     NSString* url = GETURL_V2(@"GetMyReports");
     [KBHttpManager sendGetHttpReqeustWithUrl:url
                                       Params:@{ @"testerId" : NSSTRING_NOT_NIL(STORED_USER_ID),
-                                          @"taskId" : NSSTRING_NOT_NIL(taskId) }
+                                          @"taskId" : NSSTRING_NOT_NIL(taskId),
+                                                @"count":INT_TO_STIRNG(100)}
                                     CallBack:^(id responseObject, NSError* error) {
                                         if (!error) {
                                             NSArray *array = [responseObject valueForKey:@"items"];
