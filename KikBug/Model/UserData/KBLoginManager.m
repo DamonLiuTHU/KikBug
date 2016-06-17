@@ -18,12 +18,12 @@
         @"password" : NSSTRING_NOT_NIL(password) };
     [KBHttpManager sendPostHttpRequestWithUrl:GETURL_V2(@"Login") Params:params CallBack:^(id responseObject, NSError* error) {
         KBLoginModel* model = [KBLoginModel mj_objectWithKeyValues:responseObject];
-        if (error) {
-            block(nil, error);
-        }
-        else {
+        if (!error && model) {
             [self markUserAsLoginWithUserId:INT_TO_STIRNG((long)model.userId) userPhone:phone userEmail:phone session:model.session];
             block(model, error);
+        }
+        else {
+            block(nil, error);
         }
     }];
 }
