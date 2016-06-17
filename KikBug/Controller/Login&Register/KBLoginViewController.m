@@ -297,19 +297,20 @@
 {
     WEAKSELF;
     [KBLoginManager loginWithPhone:self.phoneNumber.text password:self.pswFiled.text completion:^(KBLoginModel* model, NSError* error) {
-        if (error) {
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"" delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-            [alertView show];
-        }
-        else {
-//            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-//            [alertView show];
+        if (!error && model) {
             if (self.block) {
                 self.block();
             }
             [weakSelf dismissViewControllerAnimated:YES completion:^{
                 
             }];
+            
+        }
+        else {
+//            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:model.session delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+//            [alertView show];
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"" delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+            [alertView show];
         }
     }];
 }
